@@ -1,43 +1,178 @@
-# Astro Starter Kit: Minimal
+# TLACU Landing
 
-```sh
-npm create astro@latest -- --template minimal
+Landing page para TLACU - plataforma de preparacion para el examen ECOEMS. Construida con Astro.
+
+## Repositorios del Proyecto
+
+| Repo | Descripcion | URL |
+|------|-------------|-----|
+| tlacu-infra | Infraestructura, DB, migraciones | [github.com/axo-mx/tlacu-infra](https://github.com/axo-mx/tlacu-infra) |
+| tlacu-platform | App React (plataforma principal) | [github.com/axo-mx/tlacu-platform](https://github.com/axo-mx/tlacu-platform) |
+| **tlacu-landing** | Landing page Astro | [github.com/servandoAxo/tlacu-landing](https://github.com/servandoAxo/tlacu-landing) |
+
+## Estrategia de Branches
+
+| Branch | Ambiente | URL |
+|--------|----------|-----|
+| `main` | DEV | https://dev.tlacu.mx |
+| `prod` | PROD | https://tlacu.mx |
+
+## Tech Stack
+
+- **Framework**: Astro
+- **Styling**: Tailwind CSS
+- **Animaciones**: Framer Motion
+- **Deploy**: Cloudflare Pages
+
+## Requisitos
+
+- Node.js 20+
+- npm
+
+## Inicio Rapido
+
+### 1. Clonar
+
+```bash
+git clone git@github.com:servandoAxo/tlacu-landing.git
+cd tlacu-landing
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 2. Instalar dependencias
 
-## 🚀 Project Structure
+```bash
+npm install
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+### 3. Iniciar servidor de desarrollo
 
-```text
-/
-├── public/
+```bash
+npm run dev
+```
+
+Abrir http://localhost:4321
+
+## Scripts
+
+| Comando | Descripcion |
+|---------|-------------|
+| `npm run dev` | Servidor de desarrollo (localhost:4321) |
+| `npm run build` | Build de produccion |
+| `npm run preview` | Preview del build local |
+| `npm run astro` | Comandos CLI de Astro |
+
+## Estructura del Proyecto
+
+```
+tlacu-landing/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/        # Componentes Astro/React
+│   │   ├── Hero.astro
+│   │   ├── Features.astro
+│   │   ├── Pricing.astro
+│   │   └── ...
+│   ├── layouts/           # Layouts base
+│   │   └── Layout.astro
+│   ├── pages/             # Paginas (rutas)
+│   │   ├── index.astro    # Homepage
+│   │   ├── precios.astro
+│   │   └── ...
+│   └── styles/            # Estilos globales
+├── public/                # Assets estaticos
+│   ├── images/
+│   ├── fonts/
+│   └── favicon.svg
+└── astro.config.mjs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Secciones de la Landing
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Hero**: Presentacion principal con CTA
+- **Features**: Caracteristicas de la plataforma
+- **Areas**: Areas del examen ECOEMS
+- **Testimonios**: Reviews de usuarios
+- **Pricing**: Planes y precios
+- **FAQ**: Preguntas frecuentes
+- **CTA Final**: Call to action de cierre
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deploy
 
-## 🧞 Commands
+### Cloudflare Pages (automatico)
 
-All commands are run from the root of the project, from a terminal:
+Push a `main` → Deploy a DEV (dev.tlacu.mx)
+Push a `prod` → Deploy a PROD (tlacu.mx)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Build manual
 
-## 👀 Want to learn more?
+```bash
+npm run build
+# Output en dist/
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Desarrollo
+
+### Agregar nueva pagina
+
+1. Crear archivo `.astro` en `src/pages/`
+2. Usar el layout base:
+
+```astro
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Mi Pagina">
+  <main>
+    <!-- Contenido -->
+  </main>
+</Layout>
+```
+
+### Agregar componente
+
+1. Crear en `src/components/`
+2. Importar donde se necesite:
+
+```astro
+---
+import MiComponente from '../components/MiComponente.astro';
+---
+
+<MiComponente />
+```
+
+### Usar componentes React
+
+Astro soporta componentes React con hidratacion:
+
+```astro
+---
+import MiReactComponent from '../components/MiReactComponent.tsx';
+---
+
+<!-- Solo en servidor -->
+<MiReactComponent />
+
+<!-- Con hidratacion en cliente -->
+<MiReactComponent client:load />
+```
+
+## Assets
+
+- **Imagenes**: Colocar en `public/images/`
+- **Fuentes**: Colocar en `public/fonts/`
+- **SVGs**: Pueden ir en `src/components/` como componentes
+
+## Optimizacion
+
+Astro genera HTML estatico por defecto. Para mejor performance:
+
+- Usar `<Image />` de Astro para optimizacion automatica
+- Minimizar JavaScript del cliente
+- Usar `client:visible` para componentes below the fold
+
+## Links Importantes
+
+- Plataforma DEV: https://app-dev.tlacu.mx
+- Plataforma PROD: https://app.tlacu.mx
+- Documentacion Astro: https://docs.astro.build
