@@ -1,0 +1,545 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Configuración de precios - cambiar aquí para activar/desactivar descuento
+const SHOW_DISCOUNT = true;
+const PRICE_REGULAR = 499;
+const DISCOUNT_AMOUNT = 100;
+const PRICE_DISCOUNTED = PRICE_REGULAR - DISCOUNT_AMOUNT;
+
+// Features para la comparación
+const features = [
+  { name: 'Examen diagnóstico', free: '64 preguntas', pro: '128 preguntas', highlight: true },
+  { name: 'Exámenes de práctica', free: '1 examen', pro: 'Ilimitados', highlight: true },
+  { name: 'Flashcards con repetición espaciada', free: '20 por día', pro: 'Ilimitadas', highlight: true },
+  { name: 'Módulos interactivos (Tabla Periódica, Célula 3D, etc.)', free: true, pro: true },
+  { name: 'Modo estudio con técnica PARE', free: false, pro: true },
+  { name: 'Simulador Real con proctoring (cámara)', free: false, pro: true, highlight: true },
+  { name: 'Exámenes por área específica', free: false, pro: true },
+  { name: 'Guardar preguntas para repasar', free: '10 máx', pro: 'Ilimitadas' },
+  { name: 'Estadísticas detalladas por área', free: 'Básicas', pro: 'Completas' },
+  { name: 'Anillos de progreso por área', free: true, pro: true },
+  { name: 'Calendario de actividad', free: true, pro: true },
+  { name: 'Sistema de rachas', free: true, pro: true },
+  { name: 'Temario y recursos de estudio', free: true, pro: true },
+  { name: 'Recomendaciones personalizadas', free: false, pro: true },
+  { name: 'Historial completo de exámenes', free: 'Último', pro: 'Todos' },
+  { name: 'Explicaciones detalladas', free: true, pro: true },
+  { name: 'Soporte prioritario', free: false, pro: true },
+];
+---
+
+<Layout title="Precios - TLACU ECOEMS">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-16 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <span class="w-2 h-2 bg-turquoise rounded-full animate-pulse"></span>
+            Sin renovación automática
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Elige tu <span class="text-gradient-fire">plan</span>
+          </h1>
+          <p class="text-xl text-white/70 max-w-2xl mx-auto">
+            Comienza gratis y desbloquea todo el contenido con Pro cuando estés listo.
+            Pago único, sin sorpresas. Acceso desde cualquier dispositivo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {SHOW_DISCOUNT && (
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-terracotta/10 to-orange-500/10 border border-terracotta/20 rounded-2xl">
+              <span class="text-3xl">🔥</span>
+              <div class="text-left">
+                <p class="text-terracotta font-bold text-lg">Oferta de lanzamiento</p>
+                <p class="text-navy/60 text-sm">${DISCOUNT_AMOUNT} pesos de descuento por tiempo limitado</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+          <!-- Plan Gratuito -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-navy/10 relative flex flex-col">
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-navy mb-2">Gratuito</h3>
+              <p class="text-navy/60">Para comenzar a estudiar</p>
+            </div>
+
+            <div class="mb-8">
+              <div class="flex items-baseline gap-1">
+                <span class="text-5xl font-black text-navy">$0</span>
+                <span class="text-navy/50">/siempre</span>
+              </div>
+              <p class="text-sm text-navy/50 mt-2">Sin tarjeta de crédito</p>
+            </div>
+
+            <ul class="space-y-4 mb-8 flex-1">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">Examen diagnóstico (64 preguntas)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">1 examen rápido de práctica</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">20 flashcards por día</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">Módulos interactivos (Tabla Periódica, Célula 3D...)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">Sistema de rachas y progreso</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">Temario y recursos de estudio</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-navy/30 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="text-navy/40">Exámenes ilimitados</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-navy/30 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="text-navy/40">Simulador con proctoring</span>
+              </li>
+            </ul>
+
+            <a
+              href="https://tlacu.mx/auth/register"
+              target="_blank"
+              class="block w-full text-center px-6 py-4 bg-navy/10 text-navy font-bold rounded-xl hover:bg-navy/20 transition-colors"
+            >
+              Comenzar gratis
+            </a>
+          </div>
+
+          <!-- Plan Pro -->
+          <div class="bg-white rounded-3xl p-8 shadow-2xl border-2 border-terracotta relative overflow-hidden flex flex-col">
+            <!-- Popular badge -->
+            <div class="absolute top-0 right-0">
+              <div class="bg-terracotta text-white text-sm font-bold px-4 py-1 rounded-bl-xl">
+                Recomendado
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold text-navy mb-2">Pro</h3>
+              <p class="text-navy/60">Acceso completo por 1 año</p>
+            </div>
+
+            <div class="mb-8">
+              {SHOW_DISCOUNT ? (
+                <div>
+                  <div class="flex items-baseline gap-2">
+                    <span class="text-5xl font-black text-terracotta">${PRICE_DISCOUNTED}</span>
+                    <span class="text-navy/50">/año</span>
+                  </div>
+                  <div class="flex items-center gap-2 mt-2">
+                    <span class="text-lg text-navy/40 line-through">${PRICE_REGULAR}</span>
+                    <span class="px-2 py-0.5 bg-terracotta/10 text-terracotta text-sm font-semibold rounded">Ahorras ${DISCOUNT_AMOUNT}</span>
+                  </div>
+                </div>
+              ) : (
+                <div class="flex items-baseline gap-1">
+                  <span class="text-5xl font-black text-terracotta">${PRICE_REGULAR}</span>
+                  <span class="text-navy/50">/año</span>
+                </div>
+              )}
+              <p class="text-sm text-navy/50 mt-2">Pago único · Sin renovación automática</p>
+            </div>
+
+            <ul class="space-y-4 mb-8 flex-1">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">Todo lo del plan Gratuito</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80"><strong>Exámenes ilimitados</strong> (rápidos, completos, por área)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80"><strong>Simulador Real</strong> con proctoring (cámara)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80"><strong>Flashcards ilimitadas</strong> con repetición espaciada</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80"><strong>Diagnóstico completo</strong> (128 preguntas, 3h)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80"><strong>Modo estudio con PARE</strong></span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">Guardar preguntas ilimitadas</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-terracotta mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">Estadísticas detalladas y recomendaciones</span>
+              </li>
+            </ul>
+
+            <a
+              href="https://tlacu.mx/auth/register?plan=pro"
+              target="_blank"
+              class="block w-full text-center px-6 py-4 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-dark transition-colors shadow-lg shadow-terracotta/30"
+            >
+              Obtener Pro {SHOW_DISCOUNT && `por $${PRICE_DISCOUNTED}`}
+            </a>
+          </div>
+        </div>
+
+        <!-- Garantias -->
+        <div class="flex flex-wrap justify-center gap-6 mt-12">
+          <div class="flex items-center gap-2 text-navy/70">
+            <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+            <span class="text-sm font-medium">Pago seguro</span>
+          </div>
+          <div class="flex items-center gap-2 text-navy/70">
+            <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-sm font-medium">Acceso inmediato</span>
+          </div>
+          <div class="flex items-center gap-2 text-navy/70">
+            <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            <span class="text-sm font-medium">7 días de garantía</span>
+          </div>
+          <div class="flex items-center gap-2 text-navy/70">
+            <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <span class="text-sm font-medium">Soporte por WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRO Highlights -->
+    <section class="py-20 bg-gradient-to-br from-navy to-navy-light">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+            ¿Por qué elegir <span class="text-gradient-fire">Pro</span>?
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Las herramientas que marcan la diferencia para pasar tu examen
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Simulador Real -->
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-terracotta/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Simulador con Proctoring</h3>
+            <p class="text-white/60 text-sm">Practica en condiciones reales con monitoreo de cámara, igual que el examen oficial.</p>
+          </div>
+
+          <!-- Exámenes Ilimitados -->
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-turquoise/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Exámenes Ilimitados</h3>
+            <p class="text-white/60 text-sm">Practica todas las veces que necesites: rápidos (44), completos (128) o por área.</p>
+          </div>
+
+          <!-- Flashcards -->
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Flashcards Sin Límite</h3>
+            <p class="text-white/60 text-sm">Repasa con repetición espaciada todas las veces que quieras, sin límite diario.</p>
+          </div>
+
+          <!-- Modo PARE -->
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Técnica PARE</h3>
+            <p class="text-white/60 text-sm">Aprende el método probado para analizar y responder preguntas de opción múltiple.</p>
+          </div>
+
+          <!-- Guardar Preguntas -->
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Guardar Preguntas</h3>
+            <p class="text-white/60 text-sm">Guarda preguntas difíciles con notas personales para repasarlas cuando quieras.</p>
+          </div>
+
+          <!-- Estadísticas -->
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Estadísticas Completas</h3>
+            <p class="text-white/60 text-sm">Analiza tu rendimiento por área, historial completo y recomendaciones personalizadas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparacion Detallada -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Compara los planes en detalle
+          </h2>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr class="border-b border-navy/10">
+                  <th class="text-left p-4 sm:p-6 font-bold text-navy">Característica</th>
+                  <th class="p-4 sm:p-6 font-bold text-navy text-center min-w-[100px]">Gratuito</th>
+                  <th class="p-4 sm:p-6 font-bold text-terracotta text-center bg-terracotta/5 min-w-[100px]">Pro</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-navy/5">
+                {features.map((feature) => (
+                  <tr class={feature.highlight ? 'bg-turquoise/5' : ''}>
+                    <td class="p-4 sm:p-6 text-navy/80 text-sm sm:text-base">{feature.name}</td>
+                    <td class="p-4 sm:p-6 text-center">
+                      {typeof feature.free === 'boolean' ? (
+                        feature.free ? (
+                          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-turquoise mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        ) : (
+                          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-navy/30 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                          </svg>
+                        )
+                      ) : (
+                        <span class="text-navy/60 text-xs sm:text-sm">{feature.free}</span>
+                      )}
+                    </td>
+                    <td class="p-4 sm:p-6 text-center bg-terracotta/5">
+                      {typeof feature.pro === 'boolean' ? (
+                        feature.pro ? (
+                          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-terracotta mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        ) : (
+                          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-navy/30 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                          </svg>
+                        )
+                      ) : (
+                        <span class={`text-xs sm:text-sm font-semibold ${feature.highlight ? 'text-terracotta' : 'text-navy'}`}>{feature.pro}</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Preguntas frecuentes
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <details class="bg-white rounded-xl shadow-md group" open>
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Cuánto tiempo dura mi suscripción Pro?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              Tu suscripción Pro dura exactamente <strong>1 año</strong> desde la fecha de compra. Tendrás acceso completo a todas las funciones durante ese período, suficiente para prepararte para el ECOEMS.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Se renueva automáticamente?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              <strong>No</strong>, es un pago único. No hay renovación automática ni cargos sorpresa. Cuando termine tu año, puedes decidir si renovar o no. Tu progreso se guarda.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Puedo empezar gratis y luego cambiar a Pro?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              <strong>Sí</strong>, puedes crear tu cuenta gratis ahora y actualizar a Pro en cualquier momento. Todo tu progreso, rachas y estadísticas se mantienen.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Qué métodos de pago aceptan?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              Aceptamos <strong>tarjetas de crédito y débito</strong> (Visa, Mastercard, American Express) y <strong>transferencia bancaria/SPEI</strong>. El pago es procesado de forma segura.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Hay garantía de devolución?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              <strong>Sí</strong>, tienes <strong>7 días</strong> después de tu compra para solicitar un reembolso completo si no estás satisfecho. Sin preguntas.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Desde qué dispositivos puedo acceder?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              TLACU es <strong>100% responsivo</strong>. Puedes acceder desde tu computadora, tablet o celular directamente desde tu navegador. La plataforma se adapta perfectamente a cualquier pantalla.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Qué es el simulador con proctoring?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              Es un examen de práctica que simula las <strong>condiciones reales</strong> del ECOEMS: monitoreo de cámara, tiempo estricto de 3 horas, ambiente profesional. Te ayuda a prepararte para la experiencia real del examen.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Empieza a prepararte hoy
+        </h2>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          El ECOEMS no espera. Comienza gratis ahora o aprovecha la oferta de lanzamiento de Pro.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://tlacu.mx/auth/register" target="_blank" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
+            Comenzar gratis
+          </a>
+          <a href="https://tlacu.mx/auth/register?plan=pro" target="_blank" class="px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
+            Obtener Pro {SHOW_DISCOUNT && `por $${PRICE_DISCOUNTED}`}
+          </a>
+        </div>
+
+        {SHOW_DISCOUNT && (
+          <p class="mt-6 text-white/50 text-sm">
+            Oferta de lanzamiento · Precio regular: ${PRICE_REGULAR}
+          </p>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

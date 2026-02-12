@@ -1,0 +1,462 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
+
+// 10 Áreas del ECOEMS - colores e iconos consistentes con la plataforma TLACU
+const areas = [
+  { name: 'Habilidad Verbal', questions: 13, description: 'Comprensión lectora, inferencias, ideas principales y argumentación', color: 'bg-sky-500' },
+  { name: 'Habilidad Matemática', questions: 13, description: 'Razonamiento lógico, secuencias, analogías y resolución de problemas', color: 'bg-orange-400' },
+  { name: 'Español', questions: 13, description: 'Gramática, ortografía, sintaxis y uso correcto del español', color: 'bg-blue-500' },
+  { name: 'Matemáticas', questions: 13, description: 'Aritmética, álgebra, geometría, estadística y probabilidad', color: 'bg-orange-500' },
+  { name: 'Biología', questions: 13, description: 'Célula, genética, ecosistemas, cuerpo humano y evolución', color: 'bg-lime-500' },
+  { name: 'Física', questions: 13, description: 'Movimiento, energía, ondas, electricidad y óptica', color: 'bg-slate-500' },
+  { name: 'Química', questions: 13, description: 'Tabla periódica, reacciones, estados de la materia y enlaces', color: 'bg-fuchsia-500' },
+  { name: 'Historia', questions: 12, description: 'México prehispánico, colonial, independencia y moderno', color: 'bg-amber-700' },
+  { name: 'Geografía', questions: 13, description: 'Relieve, climas, regiones, población y recursos de México', color: 'bg-violet-500' },
+  { name: 'Formación Cívica y Ética', questions: 12, description: 'Derechos, democracia, valores y convivencia ciudadana', color: 'bg-pink-500' },
+];
+
+// Timeline del proceso
+const timeline = [
+  { step: 1, title: 'Registro', description: 'Inscríbete en la convocatoria oficial de tu institución', icon: '📋' },
+  { step: 2, title: 'Preparación', description: 'Estudia las 10 áreas del examen con anticipación', icon: '📚' },
+  { step: 3, title: 'Examen', description: 'Presenta el ECOEMS en la fecha y sede asignada', icon: '✍️' },
+  { step: 4, title: 'Resultados', description: 'Consulta tu calificación y dictamen de admisión', icon: '🎓' },
+];
+
+// Tips de preparación
+const tips = [
+  { title: 'Conoce el formato', description: 'Familiarízate con el tipo de preguntas de opción múltiple y el tiempo disponible.' },
+  { title: 'Practica con simulacros', description: 'Resuelve exámenes de práctica cronometrados para acostumbrarte a la presión.' },
+  { title: 'Identifica tus áreas débiles', description: 'Enfócate más en las áreas donde tienes menor dominio.' },
+  { title: 'Descansa antes del examen', description: 'Duerme bien la noche anterior y llega con tiempo a la sede.' },
+];
+---
+
+<Layout title="¿Qué es el ECOEMS? - Guía Completa | TLACU">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Guía completa
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            ¿Qué es el <span class="text-gradient-fire">ECOEMS</span>?
+          </h1>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+            Todo lo que necesitas saber sobre el Examen de Competencias de Educación Media Superior: estructura, áreas, formato y cómo prepararte.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué es -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Examen de Competencias de Educación Media Superior
+            </h2>
+            <p class="text-navy/70 mb-4">
+              El <strong class="text-navy">ECOEMS</strong> es un examen estandarizado utilizado por diversas instituciones educativas en México para evaluar las competencias y conocimientos de los aspirantes a ingresar a preparatoria o bachillerato.
+            </p>
+            <p class="text-navy/70 mb-4">
+              A diferencia de otros exámenes de admisión, el ECOEMS se enfoca no solo en conocimientos, sino en <strong class="text-navy">competencias</strong>: la capacidad de aplicar lo aprendido para resolver problemas reales.
+            </p>
+            <p class="text-navy/70 mb-6">
+              Es utilizado principalmente por instituciones como <strong class="text-navy">COBACH, CECyTE, CONALEP</strong> y otros subsistemas de educación media superior en varios estados de México.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+              <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md">
+                <span class="text-2xl">📝</span>
+                <div>
+                  <div class="text-sm text-navy/60">Preguntas</div>
+                  <div class="font-bold text-navy">128</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md">
+                <span class="text-2xl">⏱️</span>
+                <div>
+                  <div class="text-sm text-navy/60">Duración</div>
+                  <div class="font-bold text-navy">3 horas</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md">
+                <span class="text-2xl">📊</span>
+                <div>
+                  <div class="text-sm text-navy/60">Áreas</div>
+                  <div class="font-bold text-navy">10</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-navy/5">
+            <h3 class="font-bold text-navy mb-6 flex items-center gap-2">
+              <span class="w-8 h-8 bg-terracotta/10 rounded-lg flex items-center justify-center text-terracotta">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </span>
+              Características del examen
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">Opción múltiple con 4 respuestas posibles</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">Se presenta en computadora con supervisión</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">No se penalizan las respuestas incorrectas</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">Puedes marcar preguntas para revisarlas después</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">Monitoreo con cámara durante el examen</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">Resultados disponibles en días o semanas</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Áreas del examen -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Las 10 áreas del ECOEMS
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            El examen evalúa conocimientos en estas 10 áreas (128 preguntas en total)
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center mb-3">
+              <BookOpen class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Habilidad Verbal</h3>
+            <p class="text-navy/60 text-xs mb-2">Comprensión lectora, inferencias, ideas principales</p>
+            <span class="text-xs font-medium text-navy/40">13 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-orange-400 rounded-xl flex items-center justify-center mb-3">
+              <Binary class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Habilidad Matemática</h3>
+            <p class="text-navy/60 text-xs mb-2">Razonamiento lógico, secuencias, analogías</p>
+            <span class="text-xs font-medium text-navy/40">13 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-3">
+              <Languages class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Español</h3>
+            <p class="text-navy/60 text-xs mb-2">Gramática, ortografía, sintaxis</p>
+            <span class="text-xs font-medium text-navy/40">13 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mb-3">
+              <Calculator class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Matemáticas</h3>
+            <p class="text-navy/60 text-xs mb-2">Aritmética, álgebra, geometría</p>
+            <span class="text-xs font-medium text-navy/40">13 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-lime-500 rounded-xl flex items-center justify-center mb-3">
+              <Dna class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Biología</h3>
+            <p class="text-navy/60 text-xs mb-2">Célula, genética, ecosistemas</p>
+            <span class="text-xs font-medium text-navy/40">13 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-slate-500 rounded-xl flex items-center justify-center mb-3">
+              <Atom class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Física</h3>
+            <p class="text-navy/60 text-xs mb-2">Movimiento, energía, ondas</p>
+            <span class="text-xs font-medium text-navy/40">13 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-fuchsia-500 rounded-xl flex items-center justify-center mb-3">
+              <FlaskConical class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Química</h3>
+            <p class="text-navy/60 text-xs mb-2">Tabla periódica, reacciones, enlaces</p>
+            <span class="text-xs font-medium text-navy/40">13 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-amber-700 rounded-xl flex items-center justify-center mb-3">
+              <Clock class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Historia</h3>
+            <p class="text-navy/60 text-xs mb-2">México prehispánico, colonial, moderno</p>
+            <span class="text-xs font-medium text-navy/40">12 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-violet-500 rounded-xl flex items-center justify-center mb-3">
+              <Globe2 class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Geografía</h3>
+            <p class="text-navy/60 text-xs mb-2">Relieve, climas, regiones de México</p>
+            <span class="text-xs font-medium text-navy/40">13 preguntas</span>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 hover:shadow-lg transition-all">
+            <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center mb-3">
+              <Scale class="w-6 h-6 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-2">Formación Cívica</h3>
+            <p class="text-navy/60 text-xs mb-2">Derechos, democracia, valores</p>
+            <span class="text-xs font-medium text-navy/40">12 preguntas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso / Timeline -->
+    <section class="py-20 bg-gradient-to-br from-navy to-navy-light">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+            El proceso de admisión
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Desde tu registro hasta obtener tu lugar en la preparatoria
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {timeline.map((item) => (
+            <div class="relative">
+              <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10 text-center">
+                <div class="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-black text-xl mx-auto mb-4">
+                  {item.step}
+                </div>
+                <span class="text-3xl mb-3 block">{item.icon}</span>
+                <h3 class="font-bold text-white mb-2">{item.title}</h3>
+                <p class="text-white/60 text-sm">{item.description}</p>
+              </div>
+              {item.step < 4 && (
+                <div class="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-white/30">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips de preparación -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Consejos para prepararte
+            </h2>
+            <p class="text-navy/70 mb-8">
+              La preparación es clave para obtener un buen resultado. Aquí te compartimos algunos consejos probados:
+            </p>
+
+            <div class="space-y-4">
+              {tips.map((tip, i) => (
+                <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-md">
+                  <div class="w-8 h-8 bg-turquoise/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span class="text-turquoise font-bold">{i + 1}</span>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-navy mb-1">{tip.title}</h3>
+                    <p class="text-navy/60 text-sm">{tip.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-terracotta to-terracotta-dark rounded-3xl p-8 text-white">
+            <div class="text-center mb-6">
+              <span class="text-5xl mb-4 block">🎯</span>
+              <h3 class="text-2xl font-black mb-2">¿Listo para prepararte?</h3>
+              <p class="text-white/80">
+                TLACU te ofrece todas las herramientas que necesitas para dominar el ECOEMS
+              </p>
+            </div>
+
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">128 preguntas de práctica por área</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Simulador real con cronómetro y cámara</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Flashcards con repetición espaciada</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Estadísticas detalladas por área</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Módulos interactivos (Tabla Periódica, Célula 3D...)</span>
+              </li>
+            </ul>
+
+            <a href="https://tlacu.mx/auth/register" target="_blank" class="block w-full text-center px-6 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-colors">
+              Comenzar gratis
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Preguntas frecuentes sobre el ECOEMS
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <details class="bg-white rounded-xl shadow-md group" open>
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Cuándo se aplica el ECOEMS?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              Las fechas varían según la institución y el estado. Generalmente hay dos períodos: uno entre mayo-julio para el ciclo de agosto, y otro entre noviembre-enero para el ciclo de febrero. Consulta la convocatoria oficial de tu institución.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Qué calificación necesito para pasar?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              No hay una calificación mínima para "aprobar". La admisión depende de tu puntaje comparado con otros aspirantes y los lugares disponibles. Mientras más alto sea tu puntaje, mejores opciones tendrás de quedar en tu primera opción de plantel.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Puedo usar calculadora?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              No se permite el uso de calculadora ni ningún otro dispositivo electrónico. Las preguntas matemáticas están diseñadas para resolverse con operaciones básicas. Te recomendamos practicar cálculo mental.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Qué pasa si no contesto una pregunta?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              Las preguntas sin responder cuentan como incorrectas, pero NO restan puntos adicionales. Por eso, siempre es mejor intentar responder todas las preguntas, aunque no estés 100% seguro.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Cuántas veces puedo presentar el ECOEMS?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              Puedes presentarlo en cada convocatoria que se abra. Si no quedas en la primera ocasión, puedes volver a intentarlo en el siguiente período. No hay límite de intentos.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Prepárate para el ECOEMS con TLACU
+        </h2>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          Únete a cientos de estudiantes que ya están practicando para su examen de admisión.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://tlacu.mx/auth/register" target="_blank" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
+            Comenzar gratis
+          </a>
+          <a href="/plataforma" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Conocer la plataforma
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

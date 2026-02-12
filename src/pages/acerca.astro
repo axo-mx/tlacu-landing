@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Acerca de TLACU - Plataforma Educativa">
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center bg-gradient-hero overflow-hidden pt-20">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-terracotta/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-turquoise/10 rounded-full blur-3xl animate-float"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+          <span class="w-2 h-2 bg-turquoise rounded-full animate-pulse"></span>
+          Nuestra historia
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+          El <span class="text-gradient-fire">fuego</span> del conocimiento
+        </h1>
+
+        <p class="text-xl text-white/70 max-w-3xl mx-auto">
+          Como el tlacuache que trajo el fuego a la humanidad,
+          TLACU lleva el conocimiento a quienes más lo necesitan.
+        </p>
+      </div>
+    </section>
+
+    <!-- Origin Story -->
+    <section class="py-20 lg:py-32 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy leading-tight mb-6">
+              La leyenda del <span class="text-terracotta">tlacuache</span>
+            </h2>
+
+            <div class="space-y-4 text-navy/70">
+              <p>
+                Cuenta la leyenda prehispánica que, hace mucho tiempo, los humanos vivían en la oscuridad
+                y el frío. Los dioses guardaban celosamente el fuego en lo alto del cielo.
+              </p>
+              <p>
+                Muchos animales intentaron conseguirlo: el jaguar, el coyote, el águila...
+                pero todos fallaron. Entonces el pequeño tlacuache, un animal humilde y astuto,
+                se ofreció para la misión.
+              </p>
+              <p>
+                Con su cola prensil, el tlacuache escaló hasta donde estaba el fuego,
+                lo tomó con su cola y bajó corriendo. Aunque su cola quedó pelada para siempre,
+                logró traer el fuego a la humanidad.
+              </p>
+              <p class="font-semibold text-navy">
+                TLACU nace de esa inspiración: llevar el conocimiento a todos,
+                sin importar los obstáculos.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-terracotta/20 to-turquoise/20 rounded-3xl blur-3xl"></div>
+            <div class="relative bg-white rounded-3xl p-8 shadow-xl">
+              <div class="flex justify-center mb-6">
+                <img
+                  src="/images/logos/isotipo-tlacu-light.webp"
+                  alt="TLACU"
+                  class="w-32 h-32 object-contain bg-navy rounded-2xl p-4 fire-glow"
+                  width="128"
+                  height="128"
+                  loading="lazy"
+                />
+              </div>
+              <div class="text-center">
+                <div class="text-4xl font-black text-gradient-fire mb-2">TLACU</div>
+                <div class="text-navy/60">Del náhuatl tlacuache: "el que come cosas"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 lg:py-32 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Mission -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-16 h-16 bg-turquoise/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-navy mb-4">Misión</h3>
+            <p class="text-navy/70">
+              Democratizar la educación de calidad en México a través de una plataforma
+              tecnológica accesible, interactiva, totalmente responsiva y efectiva que prepare a los
+              estudiantes para alcanzar sus metas académicas.
+            </p>
+          </div>
+
+          <!-- Vision -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-16 h-16 bg-terracotta/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-navy mb-4">Visión</h3>
+            <p class="text-navy/70">
+              Ser la plataforma educativa líder en México, reconocida por transformar
+              la manera en que los estudiantes se preparan para sus exámenes de admisión,
+              accesible desde cualquier dispositivo, y por abrir puertas a un futuro lleno de oportunidades.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="py-20 lg:py-32 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
+            Nuestros <span class="text-turquoise">valores</span>
+          </h2>
+          <p class="text-lg text-navy/70">
+            Los principios que guían cada decisión que tomamos
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+            <div class="text-4xl mb-4">🔥</div>
+            <h4 class="font-bold text-navy mb-2">Pasión</h4>
+            <p class="text-sm text-navy/60">Creemos en el poder transformador de la educación</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+            <div class="text-4xl mb-4">🤝</div>
+            <h4 class="font-bold text-navy mb-2">Accesibilidad</h4>
+            <p class="text-sm text-navy/60">Educación de calidad para todos, sin barreras</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+            <div class="text-4xl mb-4">💡</div>
+            <h4 class="font-bold text-navy mb-2">Innovación</h4>
+            <p class="text-sm text-navy/60">Tecnología al servicio del aprendizaje</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+            <div class="text-4xl mb-4">🎯</div>
+            <h4 class="font-bold text-navy mb-2">Efectividad</h4>
+            <p class="text-sm text-navy/60">Métodos probados que generan resultados</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why TLACU -->
+    <section class="py-20 lg:py-32 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
+            ¿Por qué <span class="text-terracotta">TLACU</span>?
+          </h2>
+          <p class="text-lg text-navy/70">
+            Lo que nos hace diferentes
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-2">Contenido local</h3>
+            <p class="text-navy/60">
+              Diseñado específicamente para los exámenes de admisión en México,
+              con contenido relevante y actualizado.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-2">Adaptativo</h3>
+            <p class="text-navy/60">
+              La plataforma aprende de tu progreso y adapta el contenido
+              a tus necesidades específicas.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-2">Comunidad</h3>
+            <p class="text-navy/60">
+              Parte de una comunidad de estudiantes que comparten el mismo objetivo:
+              alcanzar sus sueños académicos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 lg:py-32 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <img
+          src="/images/logos/isotipo-tlacu-light.webp"
+          alt="TLACU"
+          class="w-20 h-20 mx-auto mb-8 fire-glow"
+          width="80"
+          height="80"
+          loading="lazy"
+        />
+
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
+          Únete a la <span class="text-gradient-fire">comunidad</span>
+        </h2>
+
+        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          Miles de estudiantes ya están preparándose con TLACU.
+          Comienza tu camino hacia el éxito académico.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://tlacu.mx/auth/register" class="px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
+            Crear cuenta gratis
+          </a>
+          <a href="mailto:hola@tlacu.mx" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Contáctanos
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

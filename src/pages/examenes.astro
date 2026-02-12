@@ -1,0 +1,338 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
+---
+
+<Layout title="Exámenes de Práctica - TLACU ECOEMS">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Exámenes tipo <span class="text-gradient-fire">ECOEMS</span>
+          </h1>
+          <p class="text-xl text-white/70 max-w-2xl mx-auto">
+            Practica con simulacros completos y exámenes rápidos. Preguntas reales en las 10 áreas. Plataforma 100% responsiva para estudiar desde cualquier dispositivo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tipos de Examen -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Elige tu modo de práctica
+          </h2>
+          <p class="text-lg text-navy/70">
+            Adaptamos la experiencia a tu tiempo y dispositivo
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Diagnostico -->
+          <div id="diagnostico" class="bg-white rounded-2xl p-8 shadow-xl border-2 border-turquoise">
+            <div class="w-16 h-16 bg-turquoise/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="inline-block px-3 py-1 bg-turquoise/10 text-turquoise text-sm font-medium rounded-full mb-4">
+              Recomendado para empezar
+            </div>
+            <h3 class="text-2xl font-bold text-navy mb-2">Examen Diagnóstico</h3>
+            <p class="text-navy/60 mb-6">
+              Conoce tu nivel actual en cada área. Te damos recomendaciones personalizadas basadas en tus resultados.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                44 preguntas
+              </li>
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Análisis detallado por área
+              </li>
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Recomendaciones personalizadas
+              </li>
+            </ul>
+            <a href="https://tlacu.mx/auth/register" class="block w-full text-center px-6 py-3 bg-turquoise text-white font-semibold rounded-xl hover:bg-turquoise-dark transition-colors">
+              Hacer diagnóstico
+            </a>
+          </div>
+
+          <!-- Simulacro Completo -->
+          <div class="bg-white rounded-2xl p-8 shadow-xl border-2 border-terracotta">
+            <div class="w-16 h-16 bg-terracotta/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <div class="inline-block px-3 py-1 bg-terracotta/10 text-terracotta text-sm font-medium rounded-full mb-4">
+              Experiencia completa
+            </div>
+            <h3 class="text-2xl font-bold text-navy mb-2">Simulacro Completo</h3>
+            <p class="text-navy/60 mb-6">
+              Igual que el examen real. 128 preguntas, cronómetro incluido. La mejor forma de prepararte.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                128 preguntas
+              </li>
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Cronómetro de 3 horas
+              </li>
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Revisión al finalizar
+              </li>
+            </ul>
+            <a href="https://tlacu.mx/auth/register" class="block w-full text-center px-6 py-3 bg-terracotta text-white font-semibold rounded-xl hover:bg-terracotta-dark transition-colors">
+              Iniciar simulacro
+            </a>
+          </div>
+
+          <!-- Examen Rapido -->
+          <div class="bg-white rounded-2xl p-8 shadow-xl border-2 border-navy/20">
+            <div class="w-16 h-16 bg-navy/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div class="inline-block px-3 py-1 bg-navy/10 text-navy text-sm font-medium rounded-full mb-4">
+              Práctica rápida
+            </div>
+            <h3 class="text-2xl font-bold text-navy mb-2">Examen Rápido</h3>
+            <p class="text-navy/60 mb-6">
+              Para cuando tienes poco tiempo. 44 preguntas en todas las áreas.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                44 preguntas
+              </li>
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Todas las áreas
+              </li>
+              <li class="flex items-center gap-2 text-sm text-navy/70">
+                <svg class="w-4 h-4 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Sin límite de tiempo
+              </li>
+            </ul>
+            <a href="https://tlacu.mx/auth/register" class="block w-full text-center px-6 py-3 bg-navy text-white font-semibold rounded-xl hover:bg-navy-light transition-colors">
+              Hacer examen rápido
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Areas cubiertas -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Las 10 áreas del ECOEMS
+          </h2>
+          <p class="text-lg text-navy/70">
+            Preguntas en cada una de las áreas que evalúa el examen oficial
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <BookOpen class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Habilidad Verbal</div>
+            <div class="text-xs text-navy/50">13 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-orange-400 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Binary class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Habilidad Matemática</div>
+            <div class="text-xs text-navy/50">13 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Languages class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Español</div>
+            <div class="text-xs text-navy/50">13 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Calculator class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Matemáticas</div>
+            <div class="text-xs text-navy/50">13 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-lime-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Dna class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Biología</div>
+            <div class="text-xs text-navy/50">13 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-slate-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Atom class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Física</div>
+            <div class="text-xs text-navy/50">13 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-fuchsia-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <FlaskConical class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Química</div>
+            <div class="text-xs text-navy/50">13 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-amber-700 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Clock class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Historia</div>
+            <div class="text-xs text-navy/50">12 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-violet-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Globe2 class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Geografía</div>
+            <div class="text-xs text-navy/50">13 preguntas</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Scale class="w-6 h-6 text-white" />
+            </div>
+            <div class="font-bold text-navy mb-1 text-sm">Formación Cívica</div>
+            <div class="text-xs text-navy/50">12 preguntas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Caracteristicas -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Diseñados para el éxito
+            </h2>
+            <p class="text-lg text-navy/70 mb-8">
+              Cada examen incluye herramientas para maximizar tu aprendizaje.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy mb-1">Explicaciones detalladas</h3>
+                  <p class="text-navy/60 text-sm">Cada pregunta incluye explicación de la respuesta correcta.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy mb-1">Cronómetro integrado</h3>
+                  <p class="text-navy/60 text-sm">Practica con tiempo real para acostumbrarte al ritmo del examen.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy mb-1">Marcador de preguntas</h3>
+                  <p class="text-navy/60 text-sm">Marca preguntas para revisarlas al final antes de enviar.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy mb-1">Revisión de errores</h3>
+                  <p class="text-navy/60 text-sm">Al terminar, revisa todas tus respuestas incorrectas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-2xl p-6 border border-navy/5">
+            <div class="aspect-video bg-gradient-to-br from-terracotta/5 to-turquoise/5 rounded-xl flex items-center justify-center">
+              <div class="text-center p-8">
+                <div class="text-6xl mb-4">📋</div>
+                <p class="text-navy/50 font-medium">Interfaz del examen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Empieza con el diagnóstico
+        </h2>
+        <p class="text-xl text-white/70 mb-10">
+          Conoce tu nivel actual y recibe un plan de estudio personalizado.
+        </p>
+        <a href="https://tlacu.mx/auth/register" class="inline-block px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
+          Hacer examen diagnóstico
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

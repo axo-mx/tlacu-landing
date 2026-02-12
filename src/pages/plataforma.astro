@@ -1,0 +1,604 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
+
+// 10 áreas del ECOEMS - colores e iconos consistentes con la plataforma TLACU
+const areas = [
+  { id: 'habilidad_verbal', name: 'Habilidad Verbal', icon: 'BookOpen', color: 'bg-sky-500', textColor: 'text-sky-600', questions: 13 },
+  { id: 'habilidad_matematica', name: 'Habilidad Matemática', icon: 'Binary', color: 'bg-orange-400', textColor: 'text-orange-500', questions: 13 },
+  { id: 'espanol', name: 'Español', icon: 'Languages', color: 'bg-blue-500', textColor: 'text-blue-600', questions: 13 },
+  { id: 'matematicas', name: 'Matemáticas', icon: 'Calculator', color: 'bg-orange-500', textColor: 'text-orange-600', questions: 13 },
+  { id: 'biologia', name: 'Biología', icon: 'Dna', color: 'bg-lime-500', textColor: 'text-lime-600', questions: 13 },
+  { id: 'fisica', name: 'Física', icon: 'Atom', color: 'bg-slate-500', textColor: 'text-slate-600', questions: 13 },
+  { id: 'quimica', name: 'Química', icon: 'FlaskConical', color: 'bg-fuchsia-500', textColor: 'text-fuchsia-600', questions: 13 },
+  { id: 'historia', name: 'Historia', icon: 'Clock', color: 'bg-amber-700', textColor: 'text-amber-700', questions: 12 },
+  { id: 'geografia', name: 'Geografía', icon: 'Globe2', color: 'bg-violet-500', textColor: 'text-violet-600', questions: 13 },
+  { id: 'formacion_civica', name: 'Formación Cívica y Ética', icon: 'Scale', color: 'bg-pink-500', textColor: 'text-pink-600', questions: 12 },
+];
+
+// Map icon names to components
+const iconComponents = {
+  BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale
+};
+---
+
+<Layout title="La Plataforma - TLACU ECOEMS">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <span class="w-2 h-2 bg-turquoise rounded-full animate-pulse"></span>
+            100% Responsiva
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Una plataforma diseñada para el <span class="text-gradient-fire">ECOEMS</span>
+          </h1>
+          <p class="text-xl text-white/70 max-w-2xl mx-auto mb-8">
+            Todo lo que necesitas para prepararte: exámenes de práctica, flashcards inteligentes, módulos interactivos 3D, técnicas de estudio y seguimiento de progreso detallado.
+          </p>
+
+          <!-- Stats -->
+          <div class="flex flex-wrap justify-center gap-8 mt-10">
+            <div class="text-center">
+              <div class="text-4xl font-black text-white">128</div>
+              <div class="text-white/60 text-sm">Preguntas oficiales</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-black text-turquoise">10</div>
+              <div class="text-white/60 text-sm">Áreas de estudio</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-black text-terracotta">3h</div>
+              <div class="text-white/60 text-sm">Duración del examen</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-black text-white">15+</div>
+              <div class="text-white/60 text-sm">Módulos interactivos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 Areas del ECOEMS -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+            Las <span class="text-turquoise">10 áreas</span> del ECOEMS
+          </h2>
+          <p class="text-lg text-navy/70">
+            El examen evalúa 10 áreas de conocimiento. Nuestra plataforma cubre cada una con preguntas, flashcards y módulos especializados.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-sky-500 rounded-lg flex items-center justify-center mb-3">
+              <BookOpen class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Habilidad Verbal</h3>
+            <p class="text-xs text-navy/50">13 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-orange-400 rounded-lg flex items-center justify-center mb-3">
+              <Binary class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Habilidad Matemática</h3>
+            <p class="text-xs text-navy/50">13 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
+              <Languages class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Español</h3>
+            <p class="text-xs text-navy/50">13 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mb-3">
+              <Calculator class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Matemáticas</h3>
+            <p class="text-xs text-navy/50">13 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-lime-500 rounded-lg flex items-center justify-center mb-3">
+              <Dna class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Biología</h3>
+            <p class="text-xs text-navy/50">13 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-slate-500 rounded-lg flex items-center justify-center mb-3">
+              <Atom class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Física</h3>
+            <p class="text-xs text-navy/50">13 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-fuchsia-500 rounded-lg flex items-center justify-center mb-3">
+              <FlaskConical class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Química</h3>
+            <p class="text-xs text-navy/50">13 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-amber-700 rounded-lg flex items-center justify-center mb-3">
+              <Clock class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Historia</h3>
+            <p class="text-xs text-navy/50">12 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-violet-500 rounded-lg flex items-center justify-center mb-3">
+              <Globe2 class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Geografía</h3>
+            <p class="text-xs text-navy/50">13 preguntas</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
+            <div class="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center mb-3">
+              <Scale class="w-5 h-5 text-white" />
+            </div>
+            <h3 class="font-bold text-navy text-sm mb-1">Formación Cívica y Ética</h3>
+            <p class="text-xs text-navy/50">12 preguntas</p>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <p class="text-navy/60 text-sm">
+            Total: <span class="font-bold">128 preguntas</span> en <span class="font-bold">180 minutos</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exam Types -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+            Modalidades de <span class="text-terracotta">examen</span>
+          </h2>
+          <p class="text-lg text-navy/70">
+            Diferentes tipos de práctica para cada etapa de tu preparación
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <!-- Examen Diagnóstico -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 bg-emerald-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-navy mb-2">Examen Diagnóstico</h3>
+                <p class="text-navy/60 text-sm mb-3">Evalúa tu nivel actual y descubre tus áreas fuertes y débiles antes de empezar a estudiar.</p>
+                <div class="flex gap-4 text-sm">
+                  <span class="text-emerald-500 font-medium">64-128 preguntas</span>
+                  <span class="text-navy/40">Personalizado</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Examen Rápido -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-navy mb-2">Examen Rápido</h3>
+                <p class="text-navy/60 text-sm mb-3">Práctica rápida con preguntas aleatorias de todas las áreas. Ideal para sesiones cortas.</p>
+                <div class="flex gap-4 text-sm">
+                  <span class="text-turquoise font-medium">44 preguntas</span>
+                  <span class="text-navy/40">~45 minutos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Examen Completo -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-navy mb-2">Examen Completo</h3>
+                <p class="text-navy/60 text-sm mb-3">Simulacro idéntico al examen oficial con la misma distribución de preguntas por área.</p>
+                <div class="flex gap-4 text-sm">
+                  <span class="text-terracotta font-medium">128 preguntas</span>
+                  <span class="text-navy/40">3 horas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Examen por Área -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-navy mb-2">Examen por Área</h3>
+                <p class="text-navy/60 text-sm mb-3">Enfócate en un área específica para reforzar tus debilidades o dominar tus fortalezas.</p>
+                <div class="flex gap-4 text-sm">
+                  <span class="text-navy font-medium">10 áreas</span>
+                  <span class="text-navy/40">~25 min c/u</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulador PRO -->
+        <div class="mt-8 max-w-4xl mx-auto">
+          <div class="bg-gradient-to-r from-navy to-navy-light rounded-2xl p-6 shadow-xl">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+              <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div class="flex-1 text-center md:text-left">
+                <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
+                  <h3 class="text-xl font-bold text-white">Simulador Real con Proctoring</h3>
+                  <span class="px-2 py-0.5 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
+                </div>
+                <p class="text-white/70 text-sm">Experimenta las condiciones exactas del examen real: monitoreo de cámara, control de tiempo estricto y ambiente profesional.</p>
+              </div>
+              <a href="/precios" class="px-6 py-3 bg-terracotta text-white font-semibold rounded-xl hover:bg-terracotta-light transition-colors flex-shrink-0">
+                Ver planes PRO
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise text-sm font-medium mb-6">
+              Panel de Control
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Tu progreso en un vistazo
+            </h2>
+            <p class="text-lg text-navy/70 mb-8">
+              El dashboard te muestra estadísticas en tiempo real de todo tu estudio: exámenes completados, aciertos por área, racha de días estudiando, calendario de actividad y recomendaciones personalizadas basadas en tu rendimiento.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-turquoise/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-navy/80">Anillos de progreso por cada área del examen</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-turquoise/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-navy/80">Calendario de actividad tipo GitHub (30 días)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-turquoise/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-navy/80">Recomendaciones inteligentes de qué estudiar</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-turquoise/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-navy/80">Historial completo de todos tus exámenes</span>
+              </li>
+            </ul>
+          </div>
+          <div class="rounded-2xl shadow-2xl overflow-hidden border-4 border-navy/20">
+            <img
+              src="/images/screenshots/home-logged.webp"
+              alt="Panel de control de TLACU mostrando estadísticas y progreso del usuario"
+              class="w-full h-auto"
+              width="906"
+              height="1200"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estudio Section -->
+    <section id="estudio" class="py-20 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 rounded-2xl shadow-2xl overflow-hidden border-4 border-navy/10">
+            <img
+              src="/images/screenshots/estudio-logged.webp"
+              alt="Modo estudio de TLACU mostrando preguntas con explicaciones"
+              class="w-full h-auto"
+              width="1200"
+              height="1256"
+              loading="lazy"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/10 rounded-full text-terracotta text-sm font-medium mb-6">
+              Modo Estudio
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Aprende con la técnica PARE
+            </h2>
+            <p class="text-lg text-navy/70 mb-8">
+              El modo estudio te permite practicar preguntas por área con retroalimentación inmediata. Cada pregunta incluye una explicación detallada para que entiendas el porqué de la respuesta correcta.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white rounded-xl p-4 border border-terracotta/20">
+                <div class="text-2xl font-black text-terracotta mb-1">P</div>
+                <div class="text-sm text-navy/70">Lee la pregunta con atención</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-terracotta/20">
+                <div class="text-2xl font-black text-terracotta mb-1">A</div>
+                <div class="text-sm text-navy/70">Analiza palabras clave</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-terracotta/20">
+                <div class="text-2xl font-black text-terracotta mb-1">R</div>
+                <div class="text-sm text-navy/70">Piensa tu respuesta</div>
+              </div>
+              <div class="bg-white rounded-xl p-4 border border-terracotta/20">
+                <div class="text-2xl font-black text-terracotta mb-1">E</div>
+                <div class="text-sm text-navy/70">Elimina opciones incorrectas</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flashcards Section -->
+    <section id="flashcards" class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise text-sm font-medium mb-6">
+              Flashcards
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Memoriza con repetición espaciada
+            </h2>
+            <p class="text-lg text-navy/70 mb-8">
+              Las flashcards usan el algoritmo de repetición espaciada para mostrarte las tarjetas en el momento óptimo. Las tarjetas que dominas aparecen menos, las difíciles se repiten más. Recuerdas más estudiando menos tiempo.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-turquoise/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-navy/80">Tarjetas organizadas por las 10 áreas del examen</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-turquoise/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-navy/80">Califica tu respuesta: Fácil, Bien, Difícil, Otra vez</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-turquoise/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-navy/80">Estadísticas de dominio y tarjetas pendientes</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-turquoise/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-navy/80">Reporta errores en tarjetas al equipo</span>
+              </li>
+            </ul>
+          </div>
+          <div class="relative">
+            <div class="absolute -right-4 -bottom-4 w-full h-full bg-turquoise/20 rounded-2xl"></div>
+            <div class="absolute -right-2 -bottom-2 w-full h-full bg-turquoise/40 rounded-2xl"></div>
+            <div class="relative rounded-2xl shadow-2xl overflow-hidden border-4 border-navy/10">
+              <img
+                src="/images/screenshots/flashcards-logged.webp"
+                alt="Flashcards de TLACU con repetición espaciada"
+                class="w-full h-auto"
+                width="1200"
+                height="601"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Features -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+            Más herramientas para tu <span class="text-turquoise">éxito</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Guardar preguntas -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2">Guardar Preguntas</h3>
+            <p class="text-navy/60 text-sm">Guarda preguntas difíciles o interesantes para repasarlas después. Agrega notas personales a cada una.</p>
+          </div>
+
+          <!-- Temario completo -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2">Temario Completo</h3>
+            <p class="text-navy/60 text-sm">Consulta todos los temas que cubre el examen, organizados por área con porcentajes de peso.</p>
+          </div>
+
+          <!-- Recursos -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2">Recursos y Bibliografía</h3>
+            <p class="text-navy/60 text-sm">Accede a libros de texto de la SEP, guías y materiales complementarios organizados por tema.</p>
+          </div>
+
+          <!-- Tips de estudio -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2">Tips de Estudio</h3>
+            <p class="text-navy/60 text-sm">Consejos sobre ambiente, tiempo, mentalidad, sueño y apoyo familiar para estudiar mejor.</p>
+          </div>
+
+          <!-- Pomodoro -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4">
+              <span class="text-2xl">🍅</span>
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2">Temporizador Pomodoro</h3>
+            <p class="text-navy/60 text-sm">Timer integrado con la técnica Pomodoro: 25 minutos de estudio enfocado, 5 de descanso.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+            Mira la plataforma en <span class="text-terracotta">acción</span>
+          </h2>
+          <p class="text-lg text-navy/70">
+            Capturas reales de la plataforma funcionando
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Exámenes -->
+          <div class="group">
+            <div class="rounded-xl overflow-hidden shadow-lg border border-navy/10 transition-transform group-hover:scale-[1.02]">
+              <img
+                src="/images/screenshots/examenes-logged.webp"
+                alt="Tipos de exámenes disponibles en TLACU"
+                class="w-full h-auto"
+                width="906"
+                height="1800"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-center text-navy/70 text-sm mt-3 font-medium">Modalidades de examen</p>
+          </div>
+
+          <!-- Progreso -->
+          <div class="group">
+            <div class="rounded-xl overflow-hidden shadow-lg border border-navy/10 transition-transform group-hover:scale-[1.02]">
+              <img
+                src="/images/screenshots/progreso-logged.webp"
+                alt="Estadísticas de progreso detalladas"
+                class="w-full h-auto"
+                width="1200"
+                height="1080"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-center text-navy/70 text-sm mt-3 font-medium">Estadísticas de progreso</p>
+          </div>
+
+          <!-- Módulos 3D -->
+          <div class="group">
+            <div class="rounded-xl overflow-hidden shadow-lg border border-navy/10 transition-transform group-hover:scale-[1.02]">
+              <img
+                src="/images/screenshots/aprendizaje-logged.webp"
+                alt="Módulos interactivos 3D de aprendizaje"
+                class="w-full h-auto"
+                width="1200"
+                height="1078"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-center text-navy/70 text-sm mt-3 font-medium">Módulos interactivos 3D</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Explora la plataforma completa
+        </h2>
+        <p class="text-xl text-white/70 mb-10">
+          Crea tu cuenta gratis y descubre todas las herramientas. Accede desde tu computadora, tablet o celular con diseño 100% responsivo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://tlacu.mx/auth/register" class="px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
+            Comenzar gratis
+          </a>
+          <a href="/modulos" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Ver módulos demo
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

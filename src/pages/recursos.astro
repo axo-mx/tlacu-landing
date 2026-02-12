@@ -1,0 +1,329 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Categorías de recursos
+const categories = [
+  { id: 'all', name: 'Todos', icon: '📚' },
+  { id: 'tips', name: 'Tips de estudio', icon: '💡' },
+  { id: 'areas', name: 'Por área', icon: '📊' },
+  { id: 'tecnicas', name: 'Técnicas', icon: '🎯' },
+  { id: 'motivacion', name: 'Motivación', icon: '🔥' },
+];
+
+// Artículos/recursos
+const articles = [
+  {
+    id: 1,
+    title: 'La técnica PARE para responder preguntas de opción múltiple',
+    excerpt: 'Aprende el método probado para analizar, razonar y eliminar opciones incorrectas antes de elegir tu respuesta.',
+    category: 'tecnicas',
+    icon: '🎯',
+    readTime: '5 min',
+    featured: true,
+  },
+  {
+    id: 2,
+    title: '¿Cómo estudiar Pensamiento Matemático para el ECOEMS?',
+    excerpt: 'Guía completa con los temas más importantes: aritmética, álgebra, geometría y estadística básica.',
+    category: 'areas',
+    icon: '📐',
+    readTime: '8 min',
+    featured: true,
+  },
+  {
+    id: 3,
+    title: 'Repetición espaciada: la ciencia detrás de las flashcards',
+    excerpt: 'Descubre por qué estudiar con flashcards es más efectivo que releer tus apuntes una y otra vez.',
+    category: 'tecnicas',
+    icon: '🧠',
+    readTime: '4 min',
+    featured: false,
+  },
+  {
+    id: 4,
+    title: '10 errores comunes en el ECOEMS (y cómo evitarlos)',
+    excerpt: 'Desde no leer bien las preguntas hasta no administrar el tiempo. Aprende de los errores de otros.',
+    category: 'tips',
+    icon: '⚠️',
+    readTime: '6 min',
+    featured: true,
+  },
+  {
+    id: 5,
+    title: 'Comprensión Lectora: estrategias para responder más rápido',
+    excerpt: 'Técnicas de lectura rápida y análisis de textos para maximizar tu puntaje en esta área.',
+    category: 'areas',
+    icon: '📖',
+    readTime: '7 min',
+    featured: false,
+  },
+  {
+    id: 6,
+    title: 'Cómo manejar los nervios el día del examen',
+    excerpt: 'Técnicas de respiración, preparación mental y consejos prácticos para llegar tranquilo a tu examen.',
+    category: 'motivacion',
+    icon: '😌',
+    readTime: '4 min',
+    featured: false,
+  },
+  {
+    id: 7,
+    title: 'Guía de Ciencias Experimentales: Física, Química y Biología',
+    excerpt: 'Los conceptos clave que necesitas dominar para las 16 preguntas de ciencias experimentales.',
+    category: 'areas',
+    icon: '🔬',
+    readTime: '10 min',
+    featured: false,
+  },
+  {
+    id: 8,
+    title: 'Técnica Pomodoro: estudia más en menos tiempo',
+    excerpt: 'Aprende a usar intervalos de 25 minutos para maximizar tu concentración y evitar el agotamiento.',
+    category: 'tecnicas',
+    icon: '🍅',
+    readTime: '3 min',
+    featured: false,
+  },
+  {
+    id: 9,
+    title: 'Pensamiento Analítico: patrones, secuencias y lógica',
+    excerpt: 'Ejercicios y estrategias para desarrollar tu razonamiento lógico y resolver problemas más rápido.',
+    category: 'areas',
+    icon: '🧩',
+    readTime: '6 min',
+    featured: false,
+  },
+  {
+    id: 10,
+    title: '¿Cuánto tiempo necesito para prepararme?',
+    excerpt: 'Plan de estudio realista según tu nivel actual y el tiempo disponible antes del examen.',
+    category: 'tips',
+    icon: '📅',
+    readTime: '5 min',
+    featured: false,
+  },
+  {
+    id: 11,
+    title: 'Estructura de la Lengua: gramática sin dolor',
+    excerpt: 'Reglas de ortografía, puntuación y sintaxis explicadas de forma simple y con ejemplos.',
+    category: 'areas',
+    icon: '📝',
+    readTime: '8 min',
+    featured: false,
+  },
+  {
+    id: 12,
+    title: 'Mentalidad de crecimiento: cree en tu capacidad de mejorar',
+    excerpt: 'Por qué creer que puedes mejorar es más importante que tu "inteligencia natural".',
+    category: 'motivacion',
+    icon: '🌱',
+    readTime: '4 min',
+    featured: false,
+  },
+];
+
+const featuredArticles = articles.filter(a => a.featured);
+const regularArticles = articles.filter(a => !a.featured);
+---
+
+<Layout title="Recursos y Tips de Estudio - TLACU">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-16 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+            Aprende a estudiar mejor
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Recursos y <span class="text-gradient-fire">tips</span> de estudio
+          </h1>
+          <p class="text-xl text-white/70">
+            Guías, técnicas y consejos para prepararte mejor para el ECOEMS y cualquier examen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="py-16 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-2xl font-bold text-navy">Destacados</h2>
+          <span class="text-navy/50 text-sm">Los más populares</span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {featuredArticles.map((article) => (
+            <article class="bg-white rounded-2xl shadow-lg border border-navy/5 overflow-hidden hover:shadow-xl hover:border-turquoise/30 transition-all group cursor-pointer">
+              <div class="h-32 bg-gradient-to-br from-navy to-navy-light flex items-center justify-center">
+                <span class="text-6xl">{article.icon}</span>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="px-2 py-0.5 bg-turquoise/10 text-turquoise text-xs font-semibold rounded">
+                    {categories.find(c => c.id === article.category)?.name}
+                  </span>
+                  <span class="text-navy/40 text-xs">{article.readTime} lectura</span>
+                </div>
+                <h3 class="font-bold text-navy group-hover:text-turquoise transition-colors mb-2 line-clamp-2">
+                  {article.title}
+                </h3>
+                <p class="text-navy/60 text-sm line-clamp-2">{article.excerpt}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Filter + All Articles -->
+    <section class="py-16 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Category Pills -->
+        <div class="flex flex-wrap gap-3 mb-10 justify-center">
+          {categories.map((cat) => (
+            <button
+              data-category={cat.id}
+              class={`category-btn px-4 py-2 rounded-full font-medium text-sm transition-all ${
+                cat.id === 'all'
+                  ? 'bg-navy text-white'
+                  : 'bg-white text-navy/70 hover:bg-navy/10 border border-navy/10'
+              }`}
+            >
+              <span class="mr-1">{cat.icon}</span>
+              {cat.name}
+            </button>
+          ))}
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="articles-grid">
+          {regularArticles.map((article) => (
+            <article
+              data-category={article.category}
+              class="article-card bg-white rounded-xl shadow-md border border-navy/5 p-5 hover:shadow-lg hover:border-turquoise/30 transition-all cursor-pointer"
+            >
+              <div class="flex items-start gap-4">
+                <span class="text-3xl">{article.icon}</span>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 bg-navy/5 text-navy/60 text-xs font-medium rounded">
+                      {categories.find(c => c.id === article.category)?.name}
+                    </span>
+                    <span class="text-navy/40 text-xs">{article.readTime}</span>
+                  </div>
+                  <h3 class="font-bold text-navy text-sm mb-1 line-clamp-2 hover:text-turquoise transition-colors">
+                    {article.title}
+                  </h3>
+                  <p class="text-navy/50 text-xs line-clamp-2">{article.excerpt}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- Coming soon message -->
+        <div class="text-center mt-12 p-8 bg-white rounded-2xl border border-navy/10">
+          <span class="text-4xl mb-4 block">🚧</span>
+          <h3 class="text-xl font-bold text-navy mb-2">Más contenido próximamente</h3>
+          <p class="text-navy/60 max-w-md mx-auto">
+            Estamos preparando más guías, videos y recursos para ayudarte a estudiar mejor.
+            ¡Regresa pronto!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter / Updates -->
+    <section class="py-20 bg-gradient-to-br from-navy to-navy-light">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="text-5xl mb-6 block">📬</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          ¿Quieres recibir tips de estudio?
+        </h2>
+        <p class="text-white/60 mb-8">
+          Próximamente podrás suscribirte para recibir consejos y recursos directamente en tu correo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            placeholder="tu@email.com"
+            disabled
+            class="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-turquoise cursor-not-allowed"
+          />
+          <button disabled class="px-6 py-3 bg-white/20 text-white/60 font-semibold rounded-xl cursor-not-allowed">
+            Próximamente
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-terracotta to-terracotta-dark rounded-3xl p-8 lg:p-12 text-white text-center">
+          <h2 class="text-2xl sm:text-3xl font-black mb-4">
+            La mejor forma de aprender es practicando
+          </h2>
+          <p class="text-white/80 mb-8 max-w-xl mx-auto">
+            Los tips son útiles, pero nada reemplaza la práctica real. Comienza a resolver exámenes de práctica hoy.
+          </p>
+          <a href="https://tlacu.mx/auth/register" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-colors">
+            Comenzar a practicar gratis
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Simple category filter
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const articleCards = document.querySelectorAll('.article-card');
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.dataset.category;
+
+      // Update active button
+      categoryBtns.forEach(b => {
+        b.classList.remove('bg-navy', 'text-white');
+        b.classList.add('bg-white', 'text-navy/70', 'border', 'border-navy/10');
+      });
+      btn.classList.remove('bg-white', 'text-navy/70', 'border', 'border-navy/10');
+      btn.classList.add('bg-navy', 'text-white');
+
+      // Filter articles
+      articleCards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

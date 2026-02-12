@@ -1,0 +1,31 @@
+{
+  "name": "tlacu-landing",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "optimize-images": "node scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@lucide/astro": "^0.563.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.182.0",
+    "astro": "^5.17.1",
+    "lucide-astro": "^0.556.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^4.1.18",
+    "three": "^0.182.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

@@ -1,0 +1,500 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Comparación de métodos
+const comparisons = [
+  {
+    feature: 'Exámenes de práctica ilimitados',
+    tlacu: true,
+    traditional: false,
+    generic: 'limited',
+    tlacuNote: 'Practica sin límites',
+    otherNote: 'Libros con pocas preguntas',
+  },
+  {
+    feature: 'Retroalimentación inmediata',
+    tlacu: true,
+    traditional: false,
+    generic: 'partial',
+    tlacuNote: 'Explicación de cada respuesta',
+    otherNote: 'Solo respuestas correctas',
+  },
+  {
+    feature: 'Simulador con condiciones reales',
+    tlacu: true,
+    traditional: false,
+    generic: false,
+    tlacuNote: 'Cronómetro + cámara',
+    otherNote: 'Sin simulación real',
+  },
+  {
+    feature: 'Repetición espaciada (flashcards)',
+    tlacu: true,
+    traditional: false,
+    generic: false,
+    tlacuNote: 'Algoritmo SM-2 científico',
+    otherNote: 'Memorización manual',
+  },
+  {
+    feature: 'Estadísticas por área',
+    tlacu: true,
+    traditional: false,
+    generic: 'partial',
+    tlacuNote: 'Dashboard detallado',
+    otherNote: 'Sin seguimiento',
+  },
+  {
+    feature: 'Módulos interactivos',
+    tlacu: true,
+    traditional: false,
+    generic: false,
+    tlacuNote: 'Tabla periódica, Célula 3D...',
+    otherNote: 'Solo texto e imágenes',
+  },
+  {
+    feature: 'Acceso desde cualquier dispositivo',
+    tlacu: true,
+    traditional: false,
+    generic: true,
+    tlacuNote: 'Celular, tablet, computadora',
+    otherNote: 'Depende del formato',
+  },
+  {
+    feature: 'Actualización constante',
+    tlacu: true,
+    traditional: false,
+    generic: 'partial',
+    tlacuNote: 'Contenido siempre actualizado',
+    otherNote: 'Libros desactualizados',
+  },
+];
+
+// Razones para elegir TLACU
+const reasons = [
+  {
+    icon: '🎯',
+    title: 'Enfocado 100% en ECOEMS',
+    description: 'No somos una plataforma genérica. Todo nuestro contenido está diseñado específicamente para el formato y temario del ECOEMS.',
+  },
+  {
+    icon: '🧠',
+    title: 'Basado en ciencia del aprendizaje',
+    description: 'Usamos técnicas probadas como repetición espaciada, práctica activa y retroalimentación inmediata para maximizar la retención.',
+  },
+  {
+    icon: '📊',
+    title: 'Datos que guían tu estudio',
+    description: 'No estudies a ciegas. Nuestro dashboard te muestra exactamente dónde necesitas mejorar y cuánto has progresado.',
+  },
+  {
+    icon: '🎮',
+    title: 'Gamificación que motiva',
+    description: 'Rachas, puntos, logros y rankings hacen que estudiar sea menos aburrido y más efectivo.',
+  },
+  {
+    icon: '💰',
+    title: 'Precio justo, sin sorpresas',
+    description: 'Pago único por 12 meses. Sin suscripciones mensuales, sin cargos ocultos, sin renovaciones automáticas.',
+  },
+  {
+    icon: '🛡️',
+    title: 'Garantía de 7 días',
+    description: 'Si no te convence, te devolvemos tu dinero. Sin preguntas, sin complicaciones.',
+  },
+];
+
+// Problemas comunes que resuelve TLACU
+const problems = [
+  {
+    problem: '"No sé por dónde empezar a estudiar"',
+    solution: 'TLACU te da un camino claro: haz el diagnóstico, identifica tus áreas débiles y enfócate en ellas.',
+    icon: '🗺️',
+  },
+  {
+    problem: '"Estudio mucho pero no retengo nada"',
+    solution: 'Las flashcards con repetición espaciada te hacen repasar justo cuando estás a punto de olvidar.',
+    icon: '🧠',
+  },
+  {
+    problem: '"Me pongo nervioso en los exámenes"',
+    solution: 'El simulador con cronómetro y cámara te prepara para las condiciones reales del ECOEMS.',
+    icon: '😰',
+  },
+  {
+    problem: '"Los libros de preparación son aburridos"',
+    solution: 'Módulos interactivos, gamificación y práctica activa hacen el estudio más dinámico.',
+    icon: '😴',
+  },
+  {
+    problem: '"No sé si estoy listo para el examen"',
+    solution: 'Las estadísticas detalladas te muestran tu nivel real en cada área del ECOEMS.',
+    icon: '❓',
+  },
+];
+---
+
+<Layout title="¿Por qué TLACU? - Compara y Decide | TLACU">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Compara y decide
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            ¿Por qué elegir <span class="text-gradient-fire">TLACU</span>?
+          </h1>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+            No todos los métodos de estudio son iguales. Descubre por qué TLACU es la forma más efectiva de prepararte para el ECOEMS.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            TLACU vs. métodos tradicionales
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Compara las herramientas que ofrece TLACU contra estudiar con libros, apuntes o plataformas genéricas.
+          </p>
+        </div>
+
+        <!-- Desktop Table -->
+        <div class="hidden md:block bg-white rounded-3xl shadow-xl overflow-hidden border border-navy/10">
+          <table class="w-full">
+            <thead>
+              <tr class="bg-navy text-white">
+                <th class="py-5 px-6 text-left font-semibold">Característica</th>
+                <th class="py-5 px-6 text-center font-semibold">
+                  <div class="flex items-center justify-center gap-2">
+                    <span class="text-xl">🔥</span>
+                    TLACU
+                  </div>
+                </th>
+                <th class="py-5 px-6 text-center font-semibold">Libros / Apuntes</th>
+                <th class="py-5 px-6 text-center font-semibold">Plataformas genéricas</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisons.map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-cream/50'}>
+                  <td class="py-4 px-6 font-medium text-navy">{row.feature}</td>
+                  <td class="py-4 px-6 text-center">
+                    <div class="flex flex-col items-center gap-1">
+                      <span class="w-8 h-8 bg-emerald-500/10 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </span>
+                      <span class="text-xs text-navy/50">{row.tlacuNote}</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-6 text-center">
+                    <div class="flex flex-col items-center gap-1">
+                      <span class="w-8 h-8 bg-red-500/10 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                      </span>
+                      <span class="text-xs text-navy/50">{row.otherNote}</span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-6 text-center">
+                    <div class="flex flex-col items-center gap-1">
+                      {row.generic === true ? (
+                        <span class="w-8 h-8 bg-emerald-500/10 rounded-full flex items-center justify-center">
+                          <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </span>
+                      ) : row.generic === 'partial' || row.generic === 'limited' ? (
+                        <span class="w-8 h-8 bg-amber-500/10 rounded-full flex items-center justify-center">
+                          <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                          </svg>
+                        </span>
+                      ) : (
+                        <span class="w-8 h-8 bg-red-500/10 rounded-full flex items-center justify-center">
+                          <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                          </svg>
+                        </span>
+                      )}
+                      <span class="text-xs text-navy/50">
+                        {row.generic === 'partial' ? 'Parcial' : row.generic === 'limited' ? 'Limitado' : ''}
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile Cards -->
+        <div class="md:hidden space-y-4">
+          {comparisons.map((row) => (
+            <div class="bg-white rounded-xl p-5 shadow-md border border-navy/5">
+              <h3 class="font-bold text-navy mb-4">{row.feature}</h3>
+              <div class="grid grid-cols-3 gap-3 text-center text-sm">
+                <div>
+                  <div class="w-10 h-10 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <div class="font-semibold text-navy">TLACU</div>
+                </div>
+                <div>
+                  <div class="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </div>
+                  <div class="text-navy/60">Libros</div>
+                </div>
+                <div>
+                  {row.generic === true ? (
+                    <div class="w-10 h-10 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                  ) : row.generic === 'partial' || row.generic === 'limited' ? (
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    <div class="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                      </svg>
+                    </div>
+                  )}
+                  <div class="text-navy/60">Otras</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Problems & Solutions -->
+    <section class="py-20 bg-gradient-to-br from-navy to-navy-light">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+            ¿Te suena familiar?
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Problemas comunes que enfrentan los estudiantes y cómo TLACU los resuelve.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          {problems.map((item) => (
+            <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+              <div class="flex flex-col md:flex-row md:items-center gap-4">
+                <div class="flex items-center gap-4 flex-1">
+                  <span class="text-4xl">{item.icon}</span>
+                  <div>
+                    <div class="text-white font-semibold mb-1">{item.problem}</div>
+                    <div class="text-white/60 text-sm">Problema común</div>
+                  </div>
+                </div>
+                <div class="hidden md:block text-white/30">
+                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </div>
+                <div class="flex items-center gap-4 flex-1 md:pl-4 md:border-l md:border-white/10">
+                  <span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="text-white/90 text-sm">{item.solution}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why TLACU - 6 Reasons -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            6 razones para elegir TLACU
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reasons.map((reason) => (
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-navy/5 hover:shadow-xl hover:border-turquoise/30 transition-all">
+              <span class="text-4xl mb-4 block">{reason.icon}</span>
+              <h3 class="font-bold text-navy text-lg mb-2">{reason.title}</h3>
+              <p class="text-navy/60 text-sm">{reason.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Traditional vs TLACU Visual -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- Traditional Method -->
+          <div class="bg-white rounded-3xl p-8 shadow-lg border border-navy/10">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center text-2xl">📚</span>
+              <div>
+                <h3 class="font-bold text-navy">Método tradicional</h3>
+                <p class="text-navy/50 text-sm">Libros, apuntes, guías impresas</p>
+              </div>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="text-navy/70">Estudias sin saber qué áreas dominas</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="text-navy/70">Pocas preguntas de práctica disponibles</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="text-navy/70">Sin retroalimentación inmediata</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="text-navy/70">Contenido puede estar desactualizado</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="text-navy/70">Aburrido, fácil de procrastinar</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="text-navy/70">No simula condiciones reales del examen</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- TLACU Method -->
+          <div class="bg-gradient-to-br from-navy to-navy-light rounded-3xl p-8 shadow-lg text-white">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl">🔥</span>
+              <div>
+                <h3 class="font-bold">Con TLACU</h3>
+                <p class="text-white/50 text-sm">Plataforma especializada en ECOEMS</p>
+              </div>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Dashboard con estadísticas por área</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Miles de preguntas de práctica</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Explicación detallada de cada respuesta</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Contenido actualizado constantemente</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Gamificación que mantiene la motivación</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white/90">Simulador con cronómetro y cámara real</span>
+              </li>
+            </ul>
+
+            <div class="mt-8 pt-6 border-t border-white/10">
+              <a href="https://tlacu.mx/auth/register" target="_blank" class="block w-full text-center px-6 py-4 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-dark transition-colors">
+                Comenzar gratis
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="text-6xl mb-6 block">🎓</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Tu futuro empieza con la preparación correcta
+        </h2>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          No dejes tu lugar en la prepa al azar. Prepárate con las herramientas adecuadas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://tlacu.mx/auth/register" target="_blank" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
+            Comenzar gratis
+          </a>
+          <a href="/precios" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Ver precios
+          </a>
+        </div>
+        <p class="text-white/50 text-sm mt-6">
+          Plan gratuito disponible. Sin tarjeta de crédito.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
