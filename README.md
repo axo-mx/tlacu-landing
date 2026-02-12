@@ -8,7 +8,7 @@ Landing page para TLACU - plataforma de preparacion para el examen ECOEMS. Const
 |------|-------------|-----|
 | tlacu-infra | Infraestructura, DB, migraciones | [github.com/axo-mx/tlacu-infra](https://github.com/axo-mx/tlacu-infra) |
 | tlacu-platform | App React (plataforma principal) | [github.com/axo-mx/tlacu-platform](https://github.com/axo-mx/tlacu-platform) |
-| **tlacu-landing** | Landing page Astro | [github.com/servandoAxo/tlacu-landing](https://github.com/servandoAxo/tlacu-landing) |
+| **tlacu-landing** | Landing page Astro | [github.com/axo-mx/tlacu-landing](https://github.com/axo-mx/tlacu-landing) |
 
 ## Estrategia de Branches
 
@@ -34,7 +34,7 @@ Landing page para TLACU - plataforma de preparacion para el examen ECOEMS. Const
 ### 1. Clonar
 
 ```bash
-git clone git@github.com:servandoAxo/tlacu-landing.git
+git clone git@github.com:axo-mx/tlacu-landing.git
 cd tlacu-landing
 ```
 
