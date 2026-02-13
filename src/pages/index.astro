@@ -9,7 +9,7 @@ import Footer from '../components/Footer.astro';
 
   <main>
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden pt-20">
+    <section class="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden pt-28 sm:pt-32">
       <!-- Animated Wave Grid Background -->
       <div class="absolute inset-0 overflow-hidden wave-grid-container">
         <!-- Glowing orbs -->
@@ -54,27 +54,38 @@ import Footer from '../components/Footer.astro';
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <!-- Content -->
           <div class="text-center lg:text-left">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
-              <span class="w-2 h-2 bg-turquoise rounded-full animate-pulse"></span>
-              Plataforma educativa 100% responsiva.
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/20 rounded-full text-terracotta text-sm font-medium mb-6 animate-pulse">
+              <span class="w-2 h-2 bg-terracotta rounded-full"></span>
+              Plataforma educativa 100% responsiva
             </div>
 
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-              El <span class="text-gradient-fire">fuego</span> del conocimiento
-              <br />en tus manos
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
+              <span class="text-turquoise">¡YA LLEGAMOS!</span>
+              <br />ENCIENDE TU
+              <br /><span class="text-gradient-fire">FUTURO.</span>
             </h1>
 
             <p class="text-lg sm:text-xl text-white/70 mb-8 max-w-xl mx-auto lg:mx-0">
-              Plataforma educativa diseñada para prepararte y alcanzar tus metas académicas.
-              Como el tlacuache que trajo el fuego a la humanidad, llevamos el saber a todos.
+              Prepárate para el ECOEMS con la plataforma más completa.
+              Como el tlacuache que trajo el fuego a la humanidad, llevamos el conocimiento a todos.
             </p>
 
+            <!-- Oferta de Lanzamiento -->
+            <div class="bg-gradient-to-r from-terracotta to-terracotta-light rounded-2xl p-6 mb-8 max-w-md mx-auto lg:mx-0 shadow-xl shadow-terracotta/30">
+              <div class="text-white/90 text-sm font-semibold uppercase tracking-wide mb-2">Oferta de Lanzamiento</div>
+              <div class="text-white text-lg font-bold mb-3">$100 OFF</div>
+              <div class="flex items-center justify-center lg:justify-start gap-4">
+                <span class="text-white/60 text-2xl line-through">$499</span>
+                <span class="text-white text-5xl font-black">$399</span>
+              </div>
+            </div>
+
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="https://tlacu.mx/auth/register" class="px-8 py-4 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30 hover:shadow-terracotta/50 hover:-translate-y-1">
-                Comenzar gratis
+              <a href="https://tlacu.mx/auth/register" class="px-8 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-all shadow-xl hover:-translate-y-1">
+                Obtener acceso
               </a>
-              <a href="/acerca" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
-                Conocer más
+              <a href="/plataforma" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
+                Ver detalles
               </a>
             </div>
           </div>
@@ -662,17 +673,26 @@ import Footer from '../components/Footer.astro';
         />
 
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
-          Comienza tu preparación <span class="text-gradient-fire">hoy</span>
+          <span class="text-turquoise">¡YA LLEGAMOS!</span>
+          <br />Enciende tu <span class="text-gradient-fire">futuro</span>
         </h2>
 
-        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-          Crea tu cuenta gratis y accede a todas las herramientas que necesitas
-          para alcanzar tus metas académicas.
+        <p class="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+          Aprovecha la oferta de lanzamiento y prepárate con la plataforma más completa para el ECOEMS.
         </p>
 
+        <!-- Oferta de Lanzamiento -->
+        <div class="inline-block bg-gradient-to-r from-terracotta to-terracotta-light rounded-2xl p-6 mb-10 shadow-xl shadow-terracotta/30">
+          <div class="text-white/90 text-sm font-semibold uppercase tracking-wide mb-2">Oferta de Lanzamiento: $100 OFF</div>
+          <div class="flex items-center justify-center gap-4">
+            <span class="text-white/60 text-2xl line-through">$499</span>
+            <span class="text-white text-5xl font-black">$399</span>
+          </div>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://tlacu.mx/auth/register" class="px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
-            Crear cuenta gratis
+          <a href="https://tlacu.mx/auth/register" class="px-10 py-4 bg-white text-terracotta font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
+            Obtener acceso ahora
           </a>
           <a href="https://tlacu.mx/auth/login" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
             Ya tengo cuenta

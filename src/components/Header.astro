@@ -1,16 +1,19 @@
 ---
 // Header component with navigation and mega menu
+import PromoBanner from './PromoBanner.astro';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-md border-b border-navy/5">
+<div class="fixed top-0 left-0 right-0 z-50">
+  <PromoBanner />
+  <header class="bg-cream/80 backdrop-blur-md border-b border-navy/5">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center">
+      <a href="/" class="flex items-center flex-shrink-0">
         <img
           src="/images/logos/logo-tlacu-dark.webp"
           alt="TLACU"
-          class="h-10 md:h-12"
+          class="h-10 md:h-12 w-auto object-contain"
           width="147"
           height="48"
         />
@@ -160,6 +163,7 @@
     </div>
   </nav>
 </header>
+</div>
 
 <script>
   // Mobile menu toggle

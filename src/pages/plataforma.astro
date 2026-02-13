@@ -29,7 +29,7 @@ const iconComponents = {
 
   <main>
     <!-- Hero -->
-    <section class="pt-32 pb-20 bg-gradient-hero">
+    <section class="pt-36 sm:pt-40 pb-20 bg-gradient-hero">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-4xl mx-auto">
           <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
@@ -583,17 +583,27 @@ const iconComponents = {
     <section class="py-20 bg-gradient-hero">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
-          Explora la plataforma completa
+          <span class="text-turquoise">¡YA LLEGAMOS!</span> Enciende tu <span class="text-gradient-fire">futuro</span>
         </h2>
-        <p class="text-xl text-white/70 mb-10">
-          Crea tu cuenta gratis y descubre todas las herramientas. Accede desde tu computadora, tablet o celular con diseño 100% responsivo.
+        <p class="text-xl text-white/70 mb-8">
+          Aprovecha la oferta de lanzamiento: $100 OFF en el plan Pro.
         </p>
+
+        <!-- Oferta de Lanzamiento -->
+        <div class="inline-block bg-gradient-to-r from-terracotta to-terracotta-light rounded-2xl p-6 mb-10 shadow-xl shadow-terracotta/30">
+          <div class="text-white/90 text-sm font-semibold uppercase tracking-wide mb-2">Oferta de Lanzamiento</div>
+          <div class="flex items-center justify-center gap-4">
+            <span class="text-white/60 text-2xl line-through">$499</span>
+            <span class="text-white text-5xl font-black">$399</span>
+          </div>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://tlacu.mx/auth/register" class="px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
-            Comenzar gratis
+          <a href="https://tlacu.mx/auth/register" class="px-10 py-4 bg-white text-terracotta font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
+            Obtener acceso ahora
           </a>
-          <a href="/modulos" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
-            Ver módulos demo
+          <a href="/precios" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Ver planes
           </a>
         </div>
       </div>
