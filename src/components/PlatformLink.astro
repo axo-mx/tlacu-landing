@@ -1,0 +1,26 @@
+---
+// PlatformLink.astro
+// Reusable component for links to the platform
+// Automatically uses PUBLIC_PLATFORM_URL and adds PostHog attribution
+
+interface Props {
+  path?: string; // Path on the platform (e.g., "/auth/register")
+  class?: string;
+  target?: string;
+  [key: string]: unknown; // Allow additional HTML attributes
+}
+
+const { path = "", class: className, target = "_blank", ...rest } = Astro.props;
+const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL || "https://tlacu.mx";
+const fullUrl = `${platformUrl}${path}`;
+---
+
+<a
+  href={fullUrl}
+  target={target}
+  class={className}
+  data-platform-link
+  {...rest}
+>
+  <slot />
+</a>

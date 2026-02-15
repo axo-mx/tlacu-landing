@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
 
 // Categorías de recursos
 const categories = [
@@ -276,12 +277,12 @@ const regularArticles = articles.filter(a => !a.featured);
           <p class="text-white/80 mb-8 max-w-xl mx-auto">
             Los tips son útiles, pero nada reemplaza la práctica real. Comienza a resolver exámenes de práctica hoy.
           </p>
-          <a href="https://tlacu.mx/auth/register" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-colors">
+          <PlatformLink path="/auth/register" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-colors">
             Comenzar a practicar gratis
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
-          </a>
+          </PlatformLink>
         </div>
       </div>
     </section>

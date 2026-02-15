@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
 
 // Configuración de precios - cambiar aquí para activar/desactivar descuento
 const SHOW_DISCOUNT = true;
@@ -139,13 +140,12 @@ const features = [
               </li>
             </ul>
 
-            <a
-              href="https://tlacu.mx/auth/register"
-              target="_blank"
+            <PlatformLink
+              path="/auth/register"
               class="block w-full text-center px-6 py-4 bg-navy/10 text-navy font-bold rounded-xl hover:bg-navy/20 transition-colors"
             >
               Comenzar gratis
-            </a>
+            </PlatformLink>
           </div>
 
           <!-- Plan Pro -->
@@ -234,13 +234,12 @@ const features = [
               </li>
             </ul>
 
-            <a
-              href="https://tlacu.mx/auth/register?plan=pro"
-              target="_blank"
+            <PlatformLink
+              path="/auth/register?plan=pro"
               class="block w-full text-center px-6 py-4 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-dark transition-colors shadow-lg shadow-terracotta/30"
             >
               Obtener Pro {SHOW_DISCOUNT && `por $${PRICE_DISCOUNTED}`}
-            </a>
+            </PlatformLink>
           </div>
         </div>
 
@@ -507,12 +506,12 @@ const features = [
           Aprovecha la oferta de lanzamiento y prepárate con la plataforma más completa para el ECOEMS.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://tlacu.mx/auth/register" target="_blank" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
+          <PlatformLink path="/auth/register" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
             Comenzar gratis
-          </a>
-          <a href="https://tlacu.mx/auth/register?plan=pro" target="_blank" class="px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
+          </PlatformLink>
+          <PlatformLink path="/auth/register?plan=pro" class="px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
             Obtener Pro {SHOW_DISCOUNT && `por $${PRICE_DISCOUNTED}`}
-          </a>
+          </PlatformLink>
         </div>
 
         {SHOW_DISCOUNT && (

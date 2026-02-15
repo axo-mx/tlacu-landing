@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
 import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
 
 // 10 Áreas del ECOEMS - colores e iconos consistentes con la plataforma TLACU
@@ -356,9 +357,9 @@ const tips = [
               </li>
             </ul>
 
-            <a href="https://tlacu.mx/auth/register" target="_blank" class="block w-full text-center px-6 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-colors">
+            <PlatformLink path="/auth/register" class="block w-full text-center px-6 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-colors">
               Comenzar gratis
-            </a>
+            </PlatformLink>
           </div>
         </div>
       </div>
@@ -447,9 +448,9 @@ const tips = [
           Únete a cientos de estudiantes que ya están practicando para su examen de admisión.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://tlacu.mx/auth/register" target="_blank" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
+          <PlatformLink path="/auth/register" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
             Comenzar gratis
-          </a>
+          </PlatformLink>
           <a href="/plataforma" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
             Conocer la plataforma
           </a>
