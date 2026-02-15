@@ -83,7 +83,7 @@ function CellModel3D({ modelPath, cellType, onSelectOrganelle, selectedOrganelle
   );
 
   const shellNames = useMemo(() => {
-    if (cellType === 'plant') return new Set(['CellWall', 'CellMembrane', 'Cytoplasm', 'Vacuole']);
+    if (cellType === 'plant') return new Set(['CellWall', 'CellMembrane', 'Cytoplasm']);
     return new Set(['CellMembrane', 'Cytoplasm']);
   }, [cellType]);
 
@@ -104,10 +104,11 @@ function CellModel3D({ modelPath, cellType, onSelectOrganelle, selectedOrganelle
     clonedScene.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
-        if (shellNames.has(mesh.name)) {
-          mesh.raycast = () => {};
+        const style = shellStyles[mesh.name];
+
+        // Apply shell styles to configured meshes
+        if (style) {
           const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
-          const style = shellStyles[mesh.name];
           for (let i = 0; i < materials.length; i++) {
             const mat = materials[i];
             if (mat instanceof THREE.MeshStandardMaterial || mat instanceof THREE.MeshPhysicalMaterial) {
@@ -116,15 +117,18 @@ function CellModel3D({ modelPath, cellType, onSelectOrganelle, selectedOrganelle
               cloned.clipShadows = true;
               cloned.side = THREE.DoubleSide;
               cloned.transparent = true;
-              if (style) {
-                cloned.color.set(style.color);
-                cloned.opacity = style.opacity;
-                cloned.roughness = style.roughness;
-              }
+              cloned.color.set(style.color);
+              cloned.opacity = style.opacity;
+              cloned.roughness = style.roughness;
               materials[i] = cloned;
             }
           }
           mesh.material = Array.isArray(mesh.material) ? materials : materials[0];
+        }
+
+        // Only disable raycast for non-selectable shells
+        if (shellNames.has(mesh.name)) {
+          mesh.raycast = () => {};
         }
       }
     });
@@ -426,13 +430,23 @@ export function CellViewer3D() {
           </button>
         </div>
 
-        {/* Labels toggle */}
-        <button
-          onClick={() => setShowLabels(!showLabels)}
-          className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-700 text-slate-300 hover:bg-slate-600 transition-all"
-        >
-          {showLabels ? 'Ocultar' : 'Mostrar'} etiquetas
-        </button>
+        {/* Controls */}
+        <div className="absolute top-4 right-4 z-10 flex gap-2">
+          <button
+            onClick={() => setShowLabels(!showLabels)}
+            className="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-700 text-slate-300 hover:bg-slate-600 transition-all"
+          >
+            {showLabels ? 'Ocultar' : 'Mostrar'} etiquetas
+          </button>
+          {selectedOrganelle && (
+            <button
+              onClick={() => { setSelectedOrganelle(null); setSelectedPoint(null); }}
+              className="px-3 py-1.5 rounded-lg text-xs font-medium bg-red-600 text-white hover:bg-red-700 transition-all"
+            >
+              Quitar seleccion
+            </button>
+          )}
+        </div>
 
         {/* Canvas */}
         <Canvas shadows gl={{ localClippingEnabled: true, toneMapping: THREE.NoToneMapping }}>
