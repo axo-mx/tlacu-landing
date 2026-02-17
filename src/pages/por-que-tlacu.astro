@@ -361,6 +361,67 @@ const problems = [
       </div>
     </section>
 
+    <!-- Plataforma viva -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-navy to-navy-light rounded-3xl p-10 md:p-14 shadow-2xl text-white">
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 rounded-full text-emerald-400 text-sm font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Plataforma en constante evolución
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-black leading-tight mb-4">
+                Elegir TLACU es elegir algo que <span class="text-turquoise">siempre mejora</span>
+              </h2>
+              <p class="text-white/70 mb-6">
+                El contenido, las preguntas, los módulos y las herramientas de TLACU se revisan y actualizan constantemente. No estás comprando un libro que caduca — estás eligiendo una plataforma viva que crece contigo.
+              </p>
+              <ul class="space-y-3 mb-8">
+                {[
+                  'El banco de preguntas crece cada semana',
+                  'Las explicaciones se mejoran con base en el uso real',
+                  'Nuevas funciones sin costo adicional',
+                  'Contenido siempre alineado al ECOEMS actual',
+                ].map((item) => (
+                  <li class="flex items-center gap-3 text-sm text-white/80">
+                    <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a href="/hoja-de-ruta" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-navy font-bold rounded-xl hover:bg-white/90 transition-colors">
+                Ver lo que viene en TLACU
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="space-y-3">
+              <div class="text-white/40 text-xs font-bold uppercase tracking-widest mb-4">Estado de la plataforma</div>
+              {[
+                { label: 'Banco de preguntas', estado: 'Creciendo', color: 'text-emerald-400', dot: 'bg-emerald-400' },
+                { label: 'Módulos interactivos', estado: 'Expandiendo', color: 'text-amber-400', dot: 'bg-amber-400' },
+                { label: 'Plan de estudio con IA', estado: 'Activo', color: 'text-turquoise', dot: 'bg-turquoise' },
+                { label: 'App móvil nativa', estado: 'En desarrollo', color: 'text-white/60', dot: 'bg-white/30' },
+                { label: 'Estadísticas avanzadas', estado: 'En desarrollo', color: 'text-white/60', dot: 'bg-white/30' },
+              ].map((s) => (
+                <div class="flex items-center justify-between bg-white/10 rounded-xl px-4 py-3 border border-white/10">
+                  <span class="text-white/90 text-sm">{s.label}</span>
+                  <span class={`flex items-center gap-1.5 text-xs font-semibold ${s.color}`}>
+                    <span class={`w-1.5 h-1.5 rounded-full ${s.dot}`}></span>
+                    {s.estado}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- TLACU como complemento -->
     <section class="py-20 bg-cream-dark">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -519,6 +580,101 @@ const problems = [
               </PlatformLink>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes: Gratuito y Pro -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Elige cómo prepararte
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Con el plan gratuito ya tienes herramientas reales para mejorar. El plan Pro te da acceso ilimitado para sacar el máximo.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <!-- Gratuito -->
+          <div class="bg-white rounded-3xl p-8 shadow-lg border-2 border-navy/10 flex flex-col">
+            <div class="mb-4">
+              <span class="text-xs font-bold text-navy/40 uppercase tracking-widest">Para empezar</span>
+              <h3 class="text-2xl font-black text-navy">Plan Gratuito</h3>
+              <p class="text-4xl font-black text-navy mt-1">$0</p>
+            </div>
+            <p class="text-navy/60 text-sm mb-6">
+              Sin tarjeta de crédito. El plan gratuito ya es una herramienta poderosa para mejorar tu nivel día a día.
+            </p>
+            <ul class="space-y-3 mb-8 flex-1">
+              {[
+                '20 preguntas de práctica por día',
+                '20 flashcards con repetición espaciada',
+                '3 exámenes rápidos por día',
+                'Retroalimentación en cada respuesta',
+                'Dashboard de progreso',
+                'Módulos interactivos gratuitos',
+                'Gamificación y racha de estudio',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-sm text-navy/80">
+                  <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-navy text-white font-bold rounded-xl hover:bg-navy/90 transition-colors">
+              Comenzar gratis
+            </PlatformLink>
+          </div>
+
+          <!-- Pro -->
+          <div class="bg-gradient-to-br from-navy to-navy-light rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden flex flex-col">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-terracotta text-white text-xs font-bold rounded-full">Más popular</span>
+            </div>
+            <div class="mb-4">
+              <span class="text-xs font-bold text-white/40 uppercase tracking-widest">Preparación completa</span>
+              <h3 class="text-2xl font-black">Plan Pro</h3>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="text-white/40 text-xl line-through">$499</span>
+                <span class="text-4xl font-black">$399</span>
+              </div>
+              <span class="text-white/50 text-xs">por 12 meses · pago único</span>
+            </div>
+            <p class="text-white/60 text-sm mb-6">
+              Sin renovaciones automáticas. Garantía de devolución de 7 días.
+            </p>
+            <ul class="space-y-3 mb-8 flex-1">
+              {[
+                'Todo lo del plan gratuito',
+                'Preguntas y flashcards ilimitadas',
+                'Exámenes completos ilimitados',
+                'Simulador con cronómetro y cámara',
+                'Plan de estudio personalizado con IA',
+                'Todos los módulos interactivos',
+                'Estadísticas avanzadas por área',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-sm text-white/90">
+                  <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-dark transition-colors">
+              Obtener Pro — $399
+            </PlatformLink>
+          </div>
+        </div>
+
+        <div class="bg-turquoise/10 border border-turquoise/20 rounded-2xl p-5 text-center">
+          <p class="text-navy font-medium text-sm">
+            <span class="font-bold">¿No estás seguro?</span> Empieza gratis hoy — no necesitas tarjeta. Puedes pasarte a Pro en cualquier momento si quieres desbloquear el acceso ilimitado.
+          </p>
         </div>
       </div>
     </section>

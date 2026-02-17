@@ -1,0 +1,322 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
+
+const lanzado = [
+  {
+    titulo: 'Simulador con monitoreo de cámara',
+    descripcion: 'Simulacro con condiciones reales del ECOEMS: cronómetro y verificación de identidad por cámara.',
+    area: 'Exámenes',
+  },
+  {
+    titulo: 'Plan de estudio personalizado con IA',
+    descripcion: 'La plataforma analiza tus resultados y genera un plan de estudio adaptado a tus áreas débiles.',
+    area: 'Estudio',
+  },
+  {
+    titulo: 'Flashcards con algoritmo SM-2',
+    descripcion: 'Sistema de repetición espaciada basado en investigación científica para maximizar la retención a largo plazo.',
+    area: 'Flashcards',
+  },
+  {
+    titulo: 'Módulos interactivos (Célula 3D, Tabla Periódica)',
+    descripcion: 'Herramientas visuales e interactivas para aprender conceptos complejos de forma intuitiva.',
+    area: 'Módulos',
+  },
+  {
+    titulo: 'Sistema de tutores',
+    descripcion: 'Los tutores pueden crear y gestionar cuentas de estudiantes con acceso Pro desde un panel centralizado.',
+    area: 'Tutores',
+  },
+  {
+    titulo: 'Gamificación: rachas, puntos y logros',
+    descripcion: 'Sistema de motivación que recompensa la constancia y el progreso diario.',
+    area: 'Plataforma',
+  },
+  {
+    titulo: 'Modo PARE (Pregunta, Analiza, Responde, Elimina)',
+    descripcion: 'Técnica de resolución guiada con resaltado de palabras clave y eliminación de opciones incorrectas.',
+    area: 'Estudio',
+  },
+];
+
+const enDesarrollo = [
+  {
+    titulo: 'Más preguntas por área',
+    descripcion: 'Ampliación continua del banco de preguntas en todas las áreas del ECOEMS para ofrecer mayor variedad en la práctica.',
+    area: 'Contenido',
+    progreso: 60,
+  },
+  {
+    titulo: 'Nuevos módulos interactivos',
+    descripcion: 'Mapa de husos horarios, simulador de circuitos eléctricos y calculadora de probabilidad, entre otros.',
+    area: 'Módulos',
+    progreso: 40,
+  },
+  {
+    titulo: 'Estadísticas avanzadas de desempeño',
+    descripcion: 'Gráficas de evolución histórica, tendencias por semana y comparativas por área más detalladas.',
+    area: 'Dashboard',
+    progreso: 30,
+  },
+];
+
+const proximamente = [
+  {
+    titulo: 'Aplicación móvil nativa (iOS y Android)',
+    descripcion: 'Acceso completo a TLACU desde una app nativa optimizada para celular con notificaciones de racha y recordatorios de repaso.',
+    area: 'Plataforma',
+  },
+  {
+    titulo: 'Modo sin conexión',
+    descripcion: 'Estudia con flashcards y preguntas de práctica aunque no tengas internet disponible.',
+    area: 'Plataforma',
+  },
+  {
+    titulo: 'Resumen semanal personalizado',
+    descripcion: 'Reporte automático cada semana con tu progreso, áreas de mejora y recomendaciones de lo que estudiar los próximos días.',
+    area: 'Estudio',
+  },
+  {
+    titulo: 'Examen diagnóstico mejorado',
+    descripcion: 'Diagnóstico inicial más preciso que ajusta automáticamente tu plan de estudio y nivel de dificultad desde el primer día.',
+    area: 'Estudio',
+  },
+];
+
+const consideracion = [
+  {
+    titulo: 'Comunidad de estudiantes',
+    descripcion: 'Espacio para que los estudiantes compartan dudas, estrategias y se apoyen mutuamente durante su preparación.',
+    area: 'Comunidad',
+  },
+  {
+    titulo: 'Videolecciones por área',
+    descripcion: 'Explicaciones en video para los conceptos más difíciles del ECOEMS, integradas directamente en la plataforma.',
+    area: 'Contenido',
+  },
+  {
+    titulo: 'Rankings entre compañeros de academia',
+    descripcion: 'Competencia amigable entre estudiantes del mismo tutor para motivar el estudio colectivo.',
+    area: 'Gamificación',
+  },
+];
+
+const areaColors: Record<string, string> = {
+  'Exámenes': 'bg-terracotta/10 text-terracotta',
+  'Estudio': 'bg-turquoise/10 text-turquoise',
+  'Flashcards': 'bg-purple-500/10 text-purple-600',
+  'Módulos': 'bg-blue-500/10 text-blue-600',
+  'Tutores': 'bg-amber-500/10 text-amber-600',
+  'Plataforma': 'bg-navy/10 text-navy',
+  'Contenido': 'bg-emerald-500/10 text-emerald-600',
+  'Dashboard': 'bg-indigo-500/10 text-indigo-600',
+  'Gamificación': 'bg-rose-500/10 text-rose-600',
+  'Comunidad': 'bg-orange-500/10 text-orange-600',
+};
+---
+
+<Layout title="Hoja de Ruta — Lo que viene en TLACU | TLACU">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-36 sm:pt-40 pb-20 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+            </svg>
+            Transparencia total
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Hoja de <span class="text-gradient-fire">ruta</span>
+          </h1>
+          <p class="text-xl text-white/70 max-w-2xl mx-auto mb-8">
+            Elegir TLACU es elegir una plataforma viva. Aquí puedes ver qué hemos construido, en qué estamos trabajando y a dónde vamos.
+          </p>
+          <div class="inline-flex items-center gap-3 bg-white/10 rounded-2xl px-6 py-4 border border-white/10">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-white/80 text-sm">Plataforma en desarrollo activo — actualizamos constantemente</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leyenda de estados -->
+    <section class="py-10 bg-cream border-b border-navy/10 sticky top-0 z-10 backdrop-blur-md bg-cream/90">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+            <span class="text-navy/70 font-medium">Lanzado</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+            <span class="text-navy/70 font-medium">En desarrollo</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-turquoise"></span>
+            <span class="text-navy/70 font-medium">Próximamente</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-navy/30"></span>
+            <span class="text-navy/70 font-medium">En consideración</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lanzado -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-4 mb-10">
+          <span class="w-4 h-4 rounded-full bg-emerald-500 flex-shrink-0"></span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy">Ya disponible en TLACU</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {lanzado.map((item) => (
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5 flex gap-4">
+              <span class="w-8 h-8 bg-emerald-500/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </span>
+              <div>
+                <div class="flex items-start gap-2 flex-wrap mb-1">
+                  <h3 class="font-bold text-navy">{item.titulo}</h3>
+                  <span class={`text-xs font-semibold px-2 py-0.5 rounded-full ${areaColors[item.area] || 'bg-navy/10 text-navy'}`}>{item.area}</span>
+                </div>
+                <p class="text-navy/60 text-sm">{item.descripcion}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- En desarrollo -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-4 mb-10">
+          <span class="w-4 h-4 rounded-full bg-amber-400 flex-shrink-0"></span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy">En desarrollo ahora mismo</h2>
+        </div>
+        <div class="space-y-4">
+          {enDesarrollo.map((item) => (
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-400/20">
+              <div class="flex items-start justify-between gap-4 mb-3">
+                <div class="flex items-start gap-3 flex-1">
+                  <span class="w-8 h-8 bg-amber-400/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="flex items-center gap-2 flex-wrap mb-1">
+                      <h3 class="font-bold text-navy">{item.titulo}</h3>
+                      <span class={`text-xs font-semibold px-2 py-0.5 rounded-full ${areaColors[item.area] || 'bg-navy/10 text-navy'}`}>{item.area}</span>
+                    </div>
+                    <p class="text-navy/60 text-sm">{item.descripcion}</p>
+                  </div>
+                </div>
+                <span class="text-amber-500 font-bold text-sm flex-shrink-0">{item.progreso}%</span>
+              </div>
+              <div class="ml-11">
+                <div class="h-2 bg-navy/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-amber-400 rounded-full transition-all" style={`width: ${item.progreso}%`}></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Próximamente -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-4 mb-10">
+          <span class="w-4 h-4 rounded-full bg-turquoise flex-shrink-0"></span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy">Próximamente</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {proximamente.map((item) => (
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-turquoise/20 flex gap-4">
+              <span class="w-8 h-8 bg-turquoise/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </span>
+              <div>
+                <div class="flex items-start gap-2 flex-wrap mb-1">
+                  <h3 class="font-bold text-navy">{item.titulo}</h3>
+                  <span class={`text-xs font-semibold px-2 py-0.5 rounded-full ${areaColors[item.area] || 'bg-navy/10 text-navy'}`}>{item.area}</span>
+                </div>
+                <p class="text-navy/60 text-sm">{item.descripcion}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- En consideración -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="w-4 h-4 rounded-full bg-navy/30 flex-shrink-0"></span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy">En consideración</h2>
+        </div>
+        <p class="text-navy/60 mb-10 max-w-2xl">
+          Ideas que estamos evaluando. No hay fecha confirmada, pero forman parte de la visión a largo plazo de TLACU.
+        </p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          {consideracion.map((item) => (
+            <div class="bg-white/60 rounded-2xl p-6 border border-navy/10 flex gap-4">
+              <span class="w-8 h-8 bg-navy/5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-navy/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </span>
+              <div>
+                <div class="flex items-start gap-2 flex-wrap mb-1">
+                  <h3 class="font-bold text-navy/70">{item.titulo}</h3>
+                  <span class={`text-xs font-semibold px-2 py-0.5 rounded-full ${areaColors[item.area] || 'bg-navy/10 text-navy'}`}>{item.area}</span>
+                </div>
+                <p class="text-navy/50 text-sm">{item.descripcion}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+          Una plataforma que <span class="text-turquoise">no deja de crecer</span>
+        </h2>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          Cuando te registras en TLACU, tienes acceso a todo lo que existe hoy y a todo lo que llegue después. El contenido, los módulos y las herramientas se actualizan constantemente.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <PlatformLink path="/autenticacion/registro" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
+            Comenzar gratis
+          </PlatformLink>
+          <a href="/precios" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Ver planes
+          </a>
+        </div>
+        <p class="text-white/40 text-sm mt-6">Plan gratuito disponible. Sin tarjeta de crédito.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

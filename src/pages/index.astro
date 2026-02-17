@@ -83,12 +83,15 @@ import PlatformLink from '../components/PlatformLink.astro';
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <PlatformLink path="/autenticacion/registro" class="px-8 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-all shadow-xl hover:-translate-y-1">
-                Obtener acceso
+                Comenzar gratis
               </PlatformLink>
-              <a href="/plataforma" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
-                Ver detalles
+              <a href="/precios" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
+                Ver planes
               </a>
             </div>
+            <p class="text-white/50 text-sm mt-4 text-center lg:text-left">
+              Plan gratuito disponible. Sin tarjeta de crédito.
+            </p>
           </div>
 
           <!-- Illustration -->
@@ -655,6 +658,69 @@ import PlatformLink from '../components/PlatformLink.astro';
       </div>
     </section>
 
+    <!-- Plataforma viva -->
+    <section class="py-16 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl shadow-lg border border-navy/10 overflow-hidden">
+          <div class="grid lg:grid-cols-2 items-stretch">
+            <!-- Texto -->
+            <div class="p-8 md:p-12">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 rounded-full text-emerald-600 text-sm font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                En desarrollo activo
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-black text-navy leading-tight mb-4">
+                Una plataforma que <span class="text-terracotta">nunca deja de mejorar</span>
+              </h2>
+              <p class="text-navy/70 mb-6">
+                Todo en TLACU — el contenido, las preguntas, los módulos y las herramientas — se revisa y actualiza constantemente. Elegir TLACU es elegir una plataforma viva, no un recurso estático.
+              </p>
+              <ul class="space-y-3 mb-8">
+                {[
+                  'El banco de preguntas crece cada semana',
+                  'Los módulos interactivos se corrigen y amplían',
+                  'Las explicaciones de respuestas se mejoran con base en el desempeño real de los estudiantes',
+                  'Nuevas funciones llegan constantemente sin costo adicional',
+                ].map((item) => (
+                  <li class="flex items-start gap-3 text-sm text-navy/70">
+                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a href="/hoja-de-ruta" class="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-bold rounded-xl hover:bg-navy/90 transition-colors">
+                Ver hoja de ruta
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Visual -->
+            <div class="bg-gradient-to-br from-navy to-navy-light p-8 md:p-12 flex flex-col justify-center gap-4">
+              <div class="text-white/40 text-xs font-bold uppercase tracking-widest mb-2">Actualizaciones recientes</div>
+              {[
+                { label: 'Plan de estudio con IA', tag: 'Nuevo', color: 'bg-turquoise/20 text-turquoise' },
+                { label: 'Simulador con cámara', tag: 'Lanzado', color: 'bg-emerald-500/20 text-emerald-400' },
+                { label: 'Módulos interactivos expandidos', tag: 'Mejorado', color: 'bg-amber-400/20 text-amber-400' },
+                { label: 'Algoritmo SM-2 en flashcards', tag: 'Lanzado', color: 'bg-emerald-500/20 text-emerald-400' },
+              ].map((u) => (
+                <div class="flex items-center justify-between bg-white/10 backdrop-blur rounded-xl px-4 py-3 border border-white/10">
+                  <span class="text-white/90 text-sm font-medium">{u.label}</span>
+                  <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${u.color}`}>{u.tag}</span>
+                </div>
+              ))}
+              <a href="/hoja-de-ruta" class="mt-2 text-center text-white/50 hover:text-white text-sm transition-colors">
+                Ver todo en la hoja de ruta →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Features Overview -->
     <section id="features" class="py-20 lg:py-32 bg-cream-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -715,6 +781,104 @@ import PlatformLink from '../components/PlatformLink.astro';
       </div>
     </section>
 
+    <!-- Free vs Pro -->
+    <section class="py-20 lg:py-32 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Empieza gratis. Mejora con <span class="text-terracotta">Pro.</span>
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            El plan gratuito ya te da acceso a herramientas reales que marcan la diferencia. El plan Pro desbloquea el potencial completo.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Plan Gratuito -->
+          <div class="bg-white rounded-3xl p-8 shadow-lg border-2 border-navy/10">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <span class="text-xs font-bold text-navy/40 uppercase tracking-widest">Plan</span>
+                <h3 class="text-2xl font-black text-navy">Gratuito</h3>
+              </div>
+              <span class="text-3xl font-black text-navy">$0</span>
+            </div>
+            <p class="text-navy/60 text-sm mb-6">
+              Sin tarjeta de crédito. Sin fecha de vencimiento. Mejora real desde el primer día.
+            </p>
+            <ul class="space-y-3 mb-8">
+              {[
+                '20 preguntas de práctica diarias',
+                '20 flashcards diarias',
+                '3 exámenes rápidos por día',
+                'Retroalimentación en cada respuesta',
+                'Dashboard con estadísticas básicas',
+                'Módulos interactivos gratuitos',
+                'Racha de estudio y gamificación',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-sm text-navy/80">
+                  <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-navy text-white font-bold rounded-xl hover:bg-navy/90 transition-colors">
+              Comenzar gratis
+            </PlatformLink>
+          </div>
+
+          <!-- Plan Pro -->
+          <div class="bg-gradient-to-br from-navy to-navy-light rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-terracotta text-white text-xs font-bold rounded-full uppercase tracking-wide">Recomendado</span>
+            </div>
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <span class="text-xs font-bold text-white/40 uppercase tracking-widest">Plan</span>
+                <h3 class="text-2xl font-black">Pro</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-white/40 text-lg line-through block">$499</span>
+                <span class="text-4xl font-black text-white">$399</span>
+              </div>
+            </div>
+            <p class="text-white/60 text-sm mb-6">
+              Acceso total por 12 meses. Pago único, sin renovaciones automáticas.
+            </p>
+            <ul class="space-y-3 mb-8">
+              {[
+                'Todo lo del plan gratuito',
+                'Preguntas y flashcards ilimitadas',
+                'Exámenes completos y por área ilimitados',
+                'Simulador con cronómetro y cámara',
+                'Plan de estudio personalizado con IA',
+                'Todos los módulos interactivos',
+                'Estadísticas avanzadas por área',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-sm text-white/90">
+                  <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-dark transition-colors">
+              Obtener Pro — $399
+            </PlatformLink>
+            <p class="text-white/40 text-xs text-center mt-3">Garantía de devolución de 7 días</p>
+          </div>
+        </div>
+
+        <p class="text-center text-navy/50 text-sm mt-8">
+          ¿Quieres ver qué incluye cada plan en detalle?
+          <a href="/precios" class="text-turquoise hover:underline font-medium ml-1">Ver precios completos</a>
+        </p>
+      </div>
+    </section>
+
     <!-- Testimonial/Social Proof -->
     <section class="py-20 lg:py-32 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -769,12 +933,15 @@ import PlatformLink from '../components/PlatformLink.astro';
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <PlatformLink path="/autenticacion/registro" class="px-10 py-4 bg-white text-terracotta font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
-            Obtener acceso ahora
+            Comenzar gratis
           </PlatformLink>
-          <PlatformLink path="/autenticacion/iniciar-sesion" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
-            Ya tengo cuenta
-          </PlatformLink>
+          <a href="/precios" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Ver planes
+          </a>
         </div>
+        <p class="text-white/40 text-sm mt-6">
+          Plan gratuito disponible — sin tarjeta de crédito. Plan Pro desde $399 por 12 meses.
+        </p>
       </div>
     </section>
   </main>
