@@ -1,0 +1,782 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
+
+const qualityLevels = [
+  {
+    label: 'No lo sabía',
+    quality: 1,
+    color: 'bg-red-500',
+    textColor: 'text-red-600',
+    borderColor: 'border-red-200',
+    bgLight: 'bg-red-50',
+    description: 'La tarjeta regresa hoy mismo.',
+    effect: 'Reinicia el contador de repeticiones',
+  },
+  {
+    label: 'Difícil',
+    quality: 3,
+    color: 'bg-amber-400',
+    textColor: 'text-amber-600',
+    borderColor: 'border-amber-200',
+    bgLight: 'bg-amber-50',
+    description: 'Repaso en ~1 día.',
+    effect: 'Avanza con intervalo corto',
+  },
+  {
+    label: 'Bien',
+    quality: 4,
+    color: 'bg-emerald-500',
+    textColor: 'text-emerald-600',
+    borderColor: 'border-emerald-200',
+    bgLight: 'bg-emerald-50',
+    description: 'Repaso en ~4 días.',
+    effect: 'Avanza con intervalo estándar',
+  },
+  {
+    label: 'Fácil',
+    quality: 5,
+    color: 'bg-blue-500',
+    textColor: 'text-blue-600',
+    borderColor: 'border-blue-200',
+    bgLight: 'bg-blue-50',
+    description: 'Repaso en ~7+ días.',
+    effect: 'Avanza con intervalo largo',
+  },
+];
+
+const reviewDifferences = [
+  {
+    feature: 'Modo',
+    flashcards: 'Preguntas de frente/reverso',
+    repaso: 'Preguntas de opción múltiple',
+  },
+  {
+    feature: 'Calificación',
+    flashcards: '4 botones: No lo sabía / Difícil / Bien / Fácil',
+    repaso: '4 botones: Difícil / Regular / Bien / Fácil',
+  },
+  {
+    feature: 'Primer paso',
+    flashcards: 'Ver tarjeta → voltear → calificar',
+    repaso: 'Elegir respuesta → ver resultado → calificar',
+  },
+  {
+    feature: 'Intervalo en fallo',
+    flashcards: 'La tarjeta regresa el mismo día',
+    repaso: 'La pregunta regresa al día siguiente',
+  },
+];
+
+const papers = [
+  {
+    id: 1,
+    authors: 'Ebbinghaus, H.',
+    year: '1885',
+    title: 'Über das Gedächtnis. Untersuchungen zur experimentellen Psychologie',
+    source: 'Duncker & Humblot, Leipzig. (Trad. inglés: Memory: A Contribution to Experimental Psychology, 1913)',
+  },
+  {
+    id: 2,
+    authors: 'Wozniak, P. A., & Gorzelańczyk, E. J.',
+    year: '1994',
+    title: 'Optimization of repetition spacing in the practice of learning',
+    source: 'Acta Neurobiologiae Experimentalis, 54, 59–62',
+  },
+  {
+    id: 3,
+    authors: 'Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D.',
+    year: '2006',
+    title: 'Distributed Practice in Verbal Recall Tasks: A Review and Quantitative Synthesis',
+    source: 'Psychological Bulletin, 132(3), 354–380. https://doi.org/10.1037/0033-2909.132.3.354',
+    doi: 'https://doi.org/10.1037/0033-2909.132.3.354',
+  },
+  {
+    id: 4,
+    authors: 'Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., & Willingham, D. T.',
+    year: '2013',
+    title: 'Improving Students\' Learning With Effective Learning Techniques: Promising Directions From Cognitive and Educational Psychology',
+    source: 'Psychological Science in the Public Interest, 14(1), 4–58. https://doi.org/10.1177/1529100612453266',
+    doi: 'https://doi.org/10.1177/1529100612453266',
+  },
+  {
+    id: 5,
+    authors: 'Kornell, N., & Bjork, R. A.',
+    year: '2008',
+    title: 'Learning Concepts and Categories: Is Spacing the "Enemy of Induction"?',
+    source: 'Psychological Science, 19(6), 585–592. https://doi.org/10.1111/j.1467-9280.2008.02127.x',
+    doi: 'https://doi.org/10.1111/j.1467-9280.2008.02127.x',
+  },
+];
+---
+
+<Layout
+  title="Repaso Espaciado con SM-2 | Ciencia detrás de TLACU"
+  description="Descubre cómo el algoritmo SM-2 de repetición espaciada funciona en el modo Repaso y las Flashcards de TLACU para maximizar tu retención antes del ECOEMS."
+>
+  <Header />
+
+  <main>
+
+    <!-- Hero -->
+    <section class="pt-36 sm:pt-40 pb-20 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+            Ciencia del aprendizaje
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Tu cerebro olvida.<br />
+            <span class="text-gradient-fire">SM-2 lo evita.</span>
+          </h1>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto mb-10">
+            TLACU usa el algoritmo de repetición espaciada SM-2 en el modo Repaso y en las Flashcards para que estudies menos tiempo con mayor retención.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <PlatformLink path="/estudio/repaso" class="px-8 py-4 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-all">
+              Probar el Repaso
+            </PlatformLink>
+            <a href="#como-funciona" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/20">
+              Ver cómo funciona
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- La curva del olvido -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-navy/10 rounded-full text-navy text-xs font-semibold mb-4 uppercase tracking-wide">
+              Ebbinghaus, 1885 <sup class="ml-1">[1]</sup>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              La curva del olvido
+            </h2>
+            <p class="text-navy/70 mb-4">
+              Hermann Ebbinghaus descubrió en 1885 que sin repaso, olvidamos aproximadamente el <strong class="text-navy">50% de lo aprendido en el primer día</strong> y cerca del 70% en una semana.
+            </p>
+            <p class="text-navy/70 mb-4">
+              El antídoto es simple: repasar justo cuando estás a punto de olvidar, no antes (ineficiente) ni después (ya se perdió).
+            </p>
+            <p class="text-navy/70">
+              Un meta-análisis de <strong class="text-navy">317 experimentos</strong> confirmó que distribuir el estudio en sesiones espaciadas produce retención significativamente mayor que estudiar todo de una sola vez. <sup class="text-turquoise">[3]</sup>
+            </p>
+          </div>
+
+          <!-- Forgetting curve visualization -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-navy/10">
+            <p class="text-xs text-navy/40 uppercase tracking-wide font-semibold mb-4">Retención sin repaso vs. con repaso espaciado</p>
+            <div class="relative h-48 mb-6">
+              <!-- Y axis label -->
+              <div class="absolute -left-1 top-0 bottom-8 flex flex-col justify-between text-xs text-navy/40">
+                <span>100%</span>
+                <span>75%</span>
+                <span>50%</span>
+                <span>25%</span>
+                <span>0%</span>
+              </div>
+              <!-- Chart area -->
+              <div class="ml-8 h-full relative">
+                <svg viewBox="0 0 400 160" class="w-full h-full" preserveAspectRatio="none">
+                  <!-- Grid lines -->
+                  <line x1="0" y1="40" x2="400" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+                  <line x1="0" y1="80" x2="400" y2="80" stroke="#e2e8f0" stroke-width="1"/>
+                  <line x1="0" y1="120" x2="400" y2="120" stroke="#e2e8f0" stroke-width="1"/>
+                  <!-- Forgetting curve (exponential decay) -->
+                  <path d="M 0,0 C 40,30 80,70 120,95 C 160,115 200,130 280,140 C 320,143 360,145 400,147"
+                        fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,3"/>
+                  <!-- Spaced repetition curve (sawtooth going up) -->
+                  <path d="M 0,0 L 90,60 L 90,15 L 180,55 L 180,8 L 280,40 L 280,2 L 400,25"
+                        fill="none" stroke="#3a9d9b" stroke-width="2.5"/>
+                  <!-- Dots at review points -->
+                  <circle cx="90" cy="15" r="4" fill="#3a9d9b"/>
+                  <circle cx="180" cy="8" r="4" fill="#3a9d9b"/>
+                  <circle cx="280" cy="2" r="4" fill="#3a9d9b"/>
+                </svg>
+              </div>
+              <!-- X axis -->
+              <div class="ml-8 flex justify-between text-xs text-navy/40 mt-1">
+                <span>Día 1</span>
+                <span>Día 3</span>
+                <span>Semana 1</span>
+                <span>Semana 2</span>
+                <span>Mes 1</span>
+              </div>
+            </div>
+            <div class="flex gap-6 text-sm">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-0.5 bg-red-400" style="background: repeating-linear-gradient(to right, #ef4444 0, #ef4444 6px, transparent 6px, transparent 9px)"></div>
+                <span class="text-navy/60">Sin repaso</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-0.5 bg-turquoise"></div>
+                <span class="text-navy/60">Con SM-2</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-turquoise"></div>
+                <span class="text-navy/60">Momento de repaso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué es SM-2 -->
+    <section id="como-funciona" class="py-20 bg-gradient-to-br from-navy to-navy-light">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full text-white/70 text-xs font-semibold mb-4 uppercase tracking-wide">
+            Wozniak & Gorzelańczyk, 1994 <sup class="ml-1">[2]</sup>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+            ¿Qué es el algoritmo SM-2?
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Desarrollado por Piotr Wozniak en la década de 1980, SM-2 es la base de Anki y de los principales sistemas de estudio con repetición espaciada en el mundo.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-turquoise/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-2">Factor de facilidad (EF)</h3>
+            <p class="text-white/60 text-sm">
+              Cada tarjeta o pregunta tiene un EF inicial de 2.5. Se ajusta con cada respuesta: sube cuando dominas el contenido, baja cuando lo olvidas. Mínimo 1.3.
+            </p>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-turquoise/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-2">Intervalo creciente</h3>
+            <p class="text-white/60 text-sm">
+              Primera revisión: 1 día. Segunda: 6 días. Las siguientes: <em class="text-white/80">intervalo × EF</em>. Si fallas, el contador vuelve a cero y el intervalo se reinicia.
+            </p>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+            <div class="w-12 h-12 bg-turquoise/20 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.95-.69l1.519-4.674z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-2">Nivel de dominio</h3>
+            <p class="text-white/60 text-sm">
+              TLACU calcula un nivel de 0 a 5 basado en tu precisión histórica y número de repeticiones. Te muestra qué tan bien dominas cada concepto.
+            </p>
+          </div>
+        </div>
+
+        <!-- Formula box -->
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/10 max-w-2xl mx-auto">
+          <p class="text-white/40 text-xs uppercase tracking-wide mb-3 text-center">Actualización del factor de facilidad</p>
+          <div class="font-mono text-center text-white/90 text-sm sm:text-base bg-black/20 rounded-xl p-4">
+            EF' = EF + (0.1 − (5 − q) × (0.08 + (5 − q) × 0.02))
+          </div>
+          <p class="text-white/40 text-xs text-center mt-3">
+            donde <code class="text-white/60">q</code> es la calidad de respuesta (0–5). Valores ≥ 3 se consideran correctos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Los botones de calificación -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            ¿Qué significa cada calificación?
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Después de responder, TLACU te pide que evalúes qué tan seguro te sentiste. Esta autoevaluación es la entrada principal al algoritmo SM-2.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+          {qualityLevels.map((level) => (
+            <div class={`bg-white rounded-2xl p-6 shadow-lg border ${level.borderColor} hover:shadow-xl transition-all`}>
+              <div class={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-bold mb-4 ${level.bgLight} ${level.textColor}`}>
+                <span class={`w-2.5 h-2.5 rounded-full ${level.color}`}></span>
+                {level.label}
+              </div>
+              <div class="text-3xl font-black text-navy mb-1">q = {level.quality}</div>
+              <p class="text-navy/60 text-sm mb-3">{level.effect}</p>
+              <p class={`text-xs font-semibold ${level.textColor}`}>{level.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="bg-navy/5 rounded-2xl p-6 max-w-2xl mx-auto border border-navy/10">
+          <p class="text-sm text-navy/70 text-center">
+            <strong class="text-navy">Regla clave:</strong> calificaciones ≥ 3 se consideran "correctas" y avanzan el intervalo. Calificaciones &lt; 3 reinician el progreso de esa pregunta o tarjeta. Calificar honestamente es lo que hace inteligente al sistema.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repaso vs Flashcards -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Repaso espaciado vs. Flashcards
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Ambos modos usan SM-2, pero están diseñados para distintos momentos de tu preparación.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-10">
+          <!-- Repaso espaciado -->
+          <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-navy/10">
+            <div class="bg-gradient-to-r from-navy to-navy-light px-8 py-5 flex items-center gap-3">
+              <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-black text-white text-lg">Modo Repaso</h3>
+                <p class="text-white/60 text-sm">Preguntas de opción múltiple con SM-2</p>
+              </div>
+            </div>
+            <div class="p-8">
+              <ol class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 bg-navy rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                  <div>
+                    <p class="font-semibold text-navy text-sm">Elige una respuesta</p>
+                    <p class="text-navy/50 text-xs">El sistema registra si fue correcta y cuánto tiempo tomaste.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 bg-navy rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                  <div>
+                    <p class="font-semibold text-navy text-sm">Ve la explicación</p>
+                    <p class="text-navy/50 text-xs">Cada pregunta incluye retroalimentación de por qué cada opción es correcta o incorrecta.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 bg-navy rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                  <div>
+                    <p class="font-semibold text-navy text-sm">Califica tu seguridad</p>
+                    <p class="text-navy/50 text-xs">Difícil / Regular / Bien / Fácil. Esta autoevaluación actualiza SM-2.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 bg-turquoise rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <p class="font-semibold text-navy text-sm">SM-2 calcula el próximo repaso</p>
+                    <p class="text-navy/50 text-xs">La pregunta aparecerá de nuevo exactamente cuando tu retención comience a bajar.</p>
+                  </div>
+                </li>
+              </ol>
+              <div class="mt-6 pt-6 border-t border-navy/10">
+                <PlatformLink path="/estudio/repaso" class="block w-full text-center px-5 py-3 bg-navy text-white font-bold rounded-xl hover:bg-navy-dark transition-colors text-sm">
+                  Ir al Repaso espaciado
+                </PlatformLink>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flashcards -->
+          <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-navy/10">
+            <div class="bg-gradient-to-r from-turquoise to-turquoise-dark px-8 py-5 flex items-center gap-3">
+              <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-black text-white text-lg">Flashcards</h3>
+                <p class="text-white/70 text-sm">Tarjetas frente/reverso con SM-2</p>
+              </div>
+            </div>
+            <div class="p-8">
+              <ol class="space-y-4">
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 bg-turquoise rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                  <div>
+                    <p class="font-semibold text-navy text-sm">Lee el frente de la tarjeta</p>
+                    <p class="text-navy/50 text-xs">Intenta recordar la respuesta antes de voltearla.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 bg-turquoise rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                  <div>
+                    <p class="font-semibold text-navy text-sm">Voltea y verifica</p>
+                    <p class="text-navy/50 text-xs">Ve la respuesta completa y el intervalo estimado para cada calificación.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 bg-turquoise rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                  <div>
+                    <p class="font-semibold text-navy text-sm">Califica honestamente</p>
+                    <p class="text-navy/50 text-xs">No lo sabía / Difícil / Bien / Fácil. Cada botón muestra el intervalo resultante antes de que hagas clic.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-6 h-6 bg-turquoise rounded-full text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">✓</span>
+                  <div>
+                    <p class="font-semibold text-navy text-sm">Intervalo personalizado</p>
+                    <p class="text-navy/50 text-xs">Cada tarjeta tiene su propio EF y contador de repeticiones, independiente de las demás.</p>
+                  </div>
+                </li>
+              </ol>
+              <div class="mt-6 pt-6 border-t border-turquoise/10">
+                <PlatformLink path="/practicar/flashcards" class="block w-full text-center px-5 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-colors text-sm">
+                  Ir a Flashcards
+                </PlatformLink>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diff table — desktop -->
+        <div class="hidden md:block bg-white rounded-2xl shadow-lg border border-navy/10 overflow-hidden">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-navy/5 border-b border-navy/10">
+                <th class="py-3 px-5 text-left font-bold text-navy/70">Característica</th>
+                <th class="py-3 px-5 text-center font-bold text-navy">Flashcards</th>
+                <th class="py-3 px-5 text-center font-bold text-turquoise">Repaso</th>
+              </tr>
+            </thead>
+            <tbody>
+              {reviewDifferences.map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-cream/40'}>
+                  <td class="py-3 px-5 font-medium text-navy/70">{row.feature}</td>
+                  <td class="py-3 px-5 text-center text-navy/60">{row.flashcards}</td>
+                  <td class="py-3 px-5 text-center text-navy/60">{row.repaso}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Diff cards — mobile -->
+        <div class="md:hidden space-y-3">
+          {reviewDifferences.map((row) => (
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-navy/10">
+              <p class="text-xs font-bold text-navy/40 uppercase tracking-wide mb-3">{row.feature}</p>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-navy/5 rounded-lg p-3">
+                  <p class="text-[10px] font-bold text-navy mb-1">Flashcards</p>
+                  <p class="text-xs text-navy/70">{row.flashcards}</p>
+                </div>
+                <div class="bg-turquoise/5 rounded-lg p-3">
+                  <p class="text-[10px] font-bold text-turquoise mb-1">Repaso</p>
+                  <p class="text-xs text-navy/70">{row.repaso}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- La evidencia -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+            Respaldado por la investigación
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            La repetición espaciada no es una moda. Es una de las técnicas de estudio con mayor evidencia científica disponible.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-14">
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-7 border border-white/10 text-center">
+            <div class="text-5xl font-black text-turquoise mb-2">839</div>
+            <p class="text-white/80 font-semibold mb-1">evaluaciones analizadas</p>
+            <p class="text-white/50 text-sm">en 317 experimentos independientes de práctica distribuida. <sup>[3]</sup></p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-7 border border-white/10 text-center">
+            <div class="text-5xl font-black text-turquoise mb-2">#1</div>
+            <p class="text-white/80 font-semibold mb-1">técnica de estudio</p>
+            <p class="text-white/50 text-sm">La práctica distribuida fue una de las dos únicas técnicas calificadas como "alta utilidad" en una revisión de 10 técnicas. <sup>[4]</sup></p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-7 border border-white/10 text-center">
+            <div class="text-5xl font-black text-turquoise mb-2">2×</div>
+            <p class="text-white/80 font-semibold mb-1">mejor retención</p>
+            <p class="text-white/50 text-sm">Los estudiantes que usaron práctica espaciada recordaron el doble que quienes estudiaron todo de una vez, incluso sintiéndose menos preparados. <sup>[5]</sup></p>
+          </div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-8 border border-white/10 max-w-3xl mx-auto">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-turquoise/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-white/90 font-semibold mb-2">El efecto de la ilusión de fluidez</p>
+              <p class="text-white/60 text-sm leading-relaxed">
+                Los estudiantes que usan práctica masiva (estudiar mucho de un tirón) frecuentemente <em class="text-white/80">sobrestiman</em> cuánto recuerdan. El esfuerzo que requiere el repaso espaciado genera una sensación de mayor dificultad, pero produce retención real y duradera. <sup>[5]</sup>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consejos de uso -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Cómo sacar el máximo provecho
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-7 shadow-lg border border-navy/5 hover:shadow-xl hover:border-turquoise/30 transition-all">
+            <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg mb-2">Sé constante, no intensivo</h3>
+            <p class="text-navy/60 text-sm">20 minutos diarios durante 3 meses son más efectivos que 6 horas la semana anterior al ECOEMS. El algoritmo necesita tiempo para programar los repasos óptimos.</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-7 shadow-lg border border-navy/5 hover:shadow-xl hover:border-turquoise/30 transition-all">
+            <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg mb-2">Califica con honestidad</h3>
+            <p class="text-navy/60 text-sm">Si marcas "Fácil" en todo, el algoritmo espaciará demasiado los repasos y olvidarás. Si marcas "Difícil" en todo, los repasos serán muy frecuentes y desperdiciarás tiempo.</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-7 shadow-lg border border-navy/5 hover:shadow-xl hover:border-turquoise/30 transition-all">
+            <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg mb-2">Repaso + Flashcards juntos</h3>
+            <p class="text-navy/60 text-sm">El modo Repaso refuerza el razonamiento de opción múltiple del ECOEMS. Las Flashcards consolidan conceptos y vocabulario clave. Úsalos en paralelo para mejor cobertura.</p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-7 shadow-lg border border-navy/5 hover:shadow-xl hover:border-turquoise/30 transition-all">
+            <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg mb-2">Confía en los días de poco repaso</h3>
+            <p class="text-navy/60 text-sm">Cuando el sistema te muestra pocas preguntas es una buena señal: has dominado el material y tus intervalos son largos. No es que no haya nada que hacer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Preguntas frecuentes
+          </h2>
+          <p class="text-navy/60">Todo lo que necesitas saber sobre el repaso espaciado y por qué funciona para el ECOEMS.</p>
+        </div>
+
+        <div class="space-y-4">
+
+          <details class="group bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-bold text-navy hover:text-turquoise transition-colors list-none">
+              ¿Por qué SM-2 es ideal si solo tengo unos meses para prepararme?
+              <svg class="w-5 h-5 flex-shrink-0 text-navy/40 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70 text-sm leading-relaxed border-t border-navy/5 pt-4">
+              Precisamente porque el tiempo es limitado, no puedes darte el lujo de repasar todo por igual. SM-2 identifica qué preguntas tienes a punto de olvidar y las prioriza. Las que ya dominas las pospone. El resultado es que cada sesión de estudio es la más eficiente posible dado tu nivel actual: estudias lo que más necesitas, cuando más lo necesitas.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-bold text-navy hover:text-turquoise transition-colors list-none">
+              ¿Cuánto tiempo debo dedicar al repaso cada día?
+              <svg class="w-5 h-5 flex-shrink-0 text-navy/40 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70 text-sm leading-relaxed border-t border-navy/5 pt-4">
+              Con 15 a 20 minutos diarios es suficiente para mantener activo el sistema. La clave no es la duración de cada sesión sino la constancia: estudiar todos los días produce mucho mejor retención que sesiones largas y espaciadas. El algoritmo acumula tu historial y con el tiempo las sesiones se vuelven más cortas porque tienes más material ya dominado.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-bold text-navy hover:text-turquoise transition-colors list-none">
+              ¿Qué pasa si me salto un día o varios días?
+              <svg class="w-5 h-5 flex-shrink-0 text-navy/40 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70 text-sm leading-relaxed border-t border-navy/5 pt-4">
+              No pasa nada catastrófico. Las preguntas que debían aparecer ese día simplemente aparecen en la siguiente sesión. Si te saltaste muchos días, verás más preguntas acumuladas de lo normal. El sistema no castiga ni reinicia tu progreso: tu historial de respuestas y tus niveles de dominio se conservan por completo.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-bold text-navy hover:text-turquoise transition-colors list-none">
+              ¿Por qué a veces siento que el repaso es difícil aunque ya estudié ese tema?
+              <svg class="w-5 h-5 flex-shrink-0 text-navy/40 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70 text-sm leading-relaxed border-t border-navy/5 pt-4">
+              Esa sensación de esfuerzo es exactamente lo que hace efectivo al método. La investigación llama a esto <em>deseable dificultad</em>: recuperar información desde la memoria, en lugar de releerla, fortalece la huella de memoria. Si el repaso se sintiera fácil, significaría que el intervalo fue demasiado corto y que repetiste antes de que tu cerebro realmente lo necesitara.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-bold text-navy hover:text-turquoise transition-colors list-none">
+              ¿Debo usar Repaso o Flashcards? ¿O los dos?
+              <svg class="w-5 h-5 flex-shrink-0 text-navy/40 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70 text-sm leading-relaxed border-t border-navy/5 pt-4">
+              Los dos se complementan. El modo Repaso entrena el razonamiento con el formato exacto del ECOEMS: opción múltiple, con distractores, bajo tiempo. Las Flashcards sirven mejor para consolidar conceptos puntuales, fórmulas, vocabulario y datos que necesitas recordar rápido. Lo ideal es dedicar la primera parte de tu sesión al Repaso y los últimos minutos a Flashcards de las áreas donde tienes menor dominio.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-bold text-navy hover:text-turquoise transition-colors list-none">
+              ¿Cómo sé si estoy progresando?
+              <svg class="w-5 h-5 flex-shrink-0 text-navy/40 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70 text-sm leading-relaxed border-t border-navy/5 pt-4">
+              Hay dos señales claras. Primera: el sistema te mostrará cada vez menos preguntas en las sesiones de repaso, porque sus intervalos son más largos. Segunda: en tu perfil puedes ver el nivel de dominio (0–5) por pregunta y por área. Cuando una área alcanza dominio 4 o 5 en la mayoría de sus preguntas, estás listo para enfrentarla en el examen real.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-bold text-navy hover:text-turquoise transition-colors list-none">
+              ¿Funciona para todas las áreas del ECOEMS?
+              <svg class="w-5 h-5 flex-shrink-0 text-navy/40 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70 text-sm leading-relaxed border-t border-navy/5 pt-4">
+              Sí. El algoritmo es agnóstico al tema: aplica igual para Matemáticas, Español, Ciencias, Historia o Pensamiento Lógico. La única diferencia es que en áreas de razonamiento puro (como Matemáticas), la práctica de resolución paso a paso con los exámenes por área puede complementar mejor las sesiones de Repaso, mientras que en áreas de contenido declarativo (Historia, Biología) las Flashcards aportan más valor.
+            </div>
+          </details>
+
+          <details class="group bg-white rounded-2xl shadow-sm border border-navy/10 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-bold text-navy hover:text-turquoise transition-colors list-none">
+              ¿Existen otros algoritmos de repetición espaciada? ¿Por qué TLACU usa SM-2?
+              <svg class="w-5 h-5 flex-shrink-0 text-navy/40 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70 text-sm leading-relaxed border-t border-navy/5 pt-4 space-y-4">
+              <p>Sí, hay varios. Los más conocidos son:</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-navy/30 mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span class="font-semibold text-navy">SM-5 a SM-18</span> — versiones posteriores del propio Wozniak, usadas en SuperMemo. Más precisas pero con parámetros que requieren semanas de datos por usuario para calibrarse bien.
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-navy/30 mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span class="font-semibold text-navy">FSRS</span> (Free Spaced Repetition Scheduler, 2022) — el algoritmo más moderno, adoptado por Anki desde 2023. Modela explícitamente la estabilidad y la recuperabilidad de la memoria. Produce mejores intervalos a largo plazo, pero necesita cientos de revisiones por tarjeta para que su ventaja sea apreciable.
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-navy/30 mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span class="font-semibold text-navy">Leitner System</span> — el método de cajas físicas que inspiró los sistemas digitales. Simple y sin cómputo, pero sin personalización por dificultad de tarjeta.
+                  </div>
+                </li>
+              </ul>
+              <p>
+                TLACU usa SM-2 por una razón concreta: <strong class="text-navy">es el algoritmo más adecuado para el horizonte de preparación del ECOEMS</strong>. Los algoritmos más avanzados como FSRS muestran su ventaja real después de meses o años de revisiones acumuladas por tarjeta; para una preparación de 3 a 6 meses con cientos de preguntas nuevas, SM-2 ofrece programación inteligente desde la primera sesión, sin necesidad de datos históricos previos. Es robusto, bien documentado y más que suficiente para el objetivo: que llegues al examen habiendo retenido el mayor porcentaje posible del contenido.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Referencias -->
+    <section class="py-16 bg-cream-dark">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-xl font-black text-navy mb-6 flex items-center gap-2">
+          <svg class="w-5 h-5 text-navy/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+          Referencias
+        </h2>
+        <ol class="space-y-3">
+          {papers.map((paper) => (
+            <li class="text-sm text-navy/60 leading-relaxed flex gap-3">
+              <span class="text-navy/30 font-mono font-bold flex-shrink-0">[{paper.id}]</span>
+              <span>
+                <span class="text-navy/80">{paper.authors}</span> ({paper.year}). {paper.title}. <em>{paper.source.split('. https://')[0]}</em>.
+                {paper.doi && (
+                  <a href={paper.doi} target="_blank" rel="noopener noreferrer" class="text-turquoise hover:underline ml-1">
+                    {paper.doi}
+                  </a>
+                )}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="text-6xl mb-6 block">🧠</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Tu memoria tiene más capacidad de la que crees
+        </h2>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          SM-2 no hace el trabajo por ti, pero sí te asegura que cada minuto de estudio cuente el doble.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <PlatformLink path="/autenticacion/registro" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all">
+            Empezar gratis
+          </PlatformLink>
+          <a href="/por-que-tlacu" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Por qué TLACU
+          </a>
+        </div>
+        <p class="text-white/40 text-sm mt-6">Sin tarjeta de crédito. Plan gratuito disponible.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

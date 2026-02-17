@@ -82,7 +82,7 @@ import PlatformLink from '../components/PlatformLink.astro';
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <PlatformLink path="/auth/register" class="px-8 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-all shadow-xl hover:-translate-y-1">
+              <PlatformLink path="/autenticacion/registro" class="px-8 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-all shadow-xl hover:-translate-y-1">
                 Obtener acceso
               </PlatformLink>
               <a href="/plataforma" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
@@ -581,6 +581,80 @@ import PlatformLink from '../components/PlatformLink.astro';
       </div>
     </section>
 
+    <!-- SM-2 Spaced Repetition Banner -->
+    <section class="py-16 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href="/repaso-espaciado" class="group block bg-gradient-to-br from-navy to-navy-light rounded-3xl p-8 md:p-10 shadow-2xl overflow-hidden relative hover:shadow-navy/30 transition-all">
+
+          <!-- Background decoration -->
+          <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-turquoise/10 rounded-full blur-3xl"></div>
+            <div class="absolute -left-8 -bottom-8 w-48 h-48 bg-terracotta/10 rounded-full blur-2xl"></div>
+          </div>
+
+          <div class="relative grid md:grid-cols-2 gap-8 items-center">
+            <!-- Left: text -->
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-turquoise/20 rounded-full text-turquoise text-xs font-semibold mb-4 uppercase tracking-wide">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                Ciencia detrás de TLACU
+              </div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight mb-4">
+                Estudia menos. <span class="text-turquoise">Recuerda más.</span><br />
+                El algoritmo SM-2.
+              </h2>
+              <p class="text-white/60 text-sm sm:text-base max-w-md mb-6">
+                El modo Repaso y las Flashcards usan repetición espaciada basada en investigación de 300+ experimentos. Aprende cómo funciona el algoritmo que programa cuándo repasar cada pregunta.
+              </p>
+              <span class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-bold rounded-xl group-hover:bg-turquoise-dark transition-colors text-sm">
+                Leer sobre SM-2
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Right: visual -->
+            <div class="hidden md:flex items-center justify-center gap-4">
+              <!-- Interval cards -->
+              <div class="flex flex-col gap-3">
+                {[
+                  { label: 'Difícil', interval: '1 día', color: 'bg-amber-400', q: 3 },
+                  { label: 'Bien', interval: '4 días', color: 'bg-emerald-400', q: 4 },
+                  { label: 'Fácil', interval: '7 días', color: 'bg-blue-400', q: 5 },
+                ].map((item) => (
+                  <div class="bg-white/10 backdrop-blur border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[160px]">
+                    <span class={`w-2.5 h-2.5 rounded-full ${item.color} flex-shrink-0`}></span>
+                    <div>
+                      <div class="text-white font-semibold text-sm">{item.label}</div>
+                      <div class="text-white/50 text-xs">próximo repaso: {item.interval}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Arrow + brain icon -->
+              <div class="flex flex-col items-center gap-3 text-white/20">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </div>
+
+              <div class="bg-white/10 border border-white/20 rounded-2xl p-5 text-center">
+                <svg class="w-10 h-10 text-turquoise mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <div class="text-white font-bold text-sm">SM-2</div>
+                <div class="text-white/40 text-xs">algoritmo</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- Features Overview -->
     <section id="features" class="py-20 lg:py-32 bg-cream-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -694,10 +768,10 @@ import PlatformLink from '../components/PlatformLink.astro';
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <PlatformLink path="/auth/register" class="px-10 py-4 bg-white text-terracotta font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
+          <PlatformLink path="/autenticacion/registro" class="px-10 py-4 bg-white text-terracotta font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
             Obtener acceso ahora
           </PlatformLink>
-          <PlatformLink path="/auth/login" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+          <PlatformLink path="/autenticacion/iniciar-sesion" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
             Ya tengo cuenta
           </PlatformLink>
         </div>

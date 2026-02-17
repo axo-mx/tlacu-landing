@@ -554,7 +554,7 @@ export function CellViewer3D() {
 
           {/* CTA */}
           <a
-            href={`${(typeof window !== 'undefined' && (window as unknown as { __TLACU_PLATFORM_URL__?: string }).__TLACU_PLATFORM_URL__) || 'https://tlacu.mx'}/auth/register`}
+            href={`${(typeof window !== 'undefined' && (window as unknown as { __TLACU_PLATFORM_URL__?: string }).__TLACU_PLATFORM_URL__) || 'https://tlacu.mx'}/autenticacion/registro`}
             className="block w-full mt-4 px-4 py-3 bg-orange-500 text-white text-center font-semibold rounded-xl hover:bg-orange-600 transition-colors"
           >
             Ver modelo completo →
