@@ -1,0 +1,370 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PlatformLink from '../../components/PlatformLink.astro';
+---
+
+<Layout title="Examen Rápido - TLACU ECOEMS">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-36 sm:pt-40 pb-20 bg-gradient-hero relative overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-navy-light/20 rounded-full blur-3xl"></div>
+        <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-turquoise/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              Práctica rápida
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+              Examen <span class="text-turquoise">Rápido</span>
+            </h1>
+            <p class="text-xl text-white/70 mb-8">
+              Para cuando tienes poco tiempo pero quieres practicar. 44 preguntas cubriendo todas las áreas del ECOEMS en 60 minutos.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <PlatformLink path="/autenticacion/registro" class="px-8 py-4 bg-navy-light text-white font-bold rounded-xl hover:bg-navy transition-all shadow-xl text-center">
+                Hacer examen rápido
+              </PlatformLink>
+              <a href="#cuando-usar" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/20 text-center">
+                ¿Cuándo usarlo?
+              </a>
+            </div>
+          </div>
+
+          <div class="hidden lg:flex justify-center">
+            <div class="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/10 rounded-xl p-4 text-center">
+                  <div class="text-3xl font-black text-turquoise">44</div>
+                  <div class="text-white/60 text-sm">Preguntas</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 text-center">
+                  <div class="text-3xl font-black text-turquoise">60</div>
+                  <div class="text-white/60 text-sm">Minutos</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 text-center">
+                  <div class="text-3xl font-black text-white">10</div>
+                  <div class="text-white/60 text-sm">Áreas</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 text-center">
+                  <div class="text-3xl font-black text-white">1h</div>
+                  <div class="text-white/60 text-sm">Cronómetro</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cuándo usar -->
+    <section id="cuando-usar" class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            ¿Cuándo usar el examen rápido?
+          </h2>
+          <p class="text-lg text-navy/70 max-w-2xl mx-auto">
+            Perfecto para sesiones cortas de práctica
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">Tienes poco tiempo</h3>
+            <p class="text-navy/60">
+              ¿Solo 60 minutos libres? El examen rápido te permite practicar sin comprometer 3 horas completas.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">Práctica diaria</h3>
+            <p class="text-navy/60">
+              Ideal para mantener tu racha de estudio. Un examen rápido al día te mantiene activo en todas las áreas.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">Tiempo suficiente para pensar</h3>
+            <p class="text-navy/60">
+              60 minutos para 44 preguntas. Tiempo de sobra para pensar cada respuesta sin la presión de las 3 horas del simulador completo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué incluye -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1">
+            <div class="bg-white rounded-2xl shadow-2xl p-6 border border-navy/5">
+              <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-cream rounded-xl">
+                  <span class="text-navy font-medium">Habilidad Verbal</span>
+                  <span class="text-navy/60 text-sm">5 preguntas</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-cream rounded-xl">
+                  <span class="text-navy font-medium">Habilidad Matemática</span>
+                  <span class="text-navy/60 text-sm">5 preguntas</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-cream rounded-xl">
+                  <span class="text-navy font-medium">Español</span>
+                  <span class="text-navy/60 text-sm">5 preguntas</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-cream rounded-xl">
+                  <span class="text-navy font-medium">Matemáticas</span>
+                  <span class="text-navy/60 text-sm">5 preguntas</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-navy/5 rounded-xl">
+                  <span class="text-navy/60 font-medium">+ 6 áreas más</span>
+                  <span class="text-navy/40 text-sm">24 preguntas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Todas las áreas en menos tiempo
+            </h2>
+            <p class="text-lg text-navy/70 mb-8">
+              El examen rápido cubre las 10 áreas del ECOEMS con menos preguntas, pero manteniendo la proporción del examen oficial.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">44 preguntas aleatorias</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">Las 10 áreas representadas</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">60 minutos con cronómetro</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">Explicación de cada respuesta</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/70">Calificación y análisis al finalizar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free vs Pro -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Límites Free vs Pro
+          </h2>
+          <p class="text-lg text-navy/70">
+            El plan gratuito tiene límite de exámenes rápidos
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-navy/10">
+            <div class="text-center mb-6">
+              <span class="text-sm font-bold text-navy/40 uppercase tracking-widest">Plan</span>
+              <h3 class="text-2xl font-black text-navy">Gratuito</h3>
+            </div>
+            <div class="text-center mb-6">
+              <div class="text-5xl font-black text-navy">7</div>
+              <div class="text-navy/60">exámenes rápidos totales</div>
+            </div>
+            <ul class="space-y-4 mb-8">
+              {[
+                '44 preguntas por examen',
+                'Todas las áreas',
+                'Explicaciones incluidas',
+                'Límite de 7 exámenes de por vida',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-navy/70">
+                  <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-navy text-white font-bold rounded-xl hover:bg-navy/90 transition-colors">
+              Empezar gratis
+            </PlatformLink>
+          </div>
+
+          <div class="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-8 shadow-lg text-white relative overflow-hidden">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-terracotta text-white text-xs font-bold rounded-full">ILIMITADOS</span>
+            </div>
+            <div class="text-center mb-6">
+              <span class="text-sm font-bold text-white/40 uppercase tracking-widest">Plan</span>
+              <h3 class="text-2xl font-black">Pro</h3>
+            </div>
+            <div class="text-center mb-6">
+              <div class="text-5xl font-black text-turquoise">∞</div>
+              <div class="text-white/60">exámenes rápidos ilimitados</div>
+            </div>
+            <ul class="space-y-4 mb-8">
+              {[
+                '44 preguntas por examen',
+                'Todas las áreas',
+                'Explicaciones incluidas',
+                'Sin límite de exámenes',
+                'Historial completo de resultados',
+                'Estadísticas de progreso',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-white/80">
+                  <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-colors">
+              Obtener Pro — $399
+            </PlatformLink>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparación con otros modos -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            ¿Qué modo de examen elegir?
+          </h2>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <table class="w-full">
+            <thead class="bg-navy text-white">
+              <tr>
+                <th class="text-left p-4 font-bold">Característica</th>
+                <th class="text-center p-4 font-bold">Rápido</th>
+                <th class="text-center p-4 font-bold">Simulacro</th>
+                <th class="text-center p-4 font-bold">Diagnóstico</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-navy/10">
+              <tr>
+                <td class="p-4 text-navy font-medium">Preguntas</td>
+                <td class="p-4 text-center text-navy/70">44</td>
+                <td class="p-4 text-center text-navy/70">128</td>
+                <td class="p-4 text-center text-navy/70">64/128</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-navy font-medium">Tiempo</td>
+                <td class="p-4 text-center text-navy/70">60 min</td>
+                <td class="p-4 text-center text-navy/70">3 horas</td>
+                <td class="p-4 text-center text-navy/70">Sin límite</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-navy font-medium">Ideal para</td>
+                <td class="p-4 text-center text-navy/70">Práctica rápida</td>
+                <td class="p-4 text-center text-navy/70">Simular el real</td>
+                <td class="p-4 text-center text-navy/70">Conocer tu nivel</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-navy font-medium">Genera plan</td>
+                <td class="p-4 text-center">
+                  <svg class="w-5 h-5 text-navy/30 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </td>
+                <td class="p-4 text-center">
+                  <svg class="w-5 h-5 text-navy/30 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </td>
+                <td class="p-4 text-center">
+                  <svg class="w-5 h-5 text-turquoise mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="/examenes" class="inline-flex items-center gap-2 text-turquoise hover:text-turquoise-dark font-semibold transition-colors">
+            Ver todos los modos de examen
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Practica aunque tengas poco tiempo
+        </h2>
+        <p class="text-xl text-white/70 mb-10">
+          Un examen rápido al día te mantiene activo en todas las áreas del ECOEMS.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <PlatformLink path="/autenticacion/registro" class="inline-block px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
+            Hacer examen rápido
+          </PlatformLink>
+          <a href="/examenes/diagnostico" class="inline-block px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            O empieza con el diagnóstico
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

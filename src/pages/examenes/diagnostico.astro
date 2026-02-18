@@ -1,0 +1,264 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PlatformLink from '../../components/PlatformLink.astro';
+---
+
+<Layout title="Examen Diagnóstico - TLACU ECOEMS">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-36 sm:pt-40 pb-20 bg-gradient-hero relative overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-turquoise/10 rounded-full blur-3xl"></div>
+        <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-turquoise/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Recomendado para empezar
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+              Examen <span class="text-turquoise">Diagnóstico</span>
+            </h1>
+            <p class="text-xl text-white/70 mb-8">
+              Conoce tu nivel actual en cada una de las 10 áreas del ECOEMS. Recibe un análisis detallado y genera tu plan de estudio personalizado.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <PlatformLink path="/autenticacion/registro" class="px-8 py-4 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-all shadow-xl text-center">
+                Hacer diagnóstico gratis
+              </PlatformLink>
+              <a href="#como-funciona" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/20 text-center">
+                Ver cómo funciona
+              </a>
+            </div>
+          </div>
+
+          <div class="hidden lg:flex justify-center">
+            <div class="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/10 rounded-xl p-4 text-center">
+                  <div class="text-3xl font-black text-turquoise">64</div>
+                  <div class="text-white/60 text-sm">Preguntas Free</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 text-center">
+                  <div class="text-3xl font-black text-turquoise">128</div>
+                  <div class="text-white/60 text-sm">Preguntas Pro</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 text-center">
+                  <div class="text-3xl font-black text-white">10</div>
+                  <div class="text-white/60 text-sm">Áreas evaluadas</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-4 text-center">
+                  <div class="text-3xl font-black text-white">~60</div>
+                  <div class="text-white/60 text-sm">Minutos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué incluye -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            ¿Qué incluye el diagnóstico?
+          </h2>
+          <p class="text-lg text-navy/70 max-w-2xl mx-auto">
+            Un análisis completo de tus fortalezas y áreas de mejora
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">Análisis por área</h3>
+            <p class="text-navy/60">
+              Ve tu porcentaje de aciertos en cada una de las 10 áreas. Identifica rápidamente dónde necesitas mejorar.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">Plan de estudio con IA</h3>
+            <p class="text-navy/60">
+              El sistema genera un plan diario personalizado basado en tu diagnóstico. Prioriza las áreas donde más lo necesitas.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-navy mb-3">Retroalimentación detallada</h3>
+            <p class="text-navy/60">
+              Cada pregunta tiene explicación de la respuesta correcta. Aprende de tus errores inmediatamente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section id="como-funciona" class="py-20 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            ¿Cómo funciona?
+          </h2>
+          <p class="text-lg text-navy/70">
+            3 pasos simples para conocer tu nivel
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
+              <div class="w-12 h-12 bg-turquoise text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">1</div>
+              <h3 class="text-xl font-bold text-navy mb-3">Responde las preguntas</h3>
+              <p class="text-navy/60">
+                64 preguntas en el plan gratuito o 128 en Pro. Cubre todas las áreas del ECOEMS con la misma distribución del examen real.
+              </p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-navy/20 z-10">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
+              <div class="w-12 h-12 bg-turquoise text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">2</div>
+              <h3 class="text-xl font-bold text-navy mb-3">Recibe tu análisis</h3>
+              <p class="text-navy/60">
+                El sistema analiza tus respuestas y genera un reporte visual con tu desempeño por área. Ve exactamente dónde estás fuerte y dónde necesitas mejorar.
+              </p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-navy/20 z-10">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
+            <div class="w-12 h-12 bg-turquoise text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">3</div>
+            <h3 class="text-xl font-bold text-navy mb-3">Sigue tu plan</h3>
+            <p class="text-navy/60">
+              El sistema genera actividades diarias personalizadas: preguntas, flashcards y módulos enfocados en tus áreas débiles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free vs Pro -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Diagnóstico Free vs Pro
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-navy/10">
+            <div class="text-center mb-6">
+              <span class="text-sm font-bold text-navy/40 uppercase tracking-widest">Plan</span>
+              <h3 class="text-2xl font-black text-navy">Gratuito</h3>
+            </div>
+            <ul class="space-y-4 mb-8">
+              {[
+                '64 preguntas de diagnóstico',
+                'Análisis básico por área',
+                'Plan de estudio inicial',
+                'Retroalimentación en cada pregunta',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-navy/70">
+                  <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-navy text-white font-bold rounded-xl hover:bg-navy/90 transition-colors">
+              Empezar gratis
+            </PlatformLink>
+          </div>
+
+          <div class="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-8 shadow-lg text-white relative overflow-hidden">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-terracotta text-white text-xs font-bold rounded-full">RECOMENDADO</span>
+            </div>
+            <div class="text-center mb-6">
+              <span class="text-sm font-bold text-white/40 uppercase tracking-widest">Plan</span>
+              <h3 class="text-2xl font-black">Pro</h3>
+            </div>
+            <ul class="space-y-4 mb-8">
+              {[
+                '128 preguntas de diagnóstico completo',
+                'Análisis detallado con gráficos',
+                'Plan de estudio con IA adaptativo',
+                'Vista semanal y reprogramación',
+                'Comparación con otros usuarios',
+                'Repetir diagnóstico ilimitado',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-white/80">
+                  <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-colors">
+              Obtener Pro — $399
+            </PlatformLink>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Conoce tu nivel hoy
+        </h2>
+        <p class="text-xl text-white/70 mb-10">
+          El primer paso para prepararte bien es saber dónde estás. Haz el diagnóstico y recibe tu plan personalizado.
+        </p>
+        <PlatformLink path="/autenticacion/registro" class="inline-block px-10 py-4 bg-turquoise text-white font-bold text-lg rounded-xl hover:bg-turquoise-dark transition-all shadow-xl">
+          Hacer diagnóstico gratis
+        </PlatformLink>
+        <p class="text-white/40 text-sm mt-4">
+          Sin tarjeta de crédito requerida
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

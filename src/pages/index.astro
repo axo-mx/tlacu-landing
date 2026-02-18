@@ -207,8 +207,93 @@ import PlatformLink from '../components/PlatformLink.astro';
       </div>
     </section>
 
+    <!-- Plan de Estudio Automático -->
+    <section class="py-20 lg:py-32 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+            Personalizado con IA
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
+            Tu plan de estudio <span class="text-turquoise">se adapta a ti</span>
+          </h2>
+          <p class="text-lg text-navy/70">
+            No estudies a ciegas. Nuestro sistema genera un plan personalizado basado en tu diagnóstico y se ajusta automáticamente a tu progreso.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6">
+          <!-- Paso 1 -->
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise/20 h-full">
+              <div class="w-10 h-10 bg-turquoise text-white rounded-full flex items-center justify-center font-bold mb-4">1</div>
+              <h3 class="font-bold text-navy mb-2">Haz el diagnóstico</h3>
+              <p class="text-navy/60 text-sm">64 preguntas (Free) o 128 (Pro) evalúan tu nivel en cada área del ECOEMS.</p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-navy/20">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise/20 h-full">
+              <div class="w-10 h-10 bg-turquoise text-white rounded-full flex items-center justify-center font-bold mb-4">2</div>
+              <h3 class="font-bold text-navy mb-2">Identificamos tus áreas</h3>
+              <p class="text-navy/60 text-sm">El sistema analiza tus fortalezas y debilidades en las 10 áreas del examen.</p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-navy/20">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise/20 h-full">
+              <div class="w-10 h-10 bg-turquoise text-white rounded-full flex items-center justify-center font-bold mb-4">3</div>
+              <h3 class="font-bold text-navy mb-2">Genera tu plan</h3>
+              <p class="text-navy/60 text-sm">Actividades diarias personalizadas: preguntas, flashcards y módulos según tus necesidades.</p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-navy/20">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="relative">
+            <div class="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 shadow-lg h-full text-white">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold">4</div>
+                <span class="px-2 py-0.5 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
+              </div>
+              <h3 class="font-bold mb-2">Se adapta contigo</h3>
+              <p class="text-white/70 text-sm">Reprogramación automática cuando completas o saltas actividades. Tu plan evoluciona contigo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/plataforma#plan-estudio" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-semibold rounded-xl hover:bg-turquoise/90 transition-colors">
+            Ver cómo funciona
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Exam Types Section -->
-    <section id="examenes" class="py-20 lg:py-32 bg-cream-dark">
+    <section id="examenes" class="py-20 lg:py-32 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
@@ -220,53 +305,65 @@ import PlatformLink from '../components/PlatformLink.astro';
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Examen Rápido -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-turquoise/30 transition-all">
+          <!-- Examen Diagnóstico -->
+          <a href="/examenes/diagnostico" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise hover:shadow-xl transition-all">
             <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-navy mb-2">Examen Rápido</h3>
-            <p class="text-navy/60 text-sm mb-4">Práctica rápida con preguntas de todas las áreas.</p>
-            <div class="flex items-center gap-4 text-sm">
-              <span class="text-turquoise font-semibold">44 preguntas</span>
-              <span class="text-navy/40">~45 min</span>
+            <div class="inline-block px-2 py-0.5 bg-turquoise/10 text-turquoise text-xs font-medium rounded-full mb-2">
+              Recomendado
             </div>
-          </div>
+            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Diagnóstico</h3>
+            <p class="text-navy/60 text-sm mb-4">Conoce tu nivel y genera tu plan de estudio.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="text-turquoise font-semibold">64/128 preg</span>
+              <span class="text-navy/40">~60 min</span>
+            </div>
+          </a>
 
           <!-- Examen Completo -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-terracotta/30 transition-all">
+          <a href="/examenes/completo" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-terracotta/30 hover:shadow-xl transition-all relative">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-1 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
+            </div>
             <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-7 h-7 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-navy mb-2">Examen Completo</h3>
-            <p class="text-navy/60 text-sm mb-4">Simulacro completo idéntico al examen oficial.</p>
+            <div class="inline-block px-2 py-0.5 bg-terracotta/10 text-terracotta text-xs font-medium rounded-full mb-2">
+              128 preguntas
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-terracotta transition-colors">Examen Completo</h3>
+            <p class="text-navy/60 text-sm mb-4">Con cronómetro de 3 horas, igual que el real.</p>
             <div class="flex items-center gap-4 text-sm">
               <span class="text-terracotta font-semibold">128 preguntas</span>
               <span class="text-navy/40">3 horas</span>
             </div>
-          </div>
+          </a>
 
-          <!-- Examen por Área -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-navy/30 transition-all">
+          <!-- Examen Rápido -->
+          <a href="/examenes/rapido" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-navy/30 hover:shadow-xl transition-all">
             <div class="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-navy mb-2">Por Área</h3>
-            <p class="text-navy/60 text-sm mb-4">Enfócate en las 10 áreas específicas del examen.</p>
-            <div class="flex items-center gap-4 text-sm">
-              <span class="text-navy font-semibold">10 áreas</span>
-              <span class="text-navy/40">~25 min c/u</span>
+            <div class="inline-block px-2 py-0.5 bg-navy/10 text-navy text-xs font-medium rounded-full mb-2">
+              Práctica rápida
             </div>
-          </div>
+            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Examen Rápido</h3>
+            <p class="text-navy/60 text-sm mb-4">Para cuando tienes poco tiempo. Sin cronómetro.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="text-navy font-semibold">44 preguntas</span>
+              <span class="text-navy/40">~45 min</span>
+            </div>
+          </a>
 
-          <!-- Simulador Real -->
-          <div class="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 shadow-lg relative overflow-hidden">
+          <!-- Simulador con Cámara -->
+          <a href="/examenes/simulador" class="group bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 shadow-lg relative overflow-hidden hover:shadow-xl transition-all">
             <div class="absolute top-2 right-2">
               <span class="px-2 py-1 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
             </div>
@@ -275,19 +372,28 @@ import PlatformLink from '../components/PlatformLink.astro';
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Simulador Real</h3>
-            <p class="text-white/70 text-sm mb-4">Con monitoreo de cámara como en el examen real.</p>
+            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-turquoise transition-colors">Simulador con Cámara</h3>
+            <p class="text-white/70 text-sm mb-4">Como en el examen real con monitoreo de cámara.</p>
             <div class="flex items-center gap-4 text-sm">
               <span class="text-turquoise font-semibold">128 preguntas</span>
               <span class="text-white/50">Con cámara</span>
             </div>
-          </div>
+          </a>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/examenes" class="inline-flex items-center gap-2 text-terracotta hover:text-terracotta-dark font-semibold transition-colors">
+            Ver todos los modos de examen
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Gamification Section -->
-    <section class="py-20 lg:py-32 bg-cream">
+    <section class="py-20 lg:py-32 bg-cream-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <!-- Content -->
@@ -349,6 +455,28 @@ import PlatformLink from '../components/PlatformLink.astro';
               />
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial/Social Proof -->
+    <section class="py-20 lg:py-32 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-hero rounded-3xl p-8 md:p-12 lg:p-16 text-center">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm font-medium mb-8">
+            <span class="text-lg">🔥</span>
+            La leyenda del tlacuache
+          </div>
+
+          <blockquote class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-relaxed mb-8 max-w-4xl mx-auto">
+            "Como el tlacuache que trajo el fuego a la humanidad,
+            <span class="text-gradient-fire">TLACU</span> lleva el conocimiento a todos."
+          </blockquote>
+
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Inspirados en la leyenda prehispánica mexicana, creamos una plataforma educativa
+            totalmente responsiva que democratiza el acceso al conocimiento de calidad.
+          </p>
         </div>
       </div>
     </section>
@@ -580,6 +708,25 @@ import PlatformLink from '../components/PlatformLink.astro';
             </div>
             <p class="text-navy/70 text-sm">Temporizador Pomodoro integrado: 25 minutos de estudio enfocado, 5 de descanso. Disponible en toda la plataforma.</p>
           </div>
+
+          <!-- Repaso Inteligente -->
+          <div class="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 shadow-lg text-white relative overflow-hidden">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-0.5 bg-turquoise/20 text-turquoise text-[10px] font-bold rounded-full">SM-2</span>
+            </div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold">Repaso Inteligente</h3>
+                <p class="text-xs text-white/50">Algoritmo basado en ciencia</p>
+              </div>
+            </div>
+            <p class="text-white/70 text-sm">Las preguntas que más necesitas repasar aparecen automáticamente en el momento óptimo. Basado en 300+ experimentos de memoria.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -778,6 +925,15 @@ import PlatformLink from '../components/PlatformLink.astro';
             <p class="text-navy/60 text-sm">Estudia desde cualquier dispositivo, incluso offline.</p>
           </div>
         </div>
+
+        <div class="text-center mt-10">
+          <a href="/por-que-tlacu" class="inline-flex items-center gap-2 px-6 py-3 bg-terracotta text-white font-semibold rounded-xl hover:bg-terracotta-dark transition-colors">
+            Conoce más razones
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -808,9 +964,9 @@ import PlatformLink from '../components/PlatformLink.astro';
             </p>
             <ul class="space-y-3 mb-8">
               {[
-                '20 preguntas de práctica diarias',
-                '20 flashcards diarias',
-                '3 exámenes rápidos por día',
+                '10 preguntas de práctica diarias',
+                '15 flashcards diarias',
+                '7 exámenes rápidos (total)',
                 'Retroalimentación en cada respuesta',
                 'Dashboard con estadísticas básicas',
                 'Módulos interactivos gratuitos',
@@ -854,8 +1010,8 @@ import PlatformLink from '../components/PlatformLink.astro';
                 'Exámenes completos y por área ilimitados',
                 'Simulador con cronómetro y cámara',
                 'Plan de estudio personalizado con IA',
+                'Vista semanal y reprogramación adaptativa',
                 'Todos los módulos interactivos',
-                'Estadísticas avanzadas por área',
               ].map((item) => (
                 <li class="flex items-center gap-3 text-sm text-white/90">
                   <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -868,7 +1024,6 @@ import PlatformLink from '../components/PlatformLink.astro';
             <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-dark transition-colors">
               Obtener Pro — $399
             </PlatformLink>
-            <p class="text-white/40 text-xs text-center mt-3">Garantía de devolución de 7 días</p>
           </div>
         </div>
 
@@ -879,24 +1034,80 @@ import PlatformLink from '../components/PlatformLink.astro';
       </div>
     </section>
 
-    <!-- Testimonial/Social Proof -->
-    <section class="py-20 lg:py-32 bg-cream">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-hero rounded-3xl p-8 md:p-12 lg:p-16 text-center">
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm font-medium mb-8">
-            <span class="text-lg">🔥</span>
-            La leyenda del tlacuache
+    <!-- Panel de Tutores -->
+    <section class="py-20 lg:py-32 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-navy to-navy-light rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden relative">
+          <!-- Background decoration -->
+          <div class="absolute top-0 right-0 w-64 h-64 bg-turquoise/10 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-48 h-48 bg-terracotta/10 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+
+          <div class="relative grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+                <span class="text-lg">👨‍👩‍👧</span>
+                Para padres y profesores
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
+                Monitorea el progreso de <span class="text-turquoise">tus hijos o alumnos</span>
+              </h2>
+              <p class="text-white/70 mb-6">
+                Como padre o profesor, puedes crear cuentas para tus hijos o alumnos, pagarles el acceso Pro y ver su progreso desde tu panel.
+              </p>
+              <ul class="space-y-3 mb-8">
+                {[
+                  'Crea cuentas para tus hijos o alumnos',
+                  'Págales el acceso Pro desde tu cuenta',
+                  'Ve el reporte de progreso de cada uno',
+                  'Monitorea su avance en las 10 áreas',
+                ].map((item) => (
+                  <li class="flex items-center gap-3 text-sm text-white/80">
+                    <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a href="/contacto?tipo=tutor" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-colors">
+                Conocer el Panel de Tutor
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </a>
+            </div>
+
+            <div class="hidden md:block">
+              <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-10 h-10 bg-turquoise/20 rounded-full flex items-center justify-center">
+                    <span class="text-xl">👨‍👩‍👧</span>
+                  </div>
+                  <div>
+                    <div class="text-white font-semibold">Mi Panel</div>
+                    <div class="text-white/50 text-xs">3 estudiantes</div>
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  {[
+                    { name: 'María (hija)', progress: 78, color: 'bg-emerald-400' },
+                    { name: 'Carlos (hijo)', progress: 65, color: 'bg-turquoise' },
+                    { name: 'Ana (alumna)', progress: 92, color: 'bg-emerald-400' },
+                  ].map((student) => (
+                    <div class="bg-white/5 rounded-xl p-3">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-white/90 text-sm">{student.name}</span>
+                        <span class="text-white/60 text-xs">{student.progress}%</span>
+                      </div>
+                      <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div class={`h-full ${student.color} rounded-full`} style={`width: ${student.progress}%`}></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-
-          <blockquote class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-relaxed mb-8 max-w-4xl mx-auto">
-            "Como el tlacuache que trajo el fuego a la humanidad,
-            <span class="text-gradient-fire">TLACU</span> lleva el conocimiento a todos."
-          </blockquote>
-
-          <p class="text-white/60 max-w-2xl mx-auto">
-            Inspirados en la leyenda prehispánica mexicana, creamos una plataforma educativa
-            totalmente responsiva que democratiza el acceso al conocimiento de calidad.
-          </p>
         </div>
       </div>
     </section>

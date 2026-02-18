@@ -1,0 +1,279 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PlatformLink from '../../components/PlatformLink.astro';
+---
+
+<Layout title="Módulos de Refuerzo - TLACU ECOEMS">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-36 sm:pt-40 pb-16 bg-gradient-to-br from-teal-600 via-teal-700 to-emerald-800 relative overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-emerald-400/20 rounded-full blur-3xl"></div>
+        <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full text-white text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            Bases fundamentales
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Módulos de <span class="text-emerald-300">Refuerzo</span>
+          </h1>
+          <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Conceptos de años anteriores que el examen <strong>asume</strong> que ya dominas. No están en el temario ECOEMS, pero son fundamentales para entender los temas del examen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Link al temario -->
+    <section class="py-4 bg-cream border-b border-navy/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-center">
+          <a href="/modulos/temario" class="flex items-center gap-2 px-4 py-2 bg-terracotta/10 rounded-full hover:bg-terracotta/20 transition-colors text-sm">
+            <span class="text-terracotta font-medium">¿Buscas los módulos del Temario ECOEMS?</span>
+            <svg class="w-4 h-4 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nota motivacional -->
+    <section class="py-8 bg-cream">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-teal-50 border border-teal-200 rounded-2xl p-6 flex items-start gap-4">
+          <span class="text-3xl">💚</span>
+          <div>
+            <h3 class="font-bold text-teal-800 mb-1">Está bien si hay cosas que no sabes</h3>
+            <p class="text-teal-700">
+              Cada quien aprende a su ritmo y en su momento. Estos módulos están aquí para ayudarte a reforzar las bases que necesitas. No te juzgues, solo aprende.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Matemáticas Fundamentales -->
+    <section class="py-12 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center">
+            <span class="text-xl">🔢</span>
+          </div>
+          <h2 class="text-2xl font-bold text-navy">Matemáticas Fundamentales</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">➗</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Fracciones</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Domina operaciones con fracciones: suma, resta, multiplicación y división.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Visualización interactiva</span>
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Paso a paso</span>
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Equivalentes</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">🧮</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Aritmética Básica</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Refuerza operaciones básicas, jerarquía de operaciones y signos.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Jerarquía</span>
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Números con signo</span>
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Combinadas</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">#️⃣</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Sentido Numérico</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Domina la recta numérica, números negativos y operaciones con signos.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Recta numérica</span>
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Negativos</span>
+              <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-700 rounded-full">Estimación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Español Fundamental -->
+    <section class="py-12 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center">
+            <span class="text-xl">📖</span>
+          </div>
+          <h2 class="text-2xl font-bold text-navy">Español Fundamental</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-rose-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">📚</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Comprensión Lectora</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Estrategias para entender textos e identificar ideas principales.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Idea principal</span>
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Inferencias</span>
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Tipos de preguntas</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-rose-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">✍️</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Ortografía Esencial</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Reglas ortográficas fundamentales: B/V, C/S/Z, G/J y más.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Reglas con ejemplos</span>
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Homófonos</span>
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Ejercicios</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-rose-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">🗣️</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Vocabulario Fundamental</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Amplía tu vocabulario con familias de palabras, prefijos y sinónimos.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Familias de palabras</span>
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Prefijos/sufijos</span>
+              <span class="text-xs px-2 py-1 bg-rose-500/10 text-rose-700 rounded-full">Sinónimos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ciencias Fundamental -->
+    <section class="py-12 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center">
+            <span class="text-xl">🔬</span>
+          </div>
+          <h2 class="text-2xl font-bold text-navy">Ciencias Fundamental</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-emerald-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">🔢</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Notación Científica</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Leer y operar con notación científica y potencias de 10.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-700 rounded-full">Potencias de 10</span>
+              <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-700 rounded-full">Conversiones</span>
+              <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-700 rounded-full">Órdenes de magnitud</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-emerald-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">📏</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Conversión de Unidades</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Convierte entre unidades del sistema métrico decimal.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-700 rounded-full">Sistema métrico</span>
+              <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-700 rounded-full">Método escalera</span>
+              <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-700 rounded-full">Longitud, masa, volumen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades de Razonamiento -->
+    <section class="py-12 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-violet-500 rounded-xl flex items-center justify-center">
+            <span class="text-xl">🧠</span>
+          </div>
+          <h2 class="text-2xl font-bold text-navy">Habilidades de Razonamiento</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-violet-500">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-violet-500/10 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">📦</span>
+              </div>
+              <h3 class="font-bold text-navy text-lg">Visualización Espacial</h3>
+            </div>
+            <p class="text-navy/60 text-sm mb-4">Desarrolla tu capacidad de imaginar y rotar figuras mentalmente.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="text-xs px-2 py-1 bg-violet-500/10 text-violet-700 rounded-full">Rotación mental</span>
+              <span class="text-xs px-2 py-1 bg-violet-500/10 text-violet-700 rounded-full">Simetría</span>
+              <span class="text-xs px-2 py-1 bg-violet-500/10 text-violet-700 rounded-full">Patrones visuales</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-br from-teal-600 to-emerald-700">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Refuerza tus bases y prepárate mejor
+        </h2>
+        <p class="text-xl text-white/80 mb-10">
+          Accede a todos los módulos de refuerzo para dominar los conceptos fundamentales.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <PlatformLink path="/autenticacion/registro" class="inline-block px-10 py-4 bg-white text-teal-700 font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
+            Comenzar gratis
+          </PlatformLink>
+          <a href="/modulos/temario" class="inline-block px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Ver Temario ECOEMS
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

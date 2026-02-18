@@ -12,23 +12,24 @@ const PRICE_DISCOUNTED = PRICE_REGULAR - DISCOUNT_AMOUNT;
 
 // Features para la comparación
 const features = [
-  { name: 'Examen diagnóstico', free: '64 preguntas', pro: '128 preguntas', highlight: true },
-  { name: 'Exámenes de práctica', free: '1 examen', pro: 'Ilimitados', highlight: true },
-  { name: 'Flashcards con repetición espaciada', free: '20 por día', pro: 'Ilimitadas', highlight: true },
-  { name: 'Módulos interactivos (Tabla Periódica, Célula 3D, etc.)', free: true, pro: true },
-  { name: 'Modo estudio con técnica PARE', free: false, pro: true },
+  { name: 'Preguntas de práctica diarias', free: '10 por día', pro: 'Ilimitadas', highlight: true },
+  { name: 'Flashcards con repetición espaciada', free: '15 por día', pro: 'Ilimitadas', highlight: true },
+  { name: 'Exámenes rápidos', free: '7 total', pro: 'Ilimitados', highlight: true },
+  { name: 'Examen diagnóstico', free: '64 preguntas', pro: '64 ó 128 preguntas', highlight: true },
+  { name: 'Examen completo (128 preguntas)', free: false, pro: true, highlight: true },
   { name: 'Simulador Real con supervisión (cámara)', free: false, pro: true, highlight: true },
   { name: 'Exámenes por área específica', free: false, pro: true },
-  { name: 'Guardar preguntas para repasar', free: '10 máx', pro: 'Ilimitadas' },
+  { name: 'Modo estudio con técnica PARE', free: false, pro: true },
+  { name: 'Guardar preguntas para repasar', free: '40 máx', pro: 'Ilimitadas' },
+  { name: 'Módulos interactivos', free: '4 módulos', pro: 'Todos (15+)' },
+  { name: 'Actividades diarias (Plan de estudio)', free: '3 máx', pro: 'Ilimitadas' },
+  { name: 'Vista semanal del plan', free: false, pro: true },
+  { name: 'Reprogramación adaptativa', free: false, pro: true },
+  { name: 'Exportar horario', free: false, pro: true },
   { name: 'Estadísticas detalladas por área', free: 'Básicas', pro: 'Completas' },
   { name: 'Anillos de progreso por área', free: true, pro: true },
-  { name: 'Calendario de actividad', free: true, pro: true },
-  { name: 'Sistema de rachas', free: true, pro: true },
-  { name: 'Temario y recursos de estudio', free: true, pro: true },
-  { name: 'Recomendaciones personalizadas', free: false, pro: true },
-  { name: 'Historial completo de exámenes', free: 'Último', pro: 'Todos' },
+  { name: 'Sistema de rachas y gamificación', free: true, pro: true },
   { name: 'Explicaciones detalladas', free: true, pro: true },
-  { name: 'Soporte prioritario', free: false, pro: true },
 ];
 ---
 
@@ -94,19 +95,25 @@ const features = [
                 <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
+                <span class="text-navy/80">10 preguntas de práctica por día</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">15 flashcards por día</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-navy/80">7 exámenes rápidos (total)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
                 <span class="text-navy/80">Examen diagnóstico (64 preguntas)</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-navy/80">1 examen rápido de práctica</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-navy/80">20 flashcards por día</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -243,6 +250,22 @@ const features = [
           </div>
         </div>
 
+        <!-- Sección Tutores -->
+        <div class="mt-12 bg-gradient-to-r from-navy/5 to-turquoise/5 border border-turquoise/20 rounded-2xl p-8">
+          <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-16 h-16 bg-turquoise/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+              <span class="text-4xl">👨‍👩‍👧</span>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+              <h3 class="text-xl font-bold text-navy mb-2">¿Eres padre o profesor?</h3>
+              <p class="text-navy/70">Crea cuentas para tus hijos o alumnos, págales el acceso Pro y monitorea su progreso desde tu panel.</p>
+            </div>
+            <a href="/contacto?tipo=tutor" class="px-6 py-3 bg-turquoise text-white font-semibold rounded-xl hover:bg-turquoise-dark transition-colors flex-shrink-0">
+              Conocer el Panel de Tutor
+            </a>
+          </div>
+        </div>
+
         <!-- Garantias -->
         <div class="flex flex-wrap justify-center gap-6 mt-12">
           <div class="flex items-center gap-2 text-navy/70">
@@ -313,15 +336,15 @@ const features = [
             <p class="text-white/60 text-sm">Repasa con repetición espaciada todas las veces que quieras, sin límite diario.</p>
           </div>
 
-          <!-- Modo PARE -->
+          <!-- Módulos Interactivos -->
           <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
             <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Técnica PARE</h3>
-            <p class="text-white/60 text-sm">Aprende el método probado para analizar y responder preguntas de opción múltiple.</p>
+            <h3 class="text-lg font-bold text-white mb-2">Todos los Módulos</h3>
+            <p class="text-white/60 text-sm">Acceso completo a módulos y lecciones interactivas: célula 3D, tabla periódica, geometría y más.</p>
           </div>
 
           <!-- Guardar Preguntas -->

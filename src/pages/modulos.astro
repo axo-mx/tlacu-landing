@@ -3,533 +3,111 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
-import CellViewer3D from '../components/react/CellViewer3D';
-
-// All 118 elements - matching the original platform data
-const elements = [
-  // Period 1
-  { number: 1, symbol: 'H', nameEs: 'Hidrogeno', mass: '1.008', category: 'nonmetal', state: 'gas' },
-  { number: 2, symbol: 'He', nameEs: 'Helio', mass: '4.003', category: 'noble-gas', state: 'gas' },
-  // Period 2
-  { number: 3, symbol: 'Li', nameEs: 'Litio', mass: '6.941', category: 'alkali-metal', state: 'solid' },
-  { number: 4, symbol: 'Be', nameEs: 'Berilio', mass: '9.012', category: 'alkaline-earth', state: 'solid' },
-  { number: 5, symbol: 'B', nameEs: 'Boro', mass: '10.81', category: 'metalloid', state: 'solid' },
-  { number: 6, symbol: 'C', nameEs: 'Carbono', mass: '12.01', category: 'nonmetal', state: 'solid' },
-  { number: 7, symbol: 'N', nameEs: 'Nitrogeno', mass: '14.01', category: 'nonmetal', state: 'gas' },
-  { number: 8, symbol: 'O', nameEs: 'Oxigeno', mass: '16.00', category: 'nonmetal', state: 'gas' },
-  { number: 9, symbol: 'F', nameEs: 'Fluor', mass: '19.00', category: 'halogen', state: 'gas' },
-  { number: 10, symbol: 'Ne', nameEs: 'Neon', mass: '20.18', category: 'noble-gas', state: 'gas' },
-  // Period 3
-  { number: 11, symbol: 'Na', nameEs: 'Sodio', mass: '22.99', category: 'alkali-metal', state: 'solid' },
-  { number: 12, symbol: 'Mg', nameEs: 'Magnesio', mass: '24.31', category: 'alkaline-earth', state: 'solid' },
-  { number: 13, symbol: 'Al', nameEs: 'Aluminio', mass: '26.98', category: 'post-transition', state: 'solid' },
-  { number: 14, symbol: 'Si', nameEs: 'Silicio', mass: '28.09', category: 'metalloid', state: 'solid' },
-  { number: 15, symbol: 'P', nameEs: 'Fosforo', mass: '30.97', category: 'nonmetal', state: 'solid' },
-  { number: 16, symbol: 'S', nameEs: 'Azufre', mass: '32.07', category: 'nonmetal', state: 'solid' },
-  { number: 17, symbol: 'Cl', nameEs: 'Cloro', mass: '35.45', category: 'halogen', state: 'gas' },
-  { number: 18, symbol: 'Ar', nameEs: 'Argon', mass: '39.95', category: 'noble-gas', state: 'gas' },
-  // Period 4
-  { number: 19, symbol: 'K', nameEs: 'Potasio', mass: '39.10', category: 'alkali-metal', state: 'solid' },
-  { number: 20, symbol: 'Ca', nameEs: 'Calcio', mass: '40.08', category: 'alkaline-earth', state: 'solid' },
-  { number: 21, symbol: 'Sc', nameEs: 'Escandio', mass: '44.96', category: 'transition-metal', state: 'solid' },
-  { number: 22, symbol: 'Ti', nameEs: 'Titanio', mass: '47.87', category: 'transition-metal', state: 'solid' },
-  { number: 23, symbol: 'V', nameEs: 'Vanadio', mass: '50.94', category: 'transition-metal', state: 'solid' },
-  { number: 24, symbol: 'Cr', nameEs: 'Cromo', mass: '52.00', category: 'transition-metal', state: 'solid' },
-  { number: 25, symbol: 'Mn', nameEs: 'Manganeso', mass: '54.94', category: 'transition-metal', state: 'solid' },
-  { number: 26, symbol: 'Fe', nameEs: 'Hierro', mass: '55.85', category: 'transition-metal', state: 'solid' },
-  { number: 27, symbol: 'Co', nameEs: 'Cobalto', mass: '58.93', category: 'transition-metal', state: 'solid' },
-  { number: 28, symbol: 'Ni', nameEs: 'Niquel', mass: '58.69', category: 'transition-metal', state: 'solid' },
-  { number: 29, symbol: 'Cu', nameEs: 'Cobre', mass: '63.55', category: 'transition-metal', state: 'solid' },
-  { number: 30, symbol: 'Zn', nameEs: 'Zinc', mass: '65.38', category: 'transition-metal', state: 'solid' },
-  { number: 31, symbol: 'Ga', nameEs: 'Galio', mass: '69.72', category: 'post-transition', state: 'solid' },
-  { number: 32, symbol: 'Ge', nameEs: 'Germanio', mass: '72.63', category: 'metalloid', state: 'solid' },
-  { number: 33, symbol: 'As', nameEs: 'Arsenico', mass: '74.92', category: 'metalloid', state: 'solid' },
-  { number: 34, symbol: 'Se', nameEs: 'Selenio', mass: '78.97', category: 'nonmetal', state: 'solid' },
-  { number: 35, symbol: 'Br', nameEs: 'Bromo', mass: '79.90', category: 'halogen', state: 'liquid' },
-  { number: 36, symbol: 'Kr', nameEs: 'Kripton', mass: '83.80', category: 'noble-gas', state: 'gas' },
-  // Period 5
-  { number: 37, symbol: 'Rb', nameEs: 'Rubidio', mass: '85.47', category: 'alkali-metal', state: 'solid' },
-  { number: 38, symbol: 'Sr', nameEs: 'Estroncio', mass: '87.62', category: 'alkaline-earth', state: 'solid' },
-  { number: 39, symbol: 'Y', nameEs: 'Itrio', mass: '88.91', category: 'transition-metal', state: 'solid' },
-  { number: 40, symbol: 'Zr', nameEs: 'Circonio', mass: '91.22', category: 'transition-metal', state: 'solid' },
-  { number: 41, symbol: 'Nb', nameEs: 'Niobio', mass: '92.91', category: 'transition-metal', state: 'solid' },
-  { number: 42, symbol: 'Mo', nameEs: 'Molibdeno', mass: '95.95', category: 'transition-metal', state: 'solid' },
-  { number: 43, symbol: 'Tc', nameEs: 'Tecnecio', mass: '98', category: 'transition-metal', state: 'solid' },
-  { number: 44, symbol: 'Ru', nameEs: 'Rutenio', mass: '101.1', category: 'transition-metal', state: 'solid' },
-  { number: 45, symbol: 'Rh', nameEs: 'Rodio', mass: '102.9', category: 'transition-metal', state: 'solid' },
-  { number: 46, symbol: 'Pd', nameEs: 'Paladio', mass: '106.4', category: 'transition-metal', state: 'solid' },
-  { number: 47, symbol: 'Ag', nameEs: 'Plata', mass: '107.9', category: 'transition-metal', state: 'solid' },
-  { number: 48, symbol: 'Cd', nameEs: 'Cadmio', mass: '112.4', category: 'transition-metal', state: 'solid' },
-  { number: 49, symbol: 'In', nameEs: 'Indio', mass: '114.8', category: 'post-transition', state: 'solid' },
-  { number: 50, symbol: 'Sn', nameEs: 'Estano', mass: '118.7', category: 'post-transition', state: 'solid' },
-  { number: 51, symbol: 'Sb', nameEs: 'Antimonio', mass: '121.8', category: 'metalloid', state: 'solid' },
-  { number: 52, symbol: 'Te', nameEs: 'Telurio', mass: '127.6', category: 'metalloid', state: 'solid' },
-  { number: 53, symbol: 'I', nameEs: 'Yodo', mass: '126.9', category: 'halogen', state: 'solid' },
-  { number: 54, symbol: 'Xe', nameEs: 'Xenon', mass: '131.3', category: 'noble-gas', state: 'gas' },
-  // Period 6
-  { number: 55, symbol: 'Cs', nameEs: 'Cesio', mass: '132.9', category: 'alkali-metal', state: 'solid' },
-  { number: 56, symbol: 'Ba', nameEs: 'Bario', mass: '137.3', category: 'alkaline-earth', state: 'solid' },
-  // Lanthanides (57-71)
-  { number: 57, symbol: 'La', nameEs: 'Lantano', mass: '138.9', category: 'lanthanide', state: 'solid' },
-  { number: 58, symbol: 'Ce', nameEs: 'Cerio', mass: '140.1', category: 'lanthanide', state: 'solid' },
-  { number: 59, symbol: 'Pr', nameEs: 'Praseodimio', mass: '140.9', category: 'lanthanide', state: 'solid' },
-  { number: 60, symbol: 'Nd', nameEs: 'Neodimio', mass: '144.2', category: 'lanthanide', state: 'solid' },
-  { number: 61, symbol: 'Pm', nameEs: 'Prometio', mass: '145', category: 'lanthanide', state: 'solid' },
-  { number: 62, symbol: 'Sm', nameEs: 'Samario', mass: '150.4', category: 'lanthanide', state: 'solid' },
-  { number: 63, symbol: 'Eu', nameEs: 'Europio', mass: '152.0', category: 'lanthanide', state: 'solid' },
-  { number: 64, symbol: 'Gd', nameEs: 'Gadolinio', mass: '157.3', category: 'lanthanide', state: 'solid' },
-  { number: 65, symbol: 'Tb', nameEs: 'Terbio', mass: '158.9', category: 'lanthanide', state: 'solid' },
-  { number: 66, symbol: 'Dy', nameEs: 'Disprosio', mass: '162.5', category: 'lanthanide', state: 'solid' },
-  { number: 67, symbol: 'Ho', nameEs: 'Holmio', mass: '164.9', category: 'lanthanide', state: 'solid' },
-  { number: 68, symbol: 'Er', nameEs: 'Erbio', mass: '167.3', category: 'lanthanide', state: 'solid' },
-  { number: 69, symbol: 'Tm', nameEs: 'Tulio', mass: '168.9', category: 'lanthanide', state: 'solid' },
-  { number: 70, symbol: 'Yb', nameEs: 'Iterbio', mass: '173.0', category: 'lanthanide', state: 'solid' },
-  { number: 71, symbol: 'Lu', nameEs: 'Lutecio', mass: '175.0', category: 'lanthanide', state: 'solid' },
-  // Continue Period 6
-  { number: 72, symbol: 'Hf', nameEs: 'Hafnio', mass: '178.5', category: 'transition-metal', state: 'solid' },
-  { number: 73, symbol: 'Ta', nameEs: 'Tantalio', mass: '180.9', category: 'transition-metal', state: 'solid' },
-  { number: 74, symbol: 'W', nameEs: 'Tungsteno', mass: '183.8', category: 'transition-metal', state: 'solid' },
-  { number: 75, symbol: 'Re', nameEs: 'Renio', mass: '186.2', category: 'transition-metal', state: 'solid' },
-  { number: 76, symbol: 'Os', nameEs: 'Osmio', mass: '190.2', category: 'transition-metal', state: 'solid' },
-  { number: 77, symbol: 'Ir', nameEs: 'Iridio', mass: '192.2', category: 'transition-metal', state: 'solid' },
-  { number: 78, symbol: 'Pt', nameEs: 'Platino', mass: '195.1', category: 'transition-metal', state: 'solid' },
-  { number: 79, symbol: 'Au', nameEs: 'Oro', mass: '197.0', category: 'transition-metal', state: 'solid' },
-  { number: 80, symbol: 'Hg', nameEs: 'Mercurio', mass: '200.6', category: 'transition-metal', state: 'liquid' },
-  { number: 81, symbol: 'Tl', nameEs: 'Talio', mass: '204.4', category: 'post-transition', state: 'solid' },
-  { number: 82, symbol: 'Pb', nameEs: 'Plomo', mass: '207.2', category: 'post-transition', state: 'solid' },
-  { number: 83, symbol: 'Bi', nameEs: 'Bismuto', mass: '209.0', category: 'post-transition', state: 'solid' },
-  { number: 84, symbol: 'Po', nameEs: 'Polonio', mass: '209', category: 'metalloid', state: 'solid' },
-  { number: 85, symbol: 'At', nameEs: 'Astato', mass: '210', category: 'halogen', state: 'solid' },
-  { number: 86, symbol: 'Rn', nameEs: 'Radon', mass: '222', category: 'noble-gas', state: 'gas' },
-  // Period 7
-  { number: 87, symbol: 'Fr', nameEs: 'Francio', mass: '223', category: 'alkali-metal', state: 'solid' },
-  { number: 88, symbol: 'Ra', nameEs: 'Radio', mass: '226', category: 'alkaline-earth', state: 'solid' },
-  // Actinides (89-103)
-  { number: 89, symbol: 'Ac', nameEs: 'Actinio', mass: '227', category: 'actinide', state: 'solid' },
-  { number: 90, symbol: 'Th', nameEs: 'Torio', mass: '232.0', category: 'actinide', state: 'solid' },
-  { number: 91, symbol: 'Pa', nameEs: 'Protactinio', mass: '231.0', category: 'actinide', state: 'solid' },
-  { number: 92, symbol: 'U', nameEs: 'Uranio', mass: '238.0', category: 'actinide', state: 'solid' },
-  { number: 93, symbol: 'Np', nameEs: 'Neptunio', mass: '237', category: 'actinide', state: 'solid' },
-  { number: 94, symbol: 'Pu', nameEs: 'Plutonio', mass: '244', category: 'actinide', state: 'solid' },
-  { number: 95, symbol: 'Am', nameEs: 'Americio', mass: '243', category: 'actinide', state: 'solid' },
-  { number: 96, symbol: 'Cm', nameEs: 'Curio', mass: '247', category: 'actinide', state: 'solid' },
-  { number: 97, symbol: 'Bk', nameEs: 'Berkelio', mass: '247', category: 'actinide', state: 'solid' },
-  { number: 98, symbol: 'Cf', nameEs: 'Californio', mass: '251', category: 'actinide', state: 'solid' },
-  { number: 99, symbol: 'Es', nameEs: 'Einsteinio', mass: '252', category: 'actinide', state: 'solid' },
-  { number: 100, symbol: 'Fm', nameEs: 'Fermio', mass: '257', category: 'actinide', state: 'solid' },
-  { number: 101, symbol: 'Md', nameEs: 'Mendelevio', mass: '258', category: 'actinide', state: 'solid' },
-  { number: 102, symbol: 'No', nameEs: 'Nobelio', mass: '259', category: 'actinide', state: 'solid' },
-  { number: 103, symbol: 'Lr', nameEs: 'Lawrencio', mass: '262', category: 'actinide', state: 'solid' },
-  // Continue Period 7
-  { number: 104, symbol: 'Rf', nameEs: 'Rutherfordio', mass: '267', category: 'transition-metal', state: 'solid' },
-  { number: 105, symbol: 'Db', nameEs: 'Dubnio', mass: '268', category: 'transition-metal', state: 'solid' },
-  { number: 106, symbol: 'Sg', nameEs: 'Seaborgio', mass: '269', category: 'transition-metal', state: 'solid' },
-  { number: 107, symbol: 'Bh', nameEs: 'Bohrio', mass: '270', category: 'transition-metal', state: 'solid' },
-  { number: 108, symbol: 'Hs', nameEs: 'Hasio', mass: '277', category: 'transition-metal', state: 'solid' },
-  { number: 109, symbol: 'Mt', nameEs: 'Meitnerio', mass: '278', category: 'transition-metal', state: 'solid' },
-  { number: 110, symbol: 'Ds', nameEs: 'Darmstatio', mass: '281', category: 'transition-metal', state: 'solid' },
-  { number: 111, symbol: 'Rg', nameEs: 'Roentgenio', mass: '282', category: 'transition-metal', state: 'solid' },
-  { number: 112, symbol: 'Cn', nameEs: 'Copernicio', mass: '285', category: 'transition-metal', state: 'liquid' },
-  { number: 113, symbol: 'Nh', nameEs: 'Nihonio', mass: '286', category: 'post-transition', state: 'solid' },
-  { number: 114, symbol: 'Fl', nameEs: 'Flerovio', mass: '289', category: 'post-transition', state: 'solid' },
-  { number: 115, symbol: 'Mc', nameEs: 'Moscovio', mass: '290', category: 'post-transition', state: 'solid' },
-  { number: 116, symbol: 'Lv', nameEs: 'Livermorio', mass: '293', category: 'post-transition', state: 'solid' },
-  { number: 117, symbol: 'Ts', nameEs: 'Teneso', mass: '294', category: 'halogen', state: 'solid' },
-  { number: 118, symbol: 'Og', nameEs: 'Oganeson', mass: '294', category: 'noble-gas', state: 'solid' },
-];
-
-// Category colors matching the original platform
-const CATEGORY_COLORS: Record<string, string> = {
-  'alkali-metal': 'bg-red-500',
-  'alkaline-earth': 'bg-orange-500',
-  'transition-metal': 'bg-yellow-500',
-  'post-transition': 'bg-green-400',
-  'metalloid': 'bg-teal-500',
-  'nonmetal': 'bg-blue-500',
-  'halogen': 'bg-purple-500',
-  'noble-gas': 'bg-pink-500',
-  'lanthanide': 'bg-cyan-500',
-  'actinide': 'bg-rose-500',
-};
-
-const CATEGORY_LABELS: Record<string, string> = {
-  'alkali-metal': 'Metal Alcalino',
-  'alkaline-earth': 'Alcalinoterreo',
-  'transition-metal': 'Metal de Transicion',
-  'post-transition': 'Post-transicion',
-  'metalloid': 'Metaloide',
-  'nonmetal': 'No Metal',
-  'halogen': 'Halogeno',
-  'noble-gas': 'Gas Noble',
-  'lanthanide': 'Lantanido',
-  'actinide': 'Actinido',
-};
-
-// Grid position function - exact same logic as the platform
-function getGridPosition(number: number): { row: number; col: number } | null {
-  // Period 1
-  if (number === 1) return { row: 1, col: 1 };
-  if (number === 2) return { row: 1, col: 18 };
-  // Period 2
-  if (number >= 3 && number <= 4) return { row: 2, col: number - 2 };
-  if (number >= 5 && number <= 10) return { row: 2, col: number + 8 };
-  // Period 3
-  if (number >= 11 && number <= 12) return { row: 3, col: number - 10 };
-  if (number >= 13 && number <= 18) return { row: 3, col: number };
-  // Period 4
-  if (number >= 19 && number <= 36) return { row: 4, col: number - 18 };
-  // Period 5
-  if (number >= 37 && number <= 54) return { row: 5, col: number - 36 };
-  // Period 6
-  if (number >= 55 && number <= 56) return { row: 6, col: number - 54 };
-  if (number >= 57 && number <= 71) return { row: 9, col: number - 54 }; // Lanthanides
-  if (number >= 72 && number <= 86) return { row: 6, col: number - 68 };
-  // Period 7
-  if (number >= 87 && number <= 88) return { row: 7, col: number - 86 };
-  if (number >= 89 && number <= 103) return { row: 10, col: number - 86 }; // Actinides
-  if (number >= 104 && number <= 118) return { row: 7, col: number - 100 };
-  return null;
-}
-
-// State icons
-const stateIcons = { solid: '●', liquid: '◐', gas: '○' };
-
-// Elements that are "unlocked" in the demo (first 36 elements)
-const unlockedElements = new Set([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]);
-
-// Build grid cells
-const gridCells: (typeof elements[0] | null)[][] = Array(10).fill(null).map(() => Array(18).fill(null));
-elements.forEach(el => {
-  const pos = getGridPosition(el.number);
-  if (pos) {
-    gridCells[pos.row - 1][pos.col - 1] = el;
-  }
-});
-
 ---
 
-<Layout title="Modulos Interactivos - TLACU ECOEMS">
+<Layout title="Módulos de Aprendizaje - TLACU ECOEMS">
   <Header />
 
   <main>
     <!-- Hero -->
-    <section class="pt-36 sm:pt-40 pb-20 bg-gradient-hero">
+    <section class="pt-36 sm:pt-40 pb-16 bg-gradient-hero">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Aprendizaje interactivo
+          </div>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-            Modulos <span class="text-gradient-fire">interactivos</span>
+            Módulos de <span class="text-gradient-fire">Aprendizaje</span>
           </h1>
           <p class="text-xl text-white/70 max-w-2xl mx-auto">
-            Aprende de forma visual e interactiva. Diseno 100% responsivo para usar desde cualquier dispositivo.
+            Aprende de forma visual con herramientas 3D, simuladores y exploradores interactivos.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Demo Tabla Periodica -->
-    <section id="tabla-periodica" class="py-16 bg-cream">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-navy/5">
-          <!-- Header del modulo -->
-          <div class="bg-gradient-to-r from-navy to-navy-light px-6 py-4 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-              </svg>
-            </div>
-            <div>
-              <h2 class="text-xl font-bold text-white">Tabla Periodica Interactiva</h2>
-              <p class="text-white/60 text-sm">Explora los 118 elementos quimicos</p>
-            </div>
-            <div class="ml-auto">
-              <span class="px-3 py-1 bg-turquoise/20 text-turquoise text-xs font-medium rounded-full">Demo</span>
-            </div>
-          </div>
-
-          <div class="flex flex-col lg:flex-row">
-            <!-- Tabla -->
-            <div class="flex-1 p-4 lg:p-6 overflow-x-auto">
-              <!-- Leyenda de categorias -->
-              <div class="flex flex-wrap gap-2 mb-4 text-xs">
-                {Object.entries(CATEGORY_LABELS).map(([key, label]) => (
-                  <span class="flex items-center gap-1.5">
-                    <span class={`w-3 h-3 rounded ${CATEGORY_COLORS[key]}`}></span>
-                    <span class="text-navy/70">{label}</span>
-                  </span>
-                ))}
-              </div>
-
-              <div class="min-w-[800px] relative pb-2">
-                <!-- Main grid (rows 1-7) -->
-                <div class="grid gap-0.5" style="grid-template-columns: repeat(18, minmax(36px, 1fr));">
-                  {gridCells.slice(0, 7).map((row, rowIndex) => (
-                    row.map((element, colIndex) => {
-                      if (!element) {
-                        // Lanthanide/Actinide placeholders
-                        if (rowIndex === 5 && colIndex === 2) {
-                          return (
-                            <div class="text-[7px] text-center text-cyan-500 flex items-center justify-center aspect-square">
-                              57-71
-                            </div>
-                          );
-                        }
-                        if (rowIndex === 6 && colIndex === 2) {
-                          return (
-                            <div class="text-[7px] text-center text-rose-500 flex items-center justify-center aspect-square">
-                              89-103
-                            </div>
-                          );
-                        }
-                        return <div class="aspect-square" />;
-                      }
-
-                      const isUnlocked = unlockedElements.has(element.number);
-
-                      return (
-                        <button
-                          class={`element-btn aspect-square rounded p-0.5 text-center transition-all text-white cursor-pointer ${CATEGORY_COLORS[element.category]} ${isUnlocked ? 'opacity-100 hover:scale-110 hover:z-10 hover:shadow-lg' : 'opacity-30'}`}
-                          data-element={JSON.stringify(element)}
-                          data-unlocked={isUnlocked}
-                          title={`${element.nameEs} (${element.symbol})`}
-                        >
-                          <div class="flex items-center justify-between px-0.5">
-                            <span class="text-[6px] opacity-70">{element.number}</span>
-                            <span class="text-[6px] opacity-60">{stateIcons[element.state as keyof typeof stateIcons]}</span>
-                          </div>
-                          <div class="text-[11px] font-bold leading-tight">{element.symbol}</div>
-                          <div class="text-[5px] leading-tight opacity-80 truncate px-0.5">
-                            {element.nameEs}
-                          </div>
-                          {!isUnlocked && (
-                            <div class="absolute inset-0 flex items-center justify-center bg-black/20 rounded">
-                              <svg class="w-3 h-3 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                              </svg>
-                            </div>
-                          )}
-                        </button>
-                      );
-                    })
-                  ))}
-                </div>
-
-                <!-- Gap -->
-                <div class="h-3"></div>
-
-                <!-- Lanthanides (row 9 in data) -->
-                <div class="flex gap-0.5 ml-[calc((100%/18)*3)]">
-                  <div class="text-[8px] text-cyan-500 flex items-center pr-1 font-medium">La:</div>
-                  {gridCells[8].filter(Boolean).map((element) => {
-                    if (!element) return null;
-                    const isUnlocked = unlockedElements.has(element.number);
-                    return (
-                      <button
-                        class={`element-btn rounded p-0.5 text-center transition-all text-white cursor-pointer ${CATEGORY_COLORS[element.category]} ${isUnlocked ? 'opacity-100 hover:scale-110 hover:z-10 hover:shadow-lg' : 'opacity-30'}`}
-                        style="width: calc(100%/18 - 2px); min-width: 36px; max-width: 44px; aspect-ratio: 1;"
-                        data-element={JSON.stringify(element)}
-                        data-unlocked={isUnlocked}
-                        title={`${element.nameEs} (${element.symbol})`}
-                      >
-                        <div class="flex items-center justify-between px-0.5">
-                          <span class="text-[6px] opacity-70">{element.number}</span>
-                          <span class="text-[6px] opacity-60">{stateIcons[element.state as keyof typeof stateIcons]}</span>
-                        </div>
-                        <div class="text-[11px] font-bold leading-tight">{element.symbol}</div>
-                        <div class="text-[5px] leading-tight opacity-80 truncate px-0.5">
-                          {element.nameEs}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <!-- Actinides (row 10 in data) -->
-                <div class="flex gap-0.5 ml-[calc((100%/18)*3)] mt-0.5">
-                  <div class="text-[8px] text-rose-500 flex items-center pr-1 font-medium">Ac:</div>
-                  {gridCells[9].filter(Boolean).map((element) => {
-                    if (!element) return null;
-                    const isUnlocked = unlockedElements.has(element.number);
-                    return (
-                      <button
-                        class={`element-btn rounded p-0.5 text-center transition-all text-white cursor-pointer ${CATEGORY_COLORS[element.category]} ${isUnlocked ? 'opacity-100 hover:scale-110 hover:z-10 hover:shadow-lg' : 'opacity-30'}`}
-                        style="width: calc(100%/18 - 2px); min-width: 36px; max-width: 44px; aspect-ratio: 1;"
-                        data-element={JSON.stringify(element)}
-                        data-unlocked={isUnlocked}
-                        title={`${element.nameEs} (${element.symbol})`}
-                      >
-                        <div class="flex items-center justify-between px-0.5">
-                          <span class="text-[6px] opacity-70">{element.number}</span>
-                          <span class="text-[6px] opacity-60">{stateIcons[element.state as keyof typeof stateIcons]}</span>
-                        </div>
-                        <div class="text-[11px] font-bold leading-tight">{element.symbol}</div>
-                        <div class="text-[5px] leading-tight opacity-80 truncate px-0.5">
-                          {element.nameEs}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <!-- State legend -->
-                <div class="flex items-center justify-center gap-4 mt-3 text-[10px] text-navy/50">
-                  <span class="flex items-center gap-1">● Solido</span>
-                  <span class="flex items-center gap-1">◐ Liquido</span>
-                  <span class="flex items-center gap-1">○ Gas</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel de informacion -->
-            <div class="lg:w-80 border-t lg:border-t-0 lg:border-l border-navy/10 bg-cream/50 p-6">
-              <div id="element-info" class="space-y-4">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-turquoise to-turquoise/70 flex items-center justify-center shadow-lg">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-navy">Tabla Periodica</h3>
-                    <p class="text-xs text-navy/60">Haz clic en un elemento</p>
-                  </div>
-                </div>
-
-                <p class="text-sm text-navy/70">
-                  La tabla periodica organiza los 118 elementos segun su numero atomico. Los elementos en la misma columna tienen propiedades similares.
-                </p>
-
-                <div class="bg-turquoise/10 rounded-xl p-4 border border-turquoise/20">
-                  <p class="text-xs text-navy/70 flex items-start gap-2">
-                    <svg class="w-4 h-4 text-turquoise mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <span><b>Demo:</b> Los primeros 36 elementos estan desbloqueados. Registrate para ver los 118.</span>
-                  </p>
-                </div>
-
-                <!-- Elemento seleccionado -->
-                <div id="selected-element" class="hidden">
-                  <div class="flex items-center gap-4 mb-4">
-                    <div id="el-symbol-box" class="w-16 h-16 rounded-2xl flex flex-col items-center justify-center text-white shadow-lg">
-                      <span id="el-number" class="text-xs opacity-70"></span>
-                      <span id="el-symbol" class="text-2xl font-bold"></span>
-                    </div>
-                    <div>
-                      <h4 id="el-name" class="text-lg font-bold text-navy"></h4>
-                      <p id="el-state" class="text-sm text-navy/60"></p>
-                    </div>
-                  </div>
-
-                  <div class="grid grid-cols-2 gap-2 mb-4">
-                    <div class="bg-white rounded-xl p-3">
-                      <p class="text-xs text-navy/50">Masa atomica</p>
-                      <p id="el-mass-val" class="font-bold text-navy"></p>
-                    </div>
-                    <div class="bg-white rounded-xl p-3">
-                      <p class="text-xs text-navy/50">Categoria</p>
-                      <p id="el-category" class="font-bold text-navy text-sm"></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <PlatformLink path="/autenticacion/registro" class="block w-full mt-6 px-4 py-3 bg-terracotta text-white text-center font-semibold rounded-xl hover:bg-terracotta-dark transition-colors">
-                Ver los 118 elementos →
-              </PlatformLink>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Demo Explorador de Celulas 3D -->
-    <section id="celula" class="py-16 bg-cream-dark">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-navy/5">
-          <!-- Header del modulo -->
-          <div class="bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-4 flex items-center gap-4">
-            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-              </svg>
-            </div>
-            <div>
-              <h2 class="text-xl font-bold text-white">Explorador de Celulas 3D</h2>
-              <p class="text-white/60 text-sm">Modelo interactivo con rotacion</p>
-            </div>
-            <div class="ml-auto">
-              <span class="px-3 py-1 bg-turquoise/20 text-turquoise text-xs font-medium rounded-full flex items-center">Demo</span>
-            </div>
-          </div>
-
-          <!-- React 3D Cell Viewer Component -->
-          <CellViewer3D client:only="react" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Otros modulos -->
+    <!-- Dos tipos de módulos -->
     <section class="py-16 bg-cream">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
-            Mas herramientas disponibles
+          <h2 class="text-2xl sm:text-3xl font-black text-navy mb-4">
+            Elige tu tipo de módulo
           </h2>
-          <p class="text-lg text-navy/70">
-            Explora todos los modulos interactivos en la plataforma
+          <p class="text-navy/60">
+            TLACU ofrece dos tipos de módulos según tus necesidades de estudio
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
-              <span class="text-3xl">🗺️</span>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Refuerzo -->
+          <a href="/modulos/refuerzo" class="group bg-white rounded-3xl p-8 border-2 border-teal-500/20 hover:border-teal-500 transition-all shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
             </div>
-            <h3 class="font-bold text-navy mb-2">Republica Mexicana</h3>
-            <p class="text-sm text-navy/60 mb-4">Mapa interactivo con los 32 estados y capitales.</p>
-            <span class="text-xs text-turquoise font-medium">Geografia</span>
-          </div>
+            <h3 class="text-2xl font-bold text-navy mb-3 group-hover:text-teal-600 transition-colors">
+              Módulos de Refuerzo
+            </h3>
+            <p class="text-navy/60 mb-6">
+              Conceptos de años anteriores que el examen <strong>asume</strong> que ya dominas. No están en el temario oficial, pero son fundamentales para responder correctamente.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs px-3 py-1 bg-teal-500/10 text-teal-700 rounded-full">Fracciones</span>
+              <span class="text-xs px-3 py-1 bg-teal-500/10 text-teal-700 rounded-full">Ortografía</span>
+              <span class="text-xs px-3 py-1 bg-teal-500/10 text-teal-700 rounded-full">Comprensión lectora</span>
+              <span class="text-xs px-3 py-1 bg-teal-500/10 text-teal-700 rounded-full">Aritmética</span>
+            </div>
+            <div class="flex items-center gap-2 text-teal-600 font-semibold group-hover:gap-3 transition-all">
+              Ver módulos de refuerzo
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </div>
+          </a>
 
-          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center mb-4">
-              <span class="text-3xl">📜</span>
+          <!-- Temario ECOEMS -->
+          <a href="/modulos/temario" class="group bg-white rounded-3xl p-8 border-2 border-terracotta/20 hover:border-terracotta transition-all shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-terracotta to-terracotta-dark rounded-2xl flex items-center justify-center shadow-lg mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
             </div>
-            <h3 class="font-bold text-navy mb-2">Linea del Tiempo</h3>
-            <p class="text-sm text-navy/60 mb-4">Historia de Mexico desde la era prehispanica.</p>
-            <span class="text-xs text-terracotta font-medium">Historia</span>
-          </div>
-
-          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-4">
-              <span class="text-3xl">📐</span>
+            <h3 class="text-2xl font-bold text-navy mb-3 group-hover:text-terracotta transition-colors">
+              Temario ECOEMS
+            </h3>
+            <p class="text-navy/60 mb-6">
+              Temas que el examen <strong>evalúa directamente</strong>. Aprende con visualizaciones 3D, simuladores interactivos y herramientas visuales.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Tabla Periódica</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Célula 3D</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Geometría</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Historia</span>
             </div>
-            <h3 class="font-bold text-navy mb-2">Formulas Matematicas</h3>
-            <p class="text-sm text-navy/60 mb-4">Algebra, geometria y mas organizadas por tema.</p>
-            <span class="text-xs text-navy font-medium">Matematicas</span>
-          </div>
-
-          <div class="bg-gradient-to-br from-navy/5 to-turquoise/5 rounded-2xl p-6 flex items-center justify-center">
-            <div class="text-center">
-              <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
-              </div>
-              <p class="text-sm text-navy/60">Y mas modulos...</p>
+            <div class="flex items-center gap-2 text-terracotta font-semibold group-hover:gap-3 transition-all">
+              Ver temario ECOEMS
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="py-20 bg-gradient-hero">
+    <section class="py-16 bg-gradient-hero">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
-          Explora todos los modulos
+          Accede a todos los módulos
         </h2>
         <p class="text-xl text-white/70 mb-10">
-          Accede a la plataforma completa con todos los modulos interactivos. 100% responsiva.
+          Registrate gratis para explorar los módulos interactivos. 100% responsivo.
         </p>
         <PlatformLink path="/autenticacion/registro" class="inline-block px-10 py-4 bg-terracotta text-white font-bold text-lg rounded-xl hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/30">
           Comenzar gratis
@@ -540,75 +118,3 @@ elements.forEach(el => {
 
   <Footer />
 </Layout>
-
-<script>
-  // Periodic Table - Interaction
-  const CATEGORY_LABELS: Record<string, string> = {
-    'alkali-metal': 'Metal Alcalino',
-    'alkaline-earth': 'Alcalinoterreo',
-    'transition-metal': 'Metal de Transicion',
-    'post-transition': 'Post-transicion',
-    'metalloid': 'Metaloide',
-    'nonmetal': 'No Metal',
-    'halogen': 'Halogeno',
-    'noble-gas': 'Gas Noble',
-    'lanthanide': 'Lantanido',
-    'actinide': 'Actinido',
-  };
-
-  const STATE_LABELS: Record<string, string> = {
-    'solid': 'Solido',
-    'liquid': 'Liquido',
-    'gas': 'Gas',
-  };
-
-  const elementBtns = document.querySelectorAll('.element-btn');
-  const selectedElementDiv = document.getElementById('selected-element');
-
-  elementBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const data = JSON.parse(btn.getAttribute('data-element') || '{}');
-      const isUnlocked = btn.getAttribute('data-unlocked') === 'true';
-
-      if (!isUnlocked) {
-        alert('Registrate gratis para desbloquear este elemento');
-        return;
-      }
-
-      if (selectedElementDiv) {
-        selectedElementDiv.classList.remove('hidden');
-
-        const symbolBox = document.getElementById('el-symbol-box');
-        const categoryClass = Array.from(btn.classList).find(c => c.startsWith('bg-'));
-        if (symbolBox && categoryClass) {
-          symbolBox.className = `w-16 h-16 rounded-2xl flex flex-col items-center justify-center text-white shadow-lg ${categoryClass}`;
-        }
-
-        const elNumber = document.getElementById('el-number');
-        const elSymbol = document.getElementById('el-symbol');
-        const elName = document.getElementById('el-name');
-        const elState = document.getElementById('el-state');
-        const elMassVal = document.getElementById('el-mass-val');
-        const elCategory = document.getElementById('el-category');
-
-        if (elNumber) elNumber.textContent = data.number;
-        if (elSymbol) elSymbol.textContent = data.symbol;
-        if (elName) elName.textContent = data.nameEs;
-        if (elState) elState.textContent = STATE_LABELS[data.state] || data.state;
-        if (elMassVal) elMassVal.textContent = `${data.mass} u`;
-        if (elCategory) elCategory.textContent = CATEGORY_LABELS[data.category] || data.category;
-      }
-    });
-  });
-
-</script>
-
-<style>
-  .element-btn {
-    position: relative;
-  }
-
-  .element-btn:hover {
-    box-shadow: 0 0 20px rgba(255,255,255,0.3);
-  }
-</style>
