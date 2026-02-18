@@ -1,6 +1,7 @@
 ---
 import PostHog from '../components/PostHog.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import ScreenshotModal from '../components/ScreenshotModal.astro';
 
 interface Props {
   title: string;
@@ -46,5 +47,6 @@ const { title, description = "TLACU - Plataforma educativa 100% responsiva que e
   <body class="min-h-screen">
     <slot />
     <CookieBanner />
+    <ScreenshotModal />
   </body>
 </html>

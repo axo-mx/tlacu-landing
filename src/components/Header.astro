@@ -35,117 +35,130 @@ import PlatformLink from './PlatformLink.astro';
 
           <!-- Mega Menu Dropdown -->
           <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-            <div class="bg-white rounded-2xl shadow-2xl border border-navy/10 p-6 w-[500px]">
+            <div class="bg-white rounded-2xl shadow-2xl border border-navy/10 overflow-hidden w-[780px]">
+
               <!-- Header -->
-              <div class="flex items-center gap-3 mb-4 pb-4 border-b border-navy/10">
-                <div class="w-10 h-10 bg-terracotta/10 rounded-xl flex items-center justify-center">
-                  <span class="text-xl">🔥</span>
+              <div class="bg-gradient-to-r from-navy via-navy to-navy/90 px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
+                    <span class="text-lg">🔥</span>
+                  </div>
+                  <div>
+                    <div class="font-bold text-white text-sm">TLACU ECOEMS</div>
+                    <div class="text-xs text-white/50">Preparación para Educación Media Superior</div>
+                  </div>
                 </div>
-                <div>
-                  <div class="font-bold text-navy">TLACU ECOEMS</div>
-                  <div class="text-sm text-navy/60">Preparación para Educación Media Superior</div>
-                </div>
+                <PlatformLink path="/autenticacion/registro" class="flex items-center gap-1.5 px-4 py-2 bg-terracotta hover:bg-terracotta-dark text-white text-sm font-semibold rounded-lg transition-colors">
+                  Comenzar gratis
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </PlatformLink>
               </div>
 
-              <!-- Menu Grid -->
-              <div class="grid grid-cols-2 gap-3">
-                <a href="/plataforma" class="flex items-start gap-3 p-3 rounded-xl hover:bg-cream transition-colors group/item">
-                  <div class="w-10 h-10 bg-turquoise/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-turquoise group-hover/item:text-white transition-colors">
-                    <svg class="w-5 h-5 text-turquoise group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <!-- Menu Grid 3 cols -->
+              <div class="p-5 grid grid-cols-3 gap-2">
+
+                <!-- Plataforma -->
+                <a href="/plataforma" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-turquoise/5 border border-transparent hover:border-turquoise/20 transition-all">
+                  <div class="w-9 h-9 bg-turquoise/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-turquoise transition-colors">
+                    <svg class="w-4.5 h-4.5 text-turquoise group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                   </div>
                   <div>
-                    <div class="font-semibold text-navy group-hover/item:text-turquoise transition-colors">Plataforma</div>
-                    <div class="text-sm text-navy/60">Dashboard, técnica PARE, flashcards</div>
+                    <div class="font-semibold text-navy text-sm group-hover/item:text-turquoise transition-colors">Plataforma</div>
+                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Dashboard, técnica PARE, flashcards</div>
                   </div>
                 </a>
 
-                <a href="/examenes" class="flex items-start gap-3 p-3 rounded-xl hover:bg-cream transition-colors group/item">
-                  <div class="w-10 h-10 bg-terracotta/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-terracotta group-hover/item:text-white transition-colors">
-                    <svg class="w-5 h-5 text-terracotta group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Exámenes -->
+                <a href="/examenes" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-terracotta/5 border border-transparent hover:border-terracotta/20 transition-all">
+                  <div class="w-9 h-9 bg-terracotta/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-terracotta transition-colors">
+                    <svg class="w-4.5 h-4.5 text-terracotta group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
                   </div>
                   <div>
-                    <div class="font-semibold text-navy group-hover/item:text-terracotta transition-colors">Exámenes</div>
-                    <div class="text-sm text-navy/60">Simulacros y práctica</div>
+                    <div class="font-semibold text-navy text-sm group-hover/item:text-terracotta transition-colors">Exámenes</div>
+                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Simulacros y práctica</div>
                   </div>
                 </a>
 
-                <a href="/modulos/temario" class="flex items-start gap-3 p-3 rounded-xl hover:bg-cream transition-colors group/item">
-                  <div class="w-10 h-10 bg-terracotta/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-terracotta group-hover/item:text-white transition-colors">
-                    <svg class="w-5 h-5 text-terracotta group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Temario -->
+                <a href="/modulos/temario" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-amber-500/5 border border-transparent hover:border-amber-500/20 transition-all">
+                  <div class="w-9 h-9 bg-amber-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-amber-500 transition-colors">
+                    <svg class="w-4.5 h-4.5 text-amber-500 group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                     </svg>
                   </div>
                   <div>
-                    <div class="font-semibold text-navy group-hover/item:text-terracotta transition-colors">Temario ECOEMS</div>
-                    <div class="text-sm text-navy/60">Módulos interactivos 3D</div>
+                    <div class="font-semibold text-navy text-sm group-hover/item:text-amber-600 transition-colors">Temario ECOEMS</div>
+                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Módulos interactivos 3D</div>
                   </div>
                 </a>
 
-                <a href="/modulos/refuerzo" class="flex items-start gap-3 p-3 rounded-xl hover:bg-cream transition-colors group/item">
-                  <div class="w-10 h-10 bg-teal-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-teal-500 group-hover/item:text-white transition-colors">
-                    <svg class="w-5 h-5 text-teal-500 group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Refuerzo -->
+                <a href="/modulos/refuerzo" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-teal-500/5 border border-transparent hover:border-teal-500/20 transition-all">
+                  <div class="w-9 h-9 bg-teal-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-teal-500 transition-colors">
+                    <svg class="w-4.5 h-4.5 text-teal-500 group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                     </svg>
                   </div>
                   <div>
-                    <div class="font-semibold text-navy group-hover/item:text-teal-600 transition-colors">Refuerzo</div>
-                    <div class="text-sm text-navy/60">Fortalece tus bases</div>
+                    <div class="font-semibold text-navy text-sm group-hover/item:text-teal-600 transition-colors">Refuerzo</div>
+                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Fortalece tus bases</div>
                   </div>
                 </a>
 
-                <a href="/precios" class="flex items-start gap-3 p-3 rounded-xl hover:bg-cream transition-colors group/item">
-                  <div class="w-10 h-10 bg-turquoise/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-turquoise group-hover/item:text-white transition-colors">
-                    <svg class="w-5 h-5 text-turquoise group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Precios -->
+                <a href="/precios" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-turquoise/5 border border-transparent hover:border-turquoise/20 transition-all">
+                  <div class="w-9 h-9 bg-turquoise/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-turquoise transition-colors">
+                    <svg class="w-4.5 h-4.5 text-turquoise group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   </div>
                   <div>
-                    <div class="font-semibold text-navy group-hover/item:text-turquoise transition-colors">Precios</div>
-                    <div class="text-sm text-navy/60">Planes Gratuito y Pro</div>
+                    <div class="font-semibold text-navy text-sm group-hover/item:text-turquoise transition-colors">Precios</div>
+                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Planes Gratuito y Pro</div>
                   </div>
                 </a>
 
-                <a href="/hoja-de-ruta" class="flex items-start gap-3 p-3 rounded-xl hover:bg-cream transition-colors group/item">
-                  <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-emerald-500 group-hover/item:text-white transition-colors">
-                    <svg class="w-5 h-5 text-emerald-500 group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Hoja de ruta -->
+                <a href="/hoja-de-ruta" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-emerald-500/5 border border-transparent hover:border-emerald-500/20 transition-all">
+                  <div class="w-9 h-9 bg-emerald-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-emerald-500 transition-colors">
+                    <svg class="w-4.5 h-4.5 text-emerald-500 group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
                     </svg>
                   </div>
                   <div>
-                    <div class="flex items-center gap-2">
-                      <span class="font-semibold text-navy group-hover/item:text-emerald-600 transition-colors">Hoja de ruta</span>
-                      <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-600 text-[10px] font-bold rounded-full">Nuevo</span>
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-semibold text-navy text-sm group-hover/item:text-emerald-600 transition-colors">Hoja de ruta</span>
+                      <span class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-600 text-[9px] font-bold rounded-full leading-none">NUEVO</span>
                     </div>
-                    <div class="text-sm text-navy/60">Lo que hemos construido y lo que viene</div>
+                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Lo que hemos construido y lo que viene</div>
                   </div>
                 </a>
+              </div>
 
-                <a href="/contacto?tipo=tutor" class="flex items-start gap-3 p-3 rounded-xl hover:bg-cream transition-colors group/item">
-                  <div class="w-10 h-10 bg-turquoise/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-turquoise group-hover/item:text-white transition-colors">
-                    <svg class="w-5 h-5 text-turquoise group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <!-- Para Padres — featured strip -->
+              <div class="mx-5 mb-5">
+                <a href="/contacto?tipo=tutor" class="group/item flex items-center gap-4 px-4 py-3 rounded-xl bg-navy/3 hover:bg-turquoise/8 border border-navy/8 hover:border-turquoise/25 transition-all">
+                  <div class="w-9 h-9 bg-turquoise/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-turquoise transition-colors">
+                    <svg class="w-4.5 h-4.5 text-turquoise group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                   </div>
-                  <div>
-                    <span class="font-semibold text-navy group-hover/item:text-turquoise transition-colors">Para Padres</span>
-                    <div class="text-sm text-navy/60">Monitorea a tus hijos o alumnos</div>
+                  <div class="flex-1">
+                    <span class="font-semibold text-navy text-sm group-hover/item:text-turquoise transition-colors">Para Padres y Tutores</span>
+                    <div class="text-xs text-navy/50">Monitorea el avance de tus hijos o alumnos desde un panel dedicado</div>
                   </div>
+                  <svg class="w-4 h-4 text-navy/30 group-hover/item:text-turquoise group-hover/item:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
                 </a>
               </div>
 
-              <!-- CTA -->
-              <div class="mt-4 pt-4 border-t border-navy/10">
-                <PlatformLink path="/autenticacion/registro" class="flex items-center justify-center gap-2 w-full py-3 bg-terracotta text-white font-semibold rounded-xl hover:bg-terracotta-dark transition-colors">
-                  Comenzar gratis
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                  </svg>
-                </PlatformLink>
-              </div>
             </div>
           </div>
         </div>

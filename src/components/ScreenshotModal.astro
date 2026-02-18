@@ -1,0 +1,206 @@
+---
+// ScreenshotModal — include once (via Layout).
+// Any element with class="screenshot-trigger" and data-src / data-alt / data-label opens this modal.
+---
+
+<div
+  id="screenshot-modal"
+  class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm"
+  role="dialog"
+  aria-modal="true"
+>
+  <!-- Top bar -->
+  <div class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-3 bg-black/40">
+    <span id="sm-label" class="text-white/70 text-sm font-medium"></span>
+    <div class="flex items-center gap-2">
+      <span id="sm-zoom-indicator" class="text-white/40 text-xs w-10 text-right tabular-nums">100%</span>
+      <button id="sm-zoom-out" class="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-lg font-bold leading-none" aria-label="Alejar">−</button>
+      <button id="sm-zoom-in"  class="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-lg font-bold leading-none" aria-label="Acercar">+</button>
+      <button id="sm-zoom-reset" class="px-2 h-8 flex items-center text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-xs font-medium">Reiniciar</button>
+      <button id="sm-close" class="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-lg transition-colors ml-2" aria-label="Cerrar">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Stage (zoom/pan area) -->
+  <div id="sm-stage" class="absolute inset-0 pt-14 pb-8 flex items-center justify-center overflow-hidden cursor-grab select-none">
+    <img
+      id="sm-img"
+      src=""
+      alt=""
+      class="max-h-full max-w-full rounded-lg shadow-2xl pointer-events-none"
+      style="transform-origin: center center;"
+      draggable="false"
+    />
+  </div>
+
+  <!-- Hint -->
+  <p class="absolute bottom-2 left-1/2 -translate-x-1/2 text-white/30 text-xs pointer-events-none whitespace-nowrap">
+    Rueda → zoom &nbsp;·&nbsp; Arrastra → explorar &nbsp;·&nbsp; Doble clic → reiniciar
+  </p>
+</div>
+
+<script>
+  const modal     = document.getElementById('screenshot-modal')!;
+  const stage     = document.getElementById('sm-stage')!;
+  const img       = document.getElementById('sm-img') as HTMLImageElement;
+  const label     = document.getElementById('sm-label')!;
+  const indicator = document.getElementById('sm-zoom-indicator')!;
+
+  let scale = 1, tx = 0, ty = 0;
+  let dragging = false, didDrag = false, ox = 0, oy = 0;
+  let qualityTimer: ReturnType<typeof setTimeout> | null = null;
+
+  // GPU during interaction → high-quality CPU render when settled
+  function startInteraction() {
+    if (qualityTimer) { clearTimeout(qualityTimer); qualityTimer = null; }
+    img.style.willChange = 'transform';
+  }
+  function endInteraction(delay = 200) {
+    if (qualityTimer) clearTimeout(qualityTimer);
+    qualityTimer = setTimeout(() => {
+      img.style.willChange = 'auto'; // triggers browser re-rasterization at full quality
+    }, delay);
+  }
+
+  function applyTransform() {
+    img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+    indicator.textContent = `${Math.round(scale * 100)}%`;
+  }
+
+  function resetTransform(animated = true) {
+    scale = 1; tx = 0; ty = 0;
+    if (animated) {
+      startInteraction();
+      img.style.transition = 'transform 0.25s ease';
+      applyTransform();
+      setTimeout(() => { img.style.transition = ''; endInteraction(50); }, 250);
+    } else {
+      img.style.transition = '';
+      img.style.willChange = 'auto';
+      applyTransform();
+    }
+  }
+
+  function zoomBy(factor: number) {
+    startInteraction();
+    scale = Math.min(Math.max(scale * factor, 0.5), 6);
+    img.style.transition = 'transform 0.2s ease';
+    applyTransform();
+    setTimeout(() => { img.style.transition = ''; endInteraction(50); }, 200);
+  }
+
+  // ── Open / Close ────────────────────────────────────────
+  function openModal(src: string, alt: string, lbl: string) {
+    img.src = src;
+    img.alt = alt;
+    label.textContent = lbl;
+    resetTransform(false);
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+    img.src = '';
+  }
+
+  // Attach triggers (runs after DOM is ready; also handles dynamically added elements via event delegation)
+  document.addEventListener('click', e => {
+    const trigger = (e.target as Element).closest<HTMLElement>('.screenshot-trigger');
+    if (trigger) openModal(trigger.dataset.src!, trigger.dataset.alt!, trigger.dataset.label ?? '');
+  });
+
+  document.getElementById('sm-close')!.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (didDrag) { didDrag = false; return; }
+    if (e.target === modal || e.target === stage) closeModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // ── Zoom buttons ─────────────────────────────────────────
+  document.getElementById('sm-zoom-in')!.addEventListener('click',    () => zoomBy(1.25));
+  document.getElementById('sm-zoom-out')!.addEventListener('click',   () => zoomBy(0.8));
+  document.getElementById('sm-zoom-reset')!.addEventListener('click', () => resetTransform());
+
+  // ── Mouse wheel zoom (centered on cursor) ─────────────────
+  stage.addEventListener('wheel', e => {
+    e.preventDefault();
+    startInteraction();
+    const factor = e.deltaY < 0 ? 1.12 : 0.9;
+    const rect = img.getBoundingClientRect();
+    const cx = e.clientX - (rect.left + rect.width / 2);
+    const cy = e.clientY - (rect.top + rect.height / 2);
+    tx = cx + (tx - cx) * factor;
+    ty = cy + (ty - cy) * factor;
+    scale = Math.min(Math.max(scale * factor, 0.5), 6);
+    applyTransform();
+    endInteraction(250); // re-rasterize 250ms after last wheel event
+  }, { passive: false });
+
+  // ── Mouse drag ────────────────────────────────────────────
+  stage.addEventListener('mousedown', e => {
+    dragging = true;
+    didDrag = false;
+    ox = e.clientX - tx;
+    oy = e.clientY - ty;
+    stage.style.cursor = 'grabbing';
+    startInteraction();
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    didDrag = true;
+    tx = e.clientX - ox;
+    ty = e.clientY - oy;
+    applyTransform();
+  });
+  window.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    stage.style.cursor = 'grab';
+    endInteraction(100);
+  });
+
+  // ── Double click to reset ─────────────────────────────────
+  stage.addEventListener('dblclick', () => resetTransform());
+
+  // ── Touch: pinch-to-zoom + drag ──────────────────────────
+  let lastDist = 0, lastTouchX = 0, lastTouchY = 0;
+
+  stage.addEventListener('touchstart', e => {
+    startInteraction();
+    if (e.touches.length === 2) {
+      lastDist = Math.hypot(
+        e.touches[1].clientX - e.touches[0].clientX,
+        e.touches[1].clientY - e.touches[0].clientY
+      );
+    } else if (e.touches.length === 1) {
+      lastTouchX = e.touches[0].clientX - tx;
+      lastTouchY = e.touches[0].clientY - ty;
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (e.touches.length === 2) {
+      const dist = Math.hypot(
+        e.touches[1].clientX - e.touches[0].clientX,
+        e.touches[1].clientY - e.touches[0].clientY
+      );
+      scale = Math.min(Math.max(scale * (dist / lastDist), 0.5), 6);
+      lastDist = dist;
+    } else if (e.touches.length === 1) {
+      tx = e.touches[0].clientX - lastTouchX;
+      ty = e.touches[0].clientY - lastTouchY;
+    }
+    applyTransform();
+  }, { passive: false });
+
+  stage.addEventListener('touchend', () => endInteraction(250), { passive: true });
+</script>

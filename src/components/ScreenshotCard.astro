@@ -1,0 +1,60 @@
+---
+interface Props {
+  /** Thumbnail src shown in the gallery (optimized, smaller file) */
+  src: string;
+  /** Full-resolution src opened in the modal. Defaults to `src` if omitted. */
+  hd?: string;
+  alt: string;
+  /** Caption shown below the card and in the modal top-bar */
+  label: string;
+  /** Natural width of the thumbnail image (for CLS) */
+  width: number;
+  /** Natural height of the thumbnail image (for CLS) */
+  height: number;
+  /** Tailwind aspect-ratio class for the preview container. Default: aspect-video (16:9) */
+  aspectClass?: string;
+  /** Tailwind object-position for the preview crop. Default: object-top */
+  objectPosition?: string;
+}
+
+const {
+  src,
+  hd,
+  alt,
+  label,
+  width,
+  height,
+  aspectClass = 'aspect-video',
+  objectPosition = 'object-top',
+} = Astro.props;
+
+const modalSrc = hd ?? src;
+---
+
+<button
+  class="group screenshot-trigger text-left w-full"
+  data-src={modalSrc}
+  data-alt={alt}
+  data-label={label}
+  aria-label={`Ver ${label} en detalle`}
+>
+  <div class={`relative ${aspectClass} overflow-hidden rounded-xl shadow-lg border border-navy/10 cursor-zoom-in transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02]`}>
+    <img
+      src={src}
+      alt={alt}
+      class={`w-full h-full object-cover ${objectPosition}`}
+      width={width}
+      height={height}
+      loading="lazy"
+    />
+    <!-- Hover overlay -->
+    <div class="absolute inset-0 bg-navy/0 group-hover:bg-navy/25 transition-colors duration-300 flex items-center justify-center">
+      <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+        <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-navy/70 text-sm mt-3 font-medium">{label}</p>
+</button>
