@@ -1,0 +1,677 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
+import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
+
+const responseButtons = [
+  { label: 'No lo sabía', interval: '< 10 min', color: 'bg-red-500', description: 'La tarjeta regresa hoy mismo' },
+  { label: 'Difícil', interval: '~1 día', color: 'bg-amber-400', description: 'Correcto, pero con esfuerzo' },
+  { label: 'Bien', interval: '~4 días', color: 'bg-emerald-500', description: 'Correcto con algo de duda' },
+  { label: 'Fácil', interval: '~7+ días', color: 'bg-blue-500', description: 'Respuesta inmediata y segura' },
+];
+
+const seoTitle = 'Flashcards ECOEMS — Repasa las 10 áreas con tarjetas inteligentes | TLACU';
+const seoDescription = 'Cientos de flashcards especializadas para el ECOEMS en las 10 áreas del examen. Repetición espaciada SM-2 que prioriza lo que más necesitas repasar.';
+const canonicalUrl = 'https://tlacu.mx/flashcards';
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+  </Fragment>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-36 sm:pt-40 pb-20 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+            Incluido en el plan gratuito
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Flashcards que se <span class="text-gradient-fire">adaptan a ti</span>
+          </h1>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto mb-10">
+            Cientos de flashcards especializadas en las 10 áreas del ECOEMS. El algoritmo SM-2 prioriza las que más necesitas repasar para que estudies menos y recuerdes más.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <PlatformLink path="/flashcards" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-lg">
+              Practicar flashcards
+            </PlatformLink>
+            <a href="#como-funciona" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+              ¿Cómo funciona?
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mockup de tarjeta -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Explicación -->
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Pregunta por delante, respuesta por detrás
+            </h2>
+            <p class="text-navy/70 mb-4">
+              Cada flashcard tiene una <strong class="text-navy">pregunta</strong> en el frente y la <strong class="text-navy">respuesta con explicación</strong> en la parte trasera. Toca la tarjeta para voltearla.
+            </p>
+            <p class="text-navy/70 mb-6">
+              Después de ver la respuesta, evalúas qué tan bien la sabías. Esa evaluación alimenta el <a href="/repaso-espaciado" class="text-turquoise font-semibold hover:underline">algoritmo SM-2</a>, que decide cuándo volver a mostrarte esa tarjeta.
+            </p>
+
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm">
+                <div class="w-8 h-8 bg-turquoise/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-navy text-sm">Soporte para fórmulas</div>
+                  <div class="text-navy/50 text-xs">Las tarjetas de matemáticas y física renderizan fórmulas y ecuaciones</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm">
+                <div class="w-8 h-8 bg-turquoise/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-navy text-sm">Explicaciones incluidas</div>
+                  <div class="text-navy/50 text-xs">Muchas tarjetas incluyen una explicación extra para reforzar el concepto</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm">
+                <div class="w-8 h-8 bg-turquoise/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-navy text-sm">Reporta errores</div>
+                  <div class="text-navy/50 text-xs">Si una tarjeta tiene un error, repórtala y la revisamos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive card demo -->
+          <div class="relative">
+            <div id="flashcard-demo" class="flashcard-container cursor-pointer" style="perspective: 1000px;">
+              <div class="flashcard-inner relative transition-transform duration-500" style="transform-style: preserve-3d;">
+
+                <!-- FRONT (question) -->
+                <div class="flashcard-front rounded-3xl shadow-2xl p-6 sm:p-8 relative overflow-hidden border-2 border-violet-200" style="backface-visibility: hidden; background: linear-gradient(135deg, #f5f0ff 0%, #ede5ff 50%, #f0e8ff 100%);">
+                  <!-- Header -->
+                  <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 bg-violet-500/15 rounded-lg flex items-center justify-center">
+                        <Globe2 class="w-5 h-5 text-violet-600" />
+                      </div>
+                      <div>
+                        <div class="font-bold text-violet-700 text-sm">Geografía</div>
+                        <div class="text-[11px] text-navy/40">Reconocer información explícita</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 px-2.5 py-1 bg-white/60 rounded-lg text-navy/30 text-xs">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+                      </svg>
+                      Reportar
+                    </div>
+                  </div>
+
+                  <!-- Question -->
+                  <div class="text-center py-6 sm:py-10">
+                    <p class="text-navy text-lg sm:text-xl font-semibold leading-relaxed">
+                      ¿Cuáles son las principales funciones ecológicas y económicas de los océanos?
+                    </p>
+                  </div>
+
+                  <!-- Footer -->
+                  <div class="flex items-center justify-between mt-4">
+                    <div class="text-navy/25 text-sm">Haz clic para ver la respuesta</div>
+                    <span class="px-3 py-1 bg-amber-400/80 text-white text-xs font-bold rounded-full">Media</span>
+                  </div>
+                </div>
+
+                <!-- BACK (answer) -->
+                <div class="flashcard-back rounded-3xl shadow-2xl p-6 sm:p-8 absolute inset-0 overflow-hidden border-2 border-emerald-200" style="backface-visibility: hidden; transform: rotateY(180deg); background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #ecfdf5 100%);">
+                  <!-- Header -->
+                  <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 bg-emerald-500/15 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="font-bold text-emerald-700 text-sm">Respuesta</div>
+                        <div class="text-[11px] text-navy/40">Geografía · Reconocer información explícita</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 px-2.5 py-1 bg-white/60 rounded-lg text-navy/30 text-xs">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+                      </svg>
+                      Reportar
+                    </div>
+                  </div>
+
+                  <!-- Answer -->
+                  <div class="text-center py-4">
+                    <p class="text-navy text-base sm:text-lg font-semibold leading-relaxed">
+                      Los océanos regulan el clima global (absorbiendo calor y CO₂), producen la mayor parte del oxígeno del planeta, albergan una inmensa biodiversidad y sustentan la economía global mediante la pesca, el transporte y el turismo.
+                    </p>
+                  </div>
+
+                  <!-- Footer -->
+                  <div class="flex items-center justify-between mt-4">
+                    <div class="text-navy/25 text-sm">Haz clic para volver</div>
+                    <span class="px-3 py-1 bg-amber-400/80 text-white text-xs font-bold rounded-full">Media</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Click hint -->
+            <div id="flashcard-hint" class="text-center mt-4 transition-opacity duration-300">
+              <span class="inline-flex items-center gap-2 text-sm text-navy/40">
+                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"></path>
+                </svg>
+                Haz clic para probar
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section id="como-funciona" class="py-20 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            ¿Cómo funciona?
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Tres pasos simples que hacen toda la diferencia
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5 text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-turquoise rounded-xl flex items-center justify-center text-white font-black">1</div>
+              <div class="w-10 h-10 bg-turquoise/10 rounded-xl flex items-center justify-center">
+                <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-navy text-lg mb-2">Lee la pregunta</h3>
+            <p class="text-navy/60 text-sm">
+              Aparece una tarjeta con una pregunta de cualquiera de las 10 áreas del ECOEMS. Intenta recordar la respuesta antes de voltear.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5 text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-terracotta rounded-xl flex items-center justify-center text-white font-black">2</div>
+              <div class="w-10 h-10 bg-terracotta/10 rounded-xl flex items-center justify-center">
+                <svg class="w-5 h-5 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-navy text-lg mb-2">Voltea y verifica</h3>
+            <p class="text-navy/60 text-sm">
+              Toca la tarjeta para revelar la respuesta y su explicación. Compara con lo que recordabas.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5 text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-black">3</div>
+              <div class="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center">
+                <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-navy text-lg mb-2">Evalúa tu respuesta</h3>
+            <p class="text-navy/60 text-sm">
+              Elige entre 4 niveles de dificultad. El algoritmo calcula cuándo volver a mostrarte esa tarjeta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 botones de respuesta -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              4 botones que deciden tu repaso
+            </h2>
+            <p class="text-navy/70 mb-4">
+              Después de voltear cada tarjeta, evalúas qué tan bien la sabías. Tu respuesta ajusta el <strong class="text-navy">intervalo de repaso</strong>: las tarjetas difíciles regresan pronto, las fáciles se alejan.
+            </p>
+            <p class="text-navy/70 mb-6">
+              Este sistema se llama <a href="/repaso-espaciado" class="text-turquoise font-semibold hover:underline">SM-2 (repetición espaciada)</a> y está respaldado por más de 30 años de investigación en ciencia del aprendizaje.
+            </p>
+            <div class="bg-navy/5 rounded-xl p-4 border border-navy/10">
+              <div class="flex items-center gap-2 text-sm text-navy/60">
+                <svg class="w-4 h-4 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Cada botón muestra una vista previa del intervalo: así sabes exactamente cuándo volverás a ver esa tarjeta.
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones mockup -->
+          <div class="space-y-3">
+            {responseButtons.map((btn) => (
+              <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md border border-navy/5">
+                <div class={`px-3 py-2.5 ${btn.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                  <span class="text-white font-bold text-xs whitespace-nowrap">{btn.interval}</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="font-bold text-navy">{btn.label}</div>
+                  <div class="text-navy/50 text-sm">{btn.description}</div>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <div class="text-xs text-navy/30 font-medium">Próximo repaso</div>
+                  <div class="text-sm font-bold text-navy whitespace-nowrap">{btn.interval}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Áreas cubiertas -->
+    <section class="py-20 bg-gradient-to-br from-navy to-navy-light">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+            Flashcards en las 10 áreas del ECOEMS
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Filtra por área, por tema dentro de cada área o por nivel de dificultad. Estudia lo que tú quieras o deja que el algoritmo elija por ti.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-sky-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <BookOpen class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Habilidad Verbal</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-orange-400 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <Binary class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Habilidad Matemática</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <Languages class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Español</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <Calculator class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Matemáticas</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-lime-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <Dna class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Biología</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-slate-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <Atom class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Física</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-fuchsia-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <FlaskConical class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Química</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-amber-700 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <Clock class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Historia</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-violet-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <Globe2 class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Geografía</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center hover:bg-white/15 transition-all">
+            <div class="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+              <Scale class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-white text-xs leading-tight">Formación Cívica y Ética</div>
+          </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="mt-10 bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+          <h3 class="font-bold text-white mb-4 text-center">Tres niveles de filtrado</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="text-center p-4 rounded-xl bg-white/5">
+              <div class="w-10 h-10 bg-turquoise/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+              </div>
+              <div class="font-semibold text-white text-sm mb-1">Por área</div>
+              <div class="text-white/40 text-xs">Biología, Matemáticas, Historia...</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5">
+              <div class="w-10 h-10 bg-turquoise/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                </svg>
+              </div>
+              <div class="font-semibold text-white text-sm mb-1">Por tema</div>
+              <div class="text-white/40 text-xs">Genética, Álgebra, Revolución...</div>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-white/5">
+              <div class="w-10 h-10 bg-turquoise/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                </svg>
+              </div>
+              <div class="font-semibold text-white text-sm mb-1">Por dificultad</div>
+              <div class="text-white/40 text-xs">Fácil, Media, Difícil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dos formas de acceder -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Dos formas de estudiar con flashcards
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Úsalas como herramienta principal o como complemento rápido mientras estudias
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Página completa -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-navy/5 relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-turquoise to-blue-500"></div>
+            <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-black text-navy mb-3">Página completa</h3>
+            <p class="text-navy/60 text-sm mb-5">
+              Sesión dedicada de flashcards con panel lateral de filtros, estadísticas de precisión y contador de progreso diario.
+            </p>
+            <ul class="space-y-2">
+              {['Panel lateral con filtros por área', 'Estadísticas en tiempo real', 'Contador de tarjetas estudiadas', 'Vista amplia para fórmulas'].map(item => (
+                <li class="flex items-center gap-2 text-sm text-navy/70">
+                  <svg class="w-4 h-4 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Drawer rápido -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-navy/5 relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terracotta to-orange-500"></div>
+            <div class="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-black text-navy mb-3">Panel lateral rápido</h3>
+            <p class="text-navy/60 text-sm mb-5">
+              Abre las flashcards en un panel deslizable desde cualquier parte de la plataforma sin perder tu lugar.
+            </p>
+            <ul class="space-y-2">
+              {['Disponible en cualquier página', 'Se abre sin cambiar de vista', 'Mismo progreso sincronizado', 'Ideal para repasos rápidos'].map(item => (
+                <li class="flex items-center gap-2 text-sm text-navy/70">
+                  <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estadísticas y progreso -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Stats mockup -->
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-navy/5">
+            <h3 class="font-bold text-navy mb-6 flex items-center gap-2">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+              Tu progreso de hoy
+            </h3>
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              <div class="bg-cream rounded-xl p-4 text-center">
+                <div class="text-2xl font-black text-navy">12</div>
+                <div class="text-[10px] text-navy/40 font-medium">Estudiadas</div>
+              </div>
+              <div class="bg-cream rounded-xl p-4 text-center">
+                <div class="text-2xl font-black text-emerald-500">83%</div>
+                <div class="text-[10px] text-navy/40 font-medium">Precisión</div>
+              </div>
+              <div class="bg-cream rounded-xl p-4 text-center">
+                <div class="text-2xl font-black text-turquoise">5</div>
+                <div class="text-[10px] text-navy/40 font-medium">Por repasar</div>
+              </div>
+            </div>
+
+            <!-- Progress bar mockup -->
+            <div class="mb-4">
+              <div class="flex justify-between text-xs text-navy/50 mb-1">
+                <span>Progreso diario</span>
+                <span>12 / 15</span>
+              </div>
+              <div class="w-full bg-navy/10 rounded-full h-2.5">
+                <div class="bg-gradient-to-r from-turquoise to-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <!-- Area breakdown mockup -->
+            <div class="space-y-2">
+              {[
+                { name: 'Biología', pct: 90, color: 'bg-lime-500' },
+                { name: 'Matemáticas', pct: 72, color: 'bg-orange-500' },
+                { name: 'Historia', pct: 60, color: 'bg-amber-700' },
+              ].map(area => (
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-navy/60 w-24 text-right">{area.name}</span>
+                  <div class="flex-1 bg-navy/5 rounded-full h-1.5">
+                    <div class={`${area.color} h-1.5 rounded-full`} style={`width: ${area.pct}%`}></div>
+                  </div>
+                  <span class="text-xs font-bold text-navy/40 w-8">{area.pct}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Texto -->
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
+              Mide tu avance en cada área
+            </h2>
+            <p class="text-navy/70 mb-4">
+              Las flashcards registran tu <strong class="text-navy">precisión</strong> y el <strong class="text-navy">número de tarjetas</strong> que estudias cada día. Puedes ver tu porcentaje de aciertos por área para saber dónde necesitas más repaso.
+            </p>
+            <p class="text-navy/70 mb-6">
+              El algoritmo trabaja por ti: si fallas mucho en Historia pero dominas Biología, las tarjetas de Historia aparecerán más seguido hasta que las domines.
+            </p>
+
+            <div class="bg-emerald-50 border border-emerald-200/50 rounded-xl p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div class="text-sm text-emerald-800">
+                  <strong>Con el tiempo verás menos tarjetas por día</strong> — eso significa que el algoritmo considera que ya dominas el material. Es una señal de progreso.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gratuito vs Pro -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Gratuito vs Pro
+          </h2>
+          <p class="text-navy/60">
+            Las flashcards están incluidas en el plan gratuito con un límite diario
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <!-- Gratis -->
+          <div class="bg-white rounded-3xl p-8 shadow-md border border-navy/5">
+            <div class="text-sm font-bold text-navy/40 uppercase tracking-wider mb-2">Gratuito</div>
+            <div class="text-3xl font-black text-navy mb-6">15 <span class="text-lg font-medium text-navy/40">tarjetas/día</span></div>
+            <ul class="space-y-3">
+              {[
+                'Acceso a las 10 áreas',
+                'Algoritmo SM-2 completo',
+                'Filtros por área y dificultad',
+                'Estadísticas de precisión',
+                'Panel lateral rápido',
+              ].map(item => (
+                <li class="flex items-center gap-2 text-sm text-navy/70">
+                  <svg class="w-4 h-4 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Pro -->
+          <div class="bg-gradient-to-br from-terracotta to-terracotta-dark rounded-3xl p-8 shadow-xl text-white relative overflow-hidden">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-white/20 text-white text-xs font-bold rounded-full">PRO</span>
+            </div>
+            <div class="text-sm font-bold text-white/60 uppercase tracking-wider mb-2">Pro</div>
+            <div class="text-3xl font-black mb-6">Ilimitadas</div>
+            <ul class="space-y-3">
+              {[
+                'Sin límite diario de tarjetas',
+                'Filtro por tema específico',
+                'Repasos ilimitados por sesión',
+                'Todas las funciones gratuitas',
+                'Prioridad en nuevas tarjetas',
+              ].map(item => (
+                <li class="flex items-center gap-2 text-sm text-white/90">
+                  <svg class="w-4 h-4 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Empieza a repasar con flashcards
+        </h2>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          15 tarjetas gratuitas al día. Sin tarjeta de crédito.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <PlatformLink path="/flashcards" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-lg">
+            Practicar flashcards
+          </PlatformLink>
+          <a href="/repaso-espaciado" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Conocer el algoritmo SM-2
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .flashcard-inner {
+    min-height: 380px;
+  }
+  .flashcard-front,
+  .flashcard-back {
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+  }
+  .flashcard-inner.flipped {
+    transform: rotateY(180deg);
+  }
+</style>
+
+<script>
+  const card = document.getElementById('flashcard-demo');
+  const inner = card?.querySelector('.flashcard-inner');
+  const hint = document.getElementById('flashcard-hint');
+
+  card?.addEventListener('click', () => {
+    inner?.classList.toggle('flipped');
+    if (hint) hint.style.opacity = '0';
+  });
+</script>

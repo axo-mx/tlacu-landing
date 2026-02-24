@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
 import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
 
-// 10 Áreas del ECOEMS - colores e iconos consistentes con la plataforma TLACU
+// 10 Áreas del ECOEMS
 const areas = [
   { name: 'Habilidad Verbal', questions: 16, description: 'Comprensión lectora, inferencias, ideas principales y argumentación', color: 'bg-sky-500' },
   { name: 'Habilidad Matemática', questions: 16, description: 'Razonamiento lógico, secuencias, analogías y resolución de problemas', color: 'bg-orange-400' },
@@ -19,24 +19,79 @@ const areas = [
   { name: 'Formación Cívica y Ética', questions: 9, description: 'Derechos, democracia, valores y convivencia ciudadana', color: 'bg-pink-500' },
 ];
 
-// Timeline del proceso
-const timeline = [
-  { step: 1, title: 'Registro', description: 'Inscríbete en la convocatoria oficial de tu institución', icon: '📋' },
-  { step: 2, title: 'Preparación', description: 'Estudia las 10 áreas del examen con anticipación', icon: '📚' },
-  { step: 3, title: 'Examen', description: 'Presenta el ECOEMS en la fecha y sede asignada', icon: '✍️' },
-  { step: 4, title: 'Resultados', description: 'Consulta tu calificación y dictamen de admisión', icon: '🎓' },
+// Fechas ECOEMS 2026
+const fechas = [
+  { date: '13 feb 2026', title: 'Publicación de convocatoria', description: 'Se publica la convocatoria oficial 2026' },
+  { date: '17 mar – 14 abr', title: 'Registro en línea', description: 'Regístrate en el portal oficial y elige hasta 10 opciones de plantel' },
+  { date: '18–22 may', title: 'Cierre de registro UNAM/IPN', description: 'Último día para modalidades 2 y 3' },
+  { date: 'Junio 2026', title: 'Aplicación del examen', description: 'Fechas: 20, 21, 27 y 28 de junio (UNAM e IPN)' },
+  { date: '18 ago 2026', title: 'Resultados', description: 'Publicación de resultados de ingreso' },
 ];
 
 // Tips de preparación
 const tips = [
-  { title: 'Conoce el formato', description: 'Familiarízate con el tipo de preguntas de opción múltiple y el tiempo disponible.' },
-  { title: 'Practica con simulacros', description: 'Resuelve exámenes de práctica cronometrados para acostumbrarte a la presión.' },
-  { title: 'Identifica tus áreas débiles', description: 'Enfócate más en las áreas donde tienes menor dominio.' },
-  { title: 'Descansa antes del examen', description: 'Duerme bien la noche anterior y llega con tiempo a la sede.' },
+  { title: 'Planea tu estudio', description: 'Crea un calendario 2-3 meses antes del examen. Dedica tiempo diario a diferentes áreas.' },
+  { title: 'Practica con simulacros', description: 'Resuelve exámenes cronometrados con cámara activa para acostumbrarte a las condiciones reales.' },
+  { title: 'Identifica tus áreas débiles', description: 'Haz un diagnóstico y enfócate más en las áreas donde tienes menor dominio.' },
+  { title: 'Prepara tu espacio', description: 'El examen es desde casa. Asegura un lugar silencioso, con buena luz, computadora con cámara y conexión estable.' },
 ];
+
+// FAQ data for structured data
+const faqItems = [
+  { question: '¿Cuándo se aplica el ECOEMS 2026?', answer: 'El registro es del 17 de marzo al 14 de abril de 2026. Las fechas de examen para UNAM e IPN son el 20, 21, 27 y 28 de junio de 2026. Los resultados se publican el 18 de agosto de 2026.' },
+  { question: '¿El examen ECOEMS es presencial o en línea?', answer: 'Desde 2025, el ECOEMS es 100% en línea. Lo presentas desde tu casa en una computadora con cámara y micrófono activos. La sesión es supervisada por inteligencia artificial durante las 3 horas del examen.' },
+  { question: '¿Todos tienen que presentar el examen ECOEMS?', answer: 'No. Solo aplican examen los aspirantes que eligieron planteles de la UNAM o el IPN y que tienen promedio mínimo de 7.0. Los subsistemas como CBU, CONALEP y DGETI asignan lugares por sorteo.' },
+  { question: '¿Qué calificación necesito para pasar el ECOEMS?', answer: 'No hay una calificación mínima para aprobar. La admisión depende de tu puntaje comparado con otros aspirantes y los lugares disponibles en cada plantel. Mientras más alto sea tu puntaje, mejores opciones tendrás.' },
+  { question: '¿Puedo usar calculadora en el ECOEMS?', answer: 'No. Solo se permite papel, lápiz y goma. La supervisión con IA detecta objetos como celulares o libros en tu escritorio. Las preguntas de matemáticas están diseñadas para resolverse con operaciones básicas.' },
+  { question: '¿Qué pasa si no contesto una pregunta del ECOEMS?', answer: 'Las preguntas sin responder cuentan como incorrectas, pero no restan puntos adicionales. Por eso, siempre es mejor intentar responder todas las preguntas.' },
+  { question: '¿Qué necesito para presentar el ECOEMS desde casa?', answer: 'Necesitas una computadora de escritorio o laptop con cámara y micrófono, conexión a internet estable, un espacio bien iluminado y silencioso, y un navegador actualizado como Chrome, Firefox o Edge. No se puede presentar desde celular o tablet.' },
+];
+
+const seoTitle = '¿Qué es el ECOEMS? Guía completa 2026 — Fechas, áreas y estructura | TLACU';
+const seoDescription = 'Todo sobre el ECOEMS 2026: 128 preguntas, 10 áreas, 3 horas, 100% en línea desde casa. Fechas de registro, estructura del examen, requisitos y consejos de preparación.';
+const canonicalUrl = 'https://tlacu.mx/que-es-ecoems';
 ---
 
-<Layout title="¿Qué es el ECOEMS? - Guía Completa | TLACU">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tlacu.mx/" },
+        { "@type": "ListItem", "position": 2, "name": "¿Qué es el ECOEMS?", "item": canonicalUrl }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" },
+      "about": {
+        "@type": "Thing",
+        "name": "ECOEMS",
+        "description": "Examen de Conocimientos y Habilidades para la Educación Media Superior"
+      }
+    })} />
+  </Fragment>
   <Header />
 
   <main>
@@ -48,14 +103,39 @@ const tips = [
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            Guía completa
+            Guía completa 2026
           </div>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
             ¿Qué es el <span class="text-gradient-fire">ECOEMS</span>?
           </h1>
           <p class="text-xl text-white/70 max-w-3xl mx-auto">
-            Todo lo que necesitas saber sobre el Examen de Competencias de Educación Media Superior: estructura, áreas, formato y cómo prepararte.
+            Todo lo que necesitas saber sobre el Examen de Conocimientos y Habilidades para la Educación Media Superior: estructura, áreas, fechas 2026 y cómo prepararte.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclaimer oficial -->
+    <section class="py-12 bg-gradient-to-r from-amber-50 via-amber-100/80 to-amber-50 border-y border-amber-200/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+          <div class="w-14 h-14 bg-amber-200/60 rounded-2xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-7 h-7 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+          </div>
+          <div class="text-center md:text-left flex-1">
+            <h2 class="text-lg font-black text-amber-900 mb-2">TLACU no tiene relación con el ECOEMS ni con las autoridades educativas</h2>
+            <p class="text-amber-800/70 text-sm leading-relaxed">
+              TLACU es una plataforma independiente de preparación. No estamos afiliados ni tenemos relación con la SEP, UNAM, IPN ni con el proceso oficial de admisión. La información en esta página es de carácter informativo y puede cambiar sin previo aviso. Para datos oficiales, fechas y registro consulta únicamente el portal oficial.
+            </p>
+          </div>
+          <a href="https://www.miderechomilugar.gob.mx/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-800 text-white font-bold text-sm rounded-xl hover:bg-amber-900 transition-colors whitespace-nowrap flex-shrink-0">
+            Ir al sitio oficial
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
@@ -66,16 +146,18 @@ const tips = [
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
-              Examen de Competencias de Educación Media Superior
+              Examen de Conocimientos y Habilidades para la Educación Media Superior
             </h2>
             <p class="text-navy/70 mb-4">
-              El <strong class="text-navy">ECOEMS</strong> es un examen estandarizado utilizado por diversas instituciones educativas en México para evaluar las competencias y conocimientos de los aspirantes a ingresar a preparatoria o bachillerato.
+              El <strong class="text-navy">ECOEMS</strong> es el examen oficial de admisión para ingresar a la Educación Media Superior en la Zona Metropolitana del Valle de México. Lo organizan la <strong class="text-navy">SEP, UNAM e IPN</strong>.
             </p>
             <p class="text-navy/70 mb-4">
-              A diferencia de otros exámenes de admisión, el ECOEMS se enfoca no solo en conocimientos, sino en <strong class="text-navy">competencias</strong>: la capacidad de aplicar lo aprendido para resolver problemas reales.
+              Desde 2025, el examen es <strong class="text-navy">100% en línea</strong>: se presenta desde casa, en computadora, con supervisión de cámara e inteligencia artificial. Ya no hay sedes presenciales.
             </p>
             <p class="text-navy/70 mb-6">
-              Es utilizado principalmente por instituciones como <strong class="text-navy">COBACH, CECyTE, CONALEP</strong> y otros subsistemas de educación media superior en varios estados de México.
+              El proceso de registro se hace en el portal oficial
+              <a href="https://www.miderechomilugar.gob.mx/" target="_blank" rel="noopener noreferrer" class="text-turquoise font-semibold hover:underline">Mi Derecho Mi Lugar</a>,
+              donde eliges hasta 10 opciones de plantel en orden de preferencia. Solo UNAM e IPN aplican examen (requieren promedio mínimo de 7.0). Otros subsistemas como CBU, CONALEP y DGETI asignan lugar por sorteo.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -100,6 +182,13 @@ const tips = [
                   <div class="font-bold text-navy">10</div>
                 </div>
               </div>
+              <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md">
+                <span class="text-2xl">🏠</span>
+                <div>
+                  <div class="text-sm text-navy/60">Modalidad</div>
+                  <div class="font-bold text-navy">Desde casa</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -113,43 +202,38 @@ const tips = [
               Características del examen
             </h3>
             <ul class="space-y-4">
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-navy/70">Opción múltiple con 4 respuestas posibles</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-navy/70">Se presenta en computadora con supervisión</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-navy/70">No se penalizan las respuestas incorrectas</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-navy/70">Puedes marcar preguntas para revisarlas después</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-navy/70">Monitoreo con cámara durante el examen</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-navy/70">Resultados disponibles en días o semanas</span>
-              </li>
+              {[
+                '100% en línea — desde tu casa con computadora',
+                'Opción múltiple con 4 respuestas posibles',
+                'Supervisión con cámara e IA durante todo el examen',
+                'No se penalizan las respuestas incorrectas',
+                'Puedes marcar preguntas para revisarlas después',
+                'El sistema guarda tu progreso automáticamente',
+                'Se envía automáticamente al terminar el tiempo',
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-navy/70">{item}</span>
+                </li>
+              ))}
             </ul>
+
+            <!-- Stats 2025 -->
+            <div class="mt-6 pt-5 border-t border-navy/10">
+              <div class="text-xs font-bold text-navy/30 uppercase tracking-widest mb-3">Primera edición 2025</div>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-cream rounded-lg p-2.5 text-center">
+                  <div class="text-lg font-black text-navy">109,206</div>
+                  <div class="text-[10px] text-navy/40">Registrados</div>
+                </div>
+                <div class="bg-cream rounded-lg p-2.5 text-center">
+                  <div class="text-lg font-black text-navy">98.65%</div>
+                  <div class="text-[10px] text-navy/40">Asistencia</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -163,7 +247,7 @@ const tips = [
             Las 10 áreas del ECOEMS
           </h2>
           <p class="text-navy/60 max-w-2xl mx-auto">
-            El examen evalúa conocimientos en estas 10 áreas (128 preguntas en total)
+            128 preguntas distribuidas en 10 áreas. Las 4 primeras (Habilidades + Español + Matemáticas) representan el 50% del examen.
           </p>
         </div>
 
@@ -252,38 +336,63 @@ const tips = [
       </div>
     </section>
 
-    <!-- Proceso / Timeline -->
+    <!-- Proceso y Fechas 2026 -->
     <section class="py-20 bg-gradient-to-br from-navy to-navy-light">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
-            El proceso de admisión
+            Proceso y fechas ECOEMS 2026
           </h2>
           <p class="text-white/60 max-w-2xl mx-auto">
-            Desde tu registro hasta obtener tu lugar en la preparatoria
+            El registro y asignación se hacen en el portal oficial
+            <a href="https://www.miderechomilugar.gob.mx/" target="_blank" rel="noopener noreferrer" class="text-turquoise hover:underline font-semibold">miderechomilugar.gob.mx</a>
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {timeline.map((item) => (
-            <div class="relative">
-              <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10 text-center">
-                <div class="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-black text-xl mx-auto mb-4">
-                  {item.step}
+        <!-- Cómo funciona el proceso -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10 text-center">
+            <div class="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-black text-xl mx-auto mb-4">1</div>
+            <h3 class="font-bold text-white mb-2">Regístrate en el portal</h3>
+            <p class="text-white/60 text-sm">Crea tu cuenta en Mi Derecho Mi Lugar y elige hasta 10 planteles en orden de preferencia.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10 text-center">
+            <div class="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-black text-xl mx-auto mb-4">2</div>
+            <h3 class="font-bold text-white mb-2">Presenta el examen</h3>
+            <p class="text-white/60 text-sm">Solo si elegiste UNAM o IPN (promedio mínimo 7.0). Es digital, desde casa, con cámara y supervisión IA.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10 text-center">
+            <div class="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-black text-xl mx-auto mb-4">3</div>
+            <h3 class="font-bold text-white mb-2">Recibe tu asignación</h3>
+            <p class="text-white/60 text-sm">Basado en tu puntaje y preferencias, se te asigna un plantel. CBU, CONALEP y DGETI asignan por sorteo.</p>
+          </div>
+        </div>
+
+        <!-- Timeline fechas -->
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+          <h3 class="font-bold text-white mb-5 flex items-center gap-2">
+            <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            Fechas clave 2026
+          </h3>
+          <div class="space-y-4">
+            {fechas.map((f, i) => (
+              <div class="flex items-start gap-4">
+                <div class="w-28 shrink-0 text-right">
+                  <span class="text-turquoise text-sm font-bold">{f.date}</span>
                 </div>
-                <span class="text-3xl mb-3 block">{item.icon}</span>
-                <h3 class="font-bold text-white mb-2">{item.title}</h3>
-                <p class="text-white/60 text-sm">{item.description}</p>
+                <div class="relative flex flex-col items-center">
+                  <div class={`w-3 h-3 rounded-full ${i === 3 ? 'bg-terracotta' : 'bg-turquoise'} shrink-0 mt-1.5`}></div>
+                  {i < fechas.length - 1 && <div class="w-px h-8 bg-white/20"></div>}
+                </div>
+                <div class="pb-2">
+                  <div class="text-white font-semibold text-sm">{f.title}</div>
+                  <div class="text-white/50 text-xs">{f.description}</div>
+                </div>
               </div>
-              {item.step < 4 && (
-                <div class="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-white/30">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                  </svg>
-                </div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -325,36 +434,21 @@ const tips = [
             </div>
 
             <ul class="space-y-3 mb-8">
-              <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white/90">128 preguntas de práctica por área</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white/90">Simulador real con cronómetro y cámara</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white/90">Flashcards con repetición espaciada</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white/90">Estadísticas detalladas por área</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white/90">Módulos interactivos (Tabla Periódica, Célula 3D...)</span>
-              </li>
+              {[
+                'Diagnóstico que identifica tus áreas débiles',
+                'Plan de estudio personalizado con IA',
+                'Simulador con cámara y vigilancia IA',
+                'Flashcards con repetición espaciada',
+                'Módulos interactivos (Tabla Periódica, Célula 3D...)',
+                'Estadísticas detalladas por área',
+              ].map((item) => (
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-white/90">{item}</span>
+                </li>
+              ))}
             </ul>
 
             <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-colors">
@@ -377,13 +471,37 @@ const tips = [
         <div class="space-y-4">
           <details class="bg-white rounded-xl shadow-md group" open>
             <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
-              ¿Cuándo se aplica el ECOEMS?
+              ¿Cuándo se aplica el ECOEMS 2026?
               <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </summary>
             <div class="px-6 pb-6 text-navy/70">
-              Las fechas varían según la institución y el estado. Generalmente hay dos períodos: uno entre mayo-julio para el ciclo de agosto, y otro entre noviembre-enero para el ciclo de febrero. Consulta la convocatoria oficial de tu institución.
+              El registro es del 17 de marzo al 14 de abril de 2026. Las fechas de examen para UNAM e IPN son el 20, 21, 27 y 28 de junio de 2026. Los resultados se publican el 18 de agosto de 2026. Consulta la convocatoria oficial en <a href="https://www.miderechomilugar.gob.mx/" target="_blank" rel="noopener noreferrer" class="text-turquoise font-semibold hover:underline">miderechomilugar.gob.mx</a>.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿El examen es presencial o en línea?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              Desde 2025, el ECOEMS es 100% en línea. Lo presentas desde tu casa en una computadora con cámara y micrófono activos. La sesión es supervisada por inteligencia artificial que monitorea tu entorno durante las 3 horas del examen.
+            </div>
+          </details>
+
+          <details class="bg-white rounded-xl shadow-md group">
+            <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
+              ¿Todos tienen que presentar examen?
+              <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy/70">
+              No. Solo aplican examen los aspirantes que eligieron planteles de la UNAM o el IPN (y que tienen promedio mínimo de 7.0). Los subsistemas como CBU, CONALEP y DGETI asignan lugares por sorteo con cuotas de género, sin examen.
             </div>
           </details>
 
@@ -395,7 +513,7 @@ const tips = [
               </svg>
             </summary>
             <div class="px-6 pb-6 text-navy/70">
-              No hay una calificación mínima para "aprobar". La admisión depende de tu puntaje comparado con otros aspirantes y los lugares disponibles. Mientras más alto sea tu puntaje, mejores opciones tendrás de quedar en tu primera opción de plantel.
+              No hay una calificación mínima para "aprobar". La admisión depende de tu puntaje comparado con otros aspirantes y los lugares disponibles en cada plantel. Mientras más alto sea tu puntaje, mejores opciones tendrás de quedar en tu primera opción.
             </div>
           </details>
 
@@ -407,7 +525,7 @@ const tips = [
               </svg>
             </summary>
             <div class="px-6 pb-6 text-navy/70">
-              No se permite el uso de calculadora ni ningún otro dispositivo electrónico. Las preguntas matemáticas están diseñadas para resolverse con operaciones básicas. Te recomendamos practicar cálculo mental.
+              No. Solo se permite papel, lápiz y goma. La supervisión con IA detecta objetos como celulares o libros en tu escritorio. Las preguntas de matemáticas están diseñadas para resolverse con operaciones básicas.
             </div>
           </details>
 
@@ -425,15 +543,37 @@ const tips = [
 
           <details class="bg-white rounded-xl shadow-md group">
             <summary class="p-6 cursor-pointer font-bold text-navy flex items-center justify-between">
-              ¿Cuántas veces puedo presentar el ECOEMS?
+              ¿Qué necesito para presentar el examen desde casa?
               <svg class="w-5 h-5 text-navy/50 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </summary>
             <div class="px-6 pb-6 text-navy/70">
-              Puedes presentarlo en cada convocatoria que se abra. Si no quedas en la primera ocasión, puedes volver a intentarlo en el siguiente período. No hay límite de intentos.
+              Necesitas una computadora de escritorio o laptop con cámara y micrófono, conexión a internet estable, un espacio bien iluminado y silencioso donde solo estés tú, y un navegador actualizado (Chrome, Firefox o Edge). No se puede presentar desde celular o tablet.
             </div>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portal oficial -->
+    <section class="bg-navy/5 border-y border-navy/10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col sm:flex-row items-center gap-4 justify-between">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-navy/50 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+            </svg>
+            <p class="text-navy/60 text-sm">
+              <span class="font-semibold text-navy/70">Portal oficial del proceso de admisión:</span>
+            </p>
+          </div>
+          <a href="https://www.miderechomilugar.gob.mx/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-white font-semibold text-sm rounded-xl hover:bg-navy/90 transition-colors">
+            miderechomilugar.gob.mx
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </section>

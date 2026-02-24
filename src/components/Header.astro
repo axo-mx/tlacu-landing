@@ -56,102 +56,96 @@ import PlatformLink from './PlatformLink.astro';
                 </PlatformLink>
               </div>
 
-              <!-- Menu Grid 3 cols -->
-              <div class="p-5 grid grid-cols-3 gap-2">
+              <!-- Menu 3 columns -->
+              <div class="p-5 grid grid-cols-3 gap-0 divide-x divide-navy/8">
 
-                <!-- Plataforma -->
-                <a href="/plataforma" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-turquoise/5 border border-transparent hover:border-turquoise/20 transition-all">
-                  <div class="w-9 h-9 bg-turquoise/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-turquoise transition-colors">
-                    <svg class="w-4.5 h-4.5 text-turquoise group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                <!-- Col 1: Plataforma -->
+                <div class="pr-5">
+                  <a href="/plataforma" class="group/title flex items-center gap-2 mb-3 px-2">
+                    <span class="font-bold text-navy text-sm group-hover/title:text-turquoise transition-colors">Plataforma</span>
+                    <svg class="w-3.5 h-3.5 text-navy/30 group-hover/title:text-turquoise transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
+                  </a>
+                  <div class="space-y-0.5">
+                    <a href="/plan-estudio" class="group/item block px-2 py-2 rounded-lg hover:bg-turquoise/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-turquoise transition-colors">Plan de estudio</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Calendario personalizado con IA</div>
+                    </a>
+                    <a href="/modulos/temario" class="group/item block px-2 py-2 rounded-lg hover:bg-turquoise/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-turquoise transition-colors">Temario ECOEMS</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Módulos interactivos 3D</div>
+                    </a>
+                    <a href="/modulos/refuerzo" class="group/item block px-2 py-2 rounded-lg hover:bg-turquoise/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-turquoise transition-colors">Refuerzo</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Fortalece tus bases</div>
+                    </a>
+                    <a href="/flashcards" class="group/item block px-2 py-2 rounded-lg hover:bg-turquoise/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-turquoise transition-colors">Flashcards</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Tarjetas inteligentes por área</div>
+                    </a>
                   </div>
-                  <div>
-                    <div class="font-semibold text-navy text-sm group-hover/item:text-turquoise transition-colors">Plataforma</div>
-                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Dashboard, técnica PARE, flashcards</div>
-                  </div>
-                </a>
+                </div>
 
-                <!-- Exámenes -->
-                <a href="/examenes" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-terracotta/5 border border-transparent hover:border-terracotta/20 transition-all">
-                  <div class="w-9 h-9 bg-terracotta/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-terracotta transition-colors">
-                    <svg class="w-4.5 h-4.5 text-terracotta group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                <!-- Col 2: Exámenes -->
+                <div class="px-5">
+                  <a href="/examenes" class="group/title flex items-center gap-2 mb-3 px-2">
+                    <span class="font-bold text-navy text-sm group-hover/title:text-terracotta transition-colors">Exámenes</span>
+                    <svg class="w-3.5 h-3.5 text-navy/30 group-hover/title:text-terracotta transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
+                  </a>
+                  <div class="space-y-0.5">
+                    <a href="/examenes/diagnostico" class="group/item block px-2 py-2 rounded-lg hover:bg-terracotta/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-terracotta transition-colors">Diagnóstico</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Conoce tu nivel en las 10 áreas</div>
+                    </a>
+                    <a href="/examenes/completo" class="group/item flex items-center justify-between px-2 py-2 rounded-lg hover:bg-terracotta/5 transition-all">
+                      <div>
+                        <div class="font-medium text-navy text-sm group-hover/item:text-terracotta transition-colors">Examen Completo</div>
+                        <div class="text-[11px] text-navy/40 leading-snug">128 preguntas, 3 horas</div>
+                      </div>
+                      <span class="px-1.5 py-0.5 bg-terracotta/10 text-terracotta text-[9px] font-bold rounded-full leading-none shrink-0">PRO</span>
+                    </a>
+                    <a href="/examenes/rapido" class="group/item block px-2 py-2 rounded-lg hover:bg-terracotta/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-terracotta transition-colors">Examen Rápido</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">44 preguntas, sin cronómetro</div>
+                    </a>
+                    <a href="/examenes/simulador" class="group/item flex items-center justify-between px-2 py-2 rounded-lg hover:bg-terracotta/5 transition-all">
+                      <div>
+                        <div class="font-medium text-navy text-sm group-hover/item:text-terracotta transition-colors">Simulador con Cámara</div>
+                        <div class="text-[11px] text-navy/40 leading-snug">Vigilancia IA, solo escritorio</div>
+                      </div>
+                      <span class="px-1.5 py-0.5 bg-terracotta/10 text-terracotta text-[9px] font-bold rounded-full leading-none shrink-0">PRO</span>
+                    </a>
                   </div>
-                  <div>
-                    <div class="font-semibold text-navy text-sm group-hover/item:text-terracotta transition-colors">Exámenes</div>
-                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Simulacros y práctica</div>
-                  </div>
-                </a>
+                </div>
 
-                <!-- Temario -->
-                <a href="/modulos/temario" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-amber-500/5 border border-transparent hover:border-amber-500/20 transition-all">
-                  <div class="w-9 h-9 bg-amber-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-amber-500 transition-colors">
-                    <svg class="w-4.5 h-4.5 text-amber-500 group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                    </svg>
+                <!-- Col 3: Precios & Más -->
+                <div class="pl-5">
+                  <div class="text-[11px] font-bold text-navy/30 uppercase tracking-widest mb-3 px-2">Más</div>
+                  <div class="space-y-0.5">
+                    <a href="/precios" class="group/item block px-2 py-2 rounded-lg hover:bg-turquoise/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-turquoise transition-colors">Precios</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Planes Gratuito y Pro</div>
+                    </a>
+                    <a href="/hoja-de-ruta" class="group/item block px-2 py-2 rounded-lg hover:bg-emerald-500/5 transition-all">
+                      <div class="flex items-center gap-1.5">
+                        <span class="font-medium text-navy text-sm group-hover/item:text-emerald-600 transition-colors">Hoja de ruta</span>
+                        <span class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-600 text-[9px] font-bold rounded-full leading-none">NUEVO</span>
+                      </div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Lo que hemos construido y lo que viene</div>
+                    </a>
+                    <a href="/que-es-ecoems" class="group/item block px-2 py-2 rounded-lg hover:bg-navy/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-navy transition-colors">¿Qué es el ECOEMS?</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Guía completa del examen</div>
+                    </a>
+                    <a href="/por-que-tlacu" class="group/item block px-2 py-2 rounded-lg hover:bg-navy/5 transition-all">
+                      <div class="font-medium text-navy text-sm group-hover/item:text-navy transition-colors">¿Por qué TLACU?</div>
+                      <div class="text-[11px] text-navy/40 leading-snug">Compara y decide</div>
+                    </a>
                   </div>
-                  <div>
-                    <div class="font-semibold text-navy text-sm group-hover/item:text-amber-600 transition-colors">Temario ECOEMS</div>
-                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Módulos interactivos 3D</div>
-                  </div>
-                </a>
-
-                <!-- Plan de estudio -->
-                <a href="/plan-estudio" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-violet-500/5 border border-transparent hover:border-violet-500/20 transition-all">
-                  <div class="w-9 h-9 bg-violet-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-violet-500 transition-colors">
-                    <svg class="w-4.5 h-4.5 text-violet-500 group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="font-semibold text-navy text-sm group-hover/item:text-violet-600 transition-colors">Plan de estudio</div>
-                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Calendario personalizado con IA</div>
-                  </div>
-                </a>
-
-                <!-- Refuerzo -->
-                <a href="/modulos/refuerzo" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-teal-500/5 border border-transparent hover:border-teal-500/20 transition-all">
-                  <div class="w-9 h-9 bg-teal-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-teal-500 transition-colors">
-                    <svg class="w-4.5 h-4.5 text-teal-500 group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="font-semibold text-navy text-sm group-hover/item:text-teal-600 transition-colors">Refuerzo</div>
-                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Fortalece tus bases</div>
-                  </div>
-                </a>
-
-                <!-- Precios -->
-                <a href="/precios" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-turquoise/5 border border-transparent hover:border-turquoise/20 transition-all">
-                  <div class="w-9 h-9 bg-turquoise/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-turquoise transition-colors">
-                    <svg class="w-4.5 h-4.5 text-turquoise group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="font-semibold text-navy text-sm group-hover/item:text-turquoise transition-colors">Precios</div>
-                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Planes Gratuito y Pro</div>
-                  </div>
-                </a>
-
-                <!-- Hoja de ruta -->
-                <a href="/hoja-de-ruta" class="group/item flex items-start gap-3 p-3.5 rounded-xl hover:bg-emerald-500/5 border border-transparent hover:border-emerald-500/20 transition-all">
-                  <div class="w-9 h-9 bg-emerald-500/10 rounded-lg flex items-center justify-center shrink-0 group-hover/item:bg-emerald-500 transition-colors">
-                    <svg class="w-4.5 h-4.5 text-emerald-500 group-hover/item:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-1.5">
-                      <span class="font-semibold text-navy text-sm group-hover/item:text-emerald-600 transition-colors">Hoja de ruta</span>
-                      <span class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-600 text-[9px] font-bold rounded-full leading-none">NUEVO</span>
-                    </div>
-                    <div class="text-xs text-navy/50 mt-0.5 leading-snug">Lo que hemos construido y lo que viene</div>
-                  </div>
-                </a>
+                </div>
               </div>
 
               <!-- Para Padres — featured strip -->
@@ -208,15 +202,34 @@ import PlatformLink from './PlatformLink.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
-          <div id="mobile-ecoems-menu" class="hidden pl-6 space-y-2 pb-2">
-            <a href="/plataforma" class="block text-navy/70 hover:text-turquoise font-medium transition-colors py-1">Plataforma</a>
-            <a href="/examenes" class="block text-navy/70 hover:text-terracotta font-medium transition-colors py-1">Exámenes</a>
-            <a href="/modulos/temario" class="block text-navy/70 hover:text-terracotta font-medium transition-colors py-1">Temario ECOEMS</a>
-            <a href="/plan-estudio" class="block text-navy/70 hover:text-violet-600 font-medium transition-colors py-1">Plan de estudio</a>
-            <a href="/modulos/refuerzo" class="block text-navy/70 hover:text-teal-600 font-medium transition-colors py-1">Refuerzo</a>
-            <a href="/precios" class="block text-navy/70 hover:text-turquoise font-medium transition-colors py-1">Precios</a>
-            <a href="/hoja-de-ruta" class="block text-navy/70 hover:text-emerald-600 font-medium transition-colors py-1">Hoja de ruta</a>
-            <a href="/contacto?tipo=tutor" class="block text-navy/70 hover:text-turquoise font-medium transition-colors py-1">Para Padres</a>
+          <div id="mobile-ecoems-menu" class="hidden pl-4 space-y-3 pb-2">
+            <!-- Plataforma -->
+            <div>
+              <a href="/plataforma" class="block text-navy font-semibold text-sm py-1">Plataforma</a>
+              <div class="pl-3 space-y-1 mt-1">
+                <a href="/plan-estudio" class="block text-navy/60 hover:text-turquoise text-sm transition-colors py-0.5">Plan de estudio</a>
+                <a href="/modulos/temario" class="block text-navy/60 hover:text-turquoise text-sm transition-colors py-0.5">Temario ECOEMS</a>
+                <a href="/modulos/refuerzo" class="block text-navy/60 hover:text-turquoise text-sm transition-colors py-0.5">Refuerzo</a>
+                <a href="/flashcards" class="block text-navy/60 hover:text-turquoise text-sm transition-colors py-0.5">Flashcards</a>
+              </div>
+            </div>
+            <!-- Exámenes -->
+            <div>
+              <a href="/examenes" class="block text-navy font-semibold text-sm py-1">Exámenes</a>
+              <div class="pl-3 space-y-1 mt-1">
+                <a href="/examenes/diagnostico" class="block text-navy/60 hover:text-terracotta text-sm transition-colors py-0.5">Diagnóstico</a>
+                <a href="/examenes/completo" class="block text-navy/60 hover:text-terracotta text-sm transition-colors py-0.5">Examen Completo</a>
+                <a href="/examenes/rapido" class="block text-navy/60 hover:text-terracotta text-sm transition-colors py-0.5">Examen Rápido</a>
+                <a href="/examenes/simulador" class="block text-navy/60 hover:text-terracotta text-sm transition-colors py-0.5">Simulador con Cámara</a>
+              </div>
+            </div>
+            <!-- Más -->
+            <div class="space-y-1">
+              <a href="/precios" class="block text-navy/60 hover:text-turquoise text-sm transition-colors py-0.5">Precios</a>
+              <a href="/hoja-de-ruta" class="block text-navy/60 hover:text-emerald-600 text-sm transition-colors py-0.5">Hoja de ruta</a>
+              <a href="/que-es-ecoems" class="block text-navy/60 hover:text-navy text-sm transition-colors py-0.5">¿Qué es el ECOEMS?</a>
+              <a href="/contacto?tipo=tutor" class="block text-navy/60 hover:text-turquoise text-sm transition-colors py-0.5">Para Padres</a>
+            </div>
           </div>
         </div>
 
