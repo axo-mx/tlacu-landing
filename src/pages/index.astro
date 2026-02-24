@@ -1109,21 +1109,25 @@ import PlatformLink from '../components/PlatformLink.astro';
           <div class="relative grid md:grid-cols-2 gap-10 items-center">
             <div>
               <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
-                <span class="text-lg">👨‍👩‍👧</span>
-                Para padres y profesores
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Para padres, maestros y tutores
               </div>
               <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
                 Monitorea el progreso de <span class="text-turquoise">tus hijos o alumnos</span>
               </h2>
               <p class="text-white/70 mb-6">
-                Como padre o profesor, puedes crear cuentas para tus hijos o alumnos, pagarles el acceso Pro y ver su progreso desde tu panel.
+                Crea cuentas con usuario y contraseña, administra credenciales, paga el acceso Pro y ve estadísticas detalladas de cada alumno desde tu panel.
               </p>
               <ul class="space-y-3 mb-8">
                 {[
-                  'Crea cuentas para tus hijos o alumnos',
+                  'Crea cuentas sin correo (ideal para menores)',
+                  'Comparte credenciales por WhatsApp o imagen',
+                  'Calendario de actividad y rendimiento por área',
+                  'Sugerencias automáticas de estudio',
+                  'Reportes semanales por correo',
                   'Págales el acceso Pro desde tu cuenta',
-                  'Ve el reporte de progreso de cada uno',
-                  'Monitorea su avance en las 10 áreas',
                 ].map((item) => (
                   <li class="flex items-center gap-3 text-sm text-white/80">
                     <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1133,7 +1137,7 @@ import PlatformLink from '../components/PlatformLink.astro';
                   </li>
                 ))}
               </ul>
-              <a href="/contacto?tipo=tutor" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-colors">
+              <a href="/para-padres" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-colors">
                 Conocer el Panel de Tutor
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -1145,26 +1149,29 @@ import PlatformLink from '../components/PlatformLink.astro';
               <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-6">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="w-10 h-10 bg-turquoise/20 rounded-full flex items-center justify-center">
-                    <span class="text-xl">👨‍👩‍👧</span>
+                    <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
                   </div>
                   <div>
                     <div class="text-white font-semibold">Mi Panel</div>
-                    <div class="text-white/50 text-xs">3 estudiantes</div>
+                    <div class="text-white/50 text-xs">3 estudiantes vinculados</div>
                   </div>
                 </div>
                 <div class="space-y-3">
                   {[
-                    { name: 'María (hija)', progress: 78, color: 'bg-emerald-400' },
-                    { name: 'Carlos (hijo)', progress: 65, color: 'bg-turquoise' },
-                    { name: 'Ana (alumna)', progress: 92, color: 'bg-emerald-400' },
+                    { name: 'María García', streak: '🔥 12 días', progress: 78, plan: 'Pro' },
+                    { name: 'Carlos García', streak: '🔥 5 días', progress: 65, plan: 'Pro' },
+                    { name: 'Ana López', streak: '⚠️ 4 días sin actividad', progress: 42, plan: 'Gratis' },
                   ].map((student) => (
                     <div class="bg-white/5 rounded-xl p-3">
-                      <div class="flex items-center justify-between mb-2">
-                        <span class="text-white/90 text-sm">{student.name}</span>
-                        <span class="text-white/60 text-xs">{student.progress}%</span>
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="text-white/90 text-sm font-medium">{student.name}</span>
+                        <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full ${student.plan === 'Pro' ? 'bg-terracotta/20 text-terracotta' : 'bg-white/10 text-white/50'}`}>{student.plan}</span>
                       </div>
-                      <div class="h-2 bg-white/10 rounded-full overflow-hidden">
-                        <div class={`h-full ${student.color} rounded-full`} style={`width: ${student.progress}%`}></div>
+                      <div class="text-xs text-white/40 mb-2">{student.streak}</div>
+                      <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style={`width: ${student.progress}%`}></div>
                       </div>
                     </div>
                   ))}
