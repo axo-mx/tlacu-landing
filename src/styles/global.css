@@ -47,6 +47,20 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
+/* ===== LARGE SCREEN CONTAINERS ===== */
+/* Widen content on 2xl+ screens so it doesn't feel cramped */
+@media (min-width: 1536px) {
+  .max-w-7xl { max-width: 90rem; }   /* 1440px (was 1280px) */
+  .max-w-5xl { max-width: 72rem; }   /* 1152px (was 1024px) */
+  .max-w-4xl { max-width: 64rem; }   /* 1024px (was 896px) */
+}
+
+@media (min-width: 1920px) {
+  .max-w-7xl { max-width: 104rem; }  /* 1664px */
+  .max-w-5xl { max-width: 80rem; }   /* 1280px */
+  .max-w-4xl { max-width: 72rem; }   /* 1152px */
+}
+
 /* ===== CUSTOM UTILITIES ===== */
 .text-gradient {
   background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-turquoise) 100%);

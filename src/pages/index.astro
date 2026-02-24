@@ -396,7 +396,7 @@ import PlatformLink from '../components/PlatformLink.astro';
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
             </svg>
-            Personalizado con IA
+            Personalizado para ti
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
             Tu plan de estudio <span class="text-turquoise">se adapta a ti</span>
@@ -473,330 +473,237 @@ import PlatformLink from '../components/PlatformLink.astro';
       </div>
     </section>
 
-    <!-- Gamification Section -->
+    <!-- Módulos de Aprendizaje -->
     <section class="py-20 lg:py-32 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
+            Módulos de <span class="text-turquoise">aprendizaje</span>
+          </h2>
+          <p class="text-lg text-navy/70">
+            Aprende de forma visual con herramientas 3D, simuladores y módulos para reforzar las bases
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Módulos Interactivos -->
+          <a href="/modulos-interactivos" class="group bg-white rounded-3xl p-8 border-2 border-terracotta/20 hover:border-terracotta transition-all shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-terracotta to-terracotta-dark rounded-2xl flex items-center justify-center shadow-lg mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-navy mb-3 group-hover:text-terracotta transition-colors">
+              Módulos Interactivos
+            </h3>
+            <p class="text-navy/60 mb-6">
+              Temas que el examen evalúa directamente. Tabla periódica, célula 3D, mapa de México, línea del tiempo y más.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Tabla Periódica</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Célula 3D</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Geometría</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Historia</span>
+            </div>
+            <div class="flex items-center gap-2 text-terracotta font-semibold group-hover:gap-3 transition-all">
+              Ver módulos interactivos
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Módulos de Refuerzo -->
+          <a href="/modulos/refuerzo" class="group bg-white rounded-3xl p-8 border-2 border-teal-500/20 hover:border-teal-500 transition-all shadow-lg hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-navy mb-3 group-hover:text-teal-600 transition-colors">
+              Módulos de Refuerzo
+            </h3>
+            <p class="text-navy/60 mb-6">
+              Conceptos de años anteriores que el examen asume que ya dominas. Fortalece las bases para responder correctamente.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs px-3 py-1 bg-teal-500/10 text-teal-700 rounded-full">Fracciones</span>
+              <span class="text-xs px-3 py-1 bg-teal-500/10 text-teal-700 rounded-full">Ortografía</span>
+              <span class="text-xs px-3 py-1 bg-teal-500/10 text-teal-700 rounded-full">Comprensión lectora</span>
+              <span class="text-xs px-3 py-1 bg-teal-500/10 text-teal-700 rounded-full">Aritmética</span>
+            </div>
+            <div class="flex items-center gap-2 text-teal-600 font-semibold group-hover:gap-3 transition-all">
+              Ver módulos de refuerzo
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practica preguntas -->
+    <section class="py-20 lg:py-32 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <!-- Content -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/10 rounded-full text-terracotta text-sm font-medium mb-6">
-              <span class="text-lg">🔥</span>
-              Gamificación
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+              </svg>
+              Incluido en el plan gratuito
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
-              Mantén tu <span class="text-terracotta">racha</span> de estudio
+              Practica preguntas <span class="text-turquoise">a tu ritmo</span>
             </h2>
             <p class="text-lg text-navy/70 mb-8">
-              Sistema de rachas y progreso que te motiva a estudiar todos los días.
-              Visualiza tu avance con anillos de progreso por cada área del examen.
+              Preguntas tipo ECOEMS en las 10 áreas del examen. Sin cronómetro, con retroalimentación inmediata y explicaciones después de cada pregunta.
             </p>
-
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-white rounded-xl p-4 shadow-md">
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="text-2xl">🔥</span>
-                  <span class="text-2xl font-black text-terracotta">15</span>
-                </div>
-                <p class="text-sm text-navy/60">Días de racha</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow-md">
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="text-2xl">📊</span>
-                  <span class="text-2xl font-black text-turquoise">78%</span>
-                </div>
-                <p class="text-sm text-navy/60">Precisión global</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow-md">
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="text-2xl">📚</span>
-                  <span class="text-2xl font-black text-navy">342</span>
-                </div>
-                <p class="text-sm text-navy/60">Preguntas resueltas</p>
-              </div>
-              <div class="bg-white rounded-xl p-4 shadow-md">
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="text-2xl">🎯</span>
-                  <span class="text-2xl font-black text-emerald-500">8/10</span>
-                </div>
-                <p class="text-sm text-navy/60">Áreas dominadas</p>
-              </div>
-            </div>
+            <ul class="space-y-3 mb-8">
+              {[
+                'Retroalimentación inmediata con explicación',
+                'Técnica PARE: resalta palabras clave y descarta opciones',
+                'Repaso inteligente con algoritmo SM-2',
+                'Filtra por área o mezcla todas',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-navy/70">
+                  <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="/practicar-preguntas" class="inline-flex items-center gap-2 px-8 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-all shadow-lg shadow-turquoise/20">
+              Conocer más
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
           </div>
 
-          <!-- Visual -->
+          <!-- Mock de pregunta -->
           <div class="relative">
-            <div class="rounded-3xl shadow-2xl overflow-hidden border-4 border-navy/20">
-              <img
-                src="/images/screenshots/racha-calendario.webp"
-                alt="Calendario de actividad de TLACU mostrando racha de estudio y días activos"
-                class="w-full h-auto"
-                width="1147"
-                height="673"
-                loading="lazy"
-              />
+            <div class="absolute inset-0 bg-gradient-to-br from-turquoise/20 to-navy/10 rounded-3xl blur-3xl"></div>
+            <div class="relative bg-white rounded-2xl shadow-xl p-6 border border-navy/5">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold text-turquoise bg-turquoise/10 px-3 py-1 rounded-full">Matemáticas</span>
+                <span class="text-xs text-navy/40">Pregunta 7 de 20</span>
+              </div>
+              <p class="text-navy font-medium text-sm mb-5">Si un triángulo tiene lados de 3, 4 y 5 cm, ¿cuál es su área?</p>
+              <div class="space-y-2.5">
+                <div class="flex items-center gap-3 p-3 rounded-xl border border-navy/10 hover:border-turquoise/30 transition-colors">
+                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/40">A</div>
+                  <span class="text-sm text-navy/70">12 cm²</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-turquoise bg-turquoise/5">
+                  <div class="w-7 h-7 rounded-full bg-turquoise flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm text-navy font-medium">6 cm²</span>
+                  <span class="ml-auto text-xs text-turquoise font-semibold">Correcta</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl border border-navy/10 line-through opacity-50">
+                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/40">C</div>
+                  <span class="text-sm text-navy/70">10 cm²</span>
+                  <span class="ml-auto text-[10px] text-red-400">Descartada</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl border border-navy/10">
+                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/40">D</div>
+                  <span class="text-sm text-navy/70">8 cm²</span>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-turquoise/5 rounded-xl border border-turquoise/20">
+                <p class="text-xs text-navy/60"><span class="font-semibold text-turquoise">Explicación:</span> Es un triángulo rectángulo (3² + 4² = 5²). Área = (base × altura) / 2 = (3 × 4) / 2 = 6 cm².</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonial/Social Proof -->
-    <section class="py-20 lg:py-32 bg-cream">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-hero rounded-3xl p-8 md:p-12 lg:p-16 text-center">
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm font-medium mb-8">
-            <span class="text-lg">🔥</span>
-            La leyenda del tlacuache
-          </div>
-
-          <blockquote class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-relaxed mb-8 max-w-4xl mx-auto">
-            "Como el tlacuache que trajo el fuego a la humanidad,
-            <span class="text-gradient-fire">TLACU</span> lleva el conocimiento a todos."
-          </blockquote>
-
-          <p class="text-white/60 max-w-2xl mx-auto">
-            Inspirados en la leyenda prehispánica mexicana, creamos una plataforma educativa
-            totalmente responsiva que democratiza el acceso al conocimiento de calidad.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Modules -->
+    <!-- Flashcards -->
     <section class="py-20 lg:py-32 bg-cream-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
-            Módulos <span class="text-turquoise">interactivos</span>
-          </h2>
-          <p class="text-lg text-navy/70">
-            Aprende de forma visual con herramientas 3D y simuladores
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Tabla Periódica -->
-          <a href="/modulos#tabla-periodica" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-            <div class="h-40 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <div class="grid grid-cols-6 gap-1 p-4">
-                {['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg'].map((el) => (
-                  <div class="w-6 h-6 bg-white/20 rounded text-white text-xs font-bold flex items-center justify-center">{el}</div>
-                ))}
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Tabla Periódica</h3>
-              <p class="text-navy/60 text-sm">118 elementos interactivos con propiedades y estados.</p>
-            </div>
-          </a>
-
-          <!-- Célula 3D -->
-          <a href="/modulos#celula" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-            <div class="h-40 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-              <div class="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center">
-                <div class="w-16 h-16 rounded-full bg-white/30 flex items-center justify-center">
-                  <div class="w-8 h-8 rounded-full bg-purple-400"></div>
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <!-- Mock de flashcard -->
+          <div class="relative order-2 lg:order-1">
+            <div class="absolute inset-0 bg-gradient-to-br from-terracotta/20 to-turquoise/10 rounded-3xl blur-3xl"></div>
+            <div class="relative bg-white rounded-2xl shadow-xl p-6 border border-navy/5">
+              <div class="flex items-center justify-between mb-5">
+                <span class="text-xs font-bold text-terracotta bg-terracotta/10 px-3 py-1 rounded-full">Biología</span>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[10px] text-navy/40 font-medium">Racha: 4</span>
+                  <svg class="w-3.5 h-3.5 text-terracotta" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.66 11.2C17.43 10.9 17.16 10.64 16.85 10.43C16.1 9.89 15.57 9.07 15.39 8.14C15.24 7.37 14.86 6.64 14.29 6.05C13.35 5.09 12 4 12 4C12 4 10.65 5.09 9.71 6.05C9.14 6.64 8.76 7.37 8.61 8.14C8.43 9.07 7.9 9.89 7.15 10.43C6.84 10.64 6.57 10.9 6.34 11.2C5.45 12.39 5 13.81 5 15.25C5 19.04 8.13 22 12 22C15.87 22 19 19.04 19 15.25C19 13.81 18.55 12.39 17.66 11.2Z"></path>
+                  </svg>
                 </div>
               </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Célula 3D</h3>
-              <p class="text-navy/60 text-sm">Modelos 3D de célula animal y vegetal interactivos.</p>
-            </div>
-          </a>
-
-          <!-- Geometría 2D -->
-          <a href="/modulos" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-            <div class="h-40 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
-              <div class="flex items-end gap-2">
-                <div class="w-12 h-12 border-4 border-white/80"></div>
-                <div class="w-0 h-0 border-l-[30px] border-l-transparent border-r-[30px] border-r-transparent border-b-[50px] border-b-white/80"></div>
-                <div class="w-12 h-12 rounded-full border-4 border-white/80"></div>
+              <div class="text-center py-8">
+                <p class="text-navy font-semibold mb-2">¿Cuál es la función principal de la mitocondria?</p>
+                <div class="w-12 h-0.5 bg-navy/10 mx-auto my-4"></div>
+                <p class="text-turquoise font-medium text-sm">Producir energía (ATP) mediante la respiración celular</p>
+              </div>
+              <div class="grid grid-cols-4 gap-2 mt-4">
+                <button class="py-2.5 rounded-xl text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20">No lo sabía</button>
+                <button class="py-2.5 rounded-xl text-xs font-bold bg-amber-400/10 text-amber-500 border border-amber-400/20">Difícil</button>
+                <button class="py-2.5 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">Bien</button>
+                <button class="py-2.5 rounded-xl text-xs font-bold bg-blue-500/10 text-blue-600 border border-blue-500/20">Fácil</button>
+              </div>
+              <div class="flex items-center justify-between mt-3 text-[10px] text-navy/30">
+                <span>&lt; 10 min</span>
+                <span>~1 día</span>
+                <span>~4 días</span>
+                <span>~7+ días</span>
               </div>
             </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Geometría 2D</h3>
-              <p class="text-navy/60 text-sm">Explorador de ángulos, triángulos y teorema de Pitágoras.</p>
-            </div>
-          </a>
-
-          <!-- Mapa de México -->
-          <a href="/modulos" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-            <div class="h-40 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-              <span class="text-6xl">🇲🇽</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Mapa de México</h3>
-              <p class="text-navy/60 text-sm">32 estados y capitales con mapa interactivo.</p>
-            </div>
-          </a>
-
-          <!-- Línea del Tiempo -->
-          <a href="/modulos" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-            <div class="h-40 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-              <div class="flex items-center gap-2">
-                <div class="w-4 h-4 rounded-full bg-white"></div>
-                <div class="w-16 h-1 bg-white/60"></div>
-                <div class="w-4 h-4 rounded-full bg-white/80"></div>
-                <div class="w-16 h-1 bg-white/60"></div>
-                <div class="w-4 h-4 rounded-full bg-white/60"></div>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Línea del Tiempo</h3>
-              <p class="text-navy/60 text-sm">Historia de México desde la era prehispánica.</p>
-            </div>
-          </a>
-
-          <!-- Simulador de Física -->
-          <a href="/modulos" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-            <div class="h-40 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-              <div class="text-white">
-                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Simulador de Física</h3>
-              <p class="text-navy/60 text-sm">Movimiento, caída libre y tiro parabólico.</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="text-center mt-10">
-          <a href="/modulos" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-semibold rounded-xl hover:bg-turquoise/90 transition-colors">
-            Ver todos los módulos
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Study Strategies -->
-    <section class="py-20 lg:py-32 bg-cream">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
-            Estrategias de <span class="text-terracotta">estudio</span>
-          </h2>
-          <p class="text-lg text-navy/70">
-            Técnicas probadas con herramientas integradas en la plataforma para maximizar tu aprendizaje
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Técnica PARE -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-terracotta">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center">
-                <span class="text-2xl">🎯</span>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2">
-                  <h3 class="font-bold text-navy">Técnica PARE</h3>
-                  <span class="text-[10px] font-semibold bg-terracotta/10 text-terracotta px-2 py-0.5 rounded-full">En plataforma</span>
-                </div>
-                <p class="text-xs text-navy/50">Modo interactivo</p>
-              </div>
-            </div>
-            <p class="text-navy/70 text-sm">Pregunta, Analiza, Responde, Elimina. Modo de estudio guiado que resalta palabras clave y te ayuda a eliminar opciones incorrectas.</p>
           </div>
 
-          <!-- Administración del Tiempo -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-turquoise">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center">
-                <span class="text-2xl">⏱️</span>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2">
-                  <h3 class="font-bold text-navy">Gestión del Tiempo</h3>
-                  <span class="text-[10px] font-semibold bg-turquoise/10 text-turquoise px-2 py-0.5 rounded-full">Cronómetro</span>
-                </div>
-                <p class="text-xs text-navy/50">Timer en exámenes</p>
-              </div>
+          <div class="order-1 lg:order-2">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/10 rounded-full text-terracotta text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+              Incluido en el plan gratuito
             </div>
-            <p class="text-navy/70 text-sm">Cronómetro integrado en todos los exámenes. Aprende a distribuir los 180 minutos: 1.4 minutos por pregunta.</p>
-          </div>
-
-          <!-- Descarte de Opciones -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-navy">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center">
-                <span class="text-2xl">❌</span>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2">
-                  <h3 class="font-bold text-navy">Descarte de Opciones</h3>
-                  <span class="text-[10px] font-semibold bg-navy/10 text-navy px-2 py-0.5 rounded-full">Modo PARE</span>
-                </div>
-                <p class="text-xs text-navy/50">Tachar respuestas</p>
-              </div>
-            </div>
-            <p class="text-navy/70 text-sm">Tacha opciones incorrectas antes de elegir. Las pistas de eliminación te explican por qué descartar cada opción.</p>
-          </div>
-
-          <!-- Manejo del Estrés -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-emerald-500">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center">
-                <span class="text-2xl">🧘</span>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2">
-                  <h3 class="font-bold text-navy">Manejo del Estrés</h3>
-                  <span class="text-[10px] font-semibold bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-full">Respiración</span>
-                </div>
-                <p class="text-xs text-navy/50">Ejercicio guiado</p>
-              </div>
-            </div>
-            <p class="text-navy/70 text-sm">Botón de respiración integrado en exámenes y modo estudio. Pausa para calmarte cuando lo necesites.</p>
-          </div>
-
-          <!-- Pomodoro -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-rose-500">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center">
-                <span class="text-2xl">🍅</span>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2">
-                  <h3 class="font-bold text-navy">Técnica Pomodoro</h3>
-                  <span class="text-[10px] font-semibold bg-rose-500/10 text-rose-600 px-2 py-0.5 rounded-full">Timer</span>
-                </div>
-                <p class="text-xs text-navy/50">Temporizador integrado</p>
-              </div>
-            </div>
-            <p class="text-navy/70 text-sm">Temporizador Pomodoro integrado: 25 minutos de estudio enfocado, 5 de descanso. Disponible en toda la plataforma.</p>
-          </div>
-
-          <!-- Repaso Inteligente -->
-          <div class="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 shadow-lg text-white relative overflow-hidden">
-            <div class="absolute top-2 right-2">
-              <span class="px-2 py-0.5 bg-turquoise/20 text-turquoise text-[10px] font-bold rounded-full">SM-2</span>
-            </div>
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <h3 class="font-bold">Repaso Inteligente</h3>
-                <p class="text-xs text-white/50">Algoritmo basado en ciencia</p>
-              </div>
-            </div>
-            <p class="text-white/70 text-sm">Las preguntas que más necesitas repasar aparecen automáticamente en el momento óptimo. Basado en 300+ experimentos de memoria.</p>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
+              Flashcards que se <span class="text-terracotta">adaptan a ti</span>
+            </h2>
+            <p class="text-lg text-navy/70 mb-8">
+              Cientos de tarjetas en las 10 áreas del ECOEMS. El algoritmo SM-2 prioriza las que más necesitas repasar para que estudies menos y recuerdes más.
+            </p>
+            <ul class="space-y-3 mb-8">
+              {[
+                'Repetición espaciada con algoritmo SM-2',
+                'Tarjetas en las 10 áreas del ECOEMS',
+                '4 niveles de respuesta que ajustan el intervalo',
+                'Racha de estudio para mantener la motivación',
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-navy/70">
+                  <svg class="w-5 h-5 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="/flashcards" class="inline-flex items-center gap-2 px-8 py-3 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-light transition-all shadow-lg shadow-terracotta/20">
+              Conocer más
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- SM-2 Spaced Repetition Banner -->
-    <section class="py-16 bg-cream-dark">
+    <section class="py-16 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <a href="/repaso-espaciado" class="group block bg-gradient-to-br from-navy to-navy-light rounded-3xl p-8 md:p-10 shadow-2xl overflow-hidden relative hover:shadow-navy/30 transition-all">
 
@@ -870,7 +777,7 @@ import PlatformLink from '../components/PlatformLink.astro';
     </section>
 
     <!-- Plataforma viva -->
-    <section class="py-16 bg-cream">
+    <section class="py-16 bg-cream-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-3xl shadow-lg border border-navy/10 overflow-hidden">
           <div class="grid lg:grid-cols-2 items-stretch">
@@ -913,7 +820,7 @@ import PlatformLink from '../components/PlatformLink.astro';
             <div class="bg-gradient-to-br from-navy to-navy-light p-8 md:p-12 flex flex-col justify-center gap-4">
               <div class="text-white/40 text-xs font-bold uppercase tracking-widest mb-2">Actualizaciones recientes</div>
               {[
-                { label: 'Plan de estudio con IA', tag: 'Nuevo', color: 'bg-turquoise/20 text-turquoise' },
+                { label: 'Plan de estudio personalizado', tag: 'Nuevo', color: 'bg-turquoise/20 text-turquoise' },
                 { label: 'Simulador con cámara', tag: 'Lanzado', color: 'bg-emerald-500/20 text-emerald-400' },
                 { label: 'Módulos interactivos expandidos', tag: 'Mejorado', color: 'bg-amber-400/20 text-amber-400' },
                 { label: 'Algoritmo SM-2 en flashcards', tag: 'Lanzado', color: 'bg-emerald-500/20 text-emerald-400' },
@@ -933,7 +840,7 @@ import PlatformLink from '../components/PlatformLink.astro';
     </section>
 
     <!-- Features Overview -->
-    <section id="features" class="py-20 lg:py-32 bg-cream-dark">
+    <section id="features" class="py-20 lg:py-32 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
@@ -1002,7 +909,7 @@ import PlatformLink from '../components/PlatformLink.astro';
     </section>
 
     <!-- Free vs Pro -->
-    <section class="py-20 lg:py-32 bg-cream">
+    <section class="py-20 lg:py-32 bg-cream-dark">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
@@ -1073,7 +980,7 @@ import PlatformLink from '../components/PlatformLink.astro';
                 'Preguntas y flashcards ilimitadas',
                 'Exámenes completos y por área ilimitados',
                 'Simulador con cronómetro y cámara',
-                'Plan de estudio personalizado con IA',
+                'Plan de estudio personalizado',
                 'Vista semanal y reprogramación adaptativa',
                 'Todos los módulos interactivos',
               ].map((item) => (
@@ -1099,7 +1006,7 @@ import PlatformLink from '../components/PlatformLink.astro';
     </section>
 
     <!-- Panel de Tutores -->
-    <section class="py-20 lg:py-32 bg-cream-dark">
+    <section class="py-20 lg:py-32 bg-cream">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-gradient-to-br from-navy to-navy-light rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden relative">
           <!-- Background decoration -->
