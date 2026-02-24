@@ -7,9 +7,9 @@ const currentYear = new Date().getFullYear();
 <footer class="bg-navy text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Main footer content */}
-    <div class="py-12 lg:py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <div class="py-12 lg:py-16 grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
       {/* Brand column */}
-      <div class="lg:col-span-1">
+      <div class="sm:col-span-2 lg:col-span-2">
         <a href="/" class="inline-block mb-4">
           <img
             src="/images/logos/logo-tlacu-light.webp"
@@ -20,11 +20,11 @@ const currentYear = new Date().getFullYear();
             loading="lazy"
           />
         </a>
-        <p class="text-white/60 text-sm mb-6">
+        <p class="text-white/60 text-sm mb-6 max-w-sm">
           Plataforma educativa 100% responsiva que enciende el conocimiento.
           Como el tlacuache que trajo el fuego, llevamos el saber a todos.
         </p>
-        <div class="flex gap-4">
+        <div class="flex gap-4 mb-6">
           <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-turquoise transition-colors" aria-label="Facebook">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -41,43 +41,61 @@ const currentYear = new Date().getFullYear();
             </svg>
           </a>
         </div>
+        <div class="flex gap-3">
+          <PlatformLink path="/autenticacion/registro" class="px-5 py-2 bg-terracotta text-white text-sm font-semibold rounded-lg hover:bg-terracotta-light transition-colors">
+            Registrarse gratis
+          </PlatformLink>
+          <PlatformLink path="/autenticacion/iniciar-sesion" class="px-5 py-2 bg-white/10 text-white text-sm font-semibold rounded-lg hover:bg-white/20 transition-colors">
+            Iniciar sesión
+          </PlatformLink>
+        </div>
       </div>
 
-      {/* TLACU column */}
+      {/* Plataforma column */}
+      <div>
+        <h4 class="font-bold mb-4">Plataforma</h4>
+        <ul class="space-y-3">
+          <li><a href="/plataforma" class="text-white/60 hover:text-turquoise transition-colors">Vista general</a></li>
+          <li><a href="/plan-estudio" class="text-white/60 hover:text-turquoise transition-colors">Plan de estudio</a></li>
+          <li><a href="/practicar-preguntas" class="text-white/60 hover:text-turquoise transition-colors">Practicar preguntas</a></li>
+          <li><a href="/flashcards" class="text-white/60 hover:text-turquoise transition-colors">Flashcards</a></li>
+          <li><a href="/repaso-espaciado" class="text-white/60 hover:text-turquoise transition-colors">Repetición espaciada</a></li>
+          <li><a href="/modulos-interactivos" class="text-white/60 hover:text-turquoise transition-colors">Módulos interactivos</a></li>
+          <li><a href="/modulos/refuerzo" class="text-white/60 hover:text-turquoise transition-colors">Módulos de refuerzo</a></li>
+        </ul>
+      </div>
+
+      {/* Exámenes column */}
+      <div>
+        <h4 class="font-bold mb-4">Exámenes</h4>
+        <ul class="space-y-3">
+          <li><a href="/examenes" class="text-white/60 hover:text-turquoise transition-colors">Todos los exámenes</a></li>
+          <li><a href="/examenes/diagnostico" class="text-white/60 hover:text-turquoise transition-colors">Diagnóstico</a></li>
+          <li><a href="/examenes/rapido" class="text-white/60 hover:text-turquoise transition-colors">Examen Rápido</a></li>
+          <li><a href="/examenes/completo" class="text-white/60 hover:text-turquoise transition-colors">Examen Completo</a></li>
+          <li><a href="/examenes/simulador" class="text-white/60 hover:text-turquoise transition-colors">Simulador con Cámara</a></li>
+        </ul>
+
+        <h4 class="font-bold mb-4 mt-8">Precios</h4>
+        <ul class="space-y-3">
+          <li><a href="/precios" class="text-white/60 hover:text-turquoise transition-colors">Planes y precios</a></li>
+        </ul>
+      </div>
+
+      {/* TLACU + Legal column */}
       <div>
         <h4 class="font-bold mb-4">TLACU</h4>
         <ul class="space-y-3">
-          <li><a href="/" class="text-white/60 hover:text-turquoise transition-colors">Inicio</a></li>
           <li><a href="/acerca" class="text-white/60 hover:text-turquoise transition-colors">Acerca de</a></li>
-          <li><a href="/contacto" class="text-white/60 hover:text-turquoise transition-colors">Contacto</a></li>
           <li><a href="/que-es-ecoems" class="text-white/60 hover:text-turquoise transition-colors">¿Qué es el ECOEMS?</a></li>
-          <li><a href="/recursos" class="text-white/60 hover:text-turquoise transition-colors">Recursos</a></li>
           <li><a href="/por-que-tlacu" class="text-white/60 hover:text-turquoise transition-colors">¿Por qué TLACU?</a></li>
           <li><a href="/para-padres" class="text-white/60 hover:text-turquoise transition-colors">Para Padres y Tutores</a></li>
-        </ul>
-      </div>
-
-      {/* ECOEMS column */}
-      <div>
-        <h4 class="font-bold mb-4">ECOEMS</h4>
-        <ul class="space-y-3">
-          <li><a href="/plataforma" class="text-white/60 hover:text-turquoise transition-colors">Plataforma</a></li>
-          <li><a href="/examenes" class="text-white/60 hover:text-turquoise transition-colors">Exámenes</a></li>
-          <li><a href="/modulos-interactivos" class="text-white/60 hover:text-turquoise transition-colors">Módulos interactivos</a></li>
-          <li><a href="/modulos/refuerzo" class="text-white/60 hover:text-turquoise transition-colors">Refuerzo</a></li>
-          <li><a href="/precios" class="text-white/60 hover:text-turquoise transition-colors">Precios</a></li>
-        </ul>
-      </div>
-
-      {/* Account & Legal column */}
-      <div>
-        <h4 class="font-bold mb-4">Cuenta</h4>
-        <ul class="space-y-3">
-          <li><PlatformLink path="/autenticacion/registro" class="text-white/60 hover:text-turquoise transition-colors">Registrarse</PlatformLink></li>
-          <li><PlatformLink path="/autenticacion/iniciar-sesion" class="text-white/60 hover:text-turquoise transition-colors">Iniciar sesión</PlatformLink></li>
+          <li><a href="/recursos" class="text-white/60 hover:text-turquoise transition-colors">Recursos</a></li>
+          <li><a href="/hoja-de-ruta" class="text-white/60 hover:text-turquoise transition-colors">Hoja de ruta</a></li>
+          <li><a href="/contacto" class="text-white/60 hover:text-turquoise transition-colors">Contacto</a></li>
         </ul>
 
-        <h4 class="font-bold mb-4 mt-6">Legal</h4>
+        <h4 class="font-bold mb-4 mt-8">Legal</h4>
         <ul class="space-y-3">
           <li><a href="/terminos" class="text-white/60 hover:text-turquoise transition-colors">Términos de servicio</a></li>
           <li><a href="/privacidad" class="text-white/60 hover:text-turquoise transition-colors">Política de privacidad</a></li>
@@ -91,7 +109,11 @@ const currentYear = new Date().getFullYear();
         &copy; {currentYear} TLACU. Todos los derechos reservados.
       </p>
       <p class="text-white/40 text-sm flex items-center gap-2">
-        Hecho con <span class="text-terracotta">🔥</span> en México
+        Hecho con
+        <svg class="w-4 h-4 text-terracotta" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.66 11.2C17.43 10.9 17.16 10.64 16.85 10.43C16.1 9.89 15.57 9.07 15.39 8.14C15.24 7.37 14.86 6.64 14.29 6.05C13.35 5.09 12 4 12 4C12 4 10.65 5.09 9.71 6.05C9.14 6.64 8.76 7.37 8.61 8.14C8.43 9.07 7.9 9.89 7.15 10.43C6.84 10.64 6.57 10.9 6.34 11.2C5.45 12.39 5 13.81 5 15.25C5 19.04 8.13 22 12 22C15.87 22 19 19.04 19 15.25C19 13.81 18.55 12.39 17.66 11.2Z"></path>
+        </svg>
+        en México
       </p>
     </div>
   </div>
