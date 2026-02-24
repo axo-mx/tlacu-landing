@@ -207,8 +207,189 @@ import PlatformLink from '../components/PlatformLink.astro';
       </div>
     </section>
 
+    <!-- Exam Types Section -->
+    <section id="examenes" class="py-20 lg:py-32 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
+            Modos de <span class="text-terracotta">examen</span>
+          </h2>
+          <p class="text-lg text-navy/70">
+            Practica como en el examen real con diferentes modalidades
+          </p>
+        </div>
+
+        <!-- Simulador con Cámara — Featured -->
+        <a href="/examenes/simulador" class="group block bg-gradient-to-br from-navy to-navy-light rounded-2xl shadow-lg relative overflow-hidden hover:shadow-2xl transition-all mb-6">
+          <div class="grid md:grid-cols-2 gap-6 p-8 items-center">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-1 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
+                <span class="px-2.5 py-1 bg-turquoise/20 text-turquoise text-xs font-bold rounded-full">Vigilancia IA</span>
+                <span class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 bg-white/10 text-white/50 text-xs font-medium rounded-full">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  Solo escritorio
+                </span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-black text-white mb-3 group-hover:text-turquoise transition-colors">Simulador con Cámara</h3>
+              <p class="text-white/70 mb-5 max-w-md">
+                Detección de rostro, movimiento, objetos prohibidos y ruido ambiental con inteligencia artificial. La experiencia más cercana al examen ECOEMS real.
+              </p>
+              <div class="flex flex-wrap items-center gap-3 text-sm mb-5">
+                <span class="flex items-center gap-1.5 text-turquoise font-semibold">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                  128 preguntas
+                </span>
+                <span class="flex items-center gap-1.5 text-white/60">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  3 horas
+                </span>
+                <span class="flex items-center gap-1.5 text-white/60">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Con cámara
+                </span>
+              </div>
+              <!-- Detection features mini-list -->
+              <div class="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                {[
+                  'Detección de rostro',
+                  'Monitoreo de ruido',
+                  'Detección de movimiento',
+                  'Detección de objetos',
+                ].map((feat) => (
+                  <span class="flex items-center gap-1.5 text-white/50 text-xs">
+                    <svg class="w-3.5 h-3.5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {feat}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div class="hidden md:block">
+              <!-- Mock monitoring panel -->
+              <div class="bg-white/10 rounded-xl border border-white/20 p-5">
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></div>
+                  <span class="text-white/60 text-xs font-medium">REC</span>
+                  <span class="ml-auto px-2 py-0.5 bg-turquoise/20 text-turquoise text-[10px] font-bold rounded-full">IA activa</span>
+                </div>
+                <div class="space-y-3 mb-4">
+                  <div>
+                    <div class="flex items-center justify-between text-[10px] text-white/40 mb-1">
+                      <span>Ruido</span>
+                      <span>14%</span>
+                    </div>
+                    <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                      <div class="h-full bg-emerald-400 rounded-full" style="width: 14%"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center justify-between text-[10px] text-white/40 mb-1">
+                      <span>Movimiento</span>
+                      <span>6%</span>
+                    </div>
+                    <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                      <div class="h-full bg-emerald-400 rounded-full" style="width: 6%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-center">
+                  <div class="bg-white/10 rounded-lg py-2">
+                    <div class="text-xl font-black text-turquoise">128</div>
+                    <div class="text-white/40 text-[10px]">Preguntas</div>
+                  </div>
+                  <div class="bg-white/10 rounded-lg py-2">
+                    <div class="text-xl font-black text-turquoise">3h</div>
+                    <div class="text-white/40 text-[10px]">Cronómetro</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Otros modos de examen -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Examen Diagnóstico -->
+          <a href="/examenes/diagnostico" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise hover:shadow-xl transition-all">
+            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="inline-block px-2 py-0.5 bg-turquoise/10 text-turquoise text-xs font-medium rounded-full mb-2">
+              Recomendado
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Diagnóstico</h3>
+            <p class="text-navy/60 text-sm mb-4">Conoce tu nivel y genera tu plan de estudio.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="text-turquoise font-semibold">64/128 preg</span>
+              <span class="text-navy/40">~60 min</span>
+            </div>
+          </a>
+
+          <!-- Examen Completo -->
+          <a href="/examenes/completo" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-terracotta/30 hover:shadow-xl transition-all relative">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-1 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
+            </div>
+            <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-7 h-7 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <div class="inline-block px-2 py-0.5 bg-terracotta/10 text-terracotta text-xs font-medium rounded-full mb-2">
+              128 preguntas
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-terracotta transition-colors">Examen Completo</h3>
+            <p class="text-navy/60 text-sm mb-4">Con cronómetro de 3 horas, igual que el real.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="text-terracotta font-semibold">128 preguntas</span>
+              <span class="text-navy/40">3 horas</span>
+            </div>
+          </a>
+
+          <!-- Examen Rápido -->
+          <a href="/examenes/rapido" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-navy/30 hover:shadow-xl transition-all">
+            <div class="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div class="inline-block px-2 py-0.5 bg-navy/10 text-navy text-xs font-medium rounded-full mb-2">
+              Práctica rápida
+            </div>
+            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Examen Rápido</h3>
+            <p class="text-navy/60 text-sm mb-4">Para cuando tienes poco tiempo. Sin cronómetro.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="text-navy font-semibold">44 preguntas</span>
+              <span class="text-navy/40">~45 min</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/examenes" class="inline-flex items-center gap-2 text-terracotta hover:text-terracotta-dark font-semibold transition-colors">
+            Ver todos los modos de examen
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Plan de Estudio Automático -->
-    <section class="py-20 lg:py-32 bg-cream-dark">
+    <section class="py-20 lg:py-32 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise text-sm font-medium mb-6">
@@ -284,106 +465,6 @@ import PlatformLink from '../components/PlatformLink.astro';
         <div class="text-center mt-10">
           <a href="/plataforma#plan-estudio" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-semibold rounded-xl hover:bg-turquoise/90 transition-colors">
             Ver cómo funciona
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Exam Types Section -->
-    <section id="examenes" class="py-20 lg:py-32 bg-cream">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
-            Modos de <span class="text-terracotta">examen</span>
-          </h2>
-          <p class="text-lg text-navy/70">
-            Practica como en el examen real con diferentes modalidades
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Examen Diagnóstico -->
-          <a href="/examenes/diagnostico" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise hover:shadow-xl transition-all">
-            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div class="inline-block px-2 py-0.5 bg-turquoise/10 text-turquoise text-xs font-medium rounded-full mb-2">
-              Recomendado
-            </div>
-            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Diagnóstico</h3>
-            <p class="text-navy/60 text-sm mb-4">Conoce tu nivel y genera tu plan de estudio.</p>
-            <div class="flex items-center gap-4 text-sm">
-              <span class="text-turquoise font-semibold">64/128 preg</span>
-              <span class="text-navy/40">~60 min</span>
-            </div>
-          </a>
-
-          <!-- Examen Completo -->
-          <a href="/examenes/completo" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-terracotta/30 hover:shadow-xl transition-all relative">
-            <div class="absolute top-2 right-2">
-              <span class="px-2 py-1 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
-            </div>
-            <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-7 h-7 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-              </svg>
-            </div>
-            <div class="inline-block px-2 py-0.5 bg-terracotta/10 text-terracotta text-xs font-medium rounded-full mb-2">
-              128 preguntas
-            </div>
-            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-terracotta transition-colors">Examen Completo</h3>
-            <p class="text-navy/60 text-sm mb-4">Con cronómetro de 3 horas, igual que el real.</p>
-            <div class="flex items-center gap-4 text-sm">
-              <span class="text-terracotta font-semibold">128 preguntas</span>
-              <span class="text-navy/40">3 horas</span>
-            </div>
-          </a>
-
-          <!-- Examen Rápido -->
-          <a href="/examenes/rapido" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-navy/30 hover:shadow-xl transition-all">
-            <div class="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-7 h-7 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <div class="inline-block px-2 py-0.5 bg-navy/10 text-navy text-xs font-medium rounded-full mb-2">
-              Práctica rápida
-            </div>
-            <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Examen Rápido</h3>
-            <p class="text-navy/60 text-sm mb-4">Para cuando tienes poco tiempo. Sin cronómetro.</p>
-            <div class="flex items-center gap-4 text-sm">
-              <span class="text-navy font-semibold">44 preguntas</span>
-              <span class="text-navy/40">~45 min</span>
-            </div>
-          </a>
-
-          <!-- Simulador con Cámara -->
-          <a href="/examenes/simulador" class="group bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 shadow-lg relative overflow-hidden hover:shadow-xl transition-all">
-            <div class="absolute top-2 right-2">
-              <span class="px-2 py-1 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
-            </div>
-            <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-turquoise transition-colors">Simulador con Cámara</h3>
-            <p class="text-white/70 text-sm mb-4">Como en el examen real con monitoreo de cámara.</p>
-            <div class="flex items-center gap-4 text-sm">
-              <span class="text-turquoise font-semibold">128 preguntas</span>
-              <span class="text-white/50">Con cámara</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="text-center mt-10">
-          <a href="/examenes" class="inline-flex items-center gap-2 text-terracotta hover:text-terracotta-dark font-semibold transition-colors">
-            Ver todos los modos de examen
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>

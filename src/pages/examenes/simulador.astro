@@ -3,6 +3,41 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PlatformLink from '../../components/PlatformLink.astro';
+
+const detections = [
+  {
+    title: 'Detección de rostro',
+    description: 'La IA verifica que haya exactamente una persona frente a la cámara en todo momento. Si te ausentas o aparece alguien más, recibes una alerta.',
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`,
+    alerts: ['Rostro no detectado', 'Múltiples personas'],
+  },
+  {
+    title: 'Detección de movimiento',
+    description: 'Análisis de píxeles en tiempo real detecta movimiento inusual frente a la cámara: manos, papeles, objetos. Te entrena a mantener tu espacio despejado.',
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`,
+    alerts: ['Movimiento excesivo'],
+  },
+  {
+    title: 'Detección de objetos',
+    description: 'La IA identifica objetos prohibidos en tu escritorio como celulares o libros. Solo se permite papel, lápiz y goma.',
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>`,
+    alerts: ['Celular detectado', 'Libro detectado'],
+  },
+  {
+    title: 'Monitoreo de ruido',
+    description: 'El micrófono mide el nivel de ruido ambiental en tiempo real. El ECOEMS se hace desde casa, así que necesitas asegurar un ambiente silencioso y sin distracciones.',
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>`,
+    alerts: ['Ruido excesivo (>30%)'],
+  },
+];
+
+const setupChecks = [
+  { label: 'Navegador compatible', detail: 'Chrome o Firefox recomendado' },
+  { label: 'Cámara disponible', detail: 'Resolución mínima 640×480' },
+  { label: 'Micrófono disponible', detail: 'Para monitoreo de ruido' },
+  { label: 'Conexión a internet', detail: 'Latencia menor a 500ms' },
+  { label: 'Pantalla de escritorio', detail: 'Mínimo 1024px de ancho' },
+];
 ---
 
 <Layout title="Simulador con Cámara - TLACU ECOEMS">
@@ -24,44 +59,62 @@ import PlatformLink from '../../components/PlatformLink.astro';
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                 </svg>
-                Con cámara
+                Con vigilancia IA
               </div>
               <span class="px-3 py-1 bg-terracotta text-white text-sm font-bold rounded-full">PRO</span>
             </div>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-              <span class="text-turquoise">Simulador</span> Real
+              <span class="text-turquoise">Simulador</span> Real con Cámara
             </h1>
             <p class="text-xl text-white/70 mb-8">
-              La experiencia más cercana al examen ECOEMS. Con monitoreo de cámara activo como en el día del examen oficial.
+              Detección de rostro, movimiento, objetos y ruido con inteligencia artificial. La experiencia más cercana al examen ECOEMS real.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <PlatformLink path="/autenticacion/registro" class="px-8 py-4 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-all shadow-xl text-center">
                 Obtener Pro para acceder
               </PlatformLink>
-              <a href="#como-funciona" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/20 text-center">
-                ¿Cómo funciona?
+              <a href="#detecciones" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/20 text-center">
+                Ver detecciones
               </a>
             </div>
           </div>
 
           <div class="hidden lg:flex justify-center">
-            <div class="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20">
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
-                <span class="text-white/80 text-sm font-medium">Cámara activa</span>
+            <div class="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20 w-full max-w-sm">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                <span class="text-white/80 text-sm font-medium">REC — Cámara activa</span>
+                <span class="ml-auto px-2 py-0.5 bg-turquoise/20 text-turquoise text-xs font-bold rounded-full">IA activa</span>
               </div>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white/10 rounded-xl p-4 text-center">
-                  <div class="text-3xl font-black text-turquoise">128</div>
-                  <div class="text-white/60 text-sm">Preguntas</div>
+              <!-- Mock monitoring meters -->
+              <div class="space-y-4 mb-6">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-white/50 mb-1">
+                    <span>Ruido ambiental</span>
+                    <span>12%</span>
+                  </div>
+                  <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div class="h-full bg-emerald-400 rounded-full" style="width: 12%"></div>
+                  </div>
                 </div>
-                <div class="bg-white/10 rounded-xl p-4 text-center">
-                  <div class="text-3xl font-black text-turquoise">3h</div>
-                  <div class="text-white/60 text-sm">Duración</div>
+                <div>
+                  <div class="flex items-center justify-between text-xs text-white/50 mb-1">
+                    <span>Movimiento</span>
+                    <span>8%</span>
+                  </div>
+                  <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div class="h-full bg-emerald-400 rounded-full" style="width: 8%"></div>
+                  </div>
                 </div>
-                <div class="bg-white/10 rounded-xl p-4 text-center col-span-2">
-                  <div class="text-2xl font-black text-white">100% Real</div>
-                  <div class="text-white/60 text-sm">Mismas condiciones del examen</div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-white/10 rounded-xl p-3 text-center">
+                  <div class="text-2xl font-black text-turquoise">128</div>
+                  <div class="text-white/50 text-xs">Preguntas</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-3 text-center">
+                  <div class="text-2xl font-black text-turquoise">3h</div>
+                  <div class="text-white/50 text-xs">Cronómetro</div>
                 </div>
               </div>
             </div>
@@ -70,104 +123,298 @@ import PlatformLink from '../../components/PlatformLink.astro';
       </div>
     </section>
 
-    <!-- Cómo funciona -->
-    <section id="como-funciona" class="py-20 bg-cream">
+    <!-- Desktop-only notice -->
+    <section class="bg-amber-50 border-y border-amber-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center gap-3 justify-center text-center">
+          <svg class="w-5 h-5 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <p class="text-amber-800 text-sm font-medium">
+            <span class="font-bold">Solo disponible en computadora de escritorio.</span>
+            El examen ECOEMS se presenta desde casa en una computadora con cámara y monitoreo activo — el simulador replica esas condiciones para que prepares tu entorno. No es compatible con celulares ni tablets.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detecciones con IA -->
+    <section id="detecciones" class="py-20 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
-            ¿Cómo funciona el simulador?
+            4 sistemas de detección con IA
           </h2>
           <p class="text-lg text-navy/70 max-w-2xl mx-auto">
-            Replica las condiciones exactas del examen ECOEMS
+            El simulador usa modelos de inteligencia artificial que corren directamente en tu navegador para monitorear tu entorno en tiempo real
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-              </svg>
+        <div class="grid md:grid-cols-2 gap-6">
+          {detections.map((detection) => (
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-navy/5 hover:shadow-xl transition-all">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center flex-shrink-0 text-turquoise">
+                  <Fragment set:html={detection.icon} />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-bold text-navy mb-2">{detection.title}</h3>
+                  <p class="text-navy/60 text-sm leading-relaxed mb-3">{detection.description}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {detection.alerts.map((alert) => (
+                      <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-red-50 text-red-600 text-xs font-medium rounded-full border border-red-100">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                        {alert}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-navy mb-3">Monitoreo con cámara</h3>
-            <p class="text-navy/60">
-              Tu cámara se activa durante todo el examen. Te acostumbras a las condiciones reales donde serás monitoreado.
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Monitoreo en tiempo real -->
+    <section class="py-20 bg-gradient-to-br from-navy to-navy-light">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+              Monitoreo en vivo
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-6">
+              Medidores de <span class="text-turquoise">ruido y movimiento</span> en tiempo real
+            </h2>
+            <p class="text-white/70 text-lg mb-8">
+              Durante el examen ves dos indicadores en vivo que te muestran exactamente cuánto ruido y movimiento detecta el sistema. Aprende a mantener tu entorno bajo control.
             </p>
+            <ul class="space-y-4">
+              {[
+                'Barra de ruido: verde (normal) → amarillo (cuidado) → rojo (alerta)',
+                'Barra de movimiento: mismo sistema de colores',
+                'Umbral de ruido: 30% — busca un lugar silencioso',
+                'Umbral de movimiento: 35% — mantén tu área despejada',
+                'Alertas toast en tiempo real con explicación de cada violación',
+                'Historial de alertas consultable durante el examen',
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-turquoise mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-white/80 text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-navy mb-3">Cronómetro estricto</h3>
-            <p class="text-navy/60">
-              3 horas exactas. El examen se envía automáticamente cuando termina el tiempo, igual que el día real.
-            </p>
-          </div>
+          <!-- Mock exam header -->
+          <div class="bg-white/10 backdrop-blur rounded-3xl p-6 border border-white/20">
+            <div class="text-white/40 text-xs font-bold uppercase tracking-widest mb-4">Vista del examen</div>
 
-          <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <div class="w-14 h-14 bg-turquoise/10 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-              </svg>
+            <!-- Mock header bar -->
+            <div class="bg-navy-dark/60 rounded-xl p-4 mb-4">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></div>
+                  <span class="text-white/70 text-xs font-medium">REC</span>
+                </div>
+                <div class="text-white font-mono text-sm font-bold">02:14:33</div>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-turquoise text-xs font-bold">IA activa</span>
+                </div>
+              </div>
+              <div class="space-y-2.5">
+                <div>
+                  <div class="flex items-center justify-between text-[10px] text-white/50 mb-0.5">
+                    <span>Ruido</span>
+                    <span>18%</span>
+                  </div>
+                  <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div class="h-full bg-emerald-400 rounded-full transition-all" style="width: 18%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between text-[10px] text-white/50 mb-0.5">
+                    <span>Movimiento</span>
+                    <span>5%</span>
+                  </div>
+                  <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div class="h-full bg-emerald-400 rounded-full transition-all" style="width: 5%"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-navy mb-3">Reduce la ansiedad</h3>
-            <p class="text-navy/60">
-              Si practicas con cámara varias veces, el día del examen real te sentirás mucho más tranquilo y confiado.
-            </p>
+
+            <!-- Mock alert toast -->
+            <div class="bg-red-500/20 border border-red-500/30 rounded-lg p-3 flex items-start gap-2.5 mb-4">
+              <svg class="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+              </svg>
+              <div>
+                <div class="text-red-300 text-xs font-semibold">Se detectó un celular</div>
+                <div class="text-red-300/60 text-[10px]">Retíralo del escritorio durante el examen.</div>
+              </div>
+            </div>
+
+            <!-- Mock question area -->
+            <div class="bg-white/5 rounded-lg p-3 border border-white/10">
+              <div class="text-white/30 text-xs mb-2">Pregunta 47 de 128</div>
+              <div class="h-2 bg-white/10 rounded-full w-3/4 mb-1.5"></div>
+              <div class="h-2 bg-white/10 rounded-full w-1/2 mb-3"></div>
+              <div class="space-y-1.5">
+                <div class="h-2 bg-white/5 rounded-full w-full"></div>
+                <div class="h-2 bg-turquoise/20 rounded-full w-full border border-turquoise/30"></div>
+                <div class="h-2 bg-white/5 rounded-full w-full"></div>
+                <div class="h-2 bg-white/5 rounded-full w-full"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Por qué usar el simulador -->
+    <!-- Cómo funciona / Setup -->
     <section class="py-20 bg-cream-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            ¿Cómo funciona?
+          </h2>
+          <p class="text-lg text-navy/70 max-w-2xl mx-auto">
+            Antes de iniciar, el sistema verifica que tu equipo cumple los requisitos
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
+              <div class="w-12 h-12 bg-turquoise text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">1</div>
+              <h3 class="text-xl font-bold text-navy mb-3">Verificación del sistema</h3>
+              <p class="text-navy/60 text-sm">
+                El setup revisa tu cámara, micrófono, navegador, conexión y tamaño de pantalla. Todo debe pasar antes de empezar.
+              </p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-navy/20 z-10">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
+              <div class="w-12 h-12 bg-turquoise text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">2</div>
+              <h3 class="text-xl font-bold text-navy mb-3">Consentimiento</h3>
+              <p class="text-navy/60 text-sm">
+                Aceptas que tu cámara y micrófono serán monitoreados. Ningún dato se graba ni se almacena — todo se procesa localmente en tu navegador.
+              </p>
+            </div>
+            <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-navy/20 z-10">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
+            <div class="w-12 h-12 bg-turquoise text-white rounded-full flex items-center justify-center font-bold text-xl mb-6">3</div>
+            <h3 class="text-xl font-bold text-navy mb-3">128 preguntas, 3 horas</h3>
+            <p class="text-navy/60 text-sm">
+              Empieza el examen con cronómetro estricto, monitoreo activo y medidores en pantalla. Si se acaba el tiempo, se envía automáticamente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Setup checks -->
+        <div class="max-w-2xl mx-auto bg-white rounded-2xl p-6 shadow-lg border border-navy/5">
+          <h3 class="font-bold text-navy mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+            Requisitos verificados antes de iniciar
+          </h3>
+          <div class="space-y-3">
+            {setupChecks.map((check) => (
+              <div class="flex items-center gap-3 py-2 border-b border-navy/5 last:border-0">
+                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="flex-1">
+                  <span class="text-navy font-medium text-sm">{check.label}</span>
+                </div>
+                <span class="text-navy/40 text-xs">{check.detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por qué practicar con cámara -->
+    <section class="py-20 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
-              ¿Por qué practicar con cámara?
+              ¿Por qué practicar con vigilancia?
             </h2>
             <p class="text-lg text-navy/70 mb-8">
-              El día del examen ECOEMS serás monitoreado por cámara. Muchos estudiantes se ponen nerviosos por esto. El simulador te ayuda a:
+              El día del examen ECOEMS lo harás desde casa con cámara activa y monitoreo digital. Necesitas tener un espacio óptimo preparado. Muchos estudiantes pierden puntos por nervios o un entorno inadecuado, no por falta de conocimiento.
             </p>
 
-            <div class="space-y-6">
+            <div class="space-y-5">
               <div class="flex gap-4">
                 <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-bold text-navy mb-1">Acostumbrarte a ser observado</h3>
-                  <p class="text-navy/60 text-sm">Después de varios simulacros, la cámara ya no te distraerá.</p>
+                  <h3 class="font-bold text-navy mb-1">Reduce la ansiedad</h3>
+                  <p class="text-navy/60 text-sm">Después de 2-3 simulacros con cámara, la vigilancia ya no te distrae. Llegas tranquilo al día real.</p>
                 </div>
               </div>
 
               <div class="flex gap-4">
                 <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-bold text-navy mb-1">Mantener mejor postura</h3>
-                  <p class="text-navy/60 text-sm">Aprendes a sentarte correctamente y mantener el enfoque durante 3 horas.</p>
+                  <h3 class="font-bold text-navy mb-1">Entrena tu resistencia</h3>
+                  <p class="text-navy/60 text-sm">3 horas con cámara, cronómetro y alertas activas. Si puedes con esto, el examen real será más fácil.</p>
                 </div>
               </div>
 
               <div class="flex gap-4">
                 <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-bold text-navy mb-1">Prepararte para imprevistos</h3>
-                  <p class="text-navy/60 text-sm">Verifica que tu cámara funciona bien antes del día del examen.</p>
+                  <h3 class="font-bold text-navy mb-1">Aprende qué evitar</h3>
+                  <p class="text-navy/60 text-sm">Las alertas te enseñan qué movimientos, objetos o ruidos podrían ser problemáticos el día del examen.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-navy mb-1">Sin grabación ni almacenamiento</h3>
+                  <p class="text-navy/60 text-sm">Toda la IA corre en tu navegador. No se graba video ni audio, no se guarda nada en servidores.</p>
                 </div>
               </div>
             </div>
@@ -196,6 +443,20 @@ import PlatformLink from '../../components/PlatformLink.astro';
               </div>
             </div>
           </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="bg-navy/5 border-y border-navy/10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-navy/40 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <p class="text-navy/50 text-sm leading-relaxed">
+            <span class="font-semibold text-navy/60">Nota:</span> El sistema de vigilancia del ECOEMS real es privado y propietario — las condiciones exactas no pueden replicarse. Este simulador es una aproximación de práctica para que te familiarices con ser monitoreado. Úsalo para ganar confianza, no como referencia definitiva del sistema real.
+          </p>
         </div>
       </div>
     </section>
@@ -230,7 +491,7 @@ import PlatformLink from '../../components/PlatformLink.astro';
           Llega preparado al día del examen
         </h2>
         <p class="text-xl text-white/70 mb-10">
-          No dejes que la cámara te ponga nervioso. Practica con el simulador y gana confianza.
+          No dejes que la cámara te ponga nervioso. Practica con vigilancia IA y gana confianza.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <PlatformLink path="/autenticacion/registro" class="inline-block px-10 py-4 bg-turquoise text-white font-bold text-lg rounded-xl hover:bg-turquoise-dark transition-all shadow-xl">
