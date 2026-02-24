@@ -8,7 +8,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tlacu.mx',
+  site: process.env.PUBLIC_SITE_URL || 'https://tlacu.mx',
 
   integrations: [
     react(),
