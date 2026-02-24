@@ -1,9 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PlatformLink from '../../components/PlatformLink.astro';
-import CellViewer3D from '../../components/react/CellViewer3D';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
+import CellViewer3D from '../components/react/CellViewer3D';
 
 // All 118 elements - matching the original platform data
 const elements = [
@@ -208,7 +208,7 @@ elements.forEach(el => {
 
 ---
 
-<Layout title="Temario ECOEMS - Módulos Interactivos - TLACU">
+<Layout title="Módulos Interactivos - Aprende con 3D y Simuladores - TLACU">
   <Header />
 
   <main>
@@ -225,13 +225,13 @@ elements.forEach(el => {
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
             </svg>
-            Temario ECOEMS
+            Aprendizaje visual
           </div>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-            Módulos del <span class="text-gradient-fire">Temario</span>
+            Módulos <span class="text-gradient-fire">Interactivos</span>
           </h1>
           <p class="text-xl text-white/80 max-w-2xl mx-auto">
-            Temas que el examen <strong>evalúa directamente</strong>. Aprende con visualizaciones 3D, simuladores y herramientas interactivas.
+            Aprende con visualizaciones 3D, simuladores y herramientas interactivas diseñadas para el ECOEMS.
           </p>
         </div>
       </div>
@@ -251,23 +251,24 @@ elements.forEach(el => {
       </div>
     </section>
 
-    <!-- Temario ECOEMS -->
-    <section id="temario" class="py-16 bg-cream">
+    <!-- Módulos Interactivos -->
+    <section id="modulos-interactivos" class="py-16 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center gap-4 mb-8">
           <div class="w-12 h-12 bg-gradient-to-br from-terracotta to-terracotta-dark rounded-xl flex items-center justify-center shadow-lg">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
           <div>
-            <h2 class="text-2xl sm:text-3xl font-black text-navy">Temario ECOEMS</h2>
-            <p class="text-navy/60">Temas que el examen evalúa directamente</p>
+            <h2 class="text-2xl sm:text-3xl font-black text-navy">Módulos Interactivos</h2>
+            <p class="text-navy/60">Visualizaciones 3D, simuladores y herramientas</p>
           </div>
         </div>
 
         <p class="text-navy/70 mb-8 max-w-3xl">
-          Módulos interactivos con visualizaciones 3D, simuladores y herramientas para aprender los temas del examen de forma visual.
+          Aprende los temas del examen de forma visual con módulos interactivos, visualizaciones 3D y simuladores.
         </p>
       </div>
     </section>

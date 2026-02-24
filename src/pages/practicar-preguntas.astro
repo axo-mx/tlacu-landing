@@ -1,0 +1,824 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
+import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
+
+const seoTitle = 'Practicar preguntas ECOEMS — Estudia por área con retroalimentación | TLACU';
+const seoDescription = 'Practica preguntas tipo ECOEMS en las 10 áreas del examen. Retroalimentación inmediata, explicaciones detalladas, técnica PARE y repetición espaciada SM-2.';
+const canonicalUrl = 'https://tlacu.mx/practicar-preguntas';
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+  </Fragment>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-36 sm:pt-40 pb-20 bg-gradient-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/20 rounded-full text-turquoise text-sm font-medium mb-6">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+            Incluido en el plan gratuito
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+            Practica preguntas <span class="text-gradient-fire">a tu ritmo</span>
+          </h1>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto mb-10">
+            Preguntas tipo ECOEMS en las 10 áreas del examen. Sin cronómetro, con retroalimentación inmediata y explicaciones después de cada pregunta.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <PlatformLink path="/estudio" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-lg">
+              Empezar a practicar
+            </PlatformLink>
+            <a href="#estudio-vs-examen" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+              ¿En qué se diferencia de un examen?
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Aprende pregunta por pregunta
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            A diferencia de un examen, aquí el objetivo es aprender. Cada pregunta te da retroalimentación inmediata.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-5">
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5 text-center">
+            <div class="w-12 h-12 bg-turquoise rounded-xl flex items-center justify-center text-white font-black mx-auto mb-4">1</div>
+            <h3 class="font-bold text-navy mb-2">Elige tu área</h3>
+            <p class="text-navy/60 text-sm">Selecciona una de las 10 áreas del ECOEMS o practica con preguntas al azar de todas.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5 text-center">
+            <div class="w-12 h-12 bg-turquoise rounded-xl flex items-center justify-center text-white font-black mx-auto mb-4">2</div>
+            <h3 class="font-bold text-navy mb-2">Responde</h3>
+            <p class="text-navy/60 text-sm">Lee la pregunta de opción múltiple y selecciona una de las 4 respuestas posibles.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5 text-center">
+            <div class="w-12 h-12 bg-turquoise rounded-xl flex items-center justify-center text-white font-black mx-auto mb-4">3</div>
+            <h3 class="font-bold text-navy mb-2">Aprende</h3>
+            <p class="text-navy/60 text-sm">Recibe retroalimentación inmediata: la respuesta correcta y una explicación detallada de por qué.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5 text-center">
+            <div class="w-12 h-12 bg-turquoise rounded-xl flex items-center justify-center text-white font-black mx-auto mb-4">4</div>
+            <h3 class="font-bold text-navy mb-2">Avanza</h3>
+            <p class="text-navy/60 text-sm">El algoritmo SM-2 registra tu dominio y programa repasos inteligentes de lo que más necesitas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo interactivo -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Pruébalo ahora
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Estas son preguntas reales de la plataforma. Selecciona una respuesta para ver cómo funciona.
+          </p>
+        </div>
+
+        <!-- Question card -->
+        <div id="demo-card" class="bg-white rounded-2xl shadow-xl border border-navy/5 overflow-hidden">
+          <!-- Header -->
+          <div id="demo-header" class="px-6 py-4 border-b border-navy/5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div id="demo-area-icon" class="w-9 h-9 bg-lime-500 rounded-lg flex items-center justify-center">
+                <Dna class="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div id="demo-area-name" class="font-bold text-navy text-sm">Biología</div>
+                <div id="demo-topic-code" class="text-[11px] text-navy/40">Tema 3.5.4</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span id="demo-difficulty" class="px-3 py-1 bg-amber-400/20 text-amber-700 text-xs font-bold rounded-full">Media</span>
+              <span id="demo-counter" class="text-xs text-navy/30 font-medium">1 / 2</span>
+            </div>
+          </div>
+
+          <!-- Question -->
+          <div class="px-6 py-6">
+            <p id="demo-question" class="text-navy font-semibold leading-relaxed mb-6">
+              De manera similar al SIDA, ¿cuál de las siguientes enfermedades de transmisión sexual (ETS) se origina por la acción de un virus?
+            </p>
+
+            <!-- Options -->
+            <div id="demo-options" class="space-y-2.5">
+              <button data-id="0" class="demo-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-navy/10 hover:border-turquoise/40 hover:bg-turquoise/5 transition-all text-navy/80 text-sm font-medium">
+                <span class="inline-flex items-center gap-3"><span class="w-6 h-6 rounded-full border-2 border-navy/15 flex items-center justify-center text-xs font-bold text-navy/30 flex-shrink-0">A</span> Sífilis.</span>
+              </button>
+              <button data-id="1" class="demo-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-navy/10 hover:border-turquoise/40 hover:bg-turquoise/5 transition-all text-navy/80 text-sm font-medium">
+                <span class="inline-flex items-center gap-3"><span class="w-6 h-6 rounded-full border-2 border-navy/15 flex items-center justify-center text-xs font-bold text-navy/30 flex-shrink-0">B</span> Candidiasis.</span>
+              </button>
+              <button data-id="2" class="demo-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-navy/10 hover:border-turquoise/40 hover:bg-turquoise/5 transition-all text-navy/80 text-sm font-medium">
+                <span class="inline-flex items-center gap-3"><span class="w-6 h-6 rounded-full border-2 border-navy/15 flex items-center justify-center text-xs font-bold text-navy/30 flex-shrink-0">C</span> Gonorrea.</span>
+              </button>
+              <button data-id="3" class="demo-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-navy/10 hover:border-turquoise/40 hover:bg-turquoise/5 transition-all text-navy/80 text-sm font-medium">
+                <span class="inline-flex items-center gap-3"><span class="w-6 h-6 rounded-full border-2 border-navy/15 flex items-center justify-center text-xs font-bold text-navy/30 flex-shrink-0">D</span> Papiloma humano.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Explanation (hidden initially) -->
+          <div id="demo-explanation" class="hidden px-6 pb-6 space-y-3">
+            <div id="demo-explanation-box" class="rounded-xl p-5 border">
+              <div class="flex items-center gap-2 mb-3">
+                <div id="demo-result-icon" class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"></div>
+                <span id="demo-result-text" class="font-bold text-sm"></span>
+              </div>
+              <p id="demo-explanation-text" class="text-sm leading-relaxed"></p>
+            </div>
+            <!-- Wrong explanations toggle -->
+            <button id="demo-wrong-toggle" class="hidden w-full text-left px-4 py-3 rounded-xl border border-navy/10 bg-navy/3 hover:bg-navy/5 transition-colors text-sm font-medium text-navy/60 flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Ver por qué las demás son incorrectas</span>
+              <svg id="demo-wrong-chevron" class="w-4 h-4 ml-auto transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="demo-wrong-list" class="hidden space-y-2"></div>
+          </div>
+
+          <!-- Footer actions (hidden initially) -->
+          <div id="demo-footer" class="hidden px-6 pb-6">
+            <button id="demo-next" class="w-full px-6 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise/90 transition-colors text-sm">
+              Siguiente pregunta →
+            </button>
+          </div>
+        </div>
+
+        <!-- Try on platform -->
+        <div class="text-center mt-6">
+          <span class="text-sm text-navy/40">En la plataforma tienes más preguntas, técnica PARE y repaso inteligente</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tres modos de práctica -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Tres formas de practicar
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Elige cómo quieres estudiar según lo que necesites hoy
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Por área -->
+          <div class="bg-white rounded-2xl p-7 shadow-md border border-navy/5 relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-turquoise to-blue-500"></div>
+            <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-black text-navy mb-2">Por área</h3>
+            <p class="text-navy/60 text-sm mb-4">
+              Enfócate en un área específica. Elige entre sesiones de 10, 20 o 30 preguntas de Biología, Matemáticas, Historia o cualquier otra área.
+            </p>
+            <div class="text-xs text-navy/40 font-medium">10 áreas disponibles</div>
+          </div>
+
+          <!-- Aleatorio -->
+          <div class="bg-white rounded-2xl p-7 shadow-md border border-navy/5 relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terracotta to-orange-500"></div>
+            <div class="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-black text-navy mb-2">Preguntas al azar</h3>
+            <p class="text-navy/60 text-sm mb-4">
+              Mezcla preguntas de todas las áreas como en el examen real. Sesiones de 10, 25 o 50 preguntas para practicar sin predecir qué área viene.
+            </p>
+            <div class="text-xs text-navy/40 font-medium">Todas las áreas mezcladas</div>
+          </div>
+
+          <!-- Repaso SM-2 -->
+          <div class="bg-white rounded-2xl p-7 shadow-md border border-navy/5 relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-green-500"></div>
+            <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-black text-navy mb-2">Repaso inteligente</h3>
+            <p class="text-navy/60 text-sm mb-4">
+              El algoritmo <a href="/repaso-espaciado" class="text-turquoise font-semibold hover:underline">SM-2</a> te muestra las preguntas que estás por olvidar en el momento justo para reforzarlas.
+            </p>
+            <div class="text-xs text-navy/40 font-medium">Basado en tu historial</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estudio vs Examen -->
+    <section id="estudio-vs-examen" class="py-20 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Practicar preguntas vs. hacer un examen
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Son herramientas complementarias. Practica para aprender, examínate para medir.
+          </p>
+        </div>
+
+        <!-- Desktop table -->
+        <div class="hidden md:block">
+          <div class="bg-white rounded-2xl shadow-md border border-navy/5 overflow-hidden">
+            <table class="w-full">
+              <thead>
+                <tr class="border-b border-navy/10">
+                  <th class="text-left p-5 text-navy/40 text-sm font-medium w-1/4"></th>
+                  <th class="p-5 text-center">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-xl">
+                      <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                      </svg>
+                      <span class="font-bold text-turquoise text-sm">Practicar preguntas</span>
+                    </div>
+                  </th>
+                  <th class="p-5 text-center">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/10 rounded-xl">
+                      <svg class="w-5 h-5 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                      </svg>
+                      <span class="font-bold text-terracotta text-sm">Exámenes</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-navy/5">
+                <tr>
+                  <td class="p-5 font-semibold text-navy text-sm">Objetivo</td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Aprender y entender</td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Medir tu nivel</td>
+                </tr>
+                <tr>
+                  <td class="p-5 font-semibold text-navy text-sm">Tiempo</td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Sin límite</td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Con cronómetro</td>
+                </tr>
+                <tr>
+                  <td class="p-5 font-semibold text-navy text-sm">Retroalimentación</td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Después de cada pregunta</td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Al terminar todo el examen</td>
+                </tr>
+                <tr>
+                  <td class="p-5 font-semibold text-navy text-sm">Explicaciones</td>
+                  <td class="p-5 text-center">
+                    <svg class="w-5 h-5 text-turquoise mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </td>
+                  <td class="p-5 text-center">
+                    <svg class="w-5 h-5 text-turquoise mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-5 font-semibold text-navy text-sm">Preguntas</td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Tú eliges (10–50)</td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Predeterminado (44 o 128)</td>
+                </tr>
+                <tr>
+                  <td class="p-5 font-semibold text-navy text-sm">Técnica PARE</td>
+                  <td class="p-5 text-center">
+                    <svg class="w-5 h-5 text-turquoise mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </td>
+                  <td class="p-5 text-center">
+                    <svg class="w-5 h-5 text-navy/20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-5 font-semibold text-navy text-sm">Vigilancia IA</td>
+                  <td class="p-5 text-center">
+                    <svg class="w-5 h-5 text-navy/20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                  </td>
+                  <td class="p-5 text-center text-navy/70 text-sm">Solo simulador</td>
+                </tr>
+                <tr>
+                  <td class="p-5 font-semibold text-navy text-sm">Sesión reanudable</td>
+                  <td class="p-5 text-center">
+                    <svg class="w-5 h-5 text-turquoise mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </td>
+                  <td class="p-5 text-center">
+                    <svg class="w-5 h-5 text-navy/20 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Mobile cards -->
+        <div class="md:hidden space-y-4">
+          {[
+            { label: 'Objetivo', study: 'Aprender y entender', exam: 'Medir tu nivel' },
+            { label: 'Tiempo', study: 'Sin límite', exam: 'Con cronómetro' },
+            { label: 'Retroalimentación', study: 'Después de cada pregunta', exam: 'Al terminar todo el examen' },
+            { label: 'Preguntas', study: 'Tú eliges (10–50)', exam: 'Predeterminado (44 o 128)' },
+            { label: 'Técnica PARE', study: 'Sí', exam: 'No' },
+            { label: 'Sesión reanudable', study: 'Sí', exam: 'No' },
+          ].map(row => (
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-navy/5">
+              <div class="text-xs font-bold text-navy/40 uppercase tracking-wider mb-3">{row.label}</div>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-turquoise/5 rounded-lg p-3 text-center">
+                  <div class="text-[10px] text-turquoise font-bold mb-1">Practicar</div>
+                  <div class="text-sm text-navy font-medium">{row.study}</div>
+                </div>
+                <div class="bg-terracotta/5 rounded-lg p-3 text-center">
+                  <div class="text-[10px] text-terracotta font-bold mb-1">Examen</div>
+                  <div class="text-sm text-navy font-medium">{row.exam}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Técnica PARE -->
+    <section class="py-20 bg-gradient-to-br from-navy to-navy-light">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-turquoise/20 rounded-full text-turquoise text-xs font-bold mb-6">
+              Estrategia integrada
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+              Técnica PARE
+            </h2>
+            <p class="text-white/70 mb-6">
+              Un método guiado de 4 pasos que puedes activar en cualquier sesión de práctica. Te entrena para leer con atención, pensar antes de ver las opciones y descartar respuestas incorrectas de forma sistemática.
+            </p>
+            <p class="text-white/50 text-sm">
+              Actívala y desactívala cuando quieras desde la barra de herramientas de la sesión.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            {[
+              { letter: 'P', title: 'Pausar y leer', description: 'Lee la pregunta con atención. Se resaltan las palabras clave para que identifiques qué se está preguntando.', color: 'bg-sky-500' },
+              { letter: 'A', title: 'Anticipar respuesta', description: 'Antes de ver las opciones, piensa en una respuesta mental. Esto evita que te confundan los distractores.', color: 'bg-amber-500' },
+              { letter: 'R', title: 'Razonar y descartar', description: 'Revisa cada opción y elimina las que son incorrectas. Recibes pistas de descarte para cada una.', color: 'bg-terracotta' },
+              { letter: 'E', title: 'Elegir con confianza', description: 'Con las opciones reducidas, selecciona la mejor respuesta. Sin prisa, sin adivinar.', color: 'bg-emerald-500' },
+            ].map(step => (
+              <div class="flex items-start gap-4 bg-white/10 backdrop-blur rounded-xl p-5 border border-white/10">
+                <div class={`w-10 h-10 ${step.color} rounded-xl flex items-center justify-center text-white font-black text-lg flex-shrink-0`}>
+                  {step.letter}
+                </div>
+                <div>
+                  <h3 class="font-bold text-white mb-1">{step.title}</h3>
+                  <p class="text-white/50 text-sm">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Áreas -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Preguntas en las 10 áreas del ECOEMS
+          </h2>
+          <p class="text-navy/60 max-w-2xl mx-auto">
+            Cada área tiene preguntas clasificadas por tema y dificultad
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-sky-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <BookOpen class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Habilidad Verbal</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-orange-400 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Binary class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Habilidad Matemática</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Languages class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Español</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Calculator class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Matemáticas</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-lime-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Dna class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Biología</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-slate-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Atom class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Física</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-fuchsia-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <FlaskConical class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Química</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-amber-700 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Clock class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Historia</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-violet-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Globe2 class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Geografía</div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border border-navy/5 text-center hover:shadow-lg transition-all">
+            <div class="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <Scale class="w-5 h-5 text-white" />
+            </div>
+            <div class="font-bold text-navy text-xs">Formación Cívica y Ética</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features extras -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Más que solo preguntas
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5">
+            <div class="w-10 h-10 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy mb-2">Guarda preguntas</h3>
+            <p class="text-navy/60 text-sm">Marca las preguntas que te cuestan más para repasarlas después con notas personales.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5">
+            <div class="w-10 h-10 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy mb-2">Reanuda sesiones</h3>
+            <p class="text-navy/60 text-sm">Si cierras la app a mitad de sesión, puedes retomar exactamente donde te quedaste.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5">
+            <div class="w-10 h-10 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy mb-2">Niveles de dominio</h3>
+            <p class="text-navy/60 text-sm">Cada pregunta tiene un nivel: Nuevo, Aprendiendo, Familiar, Practicando, Casi dominado, Dominado.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5">
+            <div class="w-10 h-10 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy mb-2">Explicación por opción</h3>
+            <p class="text-navy/60 text-sm">Además de la respuesta correcta, algunas preguntas explican por qué cada opción incorrecta está mal.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5">
+            <div class="w-10 h-10 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy mb-2">Precisión en tiempo real</h3>
+            <p class="text-navy/60 text-sm">Ve tu porcentaje de aciertos durante la sesión y al final con un resumen por área.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-md border border-navy/5">
+            <div class="w-10 h-10 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy mb-2">Preguntas frescas</h3>
+            <p class="text-navy/60 text-sm">El sistema evita repetir preguntas que ya respondiste hoy para maximizar tu aprendizaje.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gratuito vs Pro -->
+    <section class="py-20 bg-cream-dark">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
+            Gratuito vs Pro
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-white rounded-3xl p-8 shadow-md border border-navy/5">
+            <div class="text-sm font-bold text-navy/40 uppercase tracking-wider mb-2">Gratuito</div>
+            <div class="text-3xl font-black text-navy mb-6">10 <span class="text-lg font-medium text-navy/40">preguntas/día</span></div>
+            <ul class="space-y-3">
+              {[
+                'Acceso a las 10 áreas',
+                'Preguntas al azar',
+                'Retroalimentación y explicaciones',
+                'Técnica PARE',
+                'Repaso inteligente SM-2',
+              ].map(item => (
+                <li class="flex items-center gap-2 text-sm text-navy/70">
+                  <svg class="w-4 h-4 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-br from-terracotta to-terracotta-dark rounded-3xl p-8 shadow-xl text-white relative overflow-hidden">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-white/20 text-white text-xs font-bold rounded-full">PRO</span>
+            </div>
+            <div class="text-sm font-bold text-white/60 uppercase tracking-wider mb-2">Pro</div>
+            <div class="text-3xl font-black mb-6">Ilimitadas</div>
+            <ul class="space-y-3">
+              {[
+                'Sin límite diario',
+                'Sesiones de hasta 50 preguntas',
+                'Guardar preguntas ilimitadas',
+                'Flashcards vinculadas',
+                'Todas las funciones gratuitas',
+              ].map(item => (
+                <li class="flex items-center gap-2 text-sm text-white/90">
+                  <svg class="w-4 h-4 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-hero">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-6">
+          Empieza a practicar preguntas
+        </h2>
+        <p class="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          10 preguntas gratuitas al día. Sin cronómetro, con explicaciones.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <PlatformLink path="/estudio" class="px-10 py-4 bg-white text-navy font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-lg">
+            Empezar a practicar
+          </PlatformLink>
+          <a href="/examenes" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
+            Ver los exámenes
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  const questions = [
+    {
+      area: 'Biología',
+      areaColor: 'bg-lime-500',
+      areaIcon: `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5m-4.25-5.396c.251.023.501.05.75.082M12 3v5.714"></path></svg>`,
+      topic: 'Tema 3.5.4',
+      question: 'De manera similar al SIDA, ¿cuál de las siguientes enfermedades de transmisión sexual (ETS) se origina por la acción de un virus?',
+      options: ['Sífilis.', 'Candidiasis.', 'Gonorrea.', 'Papiloma humano.'],
+      correct: 3,
+      explanation: 'El Virus del Papiloma Humano (VPH) es causado por un virus, al igual que el VIH (causante del SIDA). Las otras opciones son causadas por bacterias u hongos.',
+      wrongExplanations: {
+        0: 'La sífilis es causada por una bacteria (Treponema pallidum).',
+        1: 'La candidiasis es causada por un hongo (Candida albicans).',
+        2: 'La gonorrea es causada por una bacteria (Neisseria gonorrhoeae).',
+      },
+    },
+    {
+      area: 'Habilidad Verbal',
+      areaColor: 'bg-sky-500',
+      areaIcon: `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>`,
+      topic: 'Tema HV.1.2',
+      question: 'Lee el siguiente fragmento:\n\n"El director entró al aula sin avisar. Todos los estudiantes estaban muy callados, algunos con la cabeza baja. El profesor tenía los brazos cruzados y una expresión seria. Nadie se atrevía a levantar la mano para responder las preguntas."\n\n¿Cuál es la mejor inferencia sobre la atmósfera del aula en ese momento?',
+      options: [
+        'Los estudiantes estaban concentrados y motivados en aprender',
+        'Era una clase normal y tranquila como cualquier otra',
+        'Existía una atmósfera de tensión, miedo o incomodidad',
+        'Los estudiantes estaban dormidos y cansados',
+      ],
+      correct: 2,
+      explanation: 'Se puede inferir tensión e incomodidad por las pistas contextuales: el silencio repentino, las cabezas bajas (signo de sumisión o vergüenza), la seriedad del profesor y el lenguaje corporal defensivo (brazos cruzados), además de que nadie quería participar.',
+      wrongExplanations: {
+        0: 'Si estuvieran motivados, habría participación activa y contacto visual, no cabezas bajas y silencio.',
+        1: 'Una clase normal implica interacción habitual; el texto describe un silencio inusual ante la presencia del director.',
+        3: 'El silencio se debe al miedo o respeto a la autoridad presente, no al sueño.',
+      },
+    },
+  ];
+
+  let current = 0;
+  let answered = false;
+  const letters = ['A', 'B', 'C', 'D'];
+
+  function renderQuestion() {
+    const q = questions[current];
+    answered = false;
+
+    // Header
+    const iconEl = document.getElementById('demo-area-icon');
+    if (iconEl) { iconEl.className = `w-9 h-9 ${q.areaColor} rounded-lg flex items-center justify-center`; iconEl.innerHTML = q.areaIcon; }
+    const nameEl = document.getElementById('demo-area-name');
+    if (nameEl) nameEl.textContent = q.area;
+    const topicEl = document.getElementById('demo-topic-code');
+    if (topicEl) topicEl.textContent = q.topic;
+    const counterEl = document.getElementById('demo-counter');
+    if (counterEl) counterEl.textContent = `${current + 1} / ${questions.length}`;
+
+    // Question - handle newlines
+    const questionEl = document.getElementById('demo-question');
+    if (questionEl) questionEl.innerHTML = q.question.replace(/\n/g, '<br>');
+
+    // Options
+    const optionsEl = document.getElementById('demo-options');
+    if (optionsEl) {
+      optionsEl.innerHTML = q.options.map((opt, i) => `
+        <button data-id="${i}" class="demo-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-navy/10 hover:border-turquoise/40 hover:bg-turquoise/5 transition-all text-navy/80 text-sm font-medium">
+          <span class="inline-flex items-center gap-3"><span class="w-6 h-6 rounded-full border-2 border-navy/15 flex items-center justify-center text-xs font-bold text-navy/30 flex-shrink-0">${letters[i]}</span> ${opt}</span>
+        </button>
+      `).join('');
+      optionsEl.querySelectorAll('.demo-option').forEach(btn => {
+        btn.addEventListener('click', () => handleAnswer(parseInt(btn.dataset.id || '0')));
+      });
+    }
+
+    // Hide explanation, wrong list & footer
+    const expEl = document.getElementById('demo-explanation');
+    if (expEl) expEl.classList.add('hidden');
+    const wrongToggle = document.getElementById('demo-wrong-toggle');
+    if (wrongToggle) wrongToggle.classList.add('hidden');
+    const wrongList = document.getElementById('demo-wrong-list');
+    if (wrongList) { wrongList.classList.add('hidden'); wrongList.innerHTML = ''; }
+    const chevron = document.getElementById('demo-wrong-chevron');
+    if (chevron) chevron.classList.remove('rotate-180');
+    const footEl = document.getElementById('demo-footer');
+    if (footEl) footEl.classList.add('hidden');
+  }
+
+  function handleAnswer(selected) {
+    if (answered) return;
+    answered = true;
+    const q = questions[current];
+    const isCorrect = selected === q.correct;
+
+    // Style options
+    document.querySelectorAll('.demo-option').forEach((btn, i) => {
+      const el = btn;
+      el.style.pointerEvents = 'none';
+      if (i === q.correct) {
+        el.className = 'demo-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-emerald-400 bg-emerald-50 transition-all text-emerald-800 text-sm font-bold';
+        const circle = el.querySelector('span > span');
+        if (circle) circle.className = 'w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-xs font-bold text-white flex-shrink-0';
+      } else if (i === selected && !isCorrect) {
+        el.className = 'demo-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-red-300 bg-red-50 transition-all text-red-700 text-sm font-medium';
+        const circle = el.querySelector('span > span');
+        if (circle) circle.className = 'w-6 h-6 rounded-full bg-red-400 flex items-center justify-center text-xs font-bold text-white flex-shrink-0';
+      } else {
+        el.className = 'demo-option w-full text-left px-5 py-3.5 rounded-xl border-2 border-navy/5 bg-navy/2 transition-all text-navy/40 text-sm font-medium';
+      }
+    });
+
+    // Show explanation
+    const expEl = document.getElementById('demo-explanation');
+    const expBox = document.getElementById('demo-explanation-box');
+    const resultIcon = document.getElementById('demo-result-icon');
+    const resultText = document.getElementById('demo-result-text');
+    const expText = document.getElementById('demo-explanation-text');
+
+    if (expEl && expBox && resultIcon && resultText && expText) {
+      expEl.classList.remove('hidden');
+      if (isCorrect) {
+        expBox.className = 'rounded-xl p-5 border bg-emerald-50 border-emerald-200';
+        resultIcon.className = 'w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0';
+        resultIcon.innerHTML = '<svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>';
+        resultText.className = 'font-bold text-sm text-emerald-700';
+        resultText.textContent = '¡Correcto!';
+        expText.className = 'text-sm leading-relaxed text-emerald-800/70';
+        expText.textContent = q.explanation;
+      } else {
+        expBox.className = 'rounded-xl p-5 border bg-red-50 border-red-200';
+        resultIcon.className = 'w-6 h-6 rounded-full bg-red-400 flex items-center justify-center flex-shrink-0';
+        resultIcon.innerHTML = '<svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>';
+        resultText.className = 'font-bold text-sm text-red-700';
+        resultText.textContent = 'Incorrecto';
+        expText.className = 'text-sm leading-relaxed text-red-800/70';
+        expText.textContent = q.explanation;
+      }
+    }
+
+    // Show wrong explanations toggle
+    const wrongToggle = document.getElementById('demo-wrong-toggle');
+    const wrongList = document.getElementById('demo-wrong-list');
+    if (wrongToggle && wrongList) {
+      wrongToggle.classList.remove('hidden');
+      const wrongEntries = Object.entries(q.wrongExplanations)
+        .filter(([key]) => parseInt(key) !== q.correct)
+        .map(([key, text]) => `
+          <div class="flex items-start gap-3 px-4 py-3 rounded-lg bg-white border border-navy/5">
+            <span class="w-5 h-5 rounded-full bg-navy/10 flex items-center justify-center text-[10px] font-bold text-navy/40 flex-shrink-0 mt-0.5">${letters[parseInt(key)]}</span>
+            <div>
+              <span class="font-semibold text-navy/70 text-sm">${q.options[parseInt(key)]}</span>
+              <p class="text-navy/50 text-xs mt-0.5">${text}</p>
+            </div>
+          </div>
+        `).join('');
+      wrongList.innerHTML = wrongEntries;
+    }
+
+    // Show footer
+    const footEl = document.getElementById('demo-footer');
+    const nextBtn = document.getElementById('demo-next');
+    if (footEl && nextBtn) {
+      footEl.classList.remove('hidden');
+      if (current < questions.length - 1) {
+        nextBtn.textContent = 'Siguiente pregunta →';
+      } else {
+        nextBtn.textContent = 'Practicar en la plataforma →';
+      }
+    }
+  }
+
+  // Next button
+  document.getElementById('demo-next')?.addEventListener('click', () => {
+    if (current < questions.length - 1) {
+      current++;
+      renderQuestion();
+      document.getElementById('demo-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      window.open(document.querySelector('[data-platform-url]')?.getAttribute('href') || '/plataforma', '_blank');
+    }
+  });
+
+  // Wrong explanations toggle
+  document.getElementById('demo-wrong-toggle')?.addEventListener('click', () => {
+    const list = document.getElementById('demo-wrong-list');
+    const chevron = document.getElementById('demo-wrong-chevron');
+    if (list && chevron) {
+      list.classList.toggle('hidden');
+      chevron.classList.toggle('rotate-180');
+    }
+  });
+
+  // Init
+  renderQuestion();
+</script>
