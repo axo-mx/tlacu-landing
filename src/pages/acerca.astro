@@ -3,9 +3,26 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
+
+const seoTitle = 'Acerca de TLACU — Nuestra misión y equipo | TLACU';
+const seoDescription = 'Conoce la misión de TLACU: democratizar la preparación para el ECOEMS con tecnología, ciencia del aprendizaje y contenido enfocado en el examen.';
+const canonicalUrl = 'https://tlacu.mx/acerca';
 ---
 
-<Layout title="Acerca de TLACU - Plataforma Educativa">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

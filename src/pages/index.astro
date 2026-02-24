@@ -3,9 +3,39 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
+
+const seoTitle = 'TLACU — Plataforma de estudio para el ECOEMS 2026 | Exámenes, flashcards y módulos';
+const seoDescription = 'Prepárate para el ECOEMS con exámenes de práctica, flashcards con repetición espaciada, 20 módulos interactivos y plan de estudio personalizado. Regístrate gratis.';
+const canonicalUrl = 'https://tlacu.mx/';
 ---
 
-<Layout title="TLACU - Plataforma Educativa que Enciende el Conocimiento">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "TLACU",
+      "url": "https://tlacu.mx/",
+      "description": seoDescription,
+      "inLanguage": "es-MX",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tlacu.mx/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TLACU",
+      "url": "https://tlacu.mx/",
+      "logo": "https://tlacu.mx/images/logos/logo-tlacu-color.webp",
+      "description": "Plataforma de estudio para el ECOEMS",
+      "sameAs": []
+    })} />
+  </Fragment>
   <Header />
 
   <main>

@@ -110,12 +110,26 @@ const papers = [
     doi: 'https://doi.org/10.1111/j.1467-9280.2008.02127.x',
   },
 ];
+
+const seoTitle = 'Repaso Espaciado con SM-2 — Ciencia detrás de TLACU | TLACU';
+const seoDescription = 'Descubre cómo el algoritmo SM-2 de repetición espaciada funciona en el modo Repaso y las Flashcards de TLACU para maximizar tu retención antes del ECOEMS.';
+const canonicalUrl = 'https://tlacu.mx/repaso-espaciado';
 ---
 
-<Layout
-  title="Repaso Espaciado con SM-2 | Ciencia detrás de TLACU"
-  description="Descubre cómo el algoritmo SM-2 de repetición espaciada funciona en el modo Repaso y las Flashcards de TLACU para maximizar tu retención antes del ECOEMS."
->
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

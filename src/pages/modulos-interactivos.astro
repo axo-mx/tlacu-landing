@@ -206,9 +206,25 @@ elements.forEach(el => {
   }
 });
 
+const seoTitle = 'Módulos Interactivos ECOEMS — Tabla periódica, células, álgebra y más | TLACU';
+const seoDescription = '11 módulos interactivos del temario ECOEMS: tabla periódica, explorador de células, álgebra, geometría y más. Aprende con herramientas visuales y 3D.';
+const canonicalUrl = 'https://tlacu.mx/modulos-interactivos';
 ---
 
-<Layout title="Módulos Interactivos - Aprende con 3D y Simuladores - TLACU">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

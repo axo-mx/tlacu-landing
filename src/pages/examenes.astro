@@ -4,9 +4,26 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
 import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
+
+const seoTitle = 'Exámenes de Práctica ECOEMS — Diagnóstico, rápido, completo y simulador | TLACU';
+const seoDescription = 'Practica con 4 tipos de exámenes ECOEMS: diagnóstico, rápido, completo y simulador con cámara. 128 preguntas en 10 áreas con retroalimentación inmediata.';
+const canonicalUrl = 'https://tlacu.mx/examenes';
 ---
 
-<Layout title="Exámenes de Práctica - TLACU ECOEMS">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

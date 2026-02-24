@@ -3,12 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
+
+const seoTitle = 'Panel para Padres y Tutores — Monitorea el progreso de tus hijos | TLACU';
+const seoDescription = 'Crea cuentas para tus hijos o alumnos, págales el acceso Pro y monitorea su progreso en las 10 áreas del ECOEMS desde tu panel de tutor en TLACU.';
+const canonicalUrl = 'https://tlacu.mx/para-padres';
 ---
 
-<Layout title="Panel para Padres y Tutores - Monitorea el progreso de tus hijos - TLACU">
+<Layout title={seoTitle} description={seoDescription}>
   <Fragment slot="head">
-    <meta name="description" content="Crea cuentas para tus hijos o alumnos, págales el acceso Pro y monitorea su progreso en las 10 áreas del ECOEMS desde tu panel de tutor en TLACU." />
-    <link rel="canonical" href="https://tlacu.mx/para-padres" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
   </Fragment>
 
   <Header />

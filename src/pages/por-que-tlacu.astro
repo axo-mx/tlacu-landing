@@ -139,9 +139,26 @@ const problems = [
     icon: '❓',
   },
 ];
+
+const seoTitle = '¿Por qué TLACU? — Compara opciones de preparación ECOEMS | TLACU';
+const seoDescription = 'Compara TLACU con otras opciones de preparación para el ECOEMS. Enfoque 100% ECOEMS, ciencia del aprendizaje, módulos interactivos y precio justo.';
+const canonicalUrl = 'https://tlacu.mx/por-que-tlacu';
 ---
 
-<Layout title="¿Por qué TLACU? - Compara y Decide | TLACU">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

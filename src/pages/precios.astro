@@ -31,9 +31,32 @@ const features = [
   { name: 'Sistema de rachas y gamificación', free: true, pro: true },
   { name: 'Explicaciones detalladas', free: true, pro: true },
 ];
+
+const seoTitle = 'Precios TLACU — Plan Gratuito y Pro para el ECOEMS | TLACU';
+const seoDescription = 'Pago único por 1 año de acceso Pro a TLACU. Sin suscripciones ni renovaciones automáticas. Plan gratuito disponible para comenzar a estudiar hoy.';
+const canonicalUrl = 'https://tlacu.mx/precios';
 ---
 
-<Layout title="Precios - TLACU ECOEMS">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "TLACU Pro",
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "brand": { "@type": "Brand", "name": "TLACU" },
+      "offers": {
+        "@type": "Offer",
+        "price": SHOW_DISCOUNT ? PRICE_DISCOUNTED : PRICE_REGULAR,
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "url": canonicalUrl
+      }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

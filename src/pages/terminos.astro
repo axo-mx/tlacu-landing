@@ -4,9 +4,27 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const lastUpdated = '9 de febrero de 2025';
+
+const seoTitle = 'Términos de Servicio | TLACU';
+const seoDescription = 'Términos y condiciones de uso de TLACU, la plataforma educativa para preparación del ECOEMS.';
+const canonicalUrl = 'https://tlacu.mx/terminos';
 ---
 
-<Layout title="Términos de Servicio - TLACU">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

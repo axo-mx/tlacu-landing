@@ -3,9 +3,26 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
+
+const seoTitle = 'Módulos de Aprendizaje ECOEMS — Interactivos y de refuerzo | TLACU';
+const seoDescription = '20 módulos de aprendizaje para el ECOEMS: tabla periódica, células, álgebra, geometría, comprensión lectora y más. Aprende de forma visual e interactiva.';
+const canonicalUrl = 'https://tlacu.mx/modulos';
 ---
 
-<Layout title="Módulos de Aprendizaje - TLACU ECOEMS">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

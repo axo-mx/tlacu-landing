@@ -27,9 +27,26 @@ const quickFaqs = [
     answer: 'TLACU es 100% responsivo. Funciona perfectamente en computadora, tablet y celular desde tu navegador.',
   },
 ];
+
+const seoTitle = 'Contacto — ¿Dudas sobre TLACU o el ECOEMS? | TLACU';
+const seoDescription = '¿Tienes dudas sobre TLACU o el ECOEMS? Contáctanos por correo o redes sociales. Soporte técnico, alianzas y sugerencias.';
+const canonicalUrl = 'https://tlacu.mx/contacto';
 ---
 
-<Layout title="Contacto - TLACU">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

@@ -4,9 +4,27 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const lastUpdated = '9 de febrero de 2025';
+
+const seoTitle = 'Política de Privacidad | TLACU';
+const seoDescription = 'Política de privacidad de TLACU. Conoce cómo recopilamos, usamos y protegemos tu información personal.';
+const canonicalUrl = 'https://tlacu.mx/privacidad';
 ---
 
-<Layout title="Política de Privacidad - TLACU">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+  </Fragment>
   <Header />
 
   <main>

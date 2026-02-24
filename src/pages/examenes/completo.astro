@@ -3,9 +3,35 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PlatformLink from '../../components/PlatformLink.astro';
+
+const seoTitle = 'Examen Completo ECOEMS — 128 preguntas en condiciones reales | TLACU';
+const seoDescription = 'Simula el ECOEMS completo: 128 preguntas, 10 áreas, tiempo limitado. Mide tu preparación real antes del día del examen.';
+const canonicalUrl = 'https://tlacu.mx/examenes/completo';
 ---
 
-<Layout title="Examen Completo - TLACU ECOEMS">
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": canonicalUrl,
+      "inLanguage": "es-MX",
+      "isPartOf": { "@type": "WebSite", "name": "TLACU", "url": "https://tlacu.mx/" }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tlacu.mx/" },
+        { "@type": "ListItem", "position": 2, "name": "Exámenes", "item": "https://tlacu.mx/examenes" },
+        { "@type": "ListItem", "position": 3, "name": "Completo", "item": canonicalUrl }
+      ]
+    })} />
+  </Fragment>
   <Header />
 
   <main>
