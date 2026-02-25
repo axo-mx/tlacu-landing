@@ -20,7 +20,7 @@ const currentYear = new Date().getFullYear();
             loading="lazy"
           />
         </a>
-        <p class="text-white/60 text-sm mb-6 max-w-sm">
+        <p class="text-white/75 text-sm mb-6 max-w-sm">
           Plataforma educativa 100% responsiva que enciende el conocimiento.
           Como el tlacuache que trajo el fuego, llevamos el saber a todos.
         </p>
@@ -42,7 +42,7 @@ const currentYear = new Date().getFullYear();
           </a>
         </div>
         <div class="flex gap-3">
-          <PlatformLink path="/autenticacion/registro" class="px-5 py-2 bg-terracotta text-white text-sm font-semibold rounded-lg hover:bg-terracotta-light transition-colors">
+          <PlatformLink path="/autenticacion/registro" class="px-5 py-2 bg-terracotta-dark text-white text-sm font-semibold rounded-lg hover:bg-terracotta transition-colors">
             Registrarse gratis
           </PlatformLink>
           <PlatformLink path="/autenticacion/iniciar-sesion" class="px-5 py-2 bg-white/10 text-white text-sm font-semibold rounded-lg hover:bg-white/20 transition-colors">
@@ -53,61 +53,61 @@ const currentYear = new Date().getFullYear();
 
       {/* Plataforma column */}
       <div>
-        <h4 class="font-bold mb-4">Plataforma</h4>
+        <h3 class="text-base font-bold mb-4">Plataforma</h4>
         <ul class="space-y-3">
-          <li><a href="/plataforma" class="text-white/60 hover:text-turquoise transition-colors">Vista general</a></li>
-          <li><a href="/plan-estudio" class="text-white/60 hover:text-turquoise transition-colors">Plan de estudio</a></li>
-          <li><a href="/practicar-preguntas" class="text-white/60 hover:text-turquoise transition-colors">Practicar preguntas</a></li>
-          <li><a href="/flashcards" class="text-white/60 hover:text-turquoise transition-colors">Flashcards</a></li>
-          <li><a href="/repaso-espaciado" class="text-white/60 hover:text-turquoise transition-colors">Repetición espaciada</a></li>
-          <li><a href="/modulos-interactivos" class="text-white/60 hover:text-turquoise transition-colors">Módulos interactivos</a></li>
-          <li><a href="/modulos/refuerzo" class="text-white/60 hover:text-turquoise transition-colors">Módulos de refuerzo</a></li>
+          <li><a href="/plataforma" class="text-white/75 hover:text-turquoise transition-colors">Vista general</a></li>
+          <li><a href="/plan-estudio" class="text-white/75 hover:text-turquoise transition-colors">Plan de estudio</a></li>
+          <li><a href="/practicar-preguntas" class="text-white/75 hover:text-turquoise transition-colors">Practicar preguntas</a></li>
+          <li><a href="/flashcards" class="text-white/75 hover:text-turquoise transition-colors">Flashcards</a></li>
+          <li><a href="/repaso-espaciado" class="text-white/75 hover:text-turquoise transition-colors">Repetición espaciada</a></li>
+          <li><a href="/modulos-interactivos" class="text-white/75 hover:text-turquoise transition-colors">Módulos interactivos</a></li>
+          <li><a href="/modulos/refuerzo" class="text-white/75 hover:text-turquoise transition-colors">Módulos de refuerzo</a></li>
         </ul>
       </div>
 
       {/* Exámenes column */}
       <div>
-        <h4 class="font-bold mb-4">Exámenes</h4>
+        <h3 class="text-base font-bold mb-4">Exámenes</h4>
         <ul class="space-y-3">
-          <li><a href="/examenes" class="text-white/60 hover:text-turquoise transition-colors">Todos los exámenes</a></li>
-          <li><a href="/examenes/diagnostico" class="text-white/60 hover:text-turquoise transition-colors">Diagnóstico</a></li>
-          <li><a href="/examenes/rapido" class="text-white/60 hover:text-turquoise transition-colors">Examen Rápido</a></li>
-          <li><a href="/examenes/completo" class="text-white/60 hover:text-turquoise transition-colors">Examen Completo</a></li>
-          <li><a href="/examenes/simulador" class="text-white/60 hover:text-turquoise transition-colors">Simulador con Cámara</a></li>
+          <li><a href="/examenes" class="text-white/75 hover:text-turquoise transition-colors">Todos los exámenes</a></li>
+          <li><a href="/examenes/diagnostico" class="text-white/75 hover:text-turquoise transition-colors">Diagnóstico</a></li>
+          <li><a href="/examenes/rapido" class="text-white/75 hover:text-turquoise transition-colors">Examen Rápido</a></li>
+          <li><a href="/examenes/completo" class="text-white/75 hover:text-turquoise transition-colors">Examen Completo</a></li>
+          <li><a href="/examenes/simulador" class="text-white/75 hover:text-turquoise transition-colors">Simulador con Cámara</a></li>
         </ul>
 
-        <h4 class="font-bold mb-4 mt-8">Precios</h4>
+        <h3 class="text-base font-bold mb-4 mt-8">Precios</h4>
         <ul class="space-y-3">
-          <li><a href="/precios" class="text-white/60 hover:text-turquoise transition-colors">Planes y precios</a></li>
+          <li><a href="/precios" class="text-white/75 hover:text-turquoise transition-colors">Planes y precios</a></li>
         </ul>
       </div>
 
       {/* TLACU + Legal column */}
       <div>
-        <h4 class="font-bold mb-4">TLACU</h4>
+        <h3 class="text-base font-bold mb-4">TLACU</h4>
         <ul class="space-y-3">
-          <li><a href="/acerca" class="text-white/60 hover:text-turquoise transition-colors">Acerca de</a></li>
-          <li><a href="/que-es-ecoems" class="text-white/60 hover:text-turquoise transition-colors">¿Qué es el ECOEMS?</a></li>
-          <li><a href="/por-que-tlacu" class="text-white/60 hover:text-turquoise transition-colors">¿Por qué TLACU?</a></li>
-          <li><a href="/para-padres" class="text-white/60 hover:text-turquoise transition-colors">Para Padres y Tutores</a></li>
-          <li><a href="/hoja-de-ruta" class="text-white/60 hover:text-turquoise transition-colors">Hoja de ruta</a></li>
-          <li><a href="/contacto" class="text-white/60 hover:text-turquoise transition-colors">Contacto</a></li>
+          <li><a href="/acerca" class="text-white/75 hover:text-turquoise transition-colors">Acerca de</a></li>
+          <li><a href="/que-es-ecoems" class="text-white/75 hover:text-turquoise transition-colors">¿Qué es el ECOEMS?</a></li>
+          <li><a href="/por-que-tlacu" class="text-white/75 hover:text-turquoise transition-colors">¿Por qué TLACU?</a></li>
+          <li><a href="/para-padres" class="text-white/75 hover:text-turquoise transition-colors">Para Padres y Tutores</a></li>
+          <li><a href="/hoja-de-ruta" class="text-white/75 hover:text-turquoise transition-colors">Hoja de ruta</a></li>
+          <li><a href="/contacto" class="text-white/75 hover:text-turquoise transition-colors">Contacto</a></li>
         </ul>
 
-        <h4 class="font-bold mb-4 mt-8">Legal</h4>
+        <h3 class="text-base font-bold mb-4 mt-8">Legal</h4>
         <ul class="space-y-3">
-          <li><a href="/terminos" class="text-white/60 hover:text-turquoise transition-colors">Términos de servicio</a></li>
-          <li><a href="/privacidad" class="text-white/60 hover:text-turquoise transition-colors">Política de privacidad</a></li>
+          <li><a href="/terminos" class="text-white/75 hover:text-turquoise transition-colors">Términos de servicio</a></li>
+          <li><a href="/privacidad" class="text-white/75 hover:text-turquoise transition-colors">Política de privacidad</a></li>
         </ul>
       </div>
     </div>
 
     {/* Bottom bar */}
     <div class="py-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-white/40 text-sm">
+      <p class="text-white/60 text-sm">
         &copy; {currentYear} TLACU. Todos los derechos reservados.
       </p>
-      <p class="text-white/40 text-sm flex items-center gap-2">
+      <p class="text-white/60 text-sm flex items-center gap-2">
         Hecho con
         <svg class="w-4 h-4 text-terracotta" fill="currentColor" viewBox="0 0 24 24">
           <path d="M17.66 11.2C17.43 10.9 17.16 10.64 16.85 10.43C16.1 9.89 15.57 9.07 15.39 8.14C15.24 7.37 14.86 6.64 14.29 6.05C13.35 5.09 12 4 12 4C12 4 10.65 5.09 9.71 6.05C9.14 6.64 8.76 7.37 8.61 8.14C8.43 9.07 7.9 9.89 7.15 10.43C6.84 10.64 6.57 10.9 6.34 11.2C5.45 12.39 5 13.81 5 15.25C5 19.04 8.13 22 12 22C15.87 22 19 19.04 19 15.25C19 13.81 18.55 12.39 17.66 11.2Z"></path>

@@ -106,20 +106,20 @@ const canonicalUrl = 'https://tlacu.mx/';
               <div class="text-white/90 text-sm font-semibold uppercase tracking-wide mb-2">Oferta de Lanzamiento</div>
               <div class="text-white text-lg font-bold mb-3">$100 de descuento</div>
               <div class="flex items-center justify-center lg:justify-start gap-4">
-                <span class="text-white/60 text-2xl line-through">$499</span>
+                <span class="text-white/75 text-2xl line-through">$499</span>
                 <span class="text-white text-5xl font-black">$399</span>
               </div>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <PlatformLink path="/autenticacion/registro" class="px-8 py-4 bg-white text-terracotta font-bold rounded-xl hover:bg-white/90 transition-all shadow-xl hover:-translate-y-1">
+              <PlatformLink path="/autenticacion/registro" class="px-8 py-4 bg-white text-terracotta-dark font-bold rounded-xl hover:bg-white/90 transition-all shadow-xl hover:-translate-y-1">
                 Comenzar gratis
               </PlatformLink>
               <a href="/precios" class="px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20">
                 Ver planes
               </a>
             </div>
-            <p class="text-white/50 text-sm mt-4 text-center lg:text-left">
+            <p class="text-white/70 text-sm mt-4 text-center lg:text-left">
               Plan gratuito disponible. Sin tarjeta de crédito.
             </p>
           </div>
@@ -135,8 +135,9 @@ const canonicalUrl = 'https://tlacu.mx/';
                   src="/images/logos/isotipo-tlacu-light.webp"
                   alt="TLACU"
                   class="relative w-48 h-48 sm:w-64 sm:h-64 object-contain fire-glow animate-float"
-                  width="256"
-                  height="256"
+                  width="194"
+                  height="220"
+                  fetchpriority="high"
                 />
                 <div class="absolute inset-4 border-4 border-dashed border-turquoise/30 rounded-full animate-spin" style="animation-duration: 30s;"></div>
               </div>
@@ -147,7 +148,7 @@ const canonicalUrl = 'https://tlacu.mx/';
 
       <!-- Scroll indicator -->
       <div class="absolute bottom-8 left-1/2 -translate-x-1/2" style="z-index: 10;">
-        <a href="#cursos" class="flex flex-col items-center text-white/50 hover:text-white transition-colors">
+        <a href="#cursos" class="flex flex-col items-center text-white/70 hover:text-white transition-colors">
           <span class="text-sm mb-2">Descubre más</span>
           <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -163,7 +164,7 @@ const canonicalUrl = 'https://tlacu.mx/';
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
             Nuestros <span class="text-turquoise">cursos</span>
           </h2>
-          <p class="text-lg text-navy/70">
+          <p class="text-lg text-navy/80">
             Plataforma especializada y 100% responsiva para cada etapa de tu camino académico
           </p>
         </div>
@@ -179,16 +180,18 @@ const canonicalUrl = 'https://tlacu.mx/';
                     src="/images/logos/isotipo-tlacu-light.webp"
                     alt="Isotipo TLACU"
                     class="h-24 w-auto mx-auto mb-4"
+                    width="194"
+                    height="220"
                     loading="lazy"
                   />
                   <div class="text-xl font-bold text-white mb-1">TLACU ECOEMS</div>
-                  <div class="text-white/60 text-sm">Educación Media Superior</div>
+                  <div class="text-white/75 text-sm">Educación Media Superior</div>
                 </div>
               </div>
 
               <!-- Content -->
               <div class="p-8 md:p-12">
-                <div class="inline-flex items-center gap-2 px-3 py-1 bg-turquoise/10 rounded-full text-turquoise text-sm font-medium mb-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-turquoise/10 rounded-full text-turquoise-dark text-sm font-medium mb-4">
                   <span class="w-2 h-2 bg-turquoise rounded-full"></span>
                   Disponible ahora
                 </div>
@@ -197,7 +200,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                   Preparación para el ECOEMS
                 </h3>
 
-                <p class="text-navy/70 mb-6">
+                <p class="text-navy/80 mb-6">
                   La plataforma más completa para preparar tu examen de ingreso a la Educación Media Superior.
                   Exámenes de práctica, flashcards, módulos interactivos y técnicas de estudio efectivas.
                 </p>
@@ -205,19 +208,19 @@ const canonicalUrl = 'https://tlacu.mx/';
                 <div class="grid grid-cols-3 gap-4 mb-6">
                   <div class="text-center">
                     <div class="text-2xl font-black text-terracotta">128</div>
-                    <div class="text-xs text-navy/60">Preguntas</div>
+                    <div class="text-xs text-navy/80">Preguntas</div>
                   </div>
                   <div class="text-center">
                     <div class="text-2xl font-black text-turquoise">10</div>
-                    <div class="text-xs text-navy/60">Áreas</div>
+                    <div class="text-xs text-navy/80">Áreas</div>
                   </div>
                   <div class="text-center">
                     <div class="text-2xl font-black text-navy">20</div>
-                    <div class="text-xs text-navy/60">Módulos</div>
+                    <div class="text-xs text-navy/80">Módulos</div>
                   </div>
                 </div>
 
-                <div class="flex items-center text-terracotta font-semibold group-hover:gap-3 gap-2 transition-all">
+                <div class="flex items-center text-terracotta-dark font-semibold group-hover:gap-3 gap-2 transition-all">
                   Explorar curso
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -230,7 +233,7 @@ const canonicalUrl = 'https://tlacu.mx/';
 
         <!-- Coming Soon Note -->
         <div class="text-center mt-12">
-          <p class="text-navy/50 text-sm">
+          <p class="text-navy/70 text-sm">
             Más cursos próximamente
           </p>
         </div>
@@ -244,7 +247,7 @@ const canonicalUrl = 'https://tlacu.mx/';
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
             Modos de <span class="text-terracotta">examen</span>
           </h2>
-          <p class="text-lg text-navy/70">
+          <p class="text-lg text-navy/80">
             Practica como en el examen real con diferentes modalidades
           </p>
         </div>
@@ -254,9 +257,9 @@ const canonicalUrl = 'https://tlacu.mx/';
           <div class="grid md:grid-cols-2 gap-6 p-8 items-center">
             <div>
               <div class="flex items-center gap-2 mb-4">
-                <span class="px-2.5 py-1 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
+                <span class="px-2.5 py-1 bg-terracotta-dark text-white text-xs font-bold rounded-full">PRO</span>
                 <span class="px-2.5 py-1 bg-turquoise/20 text-turquoise text-xs font-bold rounded-full">Vigilancia IA</span>
-                <span class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 bg-white/10 text-white/50 text-xs font-medium rounded-full">
+                <span class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 bg-white/10 text-white/70 text-xs font-medium rounded-full">
                   <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
@@ -274,13 +277,13 @@ const canonicalUrl = 'https://tlacu.mx/';
                   </svg>
                   128 preguntas
                 </span>
-                <span class="flex items-center gap-1.5 text-white/60">
+                <span class="flex items-center gap-1.5 text-white/75">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   3 horas
                 </span>
-                <span class="flex items-center gap-1.5 text-white/60">
+                <span class="flex items-center gap-1.5 text-white/75">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                   </svg>
@@ -295,7 +298,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                   'Detección de movimiento',
                   'Detección de objetos',
                 ].map((feat) => (
-                  <span class="flex items-center gap-1.5 text-white/50 text-xs">
+                  <span class="flex items-center gap-1.5 text-white/70 text-xs">
                     <svg class="w-3.5 h-3.5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
@@ -309,12 +312,12 @@ const canonicalUrl = 'https://tlacu.mx/';
               <div class="bg-white/10 rounded-xl border border-white/20 p-5">
                 <div class="flex items-center gap-2 mb-4">
                   <div class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></div>
-                  <span class="text-white/60 text-xs font-medium">REC</span>
+                  <span class="text-white/75 text-xs font-medium">REC</span>
                   <span class="ml-auto px-2 py-0.5 bg-turquoise/20 text-turquoise text-[10px] font-bold rounded-full">IA activa</span>
                 </div>
                 <div class="space-y-3 mb-4">
                   <div>
-                    <div class="flex items-center justify-between text-[10px] text-white/40 mb-1">
+                    <div class="flex items-center justify-between text-[10px] text-white/60 mb-1">
                       <span>Ruido</span>
                       <span>14%</span>
                     </div>
@@ -323,7 +326,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                     </div>
                   </div>
                   <div>
-                    <div class="flex items-center justify-between text-[10px] text-white/40 mb-1">
+                    <div class="flex items-center justify-between text-[10px] text-white/60 mb-1">
                       <span>Movimiento</span>
                       <span>6%</span>
                     </div>
@@ -335,11 +338,11 @@ const canonicalUrl = 'https://tlacu.mx/';
                 <div class="grid grid-cols-2 gap-2 text-center">
                   <div class="bg-white/10 rounded-lg py-2">
                     <div class="text-xl font-black text-turquoise">128</div>
-                    <div class="text-white/40 text-[10px]">Preguntas</div>
+                    <div class="text-white/60 text-[10px]">Preguntas</div>
                   </div>
                   <div class="bg-white/10 rounded-lg py-2">
                     <div class="text-xl font-black text-turquoise">3h</div>
-                    <div class="text-white/40 text-[10px]">Cronómetro</div>
+                    <div class="text-white/60 text-[10px]">Cronómetro</div>
                   </div>
                 </div>
               </div>
@@ -356,35 +359,35 @@ const canonicalUrl = 'https://tlacu.mx/';
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <div class="inline-block px-2 py-0.5 bg-turquoise/10 text-turquoise text-xs font-medium rounded-full mb-2">
+            <div class="inline-block px-2 py-0.5 bg-turquoise/10 text-turquoise-dark text-xs font-medium rounded-full mb-2">
               Recomendado
             </div>
             <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Diagnóstico</h3>
-            <p class="text-navy/60 text-sm mb-4">Conoce tu nivel y genera tu plan de estudio.</p>
+            <p class="text-navy/80 text-sm mb-4">Conoce tu nivel y genera tu plan de estudio.</p>
             <div class="flex items-center gap-4 text-sm">
-              <span class="text-turquoise font-semibold">64/128 preg</span>
-              <span class="text-navy/40">~60 min</span>
+              <span class="text-turquoise-dark font-semibold">64/128 preg</span>
+              <span class="text-navy/60">~60 min</span>
             </div>
           </a>
 
           <!-- Examen Completo -->
           <a href="/examenes/completo" class="group bg-white rounded-2xl p-6 shadow-lg border-2 border-transparent hover:border-terracotta/30 hover:shadow-xl transition-all relative">
             <div class="absolute top-2 right-2">
-              <span class="px-2 py-1 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
+              <span class="px-2 py-1 bg-terracotta-dark text-white text-xs font-bold rounded-full">PRO</span>
             </div>
             <div class="w-14 h-14 bg-terracotta/10 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-7 h-7 text-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
               </svg>
             </div>
-            <div class="inline-block px-2 py-0.5 bg-terracotta/10 text-terracotta text-xs font-medium rounded-full mb-2">
+            <div class="inline-block px-2 py-0.5 bg-terracotta/10 text-terracotta-dark text-xs font-medium rounded-full mb-2">
               128 preguntas
             </div>
             <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-terracotta transition-colors">Examen Completo</h3>
-            <p class="text-navy/60 text-sm mb-4">Con cronómetro de 3 horas, igual que el real.</p>
+            <p class="text-navy/80 text-sm mb-4">Con cronómetro de 3 horas, igual que el real.</p>
             <div class="flex items-center gap-4 text-sm">
-              <span class="text-terracotta font-semibold">128 preguntas</span>
-              <span class="text-navy/40">3 horas</span>
+              <span class="text-terracotta-dark font-semibold">128 preguntas</span>
+              <span class="text-navy/60">3 horas</span>
             </div>
           </a>
 
@@ -399,16 +402,16 @@ const canonicalUrl = 'https://tlacu.mx/';
               Práctica rápida
             </div>
             <h3 class="text-lg font-bold text-navy mb-2 group-hover:text-turquoise transition-colors">Examen Rápido</h3>
-            <p class="text-navy/60 text-sm mb-4">Para cuando tienes poco tiempo. Sin cronómetro.</p>
+            <p class="text-navy/80 text-sm mb-4">Para cuando tienes poco tiempo. Sin cronómetro.</p>
             <div class="flex items-center gap-4 text-sm">
               <span class="text-navy font-semibold">44 preguntas</span>
-              <span class="text-navy/40">~45 min</span>
+              <span class="text-navy/60">~45 min</span>
             </div>
           </a>
         </div>
 
         <div class="text-center mt-10">
-          <a href="/examenes" class="inline-flex items-center gap-2 text-terracotta hover:text-terracotta-dark font-semibold transition-colors">
+          <a href="/examenes" class="inline-flex items-center gap-2 text-terracotta-dark hover:text-terracotta font-semibold transition-colors">
             Ver todos los modos de examen
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -422,7 +425,7 @@ const canonicalUrl = 'https://tlacu.mx/';
     <section class="py-20 lg:py-32 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise text-sm font-medium mb-6">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise-dark text-sm font-medium mb-6">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
             </svg>
@@ -431,7 +434,7 @@ const canonicalUrl = 'https://tlacu.mx/';
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
             Tu plan de estudio <span class="text-turquoise">se adapta a ti</span>
           </h2>
-          <p class="text-lg text-navy/70">
+          <p class="text-lg text-navy/80">
             No estudies a ciegas. Nuestro sistema genera un plan personalizado basado en tu diagnóstico y se ajusta automáticamente a tu progreso.
           </p>
         </div>
@@ -440,9 +443,9 @@ const canonicalUrl = 'https://tlacu.mx/';
           <!-- Paso 1 -->
           <div class="relative">
             <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise/20 h-full">
-              <div class="w-10 h-10 bg-turquoise text-white rounded-full flex items-center justify-center font-bold mb-4">1</div>
+              <div class="w-10 h-10 bg-turquoise-dark text-white rounded-full flex items-center justify-center font-bold mb-4">1</div>
               <h3 class="font-bold text-navy mb-2">Haz el diagnóstico</h3>
-              <p class="text-navy/60 text-sm">64 preguntas (Gratuito) o 128 (Pro) evalúan tu nivel en cada área del ECOEMS.</p>
+              <p class="text-navy/80 text-sm">64 preguntas (Gratuito) o 128 (Pro) evalúan tu nivel en cada área del ECOEMS.</p>
             </div>
             <div class="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-navy/20">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -454,9 +457,9 @@ const canonicalUrl = 'https://tlacu.mx/';
           <!-- Paso 2 -->
           <div class="relative">
             <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise/20 h-full">
-              <div class="w-10 h-10 bg-turquoise text-white rounded-full flex items-center justify-center font-bold mb-4">2</div>
+              <div class="w-10 h-10 bg-turquoise-dark text-white rounded-full flex items-center justify-center font-bold mb-4">2</div>
               <h3 class="font-bold text-navy mb-2">Identificamos tus áreas</h3>
-              <p class="text-navy/60 text-sm">El sistema analiza tus fortalezas y debilidades en las 10 áreas del examen.</p>
+              <p class="text-navy/80 text-sm">El sistema analiza tus fortalezas y debilidades en las 10 áreas del examen.</p>
             </div>
             <div class="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-navy/20">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -468,9 +471,9 @@ const canonicalUrl = 'https://tlacu.mx/';
           <!-- Paso 3 -->
           <div class="relative">
             <div class="bg-white rounded-2xl p-6 shadow-lg border-2 border-turquoise/20 h-full">
-              <div class="w-10 h-10 bg-turquoise text-white rounded-full flex items-center justify-center font-bold mb-4">3</div>
+              <div class="w-10 h-10 bg-turquoise-dark text-white rounded-full flex items-center justify-center font-bold mb-4">3</div>
               <h3 class="font-bold text-navy mb-2">Genera tu plan</h3>
-              <p class="text-navy/60 text-sm">Actividades diarias personalizadas: preguntas, flashcards y módulos según tus necesidades.</p>
+              <p class="text-navy/80 text-sm">Actividades diarias personalizadas: preguntas, flashcards y módulos según tus necesidades.</p>
             </div>
             <div class="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-navy/20">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -484,7 +487,7 @@ const canonicalUrl = 'https://tlacu.mx/';
             <div class="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 shadow-lg h-full text-white">
               <div class="flex items-center gap-2 mb-4">
                 <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold">4</div>
-                <span class="px-2 py-0.5 bg-terracotta text-white text-xs font-bold rounded-full">PRO</span>
+                <span class="px-2 py-0.5 bg-terracotta-dark text-white text-xs font-bold rounded-full">PRO</span>
               </div>
               <h3 class="font-bold mb-2">Se adapta contigo</h3>
               <p class="text-white/70 text-sm">Reprogramación automática cuando completas o saltas actividades. Tu plan evoluciona contigo.</p>
@@ -493,7 +496,7 @@ const canonicalUrl = 'https://tlacu.mx/';
         </div>
 
         <div class="text-center mt-10">
-          <a href="/plataforma#plan-estudio" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-semibold rounded-xl hover:bg-turquoise/90 transition-colors">
+          <a href="/plataforma#plan-estudio" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise-dark text-white font-semibold rounded-xl hover:bg-turquoise transition-colors">
             Ver cómo funciona
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -510,7 +513,7 @@ const canonicalUrl = 'https://tlacu.mx/';
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
             Módulos de <span class="text-turquoise">aprendizaje</span>
           </h2>
-          <p class="text-lg text-navy/70">
+          <p class="text-lg text-navy/80">
             Aprende de forma visual con herramientas 3D, simuladores y módulos para reforzar las bases
           </p>
         </div>
@@ -527,16 +530,16 @@ const canonicalUrl = 'https://tlacu.mx/';
             <h3 class="text-2xl font-bold text-navy mb-3 group-hover:text-terracotta transition-colors">
               Módulos Interactivos
             </h3>
-            <p class="text-navy/60 mb-6">
+            <p class="text-navy/80 mb-6">
               Temas que el examen evalúa directamente. Tabla periódica, explorador de células, álgebra, geometría y más.
             </p>
             <div class="flex flex-wrap gap-2 mb-6">
-              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Tabla Periódica</span>
-              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Célula</span>
-              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Álgebra</span>
-              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta rounded-full">Geometría</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta-dark rounded-full">Tabla Periódica</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta-dark rounded-full">Célula</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta-dark rounded-full">Álgebra</span>
+              <span class="text-xs px-3 py-1 bg-terracotta/10 text-terracotta-dark rounded-full">Geometría</span>
             </div>
-            <div class="flex items-center gap-2 text-terracotta font-semibold group-hover:gap-3 transition-all">
+            <div class="flex items-center gap-2 text-terracotta-dark font-semibold group-hover:gap-3 transition-all">
               Ver módulos interactivos
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -554,7 +557,7 @@ const canonicalUrl = 'https://tlacu.mx/';
             <h3 class="text-2xl font-bold text-navy mb-3 group-hover:text-teal-600 transition-colors">
               Módulos de Refuerzo
             </h3>
-            <p class="text-navy/60 mb-6">
+            <p class="text-navy/80 mb-6">
               Conceptos de años anteriores que el examen asume que ya dominas. Fortalece las bases para responder correctamente.
             </p>
             <div class="flex flex-wrap gap-2 mb-6">
@@ -579,7 +582,7 @@ const canonicalUrl = 'https://tlacu.mx/';
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise text-sm font-medium mb-6">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-turquoise/10 rounded-full text-turquoise-dark text-sm font-medium mb-6">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
               </svg>
@@ -588,7 +591,7 @@ const canonicalUrl = 'https://tlacu.mx/';
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
               Practica preguntas <span class="text-turquoise">a tu ritmo</span>
             </h2>
-            <p class="text-lg text-navy/70 mb-8">
+            <p class="text-lg text-navy/80 mb-8">
               Preguntas tipo ECOEMS en las 10 áreas del examen. Sin cronómetro, con retroalimentación inmediata y explicaciones después de cada pregunta.
             </p>
             <ul class="space-y-3 mb-8">
@@ -598,7 +601,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                 'Repaso inteligente con algoritmo SM-2',
                 'Filtra por área o mezcla todas',
               ].map((item) => (
-                <li class="flex items-center gap-3 text-navy/70">
+                <li class="flex items-center gap-3 text-navy/80">
                   <svg class="w-5 h-5 text-turquoise flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
@@ -606,7 +609,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                 </li>
               ))}
             </ul>
-            <a href="/practicar-preguntas" class="inline-flex items-center gap-2 px-8 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-all shadow-lg shadow-turquoise/20">
+            <a href="/practicar-preguntas" class="inline-flex items-center gap-2 px-8 py-3 bg-turquoise-dark text-white font-bold rounded-xl hover:bg-turquoise transition-all shadow-lg shadow-turquoise/20">
               Conocer más
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -619,14 +622,14 @@ const canonicalUrl = 'https://tlacu.mx/';
             <div class="absolute inset-0 bg-gradient-to-br from-turquoise/20 to-navy/10 rounded-3xl blur-3xl"></div>
             <div class="relative bg-white rounded-2xl shadow-xl p-6 border border-navy/5">
               <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-bold text-turquoise bg-turquoise/10 px-3 py-1 rounded-full">Matemáticas</span>
-                <span class="text-xs text-navy/40">Pregunta 7 de 20</span>
+                <span class="text-xs font-bold text-turquoise-dark bg-turquoise/10 px-3 py-1 rounded-full">Matemáticas</span>
+                <span class="text-xs text-navy/60">Pregunta 7 de 20</span>
               </div>
               <p class="text-navy font-medium text-sm mb-5">Si un triángulo tiene lados de 3, 4 y 5 cm, ¿cuál es su área?</p>
               <div class="space-y-2.5">
                 <div class="flex items-center gap-3 p-3 rounded-xl border border-navy/10 hover:border-turquoise/30 transition-colors">
-                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/40">A</div>
-                  <span class="text-sm text-navy/70">12 cm²</span>
+                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/60">A</div>
+                  <span class="text-sm text-navy/80">12 cm²</span>
                 </div>
                 <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-turquoise bg-turquoise/5">
                   <div class="w-7 h-7 rounded-full bg-turquoise flex items-center justify-center">
@@ -635,20 +638,20 @@ const canonicalUrl = 'https://tlacu.mx/';
                     </svg>
                   </div>
                   <span class="text-sm text-navy font-medium">6 cm²</span>
-                  <span class="ml-auto text-xs text-turquoise font-semibold">Correcta</span>
+                  <span class="ml-auto text-xs text-turquoise-dark font-semibold">Correcta</span>
                 </div>
                 <div class="flex items-center gap-3 p-3 rounded-xl border border-navy/10 line-through opacity-50">
-                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/40">C</div>
-                  <span class="text-sm text-navy/70">10 cm²</span>
+                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/60">C</div>
+                  <span class="text-sm text-navy/80">10 cm²</span>
                   <span class="ml-auto text-[10px] text-red-400">Descartada</span>
                 </div>
                 <div class="flex items-center gap-3 p-3 rounded-xl border border-navy/10">
-                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/40">D</div>
-                  <span class="text-sm text-navy/70">8 cm²</span>
+                  <div class="w-7 h-7 rounded-full border-2 border-navy/20 flex items-center justify-center text-xs font-bold text-navy/60">D</div>
+                  <span class="text-sm text-navy/80">8 cm²</span>
                 </div>
               </div>
               <div class="mt-4 p-3 bg-turquoise/5 rounded-xl border border-turquoise/20">
-                <p class="text-xs text-navy/60"><span class="font-semibold text-turquoise">Explicación:</span> Es un triángulo rectángulo (3² + 4² = 5²). Área = (base × altura) / 2 = (3 × 4) / 2 = 6 cm².</p>
+                <p class="text-xs text-navy/80"><span class="font-semibold text-turquoise-dark">Explicación:</span> Es un triángulo rectángulo (3² + 4² = 5²). Área = (base × altura) / 2 = (3 × 4) / 2 = 6 cm².</p>
               </div>
             </div>
           </div>
@@ -665,9 +668,9 @@ const canonicalUrl = 'https://tlacu.mx/';
             <div class="absolute inset-0 bg-gradient-to-br from-terracotta/20 to-turquoise/10 rounded-3xl blur-3xl"></div>
             <div class="relative bg-white rounded-2xl shadow-xl p-6 border border-navy/5">
               <div class="flex items-center justify-between mb-5">
-                <span class="text-xs font-bold text-terracotta bg-terracotta/10 px-3 py-1 rounded-full">Biología</span>
+                <span class="text-xs font-bold text-terracotta-dark bg-terracotta/10 px-3 py-1 rounded-full">Biología</span>
                 <div class="flex items-center gap-1.5">
-                  <span class="text-[10px] text-navy/40 font-medium">Racha: 4</span>
+                  <span class="text-[10px] text-navy/60 font-medium">Racha: 4</span>
                   <svg class="w-3.5 h-3.5 text-terracotta" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.66 11.2C17.43 10.9 17.16 10.64 16.85 10.43C16.1 9.89 15.57 9.07 15.39 8.14C15.24 7.37 14.86 6.64 14.29 6.05C13.35 5.09 12 4 12 4C12 4 10.65 5.09 9.71 6.05C9.14 6.64 8.76 7.37 8.61 8.14C8.43 9.07 7.9 9.89 7.15 10.43C6.84 10.64 6.57 10.9 6.34 11.2C5.45 12.39 5 13.81 5 15.25C5 19.04 8.13 22 12 22C15.87 22 19 19.04 19 15.25C19 13.81 18.55 12.39 17.66 11.2Z"></path>
                   </svg>
@@ -676,7 +679,7 @@ const canonicalUrl = 'https://tlacu.mx/';
               <div class="text-center py-8">
                 <p class="text-navy font-semibold mb-2">¿Cuál es la función principal de la mitocondria?</p>
                 <div class="w-12 h-0.5 bg-navy/10 mx-auto my-4"></div>
-                <p class="text-turquoise font-medium text-sm">Producir energía (ATP) mediante la respiración celular</p>
+                <p class="text-turquoise-dark font-medium text-sm">Producir energía (ATP) mediante la respiración celular</p>
               </div>
               <div class="grid grid-cols-4 gap-2 mt-4">
                 <button class="py-2.5 rounded-xl text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20">No lo sabía</button>
@@ -694,7 +697,7 @@ const canonicalUrl = 'https://tlacu.mx/';
           </div>
 
           <div class="order-1 lg:order-2">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/10 rounded-full text-terracotta text-sm font-medium mb-6">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/10 rounded-full text-terracotta-dark text-sm font-medium mb-6">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
               </svg>
@@ -703,7 +706,7 @@ const canonicalUrl = 'https://tlacu.mx/';
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
               Flashcards que se <span class="text-terracotta">adaptan a ti</span>
             </h2>
-            <p class="text-lg text-navy/70 mb-8">
+            <p class="text-lg text-navy/80 mb-8">
               Cientos de tarjetas en las 10 áreas del ECOEMS. El algoritmo SM-2 prioriza las que más necesitas repasar para que estudies menos y recuerdes más.
             </p>
             <ul class="space-y-3 mb-8">
@@ -713,7 +716,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                 '4 niveles de respuesta que ajustan el intervalo',
                 'Racha de estudio para mantener la motivación',
               ].map((item) => (
-                <li class="flex items-center gap-3 text-navy/70">
+                <li class="flex items-center gap-3 text-navy/80">
                   <svg class="w-5 h-5 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
@@ -721,7 +724,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                 </li>
               ))}
             </ul>
-            <a href="/flashcards" class="inline-flex items-center gap-2 px-8 py-3 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-light transition-all shadow-lg shadow-terracotta/20">
+            <a href="/flashcards" class="inline-flex items-center gap-2 px-8 py-3 bg-terracotta-dark text-white font-bold rounded-xl hover:bg-terracotta transition-all shadow-lg shadow-terracotta/20">
               Conocer más
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -756,10 +759,10 @@ const canonicalUrl = 'https://tlacu.mx/';
                 Estudia menos. <span class="text-turquoise">Recuerda más.</span><br />
                 El algoritmo SM-2.
               </h2>
-              <p class="text-white/60 text-sm sm:text-base max-w-md mb-6">
+              <p class="text-white/75 text-sm sm:text-base max-w-md mb-6">
                 El modo Repaso y las Flashcards usan repetición espaciada basada en investigación de 300+ experimentos. Aprende cómo funciona el algoritmo que programa cuándo repasar cada pregunta.
               </p>
-              <span class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-bold rounded-xl group-hover:bg-turquoise-dark transition-colors text-sm">
+              <span class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise-dark text-white font-bold rounded-xl group-hover:bg-turquoise transition-colors text-sm">
                 Leer sobre SM-2
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -780,7 +783,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                     <span class={`w-2.5 h-2.5 rounded-full ${item.color} flex-shrink-0`}></span>
                     <div>
                       <div class="text-white font-semibold text-sm">{item.label}</div>
-                      <div class="text-white/50 text-xs">próximo repaso: {item.interval}</div>
+                      <div class="text-white/70 text-xs">próximo repaso: {item.interval}</div>
                     </div>
                   </div>
                 ))}
@@ -798,7 +801,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                 </svg>
                 <div class="text-white font-bold text-sm">SM-2</div>
-                <div class="text-white/40 text-xs">algoritmo</div>
+                <div class="text-white/60 text-xs">algoritmo</div>
               </div>
             </div>
           </div>
@@ -820,7 +823,7 @@ const canonicalUrl = 'https://tlacu.mx/';
               <h2 class="text-3xl sm:text-4xl font-black text-navy leading-tight mb-4">
                 Una plataforma que <span class="text-terracotta">nunca deja de mejorar</span>
               </h2>
-              <p class="text-navy/70 mb-6">
+              <p class="text-navy/80 mb-6">
                 Todo en TLACU — el contenido, las preguntas, los módulos y las herramientas — se revisa y actualiza constantemente. Elegir TLACU es elegir una plataforma viva, no un recurso estático.
               </p>
               <ul class="space-y-3 mb-8">
@@ -830,7 +833,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                   'Las explicaciones de respuestas se mejoran con base en el desempeño real de los estudiantes',
                   'Nuevas funciones llegan constantemente sin costo adicional',
                 ].map((item) => (
-                  <li class="flex items-start gap-3 text-sm text-navy/70">
+                  <li class="flex items-start gap-3 text-sm text-navy/80">
                     <svg class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
@@ -848,7 +851,7 @@ const canonicalUrl = 'https://tlacu.mx/';
 
             <!-- Visual -->
             <div class="bg-gradient-to-br from-navy to-navy-light p-8 md:p-12 flex flex-col justify-center gap-4">
-              <div class="text-white/40 text-xs font-bold uppercase tracking-widest mb-2">Actualizaciones recientes</div>
+              <div class="text-white/60 text-xs font-bold uppercase tracking-widest mb-2">Actualizaciones recientes</div>
               {[
                 { label: 'Plan de estudio personalizado', tag: 'Nuevo', color: 'bg-turquoise/20 text-turquoise' },
                 { label: 'Simulador con cámara', tag: 'Lanzado', color: 'bg-emerald-500/20 text-emerald-400' },
@@ -860,7 +863,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                   <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${u.color}`}>{u.tag}</span>
                 </div>
               ))}
-              <a href="/hoja-de-ruta" class="mt-2 text-center text-white/50 hover:text-white text-sm transition-colors">
+              <a href="/hoja-de-ruta" class="mt-2 text-center text-white/70 hover:text-white text-sm transition-colors">
                 Ver todo en la hoja de ruta →
               </a>
             </div>
@@ -876,7 +879,7 @@ const canonicalUrl = 'https://tlacu.mx/';
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight mb-6">
             ¿Por qué <span class="text-terracotta">TLACU</span>?
           </h2>
-          <p class="text-lg text-navy/70">
+          <p class="text-lg text-navy/80">
             Herramientas diseñadas para que alcances tus metas académicas
           </p>
         </div>
@@ -890,7 +893,7 @@ const canonicalUrl = 'https://tlacu.mx/';
               </svg>
             </div>
             <h3 class="text-lg font-bold text-navy mb-2">Flashcards</h3>
-            <p class="text-navy/60 text-sm">Repetición espaciada científica para memorizar mejor.</p>
+            <p class="text-navy/80 text-sm">Repetición espaciada científica para memorizar mejor.</p>
           </div>
 
           <!-- Feature 2 -->
@@ -901,7 +904,7 @@ const canonicalUrl = 'https://tlacu.mx/';
               </svg>
             </div>
             <h3 class="text-lg font-bold text-navy mb-2">Diagnóstico</h3>
-            <p class="text-navy/60 text-sm">Conoce tu nivel y recibe recomendaciones personalizadas.</p>
+            <p class="text-navy/80 text-sm">Conoce tu nivel y recibe recomendaciones personalizadas.</p>
           </div>
 
           <!-- Feature 3 -->
@@ -912,7 +915,7 @@ const canonicalUrl = 'https://tlacu.mx/';
               </svg>
             </div>
             <h3 class="text-lg font-bold text-navy mb-2">Guardar Preguntas</h3>
-            <p class="text-navy/60 text-sm">Guarda preguntas difíciles para repasar después.</p>
+            <p class="text-navy/80 text-sm">Guarda preguntas difíciles para repasar después.</p>
           </div>
 
           <!-- Feature 4 -->
@@ -923,12 +926,12 @@ const canonicalUrl = 'https://tlacu.mx/';
               </svg>
             </div>
             <h3 class="text-lg font-bold text-navy mb-2">100% Responsivo</h3>
-            <p class="text-navy/60 text-sm">Estudia desde cualquier dispositivo, incluso offline.</p>
+            <p class="text-navy/80 text-sm">Estudia desde cualquier dispositivo, incluso offline.</p>
           </div>
         </div>
 
         <div class="text-center mt-10">
-          <a href="/por-que-tlacu" class="inline-flex items-center gap-2 px-6 py-3 bg-terracotta text-white font-semibold rounded-xl hover:bg-terracotta-dark transition-colors">
+          <a href="/por-que-tlacu" class="inline-flex items-center gap-2 px-6 py-3 bg-terracotta-dark text-white font-semibold rounded-xl hover:bg-terracotta transition-colors">
             Conoce más razones
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -945,7 +948,7 @@ const canonicalUrl = 'https://tlacu.mx/';
           <h2 class="text-3xl sm:text-4xl font-black text-navy mb-4">
             Empieza gratis. Mejora con <span class="text-terracotta">Pro.</span>
           </h2>
-          <p class="text-navy/60 max-w-2xl mx-auto">
+          <p class="text-navy/80 max-w-2xl mx-auto">
             El plan gratuito ya te da acceso a herramientas reales que marcan la diferencia. El plan Pro desbloquea el potencial completo.
           </p>
         </div>
@@ -955,12 +958,12 @@ const canonicalUrl = 'https://tlacu.mx/';
           <div class="bg-white rounded-3xl p-8 shadow-lg border-2 border-navy/10">
             <div class="flex items-center justify-between mb-6">
               <div>
-                <span class="text-xs font-bold text-navy/40 uppercase tracking-widest">Plan</span>
+                <span class="text-xs font-bold text-navy/60 uppercase tracking-widest">Plan</span>
                 <h3 class="text-2xl font-black text-navy">Gratuito</h3>
               </div>
               <span class="text-3xl font-black text-navy">$0</span>
             </div>
-            <p class="text-navy/60 text-sm mb-6">
+            <p class="text-navy/80 text-sm mb-6">
               Sin tarjeta de crédito. Sin fecha de vencimiento. Mejora real desde el primer día.
             </p>
             <ul class="space-y-3 mb-8">
@@ -989,19 +992,19 @@ const canonicalUrl = 'https://tlacu.mx/';
           <!-- Plan Pro -->
           <div class="bg-gradient-to-br from-navy to-navy-light rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden">
             <div class="absolute top-4 right-4">
-              <span class="px-3 py-1 bg-terracotta text-white text-xs font-bold rounded-full uppercase tracking-wide">Recomendado</span>
+              <span class="px-3 py-1 bg-terracotta-dark text-white text-xs font-bold rounded-full uppercase tracking-wide">Recomendado</span>
             </div>
             <div class="flex items-center justify-between mb-6">
               <div>
-                <span class="text-xs font-bold text-white/40 uppercase tracking-widest">Plan</span>
+                <span class="text-xs font-bold text-white/60 uppercase tracking-widest">Plan</span>
                 <h3 class="text-2xl font-black">Pro</h3>
               </div>
               <div class="text-right">
-                <span class="text-white/40 text-lg line-through block">$499</span>
+                <span class="text-white/60 text-lg line-through block">$499</span>
                 <span class="text-4xl font-black text-white">$399</span>
               </div>
             </div>
-            <p class="text-white/60 text-sm mb-6">
+            <p class="text-white/75 text-sm mb-6">
               Acceso total por 12 meses. Pago único, sin renovaciones automáticas.
             </p>
             <ul class="space-y-3 mb-8">
@@ -1022,15 +1025,15 @@ const canonicalUrl = 'https://tlacu.mx/';
                 </li>
               ))}
             </ul>
-            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-dark transition-colors">
+            <PlatformLink path="/autenticacion/registro" class="block w-full text-center px-6 py-3 bg-terracotta-dark text-white font-bold rounded-xl hover:bg-terracotta transition-colors">
               Obtener Pro — $399
             </PlatformLink>
           </div>
         </div>
 
-        <p class="text-center text-navy/50 text-sm mt-8">
+        <p class="text-center text-navy/70 text-sm mt-8">
           ¿Quieres ver qué incluye cada plan en detalle?
-          <a href="/precios" class="text-turquoise hover:underline font-medium ml-1">Ver precios completos</a>
+          <a href="/precios" class="text-turquoise-dark hover:underline font-medium ml-1">Ver precios completos</a>
         </p>
       </div>
     </section>
@@ -1074,7 +1077,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                   </li>
                 ))}
               </ul>
-              <a href="/para-padres" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise text-white font-bold rounded-xl hover:bg-turquoise-dark transition-colors">
+              <a href="/para-padres" class="inline-flex items-center gap-2 px-6 py-3 bg-turquoise-dark text-white font-bold rounded-xl hover:bg-turquoise transition-colors">
                 Conocer el Panel de Tutor
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -1092,7 +1095,7 @@ const canonicalUrl = 'https://tlacu.mx/';
                   </div>
                   <div>
                     <div class="text-white font-semibold">Mi Panel</div>
-                    <div class="text-white/50 text-xs">3 estudiantes vinculados</div>
+                    <div class="text-white/70 text-xs">3 estudiantes vinculados</div>
                   </div>
                 </div>
                 <div class="space-y-3">
@@ -1104,9 +1107,9 @@ const canonicalUrl = 'https://tlacu.mx/';
                     <div class="bg-white/5 rounded-xl p-3">
                       <div class="flex items-center justify-between mb-1">
                         <span class="text-white/90 text-sm font-medium">{student.name}</span>
-                        <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full ${student.plan === 'Pro' ? 'bg-terracotta/20 text-terracotta' : 'bg-white/10 text-white/50'}`}>{student.plan}</span>
+                        <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full ${student.plan === 'Pro' ? 'bg-terracotta/20 text-terracotta' : 'bg-white/10 text-white/70'}`}>{student.plan}</span>
                       </div>
-                      <div class="text-xs text-white/40 mb-2">{student.streak}</div>
+                      <div class="text-xs text-white/60 mb-2">{student.streak}</div>
                       <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
                         <div class="h-full bg-turquoise rounded-full" style={`width: ${student.progress}%`}></div>
                       </div>
@@ -1126,9 +1129,9 @@ const canonicalUrl = 'https://tlacu.mx/';
         <img
           src="/images/logos/isotipo-tlacu-light.webp"
           alt="TLACU"
-          class="w-20 h-20 mx-auto mb-8 fire-glow"
-          width="80"
-          height="80"
+          class="w-20 h-auto mx-auto mb-8 fire-glow"
+          width="194"
+          height="220"
           loading="lazy"
         />
 
@@ -1145,21 +1148,21 @@ const canonicalUrl = 'https://tlacu.mx/';
         <div class="inline-block bg-gradient-to-r from-terracotta to-terracotta-light rounded-2xl p-6 mb-10 shadow-xl shadow-terracotta/30">
           <div class="text-white/90 text-sm font-semibold uppercase tracking-wide mb-2">Oferta de Lanzamiento: $100 de descuento</div>
           <div class="flex items-center justify-center gap-4">
-            <span class="text-white/60 text-2xl line-through">$499</span>
+            <span class="text-white/75 text-2xl line-through">$499</span>
             <span class="text-white text-5xl font-black">$399</span>
           </div>
-          <div class="text-white/60 text-sm mt-2">Pago único · 1 año de acceso desde la fecha de compra</div>
+          <div class="text-white/75 text-sm mt-2">Pago único · 1 año de acceso desde la fecha de compra</div>
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <PlatformLink path="/autenticacion/registro" class="px-10 py-4 bg-white text-terracotta font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
+          <PlatformLink path="/autenticacion/registro" class="px-10 py-4 bg-white text-terracotta-dark font-bold text-lg rounded-xl hover:bg-white/90 transition-all shadow-xl">
             Comenzar gratis
           </PlatformLink>
           <a href="/precios" class="px-10 py-4 bg-white/10 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
             Ver planes
           </a>
         </div>
-        <p class="text-white/40 text-sm mt-6">
+        <p class="text-white/60 text-sm mt-6">
           Plan gratuito disponible — sin tarjeta de crédito. Plan Pro desde $399 por 12 meses.
         </p>
       </div>
