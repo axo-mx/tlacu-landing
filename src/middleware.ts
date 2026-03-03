@@ -20,8 +20,8 @@ export const onRequest = defineMiddleware(async (_context, next) => {
     [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' https://us-assets.i.posthog.com https://us.i.posthog.com https://static.cloudflareinsights.com",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "font-src 'self' https://fonts.gstatic.com",
+      "style-src 'self' 'unsafe-inline'",
+      "font-src 'self'",
       "img-src 'self' data: https:",
       "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://cloudflareinsights.com",
       "frame-ancestors 'none'",
