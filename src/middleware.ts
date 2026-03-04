@@ -19,11 +19,11 @@ export const onRequest = defineMiddleware(async (_context, next) => {
     'Content-Security-Policy',
     [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://us-assets.i.posthog.com https://us.i.posthog.com https://static.cloudflareinsights.com",
+      "script-src 'self' 'unsafe-inline' https://t.tlacu.mx https://us-assets.i.posthog.com https://static.cloudflareinsights.com",
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self'",
       "img-src 'self' data: https:",
-      "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://cloudflareinsights.com",
+      "connect-src 'self' https://t.tlacu.mx https://us-assets.i.posthog.com https://cloudflareinsights.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
