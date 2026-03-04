@@ -40,19 +40,36 @@ const lanzado = [
     descripcion: 'Técnica de resolución guiada con resaltado de palabras clave y eliminación de opciones incorrectas.',
     area: 'Estudio',
   },
+  {
+    titulo: 'Planes Pro y pagos en línea',
+    descripcion: 'Suscripción Pro con pago por tarjeta de crédito/débito o depósito en OXXO para desbloquear contenido ilimitado.',
+    area: 'Plataforma',
+  },
 ];
 
 const enDesarrollo = [
   {
-    titulo: 'Más preguntas por área',
-    descripcion: 'Ampliación continua del banco de preguntas en todas las áreas del ECOEMS para ofrecer mayor variedad en la práctica.',
-    area: 'Contenido',
+    titulo: 'Nuevos módulos interactivos',
+    descripcion: 'Mapa de México, líneas del tiempo de Historia de México y Universal, Revoluciones y Guerras Mundiales, Fotosíntesis y Genética Visual — mejoras de UI, responsive y contenido educativo.',
+    area: 'Módulos',
     progreso: 60,
   },
   {
-    titulo: 'Nuevos módulos interactivos',
-    descripcion: 'Mapa de México, líneas del tiempo de historia, simulador de física, genética visual y más.',
-    area: 'Módulos',
+    titulo: 'Lecciones interactivas "Aprender"',
+    descripcion: 'Lecciones guiadas paso a paso dentro de los módulos: Explorador Celular, Reacciones Químicas, Tabla Periódica y Husos Horarios.',
+    area: 'Estudio',
+    progreso: 40,
+  },
+  {
+    titulo: 'Más flashcards por área',
+    descripcion: 'Nuevos mazos de flashcards en todas las áreas del ECOEMS para reforzar conceptos clave con repetición espaciada.',
+    area: 'Flashcards',
+    progreso: 50,
+  },
+  {
+    titulo: 'Más preguntas por área',
+    descripcion: 'Ampliación continua del banco de preguntas en todas las áreas del ECOEMS para ofrecer mayor variedad en la práctica.',
+    area: 'Contenido',
     progreso: 60,
   },
   {
@@ -65,42 +82,32 @@ const enDesarrollo = [
 
 const proximamente = [
   {
-    titulo: 'Aplicación móvil nativa (iOS y Android)',
-    descripcion: 'Acceso completo a TLACU desde una app nativa optimizada para celular con notificaciones de racha y recordatorios de repaso.',
+    titulo: 'Jardín de Aprendizaje',
+    descripcion: 'Visualización interactiva tipo jardín digital que refleja tu progreso. Cada planta representa una materia y crece conforme avanzas. Podrás capturar y compartir tu jardín con branding TLACU.',
     area: 'Plataforma',
   },
   {
-    titulo: 'Modo sin conexión',
-    descripcion: 'Estudia con flashcards y preguntas de práctica aunque no tengas internet disponible.',
-    area: 'Plataforma',
-  },
-  {
-    titulo: 'Resumen semanal personalizado',
-    descripcion: 'Reporte automático cada semana con tu progreso, áreas de mejora y recomendaciones de lo que estudiar los próximos días.',
-    area: 'Estudio',
-  },
-  {
-    titulo: 'Examen diagnóstico mejorado',
-    descripcion: 'Diagnóstico inicial más preciso que ajusta automáticamente tu plan de estudio y nivel de dificultad desde el primer día.',
-    area: 'Estudio',
+    titulo: 'Simulador de Física',
+    descripcion: 'Módulo interactivo de física con simulaciones de movimiento rectilíneo, caída libre y tiro parabólico.',
+    area: 'Módulos',
   },
 ];
 
 const consideracion = [
   {
-    titulo: 'Comunidad de estudiantes',
-    descripcion: 'Espacio para que los estudiantes compartan dudas, estrategias y se apoyen mutuamente durante su preparación.',
-    area: 'Comunidad',
+    titulo: 'Módulos de realidad aumentada',
+    descripcion: 'Experiencias inmersivas con realidad aumentada para visualizar conceptos de ciencias, geografía y más directamente desde tu celular.',
+    area: 'Módulos',
   },
   {
-    titulo: 'Videolecciones por área',
-    descripcion: 'Explicaciones en video para los conceptos más difíciles del ECOEMS, integradas directamente en la plataforma.',
+    titulo: 'Retroalimentación avanzada en simulador',
+    descripcion: 'Al terminar tu simulacro, la IA genera un resumen detallado con tus áreas de mejora, patrones de error y recomendaciones personalizadas.',
+    area: 'Exámenes',
+  },
+  {
+    titulo: 'Pistas de audio en lecciones',
+    descripcion: 'Audio explicativo integrado en las lecciones para que puedas estudiar escuchando, ideal para repasar en cualquier momento.',
     area: 'Contenido',
-  },
-  {
-    titulo: 'Rankings entre compañeros de academia',
-    descripcion: 'Competencia amigable entre estudiantes del mismo tutor para motivar el estudio colectivo.',
-    area: 'Gamificación',
   },
 ];
 
@@ -221,6 +228,7 @@ const canonicalUrl = 'https://tlacu.mx/hoja-de-ruta';
         <div class="flex items-center gap-4 mb-10">
           <span class="w-4 h-4 rounded-full bg-amber-400 flex-shrink-0"></span>
           <h2 class="text-2xl sm:text-3xl font-black text-navy">En desarrollo ahora mismo</h2>
+          <span class="ml-auto text-sm font-medium text-amber-600 bg-amber-100 px-3 py-1 rounded-full hidden sm:inline-block">Meta: marzo 2026</span>
         </div>
         <div class="space-y-4">
           {enDesarrollo.map((item) => (
@@ -260,6 +268,7 @@ const canonicalUrl = 'https://tlacu.mx/hoja-de-ruta';
         <div class="flex items-center gap-4 mb-10">
           <span class="w-4 h-4 rounded-full bg-turquoise flex-shrink-0"></span>
           <h2 class="text-2xl sm:text-3xl font-black text-navy">Próximamente</h2>
+          <span class="ml-auto text-sm font-medium text-turquoise bg-turquoise/10 px-3 py-1 rounded-full hidden sm:inline-block">Meta: abril 2026</span>
         </div>
         <div class="grid sm:grid-cols-2 gap-4">
           {proximamente.map((item) => (
