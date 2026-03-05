@@ -1,5 +1,7 @@
 import type { APIContext } from 'astro';
 
+export const prerender = false;
+
 // PostHog server-side capture (fire-and-forget)
 const POSTHOG_KEY = import.meta.env.PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST;
