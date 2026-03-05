@@ -148,6 +148,14 @@ const canonicalUrl = 'https://tlacu.mx/contacto';
               <p class="text-navy/60 mb-8">Completa el formulario y te responderemos pronto.</p>
 
               <form id="contact-form" class="space-y-6">
+                <!-- Honeypot — invisible to humans, bots fill it -->
+                <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                  <label for="_hp">No completar</label>
+                  <input type="text" id="_hp" name="_hp" tabindex="-1" autocomplete="off" />
+                </div>
+                <!-- Time token — set by JS on load -->
+                <input type="hidden" id="_t" name="_t" value="" />
+
                 <div class="grid sm:grid-cols-2 gap-6">
                   <!-- Name -->
                   <div>
@@ -218,19 +226,27 @@ const canonicalUrl = 'https://tlacu.mx/contacto';
                   ></textarea>
                 </div>
 
+                <!-- Error message -->
+                <div id="form-error" class="hidden p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm"></div>
+
                 <!-- Submit Button -->
                 <button
                   type="submit"
+                  id="submit-btn"
                   class="w-full px-6 py-4 bg-terracotta text-white font-bold rounded-xl hover:bg-terracotta-dark transition-colors shadow-lg shadow-terracotta/25 flex items-center justify-center gap-2"
                 >
-                  <span>Enviar mensaje</span>
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span id="submit-text">Enviar mensaje</span>
+                  <svg id="submit-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                  </svg>
+                  <svg id="submit-spinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                 </button>
 
                 <p class="text-center text-sm text-navy/50">
-                  Al enviar, aceptas nuestra <a href="#" class="text-turquoise hover:underline">política de privacidad</a>.
+                  Al enviar, aceptas nuestra <a href="/privacidad" class="text-turquoise hover:underline">política de privacidad</a>.
                 </p>
               </form>
 
@@ -397,27 +413,123 @@ const canonicalUrl = 'https://tlacu.mx/contacto';
 </Layout>
 
 <script>
-  // Simple form handling (in production, connect to backend/API)
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const successMessage = document.getElementById('success-message');
   const resetButton = document.getElementById('reset-form');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const submitText = document.getElementById('submit-text');
+  const submitIcon = document.getElementById('submit-icon');
+  const submitSpinner = document.getElementById('submit-spinner');
+  const formError = document.getElementById('form-error');
+  const timeField = document.getElementById('_t') as HTMLInputElement;
 
-  form?.addEventListener('submit', (e) => {
+  // PostHog helper
+  function track(event: string, props?: Record<string, unknown>) {
+    if (typeof window !== 'undefined' && (window as any).posthog?.capture) {
+      (window as any).posthog.capture(event, props);
+    }
+  }
+
+  // Set time token on page load (anti-bot)
+  const formLoadTime = Date.now();
+  if (timeField) timeField.value = String(formLoadTime);
+
+  // Track page view
+  track('contact_page_viewed');
+
+  function setLoading(loading: boolean) {
+    if (submitBtn) submitBtn.disabled = loading;
+    submitText?.classList.toggle('hidden', loading);
+    submitIcon?.classList.toggle('hidden', loading);
+    submitSpinner?.classList.toggle('hidden', !loading);
+    if (loading && submitBtn) {
+      submitBtn.insertAdjacentHTML('afterbegin', '<span id="submit-loading-text">Enviando...</span>');
+    } else {
+      document.getElementById('submit-loading-text')?.remove();
+    }
+  }
+
+  function showError(msg: string) {
+    if (formError) {
+      formError.textContent = msg;
+      formError.classList.remove('hidden');
+      formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function hideError() {
+    formError?.classList.add('hidden');
+  }
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+    hideError();
 
-    // In production, send data to your backend
-    // For now, just show success message
     const formData = new FormData(form);
-    console.log('Form submitted:', Object.fromEntries(formData));
+    const reason = formData.get('reason') as string;
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      reason,
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+      _hp: formData.get('_hp'),
+      _t: formData.get('_t'),
+    };
 
-    // Hide form, show success
-    form.classList.add('hidden');
-    successMessage?.classList.remove('hidden');
+    const timeOnForm = Math.round((Date.now() - formLoadTime) / 1000);
+
+    track('contact_form_submitted', {
+      reason,
+      time_on_form_seconds: timeOnForm,
+    });
+
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        const errorType = res.status === 429 ? 'rate_limited' : 'server_error';
+        showError(result.error || 'Hubo un error al enviar el mensaje. Intenta de nuevo.');
+        track('contact_form_error', {
+          reason,
+          error_type: errorType,
+          status_code: res.status,
+        });
+        return;
+      }
+
+      // Success
+      form.classList.add('hidden');
+      successMessage?.classList.remove('hidden');
+      track('contact_form_success', {
+        reason,
+        time_on_form_seconds: timeOnForm,
+      });
+    } catch {
+      showError('Error de conexión. Verifica tu internet e intenta de nuevo.');
+      track('contact_form_error', {
+        reason,
+        error_type: 'network_error',
+      });
+    } finally {
+      setLoading(false);
+    }
   });
 
   resetButton?.addEventListener('click', () => {
     form.reset();
+    if (timeField) timeField.value = String(Date.now());
     form.classList.remove('hidden');
     successMessage?.classList.add('hidden');
+    hideError();
+    track('contact_form_reset');
   });
 </script>
