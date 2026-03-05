@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const lastUpdated = '9 de febrero de 2025';
+const lastUpdated = '5 de marzo de 2026';
 
-const seoTitle = 'Términos de Servicio | TLACU';
+const seoTitle = 'Términos y Condiciones | TLACU';
 const seoDescription = 'Términos y condiciones de uso de TLACU, la plataforma educativa para preparación del ECOEMS.';
 const canonicalUrl = 'https://tlacu.mx/terminos';
 ---
@@ -33,7 +33,7 @@ const canonicalUrl = 'https://tlacu.mx/terminos';
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight mb-4">
-            Términos de Servicio
+            Términos y Condiciones
           </h1>
           <p class="text-white/60">
             Última actualización: {lastUpdated}
@@ -47,84 +47,153 @@ const canonicalUrl = 'https://tlacu.mx/terminos';
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-3xl shadow-xl p-8 lg:p-12 prose prose-navy max-w-none">
 
-          <h2>1. Lorem Ipsum Dolor</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <p class="text-lg">
+            Bienvenido a TLACU. Al acceder y utilizar nuestra plataforma, aceptas los presentes Términos y Condiciones. Si no estás de acuerdo con alguno de ellos, te pedimos que no utilices el servicio.
           </p>
 
-          <h2>2. Duis Aute Irure</h2>
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          <h2>1. Definiciones</h2>
           <ul>
-            <li>Lorem ipsum dolor sit amet consectetur</li>
-            <li>Adipiscing elit sed do eiusmod tempor</li>
-            <li>Incididunt ut labore et dolore magna</li>
+            <li><strong>Plataforma:</strong> el sitio web y aplicación web de TLACU, accesible en tlacu.mx y sus subdominios.</li>
+            <li><strong>Usuario:</strong> cualquier persona que acceda a la Plataforma, ya sea como visitante, alumno registrado o tutor.</li>
+            <li><strong>Alumno:</strong> usuario registrado que utiliza la Plataforma para prepararse para el ECOEMS.</li>
+            <li><strong>Tutor:</strong> usuario registrado (padre, madre o profesor) que gestiona una o más cuentas de alumnos.</li>
+            <li><strong>Plan Gratuito:</strong> acceso limitado a las funcionalidades de la Plataforma, sin costo.</li>
+            <li><strong>Plan Pro:</strong> acceso completo a todas las funcionalidades de la Plataforma, mediante pago único.</li>
+            <li><strong>ECOEMS:</strong> Examen de Competencias para el ingreso a la Educación Media Superior, administrado por instituciones educativas en México.</li>
           </ul>
 
-          <h2>3. Sed Ut Perspiciatis</h2>
+          <h2>2. Descripción del servicio</h2>
           <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-          </p>
-          <p>
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-          </p>
-
-          <h2>4. Neque Porro Quisquam</h2>
-          <h3>4.1 At Vero Eos</h3>
-          <p>
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-          </p>
-
-          <h3>4.2 Ut Enim Ad Minima</h3>
-          <p>
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+            TLACU es una plataforma educativa en línea diseñada para ayudar a los estudiantes a prepararse para el ECOEMS. La Plataforma ofrece:
           </p>
           <ul>
-            <li><strong>Lorem ipsum:</strong> Dolor sit amet consectetur adipiscing elit</li>
-            <li><strong>Sed do:</strong> Eiusmod tempor incididunt ut labore</li>
-            <li><strong>Et dolore:</strong> Magna aliqua ut enim ad minim veniam</li>
+            <li><strong>Preguntas de práctica:</strong> banco de preguntas organizadas por área temática, con explicaciones de por qué cada respuesta es correcta o incorrecta. Incluye un algoritmo de repetición espaciada (SM-2) y el método PARE para identificar palabras clave.</li>
+            <li><strong>Flashcards:</strong> tarjetas de estudio digitales derivadas de las preguntas, clasificadas por tema.</li>
+            <li><strong>Módulos interactivos:</strong> lecciones de autoría original con herramientas como modelos 3D, tabla periódica interactiva y contenido por pasos.</li>
+            <li><strong>Exámenes:</strong> examen diagnóstico (64 preguntas gratuito, 128 preguntas Pro), examen rápido (44 preguntas), examen completo (128 preguntas, Pro) y simulador con condiciones reales (128 preguntas, Pro).</li>
+            <li><strong>Plan de estudio personalizado:</strong> generado a partir del examen diagnóstico, distribuye actividades por día según los días disponibles del usuario hasta la fecha del examen.</li>
+            <li><strong>Recursos complementarios:</strong> guías rápidas de fórmulas, tips de estudio, técnicas para manejar el estrés y temporizador Pomodoro.</li>
           </ul>
 
-          <h2>5. Quis Autem Vel</h2>
+          <h2>3. Registro y cuentas de usuario</h2>
+
+          <h3>3.1 Registro de alumnos</h3>
           <p>
-            Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+            Los alumnos pueden registrarse proporcionando un correo electrónico y contraseña. Son responsables de mantener la confidencialidad de sus credenciales de acceso.
+          </p>
+
+          <h3>3.2 Registro de tutores</h3>
+          <p>
+            Los tutores se registran con correo electrónico y contraseña, y pueden crear cuentas de alumnos a su cargo. Los tutores:
           </p>
           <ul>
-            <li>At vero eos et accusamus et iusto odio</li>
-            <li>Dignissimos ducimus qui blanditiis praesentium</li>
-            <li>Voluptatum deleniti atque corrupti quos</li>
-            <li>Dolores et quas molestias excepturi sint</li>
+            <li>Pueden crear alumnos usando un nombre de usuario (sin necesidad de correo electrónico del alumno).</li>
+            <li>Tienen acceso a las métricas y progreso de sus alumnos.</li>
+            <li>Pueden ver y cambiar las contraseñas de sus alumnos.</li>
+            <li>Pueden adquirir el Plan Pro para algunos o todos sus alumnos.</li>
           </ul>
 
-          <h2>6. Nam Libero Tempore</h2>
+          <h3>3.3 Avatares</h3>
           <p>
-            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+            Los usuarios no pueden subir fotografías de perfil. Solo es posible seleccionar entre avatares predefinidos proporcionados por la Plataforma.
           </p>
 
-          <h2>7. Temporibus Autem</h2>
+          <h2>4. Planes y precios</h2>
+
+          <h3>4.1 Plan Gratuito</h3>
           <p>
-            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.
+            El Plan Gratuito permite acceso limitado a preguntas de práctica, flashcards, exámenes rápidos, el examen diagnóstico de 64 preguntas y algunos módulos interactivos. Los límites diarios específicos se indican dentro de la Plataforma.
           </p>
 
-          <h2>8. Et Harum Quidem</h2>
+          <h3>4.2 Plan Pro</h3>
           <p>
-            Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.
+            El Plan Pro se adquiere mediante un pago único y otorga acceso completo a todas las funcionalidades de la Plataforma por un periodo de un (1) año a partir de la fecha de compra. El precio vigente se publica en <a href="/precios">tlacu.mx/precios</a>.
+          </p>
+
+          <h3>4.3 Procesamiento de pagos</h3>
+          <p>
+            Todos los pagos se procesan a través de <strong>Stripe</strong> mediante su sistema de Hosted Checkout. Se aceptan pagos con tarjeta de crédito/débito y pagos en efectivo en OXXO. TLACU no recibe, procesa ni almacena datos bancarios o de tarjetas de los usuarios. El pago es un cargo único, no se trata de una suscripción recurrente y no se guardan datos de pago para cobros futuros.
+          </p>
+
+          <h3>4.4 Política de reembolsos</h3>
+          <p>
+            El servicio se ofrece <strong>sin garantía de devolución</strong>. Dado que la Plataforma ofrece un Plan Gratuito que permite evaluar el servicio antes de la compra, no se realizan reembolsos una vez procesado el pago del Plan Pro. En situaciones excepcionales, puedes contactarnos a <a href="mailto:hola@tlacu.mx">hola@tlacu.mx</a> para evaluar tu caso.
+          </p>
+
+          <h2>5. Uso aceptable</h2>
+          <p>Al utilizar la Plataforma, te comprometes a:</p>
+          <ul>
+            <li>No compartir tu cuenta con terceros ni permitir el acceso no autorizado.</li>
+            <li>No reproducir, distribuir, modificar ni crear obras derivadas del contenido de la Plataforma sin autorización previa por escrito.</li>
+            <li>No intentar acceder a áreas restringidas de la Plataforma, bases de datos o sistemas internos.</li>
+            <li>No utilizar bots, scrapers u otras herramientas automatizadas para extraer contenido.</li>
+            <li>No utilizar la Plataforma para fines ilegales o no autorizados.</li>
+            <li>No interferir con el funcionamiento normal de la Plataforma.</li>
+          </ul>
+          <p>
+            TLACU se reserva el derecho de suspender o cancelar cuentas que incumplan estos términos, sin previo aviso ni derecho a reembolso.
+          </p>
+
+          <h2>6. Propiedad intelectual</h2>
+
+          <h3>6.1 Contenido de la Plataforma</h3>
+          <p>
+            Todo el contenido de la Plataforma —incluyendo pero no limitado a módulos interactivos, lecciones, herramientas interactivas (modelos 3D, tabla periódica, entre otros), diseño, código fuente, textos, gráficos, logotipos e interfaz de usuario— es propiedad de TLACU o se utiliza bajo licencia, y está protegido por las leyes de propiedad intelectual aplicables.
+          </p>
+
+          <h3>6.2 Preguntas y material de estudio</h3>
+          <p>
+            Las preguntas de práctica han sido creadas, derivadas y adaptadas a partir de diversas fuentes educativas públicas. Cada pregunta incluye explicaciones originales elaboradas por el equipo de TLACU. Las flashcards se derivan del banco de preguntas. Este material es propiedad de TLACU.
+          </p>
+
+          <h3>6.3 Uso permitido</h3>
+          <p>
+            El acceso a la Plataforma otorga una licencia personal, no exclusiva, no transferible y revocable para el uso educativo individual del contenido. Queda expresamente prohibida la reproducción, distribución o comercialización del contenido sin autorización.
+          </p>
+
+          <h2>7. Simulador de examen con cámara</h2>
+          <p>
+            El simulador de examen utiliza la cámara y micrófono del dispositivo del usuario para simular las condiciones del examen real (detección de rostro y ruido ambiental). Es importante señalar que:
           </p>
           <ul>
-            <li>Omnis voluptas assumenda est omnis dolor</li>
-            <li>Repellendus temporibus autem quibusdam</li>
-            <li>Et aut officiis debitis aut rerum necessitatibus</li>
+            <li>Todo el procesamiento se realiza <strong>localmente en el dispositivo del usuario</strong>.</li>
+            <li>Ningún video, fotografía ni grabación de audio se transmite a nuestros servidores.</li>
+            <li>No almacenamos ni procesamos datos biométricos.</li>
+            <li>El simulador solo está disponible en computadoras de escritorio, dado que el examen real se presenta en computadora.</li>
           </ul>
 
-          <h2>9. Itaque Earum Rerum</h2>
+          <h2>8. Disponibilidad del servicio</h2>
           <p>
-            Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+            TLACU se esfuerza por mantener la Plataforma disponible de forma continua, pero no garantiza un servicio ininterrumpido. La Plataforma puede no estar disponible temporalmente por mantenimiento, actualizaciones o causas fuera de nuestro control. La Plataforma es accesible únicamente vía web; no existe una aplicación móvil nativa.
           </p>
 
-          <h2>10. Contacto</h2>
+          <h2>9. Limitación de responsabilidad</h2>
+          <ul>
+            <li>TLACU es una herramienta complementaria de estudio y <strong>no garantiza la aprobación del ECOEMS</strong> ni de ningún otro examen.</li>
+            <li>La Plataforma puede utilizarse como único recurso de estudio o como complemento a otros cursos o materiales.</li>
+            <li>TLACU no está afiliada, asociada ni respaldada por la SEP, la UNAM, el IPN ni por ninguna otra institución educativa gubernamental.</li>
+            <li>El uso de la Plataforma es bajo la propia responsabilidad del usuario.</li>
+            <li>TLACU no será responsable por daños indirectos, incidentales o consecuentes derivados del uso o imposibilidad de uso de la Plataforma.</li>
+          </ul>
+
+          <h2>10. Privacidad</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit:
+            El tratamiento de datos personales se rige por nuestro <a href="/privacidad">Aviso de Privacidad</a>, el cual forma parte integral de estos Términos y Condiciones.
+          </p>
+
+          <h2>11. Modificaciones</h2>
+          <p>
+            TLACU se reserva el derecho de modificar estos Términos y Condiciones en cualquier momento. Los cambios entrarán en vigor a partir de su publicación en esta página. El uso continuado de la Plataforma después de la publicación de cambios implica la aceptación de los nuevos términos.
+          </p>
+
+          <h2>12. Legislación aplicable</h2>
+          <p>
+            Los presentes Términos y Condiciones se rigen por las leyes vigentes en los Estados Unidos Mexicanos. Para cualquier controversia derivada del uso de la Plataforma, las partes se someterán a la jurisdicción de los tribunales competentes en México.
+          </p>
+
+          <h2>13. Contacto</h2>
+          <p>
+            Para cualquier duda o aclaración sobre estos Términos y Condiciones, contáctanos a través de:
           </p>
           <ul>
             <li>Correo electrónico: <a href="mailto:hola@tlacu.mx">hola@tlacu.mx</a></li>
@@ -133,7 +202,7 @@ const canonicalUrl = 'https://tlacu.mx/terminos';
 
           <div class="mt-12 p-6 bg-cream rounded-2xl">
             <p class="text-navy/60 text-sm mb-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ante cualquier duda sobre estos términos, contáctanos en <a href="mailto:hola@tlacu.mx" class="text-turquoise">hola@tlacu.mx</a>.
             </p>
           </div>
         </div>
