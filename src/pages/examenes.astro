@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
+import ScreenshotCard from '../components/ScreenshotCard.astro';
 import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
 
 const seoTitle = 'Exámenes de Práctica ECOEMS — Diagnóstico, rápido, completo y simulador | TLACU';
@@ -390,14 +391,13 @@ const canonicalUrl = 'https://tlacu.mx/examenes';
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl shadow-2xl p-6 border border-navy/5">
-            <div class="aspect-video bg-gradient-to-br from-terracotta/5 to-turquoise/5 rounded-xl flex items-center justify-center">
-              <div class="text-center p-8">
-                <div class="text-6xl mb-4">📋</div>
-                <p class="text-navy/50 font-medium">Interfaz del examen</p>
-              </div>
-            </div>
-          </div>
+          <ScreenshotCard
+            src="/images/captura-examen.png"
+            alt="Captura de pantalla de la interfaz del examen en TLACU"
+            label="Interfaz del examen"
+            width={1920}
+            height={927}
+          />
         </div>
       </div>
     </section>
