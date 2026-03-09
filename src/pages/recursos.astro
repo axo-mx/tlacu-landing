@@ -136,6 +136,7 @@ const canonicalUrl = 'https://tlacu.mx/recursos';
 <Layout title={seoTitle} description={seoDescription} ogImage="/images/og/og-recursos.png">
   <Fragment slot="head">
     <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="noindex, follow" />
     <meta property="og:url" content={canonicalUrl} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",

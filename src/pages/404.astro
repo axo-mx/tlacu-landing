@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PlatformLink from '../components/PlatformLink.astro';
+
+const seoTitle = 'Página no encontrada | TLACU';
+const seoDescription = 'La página que buscas no existe o fue movida. Explora nuestras herramientas de estudio para el ECOEMS.';
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, follow" />
+  </Fragment>
+  <Header />
+
+  <main>
+    <section class="pt-36 sm:pt-44 pb-24 bg-gradient-hero min-h-[70vh] flex items-center">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="text-7xl sm:text-8xl block mb-6">🔥</span>
+        <h1 class="text-5xl sm:text-6xl font-black text-white mb-4">404</h1>
+        <p class="text-xl sm:text-2xl text-white/80 font-semibold mb-2">
+          Esta página no existe
+        </p>
+        <p class="text-white/60 mb-10 max-w-md mx-auto">
+          La página que buscas fue movida o no existe. Pero hay mucho por explorar.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <a href="/" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-terracotta-dark text-white font-bold rounded-xl hover:bg-terracotta transition-colors shadow-lg shadow-terracotta/25">
+            Ir al inicio
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+          </a>
+          <PlatformLink path="/autenticacion/registro" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-colors border border-white/20">
+            Registrarse gratis
+          </PlatformLink>
+        </div>
+
+        <!-- Helpful links -->
+        <div class="grid sm:grid-cols-3 gap-4 text-left">
+          <a href="/examenes" class="group p-5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 hover:border-turquoise/30 transition-all">
+            <div class="text-2xl mb-2">📝</div>
+            <h3 class="font-bold text-white text-sm group-hover:text-turquoise transition-colors">Exámenes de práctica</h3>
+            <p class="text-white/50 text-xs mt-1">Diagnóstico, rápido, completo y simulador</p>
+          </a>
+          <a href="/plataforma" class="group p-5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 hover:border-turquoise/30 transition-all">
+            <div class="text-2xl mb-2">🎯</div>
+            <h3 class="font-bold text-white text-sm group-hover:text-turquoise transition-colors">Plataforma</h3>
+            <p class="text-white/50 text-xs mt-1">Flashcards, plan de estudio y más</p>
+          </a>
+          <a href="/que-es-ecoems" class="group p-5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 hover:border-turquoise/30 transition-all">
+            <div class="text-2xl mb-2">📚</div>
+            <h3 class="font-bold text-white text-sm group-hover:text-turquoise transition-colors">¿Qué es el ECOEMS?</h3>
+            <p class="text-white/50 text-xs mt-1">Guía completa del examen</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
