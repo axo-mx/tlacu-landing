@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlatformLink from '../components/PlatformLink.astro';
 import ScreenshotCard from '../components/ScreenshotCard.astro';
-import { BookOpen, Binary, Languages, Calculator, Dna, Atom, FlaskConical, Clock, Globe2, Scale } from '@lucide/astro';
+
 
 const seoTitle = 'La Plataforma — Todas las herramientas ECOEMS en un solo lugar | TLACU';
 const seoDescription = 'Conoce las herramientas de TLACU: exámenes cronometrados, flashcards, 20 módulos de aprendizaje, plan de estudio personalizado y simulador con cámara.';
@@ -66,95 +66,72 @@ const canonicalUrl = 'https://tlacu.mx/plataforma';
       </div>
     </section>
 
-    <!-- 10 Areas del ECOEMS -->
+    <!-- Exámenes y Simuladores -->
     <section class="py-20 bg-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-12">
           <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6">
-            Las <span class="text-turquoise">10 áreas</span> del ECOEMS
+            Exámenes tipo <span class="text-turquoise">ECOEMS</span>
           </h2>
           <p class="text-lg text-navy/70">
-            El examen evalúa 10 áreas de conocimiento. Nuestra plataforma cubre cada una con preguntas, flashcards y módulos especializados.
+            Practica con simulacros que replican el examen real. 4 modalidades según tu tiempo y objetivo.
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-sky-500 rounded-lg flex items-center justify-center mb-3">
-              <BookOpen class="w-5 h-5 text-white" />
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Diagnóstico -->
+          <a href="/examenes/diagnostico" class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl border-2 border-turquoise/20 hover:border-turquoise transition-all">
+            <div class="w-12 h-12 bg-turquoise/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-turquoise group-hover:text-white transition-colors">
+              <svg class="w-6 h-6 text-turquoise group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
             </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Habilidad Verbal</h3>
-            <p class="text-xs text-navy/50">13 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-orange-400 rounded-lg flex items-center justify-center mb-3">
-              <Binary class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Habilidad Matemática</h3>
-            <p class="text-xs text-navy/50">13 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
-              <Languages class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Español</h3>
-            <p class="text-xs text-navy/50">13 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mb-3">
-              <Calculator class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Matemáticas</h3>
-            <p class="text-xs text-navy/50">13 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-lime-500 rounded-lg flex items-center justify-center mb-3">
-              <Dna class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Biología</h3>
-            <p class="text-xs text-navy/50">13 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-slate-500 rounded-lg flex items-center justify-center mb-3">
-              <Atom class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Física</h3>
-            <p class="text-xs text-navy/50">13 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-fuchsia-500 rounded-lg flex items-center justify-center mb-3">
-              <FlaskConical class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Química</h3>
-            <p class="text-xs text-navy/50">13 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-amber-700 rounded-lg flex items-center justify-center mb-3">
-              <Clock class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Historia</h3>
-            <p class="text-xs text-navy/50">12 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-violet-500 rounded-lg flex items-center justify-center mb-3">
-              <Globe2 class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Geografía</h3>
-            <p class="text-xs text-navy/50">13 preguntas</p>
-          </div>
-          <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-shadow border border-navy/5">
-            <div class="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center mb-3">
-              <Scale class="w-5 h-5 text-white" />
-            </div>
-            <h3 class="font-bold text-navy text-sm mb-1">Formación Cívica y Ética</h3>
-            <p class="text-xs text-navy/50">12 preguntas</p>
-          </div>
-        </div>
+            <span class="inline-block px-2 py-0.5 bg-turquoise/10 text-turquoise text-xs font-semibold rounded-full mb-3">Gratuito</span>
+            <h3 class="text-lg font-bold text-navy mb-2">Diagnóstico</h3>
+            <p class="text-navy/60 text-sm mb-3">Conoce tu nivel en las 10 áreas y genera tu plan de estudio personalizado.</p>
+            <span class="text-turquoise text-sm font-semibold group-hover:underline">Ver detalles &rarr;</span>
+          </a>
 
-        <div class="mt-8 text-center">
-          <p class="text-navy/60 text-sm">
-            Total: <span class="font-bold">128 preguntas</span> en <span class="font-bold">180 minutos</span>
-          </p>
+          <!-- Examen Rápido -->
+          <a href="/examenes/rapido" class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl border-2 border-navy/10 hover:border-navy/30 transition-all">
+            <div class="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-navy transition-colors">
+              <svg class="w-6 h-6 text-navy group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <span class="inline-block px-2 py-0.5 bg-navy/10 text-navy text-xs font-semibold rounded-full mb-3">Práctica rápida</span>
+            <h3 class="text-lg font-bold text-navy mb-2">Examen Rápido</h3>
+            <p class="text-navy/60 text-sm mb-3">44 preguntas sin cronómetro. Ideal cuando tienes poco tiempo para practicar.</p>
+            <span class="text-navy text-sm font-semibold group-hover:underline">Ver detalles &rarr;</span>
+          </a>
+
+          <!-- Examen Completo -->
+          <a href="/examenes/completo" class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl border-2 border-terracotta/20 hover:border-terracotta transition-all relative">
+            <span class="absolute top-3 right-3 px-2 py-0.5 bg-terracotta text-white text-[10px] font-bold rounded-full">PRO</span>
+            <div class="w-12 h-12 bg-terracotta/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-terracotta transition-colors">
+              <svg class="w-6 h-6 text-terracotta group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <span class="inline-block px-2 py-0.5 bg-terracotta/10 text-terracotta text-xs font-semibold rounded-full mb-3">128 preguntas</span>
+            <h3 class="text-lg font-bold text-navy mb-2">Examen Completo</h3>
+            <p class="text-navy/60 text-sm mb-3">Todas las preguntas con cronómetro de 3 horas. Formato idéntico al ECOEMS.</p>
+            <span class="text-terracotta text-sm font-semibold group-hover:underline">Ver detalles &rarr;</span>
+          </a>
+
+          <!-- Simulador con Cámara -->
+          <a href="/examenes/simulador" class="group bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 shadow-md hover:shadow-xl border-2 border-transparent hover:border-turquoise/30 transition-all relative">
+            <span class="absolute top-3 right-3 px-2 py-0.5 bg-terracotta text-white text-[10px] font-bold rounded-full">PRO</span>
+            <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-4 group-hover:bg-turquoise transition-colors">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <span class="inline-block px-2 py-0.5 bg-white/10 text-white/80 text-xs font-semibold rounded-full mb-3">Como el real</span>
+            <h3 class="text-lg font-bold text-white mb-2">Simulador con cámara</h3>
+            <p class="text-white/60 text-sm mb-3">128 preguntas, cronómetro y vigilancia IA. La experiencia más real del ECOEMS.</p>
+            <span class="text-turquoise text-sm font-semibold group-hover:underline">Ver detalles &rarr;</span>
+          </a>
         </div>
       </div>
     </section>
