@@ -53,19 +53,36 @@ const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL;
     // Store platform URL for link attribution
     window.__TLACU_PLATFORM_URL__ = platformUrl;
 
-    // Add distinct_id to platform links for attribution tracking
+    // Forward distinct_id AND UTM params to platform links for attribution tracking
     document.addEventListener('DOMContentLoaded', function() {
-        const platformLinks = document.querySelectorAll('a[data-platform-link]');
+        // Capture UTM params and gclid from the current page URL (set by Google Ads, etc.)
+        var landingParams = new URLSearchParams(window.location.search);
+        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'];
+        var capturedUtms = {};
+        utmKeys.forEach(function(key) {
+            var val = landingParams.get(key);
+            if (val) capturedUtms[key] = val;
+        });
+
+        var platformLinks = document.querySelectorAll('a[data-platform-link]');
         platformLinks.forEach(function(link) {
             link.addEventListener('click', function(e) {
+                var url = new URL(link.href);
+
+                // Pass PostHog distinct_id
                 if (window.posthog && typeof posthog.get_distinct_id === 'function') {
-                    const url = new URL(link.href);
-                    const distinctId = posthog.get_distinct_id();
+                    var distinctId = posthog.get_distinct_id();
                     if (distinctId) {
                         url.searchParams.set('ph_id', distinctId);
-                        link.href = url.toString();
                     }
                 }
+
+                // Pass all captured UTM params and gclid to the app
+                Object.keys(capturedUtms).forEach(function(key) {
+                    url.searchParams.set(key, capturedUtms[key]);
+                });
+
+                link.href = url.toString();
             });
         });
     });
