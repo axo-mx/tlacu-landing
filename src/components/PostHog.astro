@@ -57,7 +57,7 @@ const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL;
     document.addEventListener('DOMContentLoaded', function() {
         // Capture UTM params and gclid from the current page URL (set by Google Ads, etc.)
         var landingParams = new URLSearchParams(window.location.search);
-        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'];
+        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'gbraid'];
         var capturedUtms = {};
         utmKeys.forEach(function(key) {
             var val = landingParams.get(key);
