@@ -469,7 +469,7 @@ export function CellViewer3D() {
               selectedPoint={selectedPoint}
               showLabels={showLabels}
             />
-            <Environment preset="studio" environmentIntensity={0.3} />
+            <Environment files="/assets/studio_small_03_1k.hdr" environmentIntensity={0.3} />
           </Suspense>
         </Canvas>
 

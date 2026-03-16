@@ -23,7 +23,7 @@ export const onRequest = defineMiddleware(async (_context, next) => {
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self'",
       "img-src 'self' data: https:",
-      "connect-src 'self' https://t.tlacu.mx https://us-assets.i.posthog.com https://raw.githack.com",
+      "connect-src 'self' https://t.tlacu.mx https://us-assets.i.posthog.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
