@@ -1,6 +1,7 @@
 ---
 // src/components/PostHog.astro
-// Cookieless analytics - no banner required
+// Cookieless analytics — sessionStorage keeps distinct_id & campaign params
+// across full-page navigations without using cookies or PostHog persistence.
 
 const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY;
 const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST;
@@ -19,67 +20,148 @@ const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL;
 
     // Check if PostHog should be disabled
     function shouldDisablePostHog() {
-        const env = getEnvironment();
-        // Don't send events from localhost
+        var env = getEnvironment();
         if (env === 'local') return true;
-        // Optionally: don't send from dev either (uncomment if needed)
-        // if (env === 'dev') return true;
         return false;
     }
 
-    // Skip PostHog initialization in localhost
+    // ---------------------------------------------------------------------------
+    // Session-persistent distinct_id (survives full-page navigations)
+    // ---------------------------------------------------------------------------
+    function getOrCreateDistinctId() {
+        try {
+            var stored = sessionStorage.getItem('ph_distinct_id');
+            if (stored) return stored;
+        } catch(e) {}
+
+        // Generate UUID v4
+        var id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0;
+            var v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+
+        try { sessionStorage.setItem('ph_distinct_id', id); } catch(e) {}
+        return id;
+    }
+
+    // ---------------------------------------------------------------------------
+    // Campaign params — capture from URL on landing, persist in sessionStorage
+    // ---------------------------------------------------------------------------
+    var CAMPAIGN_KEYS = [
+        'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+        'gclid', 'gbraid', 'gad_source', 'gad_campaignid'
+    ];
+
+    function captureCampaignParams() {
+        var params = new URLSearchParams(window.location.search);
+        var captured = {};
+        var hasAny = false;
+
+        CAMPAIGN_KEYS.forEach(function(key) {
+            var val = params.get(key);
+            if (val) { captured[key] = val; hasAny = true; }
+        });
+
+        if (hasAny) {
+            // New campaign params in URL — overwrite stored ones
+            try { sessionStorage.setItem('ph_campaign', JSON.stringify(captured)); } catch(e) {}
+            return captured;
+        }
+
+        // No params in URL — try to recover from sessionStorage
+        try {
+            var stored = sessionStorage.getItem('ph_campaign');
+            if (stored) return JSON.parse(stored);
+        } catch(e) {}
+
+        return {};
+    }
+
+    // ---------------------------------------------------------------------------
+    // Initial referrer — only set once per session
+    // ---------------------------------------------------------------------------
+    function captureInitialReferrer() {
+        try {
+            if (!sessionStorage.getItem('ph_initial_referrer')) {
+                sessionStorage.setItem('ph_initial_referrer', document.referrer || '');
+                sessionStorage.setItem('ph_landing_url', window.location.href);
+            }
+            return {
+                initial_referrer: sessionStorage.getItem('ph_initial_referrer') || '',
+                landing_url: sessionStorage.getItem('ph_landing_url') || ''
+            };
+        } catch(e) {
+            return { initial_referrer: document.referrer || '', landing_url: window.location.href };
+        }
+    }
+
+    // ---------------------------------------------------------------------------
+    // Initialize
+    // ---------------------------------------------------------------------------
+    var sessionDistinctId = getOrCreateDistinctId();
+    var campaignParams = captureCampaignParams();
+    var referrerInfo = captureInitialReferrer();
+
     if (shouldDisablePostHog()) {
         console.log('[PostHog] Disabled in local environment');
     } else {
-        // PostHog initialization
+        // PostHog snippet
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
 
         posthog.init(posthogKey, {
             api_host: posthogHost,
-            persistence: 'memory', // Cookieless mode
-            disable_persistence: true, // No localStorage either
+            persistence: 'memory',
+            disable_persistence: true,
             disable_cookie: true,
-            defaults: '2025-11-30'
+            bootstrap: { distinctID: sessionDistinctId }
         });
 
-        // Set environment as super property (included in all events)
-        const environment = getEnvironment();
-        posthog.register({
-            environment: environment,
+        // Super properties — included in every event this pageview
+        var superProps = {
+            environment: getEnvironment(),
             site: 'landing'
+        };
+
+        // Campaign params as super properties (appear on every event)
+        Object.keys(campaignParams).forEach(function(key) {
+            superProps[key] = campaignParams[key];
         });
+
+        // Initial referrer info
+        if (referrerInfo.initial_referrer) {
+            superProps.initial_referrer = referrerInfo.initial_referrer;
+            try {
+                superProps.initial_referring_domain = new URL(referrerInfo.initial_referrer).hostname;
+            } catch(e) {
+                superProps.initial_referring_domain = referrerInfo.initial_referrer;
+            }
+        }
+        if (referrerInfo.landing_url) {
+            superProps.landing_url = referrerInfo.landing_url;
+        }
+
+        posthog.register(superProps);
     }
 
     // Store platform URL for link attribution
     window.__TLACU_PLATFORM_URL__ = platformUrl;
 
-    // Forward distinct_id AND UTM params to platform links for attribution tracking
+    // ---------------------------------------------------------------------------
+    // Forward distinct_id AND campaign params to platform links
+    // ---------------------------------------------------------------------------
     document.addEventListener('DOMContentLoaded', function() {
-        // Capture UTM params and gclid from the current page URL (set by Google Ads, etc.)
-        var landingParams = new URLSearchParams(window.location.search);
-        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'gbraid'];
-        var capturedUtms = {};
-        utmKeys.forEach(function(key) {
-            var val = landingParams.get(key);
-            if (val) capturedUtms[key] = val;
-        });
-
         var platformLinks = document.querySelectorAll('a[data-platform-link]');
         platformLinks.forEach(function(link) {
             link.addEventListener('click', function(e) {
                 var url = new URL(link.href);
 
-                // Pass PostHog distinct_id
-                if (window.posthog && typeof posthog.get_distinct_id === 'function') {
-                    var distinctId = posthog.get_distinct_id();
-                    if (distinctId) {
-                        url.searchParams.set('ph_id', distinctId);
-                    }
-                }
+                // Pass session-consistent distinct_id
+                url.searchParams.set('ph_id', sessionDistinctId);
 
-                // Pass all captured UTM params and gclid to the app
-                Object.keys(capturedUtms).forEach(function(key) {
-                    url.searchParams.set(key, capturedUtms[key]);
+                // Pass all campaign params
+                Object.keys(campaignParams).forEach(function(key) {
+                    url.searchParams.set(key, campaignParams[key]);
                 });
 
                 link.href = url.toString();
