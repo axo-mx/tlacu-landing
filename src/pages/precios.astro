@@ -86,12 +86,15 @@ const canonicalUrl = 'https://tlacu.mx/precios';
 
         {SHOW_DISCOUNT && (
           <div class="text-center mb-12">
-            <div class="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-terracotta/10 to-orange-500/10 border border-terracotta/20 rounded-2xl">
+            <div class="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-terracotta/10 to-orange-500/10 border border-terracotta/20 rounded-2xl flex-wrap justify-center">
               <span class="text-3xl">🔥</span>
               <div class="text-left">
                 <p class="text-terracotta font-bold text-lg">Oferta de lanzamiento</p>
                 <p class="text-navy/60 text-sm">${DISCOUNT_AMOUNT} pesos de descuento · 1 año de acceso completo</p>
               </div>
+              <span id="precios-countdown" class="text-xs sm:text-sm font-semibold bg-terracotta/20 text-terracotta rounded-full px-3 py-1">
+                Termina en ...
+              </span>
             </div>
           </div>
         )}
@@ -573,3 +576,22 @@ const canonicalUrl = 'https://tlacu.mx/precios';
 
   <Footer />
 </Layout>
+
+<script>
+  function updatePreciosCountdown() {
+    const deadline = new Date('2026-04-01T05:59:59Z');
+    const now = new Date();
+    const diff = deadline.getTime() - now.getTime();
+    const el = document.getElementById('precios-countdown');
+    if (!el) return;
+    if (diff <= 0) { el.textContent = '¡Oferta terminada!'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const pad = (n) => String(n).padStart(2, '0');
+    el.textContent = `Termina en ${d > 0 ? d + 'd ' : ''}${pad(h)}:${pad(m)}:${pad(s)}`;
+  }
+  updatePreciosCountdown();
+  setInterval(updatePreciosCountdown, 1000);
+</script>
