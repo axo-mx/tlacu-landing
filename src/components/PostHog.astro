@@ -165,6 +165,15 @@ const platformUrl = import.meta.env.PUBLIC_PLATFORM_URL;
                     url.searchParams.set(key, campaignParams[key]);
                 });
 
+                // Pass engaged visit active seconds for cross-domain continuity
+                try {
+                    var activeSeconds = sessionStorage.getItem('tlacu_engaged_seconds');
+                    var alreadySent = sessionStorage.getItem('tlacu_engaged_sent');
+                    if (activeSeconds && !alreadySent) {
+                        url.searchParams.set('ev_seconds', activeSeconds);
+                    }
+                } catch(e) {}
+
                 link.href = url.toString();
             });
         });
