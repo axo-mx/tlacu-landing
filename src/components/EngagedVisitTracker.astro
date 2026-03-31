@@ -1,0 +1,116 @@
+---
+// EngagedVisitTracker.astro
+// Tracks active time on the landing page. When a visitor with gclid/gbraid
+// is actively engaged for 90+ seconds, sends an "Engaged Visit" conversion
+// to Google Ads via edge function.
+//
+// "Active" = tab visible + user interaction (scroll, mouse move, click, touch)
+// within the last 15 seconds. Idle time doesn't count.
+// Persists across Astro page navigations via sessionStorage.
+
+const apiUrl = import.meta.env.PUBLIC_PLATFORM_URL === 'https://app.tlacu.mx'
+  ? 'https://api.tlacu.mx'
+  : 'https://api-dev.tlacu.mx';
+const supabaseAnonKey = import.meta.env.PUBLIC_PLATFORM_URL === 'https://app.tlacu.mx'
+  ? 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InN1cGFiYXNlIiwiaWF0IjoxNzcyNDQzNzE1LCJleHAiOjE5MzAxMjM3MTV9.Rf15Gp4uoBDeTHNhKw8ozSb6UWJ-JSWq5C1sJ5vkLwY'
+  : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InN1cGFiYXNlIiwiaWF0IjoxNzY5NTc2OTAyLCJleHAiOjE5MjcyNTY5MDJ9.hX2Oysz5FbYaCtjDvKA30CySMzGN-_E_RGcCVkF9_S8';
+---
+
+<script is:inline define:vars={{ apiUrl, supabaseAnonKey }}>
+(function() {
+  var THRESHOLD = 90; // seconds of active time to qualify
+  var IDLE_TIMEOUT = 15; // seconds without interaction = idle
+  var TICK_INTERVAL = 1000; // check every second
+  var STORAGE_KEY = 'tlacu_engaged_seconds';
+  var SENT_KEY = 'tlacu_engaged_sent';
+
+  // Already sent this session? Don't track again.
+  try { if (sessionStorage.getItem(SENT_KEY)) return; } catch(e) {}
+
+  // Get gclid/gbraid from sessionStorage (set by PostHog component)
+  function getAdIds() {
+    try {
+      var stored = sessionStorage.getItem('ph_campaign');
+      if (stored) {
+        var params = JSON.parse(stored);
+        return { gclid: params.gclid || '', gbraid: params.gbraid || '' };
+      }
+    } catch(e) {}
+    // Fallback: check URL directly
+    var p = new URLSearchParams(window.location.search);
+    return { gclid: p.get('gclid') || '', gbraid: p.get('gbraid') || '' };
+  }
+
+  var adIds = getAdIds();
+  // No Google Ads click? Don't track.
+  if (!adIds.gclid && !adIds.gbraid) return;
+
+  // Load persisted active seconds
+  var activeSeconds = 0;
+  try {
+    var stored = sessionStorage.getItem(STORAGE_KEY);
+    if (stored) activeSeconds = parseInt(stored, 10) || 0;
+  } catch(e) {}
+
+  // Already past threshold from previous page? Send immediately.
+  if (activeSeconds >= THRESHOLD) {
+    sendConversion(activeSeconds);
+    return;
+  }
+
+  // Track activity
+  var lastActivity = Date.now();
+  var events = ['scroll', 'mousemove', 'click', 'touchstart', 'keydown'];
+  function onActivity() { lastActivity = Date.now(); }
+  events.forEach(function(evt) {
+    document.addEventListener(evt, onActivity, { passive: true });
+  });
+
+  // Tick: count active seconds
+  var timer = setInterval(function() {
+    // Only count if tab is visible and user was active recently
+    if (document.hidden) return;
+    if (Date.now() - lastActivity > IDLE_TIMEOUT * 1000) return;
+
+    activeSeconds++;
+
+    // Persist in sessionStorage for cross-page continuity
+    try { sessionStorage.setItem(STORAGE_KEY, String(activeSeconds)); } catch(e) {}
+
+    if (activeSeconds >= THRESHOLD) {
+      clearInterval(timer);
+      events.forEach(function(evt) {
+        document.removeEventListener(evt, onActivity);
+      });
+      sendConversion(activeSeconds);
+    }
+  }, TICK_INTERVAL);
+
+  function sendConversion(seconds) {
+    try { sessionStorage.setItem(SENT_KEY, '1'); } catch(e) {}
+
+    // Also track in PostHog
+    if (window.posthog && window.posthog.capture) {
+      window.posthog.capture('engaged_visit_qualified', {
+        active_seconds: seconds,
+        gclid: adIds.gclid || undefined,
+        gbraid: adIds.gbraid || undefined,
+      });
+    }
+
+    // Send to edge function
+    fetch(apiUrl + '/functions/v1/track-engaged-visit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': supabaseAnonKey,
+      },
+      body: JSON.stringify({
+        gclid: adIds.gclid || null,
+        gbraid: adIds.gbraid || null,
+        active_seconds: seconds,
+      }),
+    }).catch(function() {});
+  }
+})();
+</script>

@@ -8,6 +8,7 @@ import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 
 import PostHog from '../components/PostHog.astro';
+import EngagedVisitTracker from '../components/EngagedVisitTracker.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import ScreenshotModal from '../components/ScreenshotModal.astro';
 
@@ -66,6 +67,7 @@ const siteOrigin = Astro.site?.origin ?? 'https://tlacu.mx';
 
     <!-- Analytics -->
     <PostHog />
+    <EngagedVisitTracker />
 
     <style is:global>
       @import '../styles/global.css';
