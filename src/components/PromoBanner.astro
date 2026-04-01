@@ -1,51 +1,16 @@
 ---
-// Promo Banner - Oferta de lanzamiento con countdown
+// Promo Banner - Plan Pro
 ---
 
-<div class="bg-gradient-to-r from-terracotta to-terracotta-light text-white py-2.5 px-4 text-center text-sm font-medium">
-  <a href="/precios" class="flex items-center justify-center gap-2 hover:opacity-90 transition-opacity flex-wrap">
-    <span class="animate-pulse">🔥</span>
-    <span class="hidden sm:inline">Oferta de Lanzamiento:</span>
-    <span class="font-bold">$100 de descuento</span>
+<div class="bg-gradient-to-r from-terracotta to-terracotta-light text-white py-2 px-4 text-center text-sm font-medium">
+  <a href="/precios" class="flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+    <span>🎓</span>
+    <span class="hidden sm:inline">Plan Pro:</span>
+    <span class="font-bold">Acceso completo por 1 año</span>
     <span class="hidden sm:inline">—</span>
-    <span class="line-through opacity-70">$499</span>
-    <span class="font-black text-base">$399</span>
-    <span class="hidden md:inline mx-1">|</span>
-    <span id="promo-countdown" class="text-xs sm:text-sm font-semibold bg-white/20 rounded-full px-2.5 py-0.5">
-      Termina en ...
-    </span>
-    <svg class="w-4 h-4 ml-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <span class="font-black text-base">$499</span>
+    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
     </svg>
   </a>
 </div>
-
-<script>
-  function updateCountdown() {
-    // 31 de marzo 2026, 11:59:59 PM hora de México (CST = UTC-6)
-    const deadline = new Date('2026-04-01T05:59:59Z'); // 31 mar 11:59:59 PM CST in UTC
-    const now = new Date();
-    const diff = deadline.getTime() - now.getTime();
-    const el = document.getElementById('promo-countdown');
-    if (!el) return;
-
-    if (diff <= 0) {
-      el.textContent = '¡Oferta terminada!';
-      return;
-    }
-
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const minutes = Math.floor((diff % 3600000) / 60000);
-    const seconds = Math.floor((diff % 60000) / 1000);
-
-    let text = 'Termina en ';
-    if (days > 0) text += `${days}d `;
-    text += `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-
-    el.textContent = text;
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
